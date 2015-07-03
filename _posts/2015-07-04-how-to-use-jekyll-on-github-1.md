@@ -4,6 +4,7 @@ title: Windows에서 Jekyll 이용해 Github 블로그 만들기(1)
 description: Windows에서 Jekyll 이용해 Github 블로그 만들기 첫번째 
 modified: 2015-07-04
 tags: [jekyll, blog, github]
+categories: blog
 image:
   feature: underwater.jpg
   credit: girliemac
@@ -13,12 +14,15 @@ Github에 블로그를 만드는 것을 목표로 Windows에 jekyll 환경을 �
 
 
 ## 준비
+
 ### Windows Architecture
 먼저, 자신의 Windows가 32비트인지 64비트인지 확인하자. command prompt에서 `wmic os get osarchitecture`를 실행하면 자신의 Windows architecture를 확인할 수 있다. 
 
 
 ## Ruby 설치
+
 ### ruby와 rubydevkit 다운로드
+
 [rubyinstaller 사이트](http://rubyinstaller.org/downloads/)에서 ruby 설치파일을 다운로드 받는다. 이때 **2.2**이하의 버전이 안정적이다. <u>2.0</u>이나 <u>2.2</u> 버전으로 자신의 Windows architecture와 일치하는 설치파일을 다운로드 받는다. 
 
 ### ruby 설치
@@ -26,6 +30,7 @@ ruby installer를 실행하여 ruby를 설치한다. 설치 중 모든 설정을
 설치가 끝나면 command prompt에서 `ruby -v`로 제대로 설치되었는지 확인한다. 
 
 ### rubydevkit 설치
+
 #### rubydevkit 압축풀기
 임의의 빈 폴더를 만든다. 이때 폴더 이름과 경로에 <u>space</u>가 포함되어 있으면 안된다. 
 
@@ -38,7 +43,9 @@ ruby 실행파일의 경로를 설정 파일에 반영하기 위해 rubydevkit�
 
 
 ## Bundler 설치
+
 ### Command Prompt에서의 Bundler 설치
+
 ruby의 패키지 매니저인 bundler를 command prompt에서 `gem install bundler`를 실행하여 설치한다. 
 
 ### error 발생 시 
@@ -57,17 +64,24 @@ RubyGems버전이 2.0.x나 2.2.x이여야 하며, ubygems.org permission 관련 
 
 
 ## 블로그 만들기
+
 ### 테마 적용하기 
+
 #### jekyll 테마 선정하기 
+
 [jekyll 테마 사이트](http://jekyllthemes.org/)에서 적당한 jekyll 테마를 골라서 테마 파일을 다운로드 받아 압축을 풀고, 폴더 이름을 자신의 블로그 이름으로 변경한다. 
+
 #### 필요한 gem 설치
+
 블로그 폴더에서 Command Prompt로 `bundle install`를 실행해 필요한 gem을 설치한다. 설치가 완료되면 gem들을 최신 버전으로 업데이트하기 위해 `gem update`를 실행한다. 
 
 
 ## Syntax highlighter인  pygments 설치 
 Jekyll의 default syntax highlighter인 pygments를 설치해보자. pygments는 python기반이므로 python 개발환경이 설치되어야 한다. 
+
 ### python 설치
 python 2.7.x를 [download](https://www.python.org/downloads/windows/)한다. 반드시 architecture(32/64)를 확인해야 한다. 설치 중 반드시 *Add Python.exe to Path*를 선택해 *“Entire feature will be install…”*를 선택해야 한다. 설치가 끝나면 Command Prompt에서 `python` 명령을 실행해 설치가 잘되었는지 확인한다. 
+
 #### python 설치 중 error 해
 `python` 명령을 실행 시 error가 생기면 Windows 시스템 변수인 path에 *C:\Python27;C:\Python27\Scripts;C:\Python27\Lib\site-packages*가 추가되어 있지 않았을 가능성이 높다. 시스템 변수 path는 *내컴퓨터 > 속성> 고급 시스템 설정 > 고급 > 환경변수 > 시스템 변수*에서 확인 및 변경 가능하다. 
 
@@ -75,8 +89,10 @@ python 2.7.x를 [download](https://www.python.org/downloads/windows/)한다. 반
 Command Prompt에서 `easy_install Pygments` 명령을 실행해 pygments를 설치하자. 
 
 
-## blog 확인하기
+## 블로그 확인하기
+
 ### 블로그 build 및 서버 구동
+
 Command Prompt에서 `bundle exec jekyll build  ` 명령을 통해 여러 설정파일을 통해 블로그 컨텐츠를 build한다. 성공적으로 완료되면 서버를 구동하기 위해 `bundle exec jekyll serve`를 실행한다. 
 
 ### 웹브라우저에서 확인
@@ -84,6 +100,7 @@ Command Prompt에서 `bundle exec jekyll build  ` 명령을 통해 여러 설정
 
 
 ## 추가 사항
+
 ### 블로그 테마의 customization
 블로그 테마의 설명을 보고 자신에게 맞게 블로그 제목이나 구성을 바꾸어 보자.
 
