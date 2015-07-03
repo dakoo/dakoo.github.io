@@ -48,7 +48,7 @@ ruby 실행파일의 경로를 설정 파일에 반영하기 위해 rubydevkit�
 
 ruby의 패키지 매니저인 bundler를 command prompt에서 `gem install bundler`를 실행하여 설치한다. 
 
-### error 발생 시 
+### error 해결 
 만약 bundler설치 중 만약 설치가 실패하고 error 메시지가 아래와 같다면  rubygems.org의 구조가 변경되었기 때문에 생기는 문제이다. 
 > ERROR: Could not find a valid gem ‘xxx’, here is why: Unable to download data from https://rubygems.org/ - SSL_connect...
 
@@ -82,7 +82,7 @@ Jekyll의 default syntax highlighter인 pygments를 설치해보자. pygments는
 ### python 설치
 python 2.7.x를 [download](https://www.python.org/downloads/windows/)한다. 반드시 architecture(32/64)를 확인해야 한다. 설치 중 반드시 *Add Python.exe to Path*를 선택해 *“Entire feature will be install…”*를 선택해야 한다. 설치가 끝나면 Command Prompt에서 `python` 명령을 실행해 설치가 잘되었는지 확인한다. 
 
-#### python 설치 중 error 해
+#### python 설치 중 error 해결
 `python` 명령을 실행 시 error가 생기면 Windows 시스템 변수인 path에 *C:\Python27;C:\Python27\Scripts;C:\Python27\Lib\site-packages*가 추가되어 있지 않았을 가능성이 높다. 시스템 변수 path는 *내컴퓨터 > 속성> 고급 시스템 설정 > 고급 > 환경변수 > 시스템 변수*에서 확인 및 변경 가능하다. 
 
 ### pygments 설치
