@@ -5,7 +5,7 @@ description: 블로그 repository가 설치되어 있지 않은 PC에서 블로�
 modified: 2015-07-05
 tags: [blog, github, clone]
 image:
-  feature: abstract-5.jpg
+  feature: abstract-4.png
   credit: dargadgetz
 ---
 

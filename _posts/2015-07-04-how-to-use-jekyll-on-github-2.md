@@ -6,7 +6,7 @@ modified: 2015-07-04
 tags: [jekyll, blog, github]
 categories: blog
 image:
-  feature: abstract-10.jpg
+  feature: abstract-10.png
 ---
 Github에 블로그를 만들어 보자. 이를 위해 Windows에 jekyll 환경을 구축해 jekyll 테마를 적용하고, Github에 올려 블로그를 운영하는 방법을 정리해 본다. 이 글은 두번째 순서로 Github에 저장소를 만들고, 자신 PC에서 작업한 내용을 반영하는 방법을 설명한다. 
 
