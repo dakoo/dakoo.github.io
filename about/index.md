@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: HOCHUL SHIN
 description: My personal history
 modified: 2015-07-05
