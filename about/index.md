@@ -1,34 +1,45 @@
 ---
-layout: page
-title: About the Jekyll Theme
+layout: post
+title: HOCHUL SHIN
+description: My personal history
+modified: 2015-07-05
 image:
-  feature: abstract-5.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
-comments: false
-modified: 2014-12-24
+  feature: home.png
 ---
 
-They say three times the charm, so here is another free responsive Jekyll blog theme for you. I've learned a ton since open sourcing my first two themes [on Github](http://github.com/mmistakes), and wanted to try a few new things this time around. 
+Experienced software architect and technical lead, specialized in distributed systems and software engineering practices.
 
-If you've used any of [my other themes](http://mademistakes.com/work/jekyll-themes/) most of this should be familiar territory...
+# Knowledge and skills #
 
-## What HPSTR brings to the table:
+- Technical area: Scalable & reliable D2D/D2S communication (Web, REST, DLNA, UPnP, SSDP, mDNS, OSGi), UI/UX, multimedia, embedded systems
+- Programming & design Skills:  Javascript, Angular.js, Node.js, Hapi.js, MongoDB, ElasticSearch, SQLite, Java, C, C++, STL, Boost, UML 
+- SW project/product management: Kanban, Scrum, Mocha, JUnit, Google Test framework, Prevent, Klockworks, GIT, SVN, CVS, Jira, RTC, Gerrit
 
-* Responsive templates for post, page, and post index `_layouts`. Looks great on mobile, tablet, and desktop devices.
-* Gracefully degrads in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.  
-* Modern and minimal design.
-* Sweet animated menu.
-* Background image support.
-* Readable typography to make your words shine.
-* Support for large images to call out your favorite posts.
-* Built-in support for Sass courtesy of Jekyll 2.x.
-* Optional [Disqus](http://disqus.com) comments.
-* Simple and clear permalink structure[^1].
-* [Open Graph](https://developers.facebook.com/docs/opengraph/) and [Twitter Cards](https://dev.twitter.com/docs/cards) support for a better social sharing experience.
-* Simple [custom 404 page]({{ site.url }}/404.html) to get you started.
-* Stylesheets for Pygments and Coderay [syntax highlighting]({{ site.url }}/code-highlighting-post/) to make your code examples look snazzy.
+# Experience
 
-<div markdown="0"><a href="{{ site.url }}/theme-setup/" class="btn btn-info">Theme Setup</a> <a href="https://github.com/mmistakes/hpstr-jekyll-theme" class="btn btn-success">Download HPSTR</a></div>
+15+ years of experience in software development, technical project management and strategic planning in Samsung R&D center. 
+ 
+- Led 15+ projects and participated in 20+ projects in scalable & reliable distributed systems, multimedia platforms, and innovative technologies for technical research, proof of concept design and implementation, platform and service commercialization. 
+- Cross-function leadership with global teams. Led teams consisting of experienced researchers, software engineers, data analyst, and hardware engineers. 
+- Developed productive networks with open source communities and global vendors. 
 
-[^1]: Example: *domain.com/category-name/post-title*
+# Publications
+
+Published a book and two papers in advanced technical areas such as multimedia, distributed systems and UI/UX. 
+
+- [Achieving Low Latency of Multimedia Content Browsing in UPnP AV Architectures](http://ieeexplore.ieee.org), UBICOMP 2008
+- [Multimedia - A Multidisciplinary Approach to Complex Issues](http://www.intechopen.com/books/multimedia-a-multidisciplinary-approach-to-complex-issues), Intech 2012 
+- [Contelli: A User-Controllable Intelligent Keyboard for Watch-Sized Small Touchscreens](http://www.acm.org/uist/uist2014/), UIST 2014
+
+# Awards and Certifications
+
+- IEEE Certified Software Development Professional (CSDP), 2009
+- Samsung Certified Software Architect, 2012
+- Samsung Software Engineer Competition, Silver medal, 2009 
+
+# Contacts
+
+- [linkedin](https://kr.linkedin.com/in/hochulshin0) for further information
+- [blog](http://dakoo.github.io) for technical articles
+- [github](https://github.com/dakoo) for open source projects
+- *darkblue99 at gmail.com* for private contact 
