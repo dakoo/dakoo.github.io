@@ -46,11 +46,11 @@ hello, hapi!
 
 ### hapi 설치 및 구성하기
 
-server 폴더아래에서 Command Prompt로 `npm init`을 실행한다. 이 명령어는 server 폴더에 package.json을 만들며, 기본적인 설정을 한다.  그리고 `npm install –-save-dev hapi`명령을 실행하여 hapi를 설치한다. 
+server 폴더 <u>아래</u>에서 Command Prompt로 `npm init`을 실행한다. 이 명령어는 server 폴더에 package.json을 만들며, 기본적인 설정을 한다.  그리고 `npm install –-save-dev hapi`명령을 실행하여 hapi를 설치한다. 
 
 ### hapi 서버 만들기 
 
-server 폴더아래에 **index.js** 파일을 만들고 아래 내용을 채운다. 
+server 폴더 <u>아래</u>에 **index.js** 파일을 만들고 아래 내용을 채운다. 
 
 {% highlight javascript %}
 var Hapi = require('hapi');
