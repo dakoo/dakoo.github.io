@@ -1,6 +1,6 @@
 title:            do do dakoo
 description:      just everything I learn
-disqus_shortname: 
+disqus_shortname: dakoo
 reading_time:     true
 words_per_minute: 50
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
@@ -29,7 +29,7 @@ owner:
 background: 
 
 # Analytics and webmaster tools stuff goes here
-google_analytics: UA-60163348-2  
+google_analytics: "UA-60163348-2"  
 google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
