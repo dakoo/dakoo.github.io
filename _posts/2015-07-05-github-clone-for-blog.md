@@ -3,7 +3,8 @@ layout: post
 title: Github 블로그 repository를 clone해서 글쓰기
 description: 블로그 repository가 설치되어 있지 않은 PC에서 블로그를 작성하는 방법
 modified: 2015-07-05
-tags: [blog, github, clone]
+tags: [blog]
+categories: blog
 image:
   feature: abstract-4.png
   credit: dargadgetz

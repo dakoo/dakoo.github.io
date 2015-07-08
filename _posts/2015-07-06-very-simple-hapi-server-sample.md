@@ -3,8 +3,8 @@ layout: post
 title: hapi.js를 이용한 초 간단 서버 만들기 예제
 description: hapi.js를 이용한 초 간단 서버 만들기 예제, scaffolding 포함 
 modified: 2015-07-06
-tags: [hapi.js]
-categories: hapi.js
+tags: [hapi]
+categories: hapi
 image:
   feature: abstract-11.png
 ---
