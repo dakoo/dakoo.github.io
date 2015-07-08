@@ -7,7 +7,6 @@ tags: [blog]
 categories: blog
 image:
   feature: abstract-14.png
-comments: true
 ---
 
 [google analytics](http://www.google.com/intl/ko_ALL/analytics/features/index.html)는 mobile app이나 web 사이트의 방문자의 사이트 활동, 사이트 유입경로, 고객의 재방문을 유도하는 방법에 대한 분석 정보를 제공하는 강력한 도구이다. 이를 사용하여 서비스를 더욱 사용자가 원하는 방향으로 이끌수 있다. 
