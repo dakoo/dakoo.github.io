@@ -70,7 +70,7 @@ C:\>sc.exe create MongoDBService binPath= "\"C:\Program Files\MongoDB\Server\3.0
 이제 PC가 재 부팅되어도 MongoDB는 자동으로 실행될 것이다. 확인을 위해 제어판의 컴퓨터 관리를 통해 등록된 서비스를 확인해 보자. 
 
 <figure>
-	<img src="/images/mongodbservice.png" alt="">
+	<img src="/images/mongodbservice.PNG" alt="">
 </figure>
 
 
