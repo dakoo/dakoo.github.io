@@ -49,14 +49,14 @@ Hapi와 mongoDB를 이용하여 간단한 REST API 서버를 구현하는 방법
 
 ### DB 생성
 
-예제 REST API와 연동할 DB 공간을 MongoDB 서비스에 만든다. **mongo.exe**가 있는 폴더(*예를 들어 C:\Program Files\MongoDB\Server\3.0\bin*)에서 Command Prompt에서 `mongo.exe`명령을 통해 **monogdb shell**을 실행한다. Shell에서 `use [db 이름]` 명령을 실행해서 서비스를 위한 DB 공간을 할당한다. 
+예제 REST API와 연동할 DB 공간을 MongoDB 서비스에 만든다. **mongo.exe**가 있는 폴더(*C:\mongodb\bin*)에서 Command Prompt에서 `mongo.exe`명령을 통해 **monogdb shell**을 구동한다. Shell에서 `use [db 이름]` 명령을 실행해서 서비스를 위한 DB 공간을 할당한다. 
 
 {% highlight bash%}
 >use user-db
 switched to db user-db
 {% endhighlight %} 
 
-이제 Shell상에서 db는 user-db를 가리키게 된다.
+이제 Shell상의 *db* 키워드는 *user-db*를 가리키게 된다.
 
 ### Collection 생성
 
@@ -80,4 +80,4 @@ users
 WriteResult({"nRemoved":1})
 {% endhighlight %} 
 
-  
+이제 Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)를 통해 API를 구현하는 예를 살펴보자. 
