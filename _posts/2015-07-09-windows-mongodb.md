@@ -54,11 +54,11 @@ MongoDB는 다른 어플리케이션에 바인딩되는 라이브러리가 아�
 
 ### 서비스 등록 명령
 
-관리자 모드 Command Prompt에서 아래와 같이 입력하여 MongoDB를 Windows 서비스로 등록한다. 여기서는 MongoDB의 bin폴더 위치가 C:\Program Files\MongoDB\Server\3.0\bin이라고 가정한다. 
+c:\Windows 폴더로 이동하여 관리자 모드 Command Prompt에서 아래와 같이 입력하여 MongoDB를 Windows 서비스로 등록한다. 여기서는 MongoDB의 bin폴더 위치가 C:\Program Files\MongoDB\Server\3.0\bin이라고 가정한다. 
 아래 명령 입력시 주의할 점은 =와 그 뒤의 값(" ") 사이에 여백 한칸을 **반드시** 넣어줘야 한다는 것이다.  
 
 {% highlight bash %}
-C:\>sc.exe create MongoDBService binPath= "\"C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe\" --service --config=\"C:\Program Files\MongoDB\Server\3.0\mongod.cfg\"" DisplayName= "MongoDB service" start= "auto"
+C:\Windows>sc.exe create MongoDBService binPath= "\"C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe\" --service --config=\"C:\Program Files\MongoDB\Server\3.0\mongod.cfg\"" DisplayName= "MongoDB service" start= "auto"
 {% endhighlight %}
 
 위의 과정을 모두 마치면 아래와 같은 메시지가 Command Prompt에 나타난다. 
