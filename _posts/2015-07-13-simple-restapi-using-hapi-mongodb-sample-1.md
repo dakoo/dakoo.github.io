@@ -4,7 +4,6 @@ title: Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (1)
 description: Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (1)
 modified: 2015-07-13
 tags: [hapi]
-categories: hapi
 image:
   feature: abstract-5.png
 ---
@@ -80,4 +79,4 @@ users
 WriteResult({"nRemoved":1})
 {% endhighlight %} 
 
-이제 Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)를 통해 API를 구현하는 예를 살펴보자. 
+이제 [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)](http://dakoo.github.io/simple-restapi-using-hapi-mongodb-sample-2)를 통해 API를 구현하는 예를 살펴보자. 
