@@ -42,4 +42,3 @@ Published a book and two papers in advanced technical areas such as multimedia, 
 - [linkedin](https://kr.linkedin.com/in/hochulshin0) for further information
 - [blog](http://dakoo.github.io) for technical articles
 - [github](https://github.com/dakoo) for open source projects
-- *darkblue99 at gmail.com* for private contact 

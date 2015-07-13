@@ -12,7 +12,7 @@ owner:
   name:           Hochul Shin
   avatar:         avatar.jpg
   bio:            "Software development professional"
-  email:          darkblue99@gmail.com
+  email:          
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
   facebook:       
@@ -23,7 +23,7 @@ owner:
   flickr:         
   tumblr:         
   # google plus id, include the '+', eg +mmistakes
-  google_plus:    +darkblue99
+  google_plus:    
 
 # Background image to be tiled on all pages
 background: 
@@ -49,7 +49,7 @@ sass:
 permalink:   /:categories/:title/
 
 # Amount of post to show on home page
-paginate: 3
+paginate: 4
 
 kramdown:
   auto_ids: true
