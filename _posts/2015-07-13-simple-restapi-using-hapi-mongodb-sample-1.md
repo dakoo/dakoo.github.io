@@ -38,11 +38,11 @@ Hapi와 mongoDB를 이용하여 간단한 REST API 서버를 구현하는 방법
 
 서버의 API는 다음과 같이 정의된다. [RESTful API Method의 알맞은 역할 문서](http://blog.remotty.com/blog/2014/01/28/lets-study-rest/#method)를 참조해서 정의했다. 모두 요청시 *Content-Type:application/json*으로 정의한다.   
  
-- 사용자 추가(Create): POST, */users*, body payload: {email, username, nickname}, 성공시 201:Created 응답
+- 사용자 추가(Create): POST, */user*, body payload: {email, username, nickname}, 성공시 201:Created 응답
 - 사용자 목록 얻기(Retrieve): GET, */users*, 성공시 200:OK와 JSON으로 email 목록 응답
-- 사용자 정보 얻기(Retrieve):GET, */users/{email}*, 성공시 200:OK와 JSON으로 {email, username, nickname} 응답 
-- 사용자 수정(Update): PATCH, */users/{email}*, body payload: {username, nickname}, 성공시 200:OK 응답
-- 사용자 삭제(Delete): DELETE, */users/{email}*, 성공시 200:OK 응답 
+- 사용자 정보 얻기(Retrieve):GET, */user/{email}*, 성공시 200:OK와 JSON으로 {email, username, nickname} 응답 
+- 사용자 수정(Update): PATCH, */user/{email}*, body payload: {username, nickname}, 성공시 200:OK 응답
+- 사용자 삭제(Delete): DELETE, */user/{email}*, 성공시 200:OK 응답 
 
 ## DB와 Collection 생성
 
