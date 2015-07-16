@@ -114,13 +114,10 @@ var Boom = require('boom');
 exports.add = function (request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     db.collection('users').findOne({"email" : request.payload.email}, function(err, ret) {
-        console.log("error: " + err + " return: " + ret);
         if (err) {
-            console.log("Error:query");
             return reply(Boom.internal('Internal Database Error', err));
         }
         if (ret){
-            console.log("Error: duplicated resource");
             return reply(Boom.conflict('Duplicated Resource Error', err));
         }
         var user = {
@@ -130,14 +127,12 @@ exports.add = function (request, reply) {
         };
         db.collection('users').insert(user, {w:1}, function (err){
             if (err){
-                console.log("Error:insert");
                 return reply(Boom.internal('Internal Database Error', err));
             }else{
-                console.log("success");
                 reply();
             }
         });
-    })
+    });
 };
 exports.getlist = function (request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
