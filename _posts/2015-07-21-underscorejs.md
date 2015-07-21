@@ -5,7 +5,7 @@ description: underscore.js 사용법에 대한 유용한 link
 modified: 2015-07-21
 tags: [javascript]
 image:
-  feature: abstract-04.png
+  feature: abstract-04.PNG
 link: http://seoh.github.io/blog/2012/10/09/getting-cozy-with-underscore-js/
 ---
 
