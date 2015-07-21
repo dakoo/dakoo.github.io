@@ -5,8 +5,7 @@ description: websequencediagrams 추천
 modified: 2015-07-21
 tags: [tool]
 image:
-  feature: abstract-14.png
-link: https://www.websequencediagrams.com/
+  feature: abstract-20.png
 ---
 
 ## UML diagram 툴 경험
