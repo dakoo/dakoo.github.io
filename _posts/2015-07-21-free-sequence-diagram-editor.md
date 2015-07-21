@@ -20,7 +20,7 @@ UML 툴들 중 **최악**은 회사 SE 팀에서 추천한 최신 기능과 표�
 
 ## websequencediagrams
 
-오늘 온라인 UML 툴인 [websequencediagrams](https://www.websequencediagrams.com/)을 써보고 Sequence diagram만은 websequencediagrams이 최고라는 생각이 들었다. text를 통해 diagram을 그린다는 **마크다운**스러운 접근법과 직관적인 사용법이 너무나 맘에 들었다. 많은 모델을 만들고 재사용해야 하는 대규모 프로젝트에는 적당하지 않지만, 개발자간에 의사소통이나 자신의 생각을 빠르게 정리하는 용도로는 최고의 툴이라고 생각된다. 무료로 제공되는 기본 기능만으로도 충분히 만족감을 느낄 수 있는 정말 좋은 툴이다. 
+오늘 온라인 UML 툴인 [websequencediagrams](https://www.websequencediagrams.com/)을 써보고 Sequence diagram만은 websequencediagrams이 최고라는 생각이 들었다. text를 통해 diagram을 그린다는 **마크다운**스러운 접근법과 직관적인 사용법이 너무나 맘에 들었다. 많은 모델을 만들고 재사용해야 하는 대규모 프로젝트에는 적당하지 않지만, 생각을 빠르게 정리하고 개발자간 의사소통을 위한 용도에는 딱 맞는 툴이라고 생각된다. 무료로 제공되는 기본 기능만으로도 충분히 만족감을 느낄 수 있었다.
  
 ## 정리
 
