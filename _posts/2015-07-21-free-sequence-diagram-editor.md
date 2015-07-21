@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 온라인 Sequence diagram editor
-description: 공짜 온라인 Sequence diagram editor
+title: websequencediagrams 추천
+description: websequencediagrams 추천
 modified: 2015-07-21
 tags: [tool]
 image:
