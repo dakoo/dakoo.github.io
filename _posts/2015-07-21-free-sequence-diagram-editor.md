@@ -14,7 +14,7 @@ link: https://www.websequencediagrams.com/
 지금까지 많은 UML diagram 툴들을 써왔다. 소프트웨어 디자인을 잘하려면 모델링을 잘해야 한다고 생각해서 회사에서 제공하는 비싸고 전문적인 디자인 툴부터 가벼운 온라인 버전까지 많은 툴들을 프로젝트를 위해 사용해 보았다. 
 개발 경력이 쌓여갈수록 툴에 대한 요구사항도 까다롭게 되어 툴들을 다양하게 써보았다. 
 
-**제일 좋다고 생각했던 것**은 <u>visual studio ultimate가 제공하는 모델링 툴</u>이다. 사실, 개발자 간, 혹은 매니저와의 커뮤니케이션을 위해서 가장 많이 사용되는 것은 Layered architecture이다. 안타깝게도 많은 UML 툴들이 Layered architecture를 제대로 지원하지 않기에 powerpoint를 이용해 그리곤 했다. 그런데 <u>visual studio ultimate</u>는 Layered architecture diagram을 쉽고 빠르고, 이쁘게 그릴 수 있돌고 지원한다. 그것만으로도 충분히 좋은 툴이라고 생각하는데, 다른 diagram을 그리는 것도 쉽고 편하다. 
+**제일 좋다고 생각했던 것**은 <u>visual studio ultimate가 제공하는 모델링 툴</u>이다. 사실, 개발자 간, 혹은 매니저와의 커뮤니케이션을 위해서 가장 많이 사용되는 것은 layered architecture이다. 안타깝게도 많은 UML 툴들이 layered architecture를 제대로 지원하지 않기에 Powerpoint를 이용해 그리곤 했다. 그런데 <u>visual studio ultimate</u>는 layered architecture diagram을 쉽고 빠르고, 이쁘게 그릴 수 있돌고 지원한다. 그것만으로도 충분히 좋은 툴이라고 생각하는데, 다른 diagram을 그리는 것도 쉽고 편하다. 
 
 UML 툴들 중 **최악**은 개발 경험이 부족한 SE 팀에서 선정하고 추천한 최신 기능과 표준 스펙으로 무장한 쇳덩이 툴이었다. 툴은 툴일뿐 너무 많은 기능과 익숙치 않은 표준은 개발자에게 전혀 도움을 주지 못한다. 
 
