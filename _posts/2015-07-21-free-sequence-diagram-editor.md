@@ -16,7 +16,7 @@ link: https://www.websequencediagrams.com/
 
 **제일 좋다고 생각했던 것**은 <u>visual studio ultimate가 제공하는 모델링 툴</u>이다. 사실, 개발자 간, 혹은 매니저와의 커뮤니케이션을 위해서 가장 많이 사용되는 것은 layered architecture이다. 안타깝게도 많은 UML 툴들이 layered architecture를 제대로 지원하지 않기에 Powerpoint를 이용해 그리곤 했다. 그런데 <u>visual studio ultimate</u>를 사용하면 layered architecture diagram을 쉽고 빠르고, 이쁘게 그릴 수 있다. 그것만으로도 충분히 좋은 툴이라고 생각하는데, 다른 diagram을 그리는 것도 쉽고 편하다. 
 
-UML 툴들 중 **최악**은 개발 경험이 부족한 SE 팀에서 선정하고 추천한 최신 기능과 표준 스펙으로 무장한 쇳덩이 툴이었다. 툴은 툴일뿐 너무 많은 기능과 익숙치 않은 표준은 개발자에게 전혀 도움을 주지 못한다. 
+UML 툴들 중 **최악**은 회사 SE 팀에서 추천한 최신 기능과 표준 스펙으로 무장한 쇳덩이 툴이었다. 툴은 툴일뿐 너무 많은 기능과 익숙치 않은 표준은 개발자에게 전혀 도움을 주지 못한다. 
 
 ## websequencediagrams
 
