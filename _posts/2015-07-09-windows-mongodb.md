@@ -52,7 +52,7 @@ C:\mongodb 폴더로 이동하여 설치가 되었는지 확인한다. bin 폴�
 
 #### MongoDB configuration 설정 
 
-MongoDB가 실행시 MongoDB 로그와 데이터 폴더 위치를 참조하기 위한 configuration file을 만든다. 아래와 같이 관리자 모드 Command Prompt에 입력해서 **mongod.cfg** 파일을 만들고 log를 저장하는 경로(C:\mongodb\data)와 db 데이터를 저장하는 경로(C:\mongodb\data)를 내용으로 저장한다. 
+MongoDB가 실행시 MongoDB 로그와 데이터 폴더 위치를 참조하기 위한 configuration file이 필요하다. **mongod.cfg** 파일을 C:\mongodb 폴더에 만든다. 메모장이나 에디터를 이용해 log를 저장하는 경로(C:\mongodb\data)와 db 데이터를 저장하는 경로(C:\mongodb\data)를 아래와 같은 내용으로 저장한다. 복사하여 붙여넣기를 하자.
 
 {% highlight json %}
 systemLog:
