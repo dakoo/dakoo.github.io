@@ -12,7 +12,7 @@ Experienced software architect and technical lead, specialized in distributed sy
 # Knowledge and skills #
 
 - Technical area: Scalable & reliable D2D/D2S communication (Web, REST, DLNA, UPnP, SSDP, mDNS, OSGi), UI/UX, multimedia, embedded systems
-- Programming & design Skills:  Javascript, Angular.js, Node.js, Hapi.js, MongoDB, ElasticSearch, SQLite, Java, C, C++, STL, Boost, UML 
+- Programming & design Skills:  Java, C++, C, STL, Javascript, Boost, UML, Angular.js, Node.js, Hapi.js, MongoDB, SQLite 
 - SW project/product management: Kanban, Scrum, Mocha, JUnit, Google Test framework, Prevent, Klockworks, GIT, SVN, CVS, Jira, RTC, Gerrit
 
 # Experience
@@ -27,14 +27,15 @@ Experienced software architect and technical lead, specialized in distributed sy
 
 Published a book and two papers in advanced technical areas such as multimedia, distributed systems and UI/UX. 
 
-- [Achieving Low Latency of Multimedia Content Browsing in UPnP AV Architectures](http://ieeexplore.ieee.org), UBICOMP 2008
-- [Multimedia - A Multidisciplinary Approach to Complex Issues](http://www.intechopen.com/books/multimedia-a-multidisciplinary-approach-to-complex-issues), Intech 2012 
 - [Contelli: A User-Controllable Intelligent Keyboard for Watch-Sized Small Touchscreens](http://www.acm.org/uist/uist2014/), UIST 2014
+- [Multimedia - A Multidisciplinary Approach to Complex Issues](http://www.intechopen.com/books/multimedia-a-multidisciplinary-approach-to-complex-issues), Intech 2012 
+- [Achieving Low Latency of Multimedia Content Browsing in UPnP AV Architectures](http://ieeexplore.ieee.org), UBICOMP 2008
 
 # Awards and Certifications
 
-- IEEE Certified Software Development Professional (CSDP), 2009
+- IEEE Professional Software Engineering Certification, 2015
 - Samsung Certified Software Architect, 2012
+- IEEE Certified Software Development Professional (CSDP), 2009
 - Samsung Software Engineer Competition, Silver medal, 2009 
 
 # Contacts
