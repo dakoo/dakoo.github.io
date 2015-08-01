@@ -2,7 +2,7 @@
 layout: post
 title: Geolocation API와 Google map API 
 description: Geolocation API와 Google map API 예제들
-modified: 2015-07-30
+modified: 2015-08-01
 tags: [webapp, javascript]
 image:
   feature: abstract-10.png
@@ -39,6 +39,60 @@ Google Map API를 사용하기 위해서는 API_KEY를 획득해야 한다. 대�
 
 - [Geocoding- 주소에서 좌표알아내는 샘플](https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple)
 - [Reverse Geocoding- 좌표에서 주소 알아내는 샘플](https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse)
+
+### Place Search API
+
+주소를 검색하여 위치 정보를 알 수 있는 Place Search API는 [Google 사이트](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete)가 가장 잘 설명하고 있다. 
+
+html에서 *map-canvas*는 map을 그리기 위한 것이고 *pac-input*은 Search box를 그리기 위한 것이다. 
+{% highlight html %}
+    ...
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=places"></script>
+    ...
+    ...
+    <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+    <div id="map-canvas"></div>
+    ...
+{% endhighlight %}
+
+input form을 map과 연결하고 autocomplete event listener에서 search 결과를 받으면 map을 갱신하는 예는 아래와 같다. drawmap()은 latitude와 longitude를 이용해 map을 그리는 함수라고 가정한다.  
+{% highlight javascript %}
+function initialize() {
+      var input = (document.getElementById('pac-input'));
+        
+        var center = new google.maps.LatLng(latitude, longitude);
+        /* map */
+        var mapOptions = {
+            center: center,
+            zoom: 16,
+            disableDefaultUI: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        ...
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        autocomplete.bindTo('bounds', map);
+        autocomplete.setTypes([]);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("We cann't find the place");
+                return;
+            }
+            if (place.geometry.location){
+                drawMap(place.geometry.location.lat(), place.geometry.location.lng()); //map 갱신
+            } else if(place.geometry.viewport){
+                drawMap(place.geometry.viewport.getBounds().getCenter().lat(), place.geometry.viewport.getBounds().getCenter().lng());//map 갱신
+            } else {
+                window.alert("We cann't find the place");
+                return;
+            }
+        });
+}; 
+google.maps.event.addDomListener(window, 'load', initialize);
+{% endhighlight %}
+
 
 ## 기타 
 
