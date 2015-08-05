@@ -5,13 +5,16 @@ description: quick sort algorithm in C
 modified: 2015-08-05
 tags: [algorithm, english]
 image:
-  feature: abstract-24.png
+  feature: abstract-20.png
 ---
 
-## The performance of quicksort
+### The performance of quicksort
 
 There are a lot of implementations of quick sort algorithm. Even the time complexity of the algorithm is **nlog(n)**, the real performance is highly depending on the implementation. 
-The following source code is the fastest quick sort that I have ever used. Morover, the code is intuitive and easy to understand.
+
+### Fastest quick sort implmentation I've ever used
+
+The following source code presents the fastest quick sort implementation that I have ever used in common cases. Morover, the code is intuitive and easy to understand.
 
 {% highlight c %}
 #include <stdio.h>
@@ -52,5 +55,4 @@ int main(){
 	return 0;
 }
 {% endhighlight %}
-
 
