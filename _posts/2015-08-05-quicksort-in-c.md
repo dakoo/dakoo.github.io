@@ -12,9 +12,9 @@ image:
 
 There are a lot of implementations of quick sort algorithm. Even the time complexity of the algorithm is **nlog(n)**, the real performance is highly depending on the implementation. 
 
-### Fastest quick sort implmentation I've ever used
+### Fastest quick sort in C 
 
-The following source code presents the fastest quick sort implementation that I have ever used in common cases. Morover, the code is intuitive and easy to understand.
+The following source code presents the fastest quick sort implementation that <u>I have ever used</u>. Morover, the code is intuitive and easy to understand.
 
 {% highlight c %}
 #include <stdio.h>
