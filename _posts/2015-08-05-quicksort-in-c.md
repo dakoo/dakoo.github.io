@@ -27,6 +27,7 @@ There are two famous partition algorithms. As my experience, Lumuto-Partition is
 
 #### Hoare-Partition algorithm
 
+Hoare-Partition algorithm is not so good to understand due to several duplicated loops.
 The pseudo code of Hoare-partition algorithm:
 
 {% highlight javascript %}
@@ -43,7 +44,7 @@ partition(A[], l, r)
 
 #### Lumuto-Partition algorithm
 
-The pseudo code of Hoare-partition algorithm:
+The pseudo code of Lumuto-partition algorithm:
 
 {% highlight javascript %}
 partition(A[], l, r)
