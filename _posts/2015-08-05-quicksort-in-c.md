@@ -5,7 +5,7 @@ description: quick sort algorithm in C
 modified: 2015-08-05
 tags: [algorithm, english]
 image:
-  feature: abstract-20.png
+  feature: abstract-15.PNG
 ---
 
 ### The performance of quicksort
