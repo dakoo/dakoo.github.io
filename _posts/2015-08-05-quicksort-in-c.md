@@ -48,10 +48,10 @@ The pseudo code of Hoare-partition algorithm:
 {% highlight javascript %}
 partition(A[], l, r)
       x <- A[r]
-      i <- p - 1
-      for j in p->r-1
+      i <- l - 1
+      for j in l->r-1
       	if A[j] <= x
-      	   i++, swap(A[l], A[j])
+      	   i++, swap(A[i], A[j])
       swap(A[i+1], A[r])
       return i + 1
 {% endhighlight %}
