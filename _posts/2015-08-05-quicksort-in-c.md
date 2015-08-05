@@ -10,7 +10,7 @@ image:
 
 ### The performance of quicksort
 
-There are a lot of implementations of quick sort algorithm. Even the time complexity of the algorithm is **nlog(n)**, the real performance is highly depending on the partition algorithm. 
+There are a lot of implementations of quick sort algorithm. Even though the time complexity of the algorithm is **nlog(n)**, the real performance is highly depending on the partition algorithm. 
 
 The pseudo code of quicksort algorithm is as follows. 
 {% highlight javascript %}
