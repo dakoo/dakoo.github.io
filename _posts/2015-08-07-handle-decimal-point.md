@@ -5,7 +5,7 @@ description: 실수를 반올림하여 정수로 변환하기
 modified: 2015-08-07
 tags: [algorithm]
 image:
-  feature: abstract-23.png
+  feature: abstract-17.png
 ---
 
 실수에서 정수로 변환하면서 소수점에서 반올림 하는 방법을 간단히 알아보자.
