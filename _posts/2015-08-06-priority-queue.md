@@ -17,9 +17,30 @@ link: http://blog.naver.com/wpdls6012/220247604017
 Array를 이용해 binary tree를 구현한다. 이때 index는 1부터 시작한다. 다음은 기초적인 알고리즘이다. 
 
 {% highlight bash %}
-parent_index = index/2;
-left_child_index = index*2;
-right_child_index = index*2 + 1;
+struct Item {
+  int val;
+};
+
+Item PriorityQueue[1000001];
+int num_items; 
+int getParentIndex(int i){
+  return i / 2;
+}
+int getLChildIndex(int i){
+  return i * 2;
+}
+int getRChildIndex(int i){
+  return i * 2 + 1;
+}
+void init(){
+  num_items = 0;
+}
+int isEmpty(){
+  if(num_items == 0)
+    return true;
+  return false;
+}
+
 {% endhighlight %}
 
 Array의 관리를 위해 원소의 수를 가리키는 변수(마지막 index이기도 함)를 하나 사용한다. 
@@ -31,10 +52,65 @@ Array의 관리를 위해 원소의 수를 가리키는 변수(마지막 index�
 3. 부모 노드와 값을 비교해서 값이 더 크면 위치를 서로 바꾼다(swap). 더 작으면 삽입과정을 종료한다. 
 4. root(1)에 도달할 때까지 2를 반복한다. 
 
+{% highlight bash %}
+void swap(int i, int j){
+  Item temp;
+  temp.val = PriorityQueue[j].val;
+  PriorityQueue[j].val = PriorityQueue[i].val;
+  PriorityQueue[i].val = temp.val;
+}
+void insert(Item b){
+  num_items++;
+  int index = num_items;
+  PriorityQueue[index].val = b.val;
+  int p;
+  while ((p = getParentIndex(index)) > 0){
+    if (PriorityQueue[p].val <= PriorityQueue[index].val)
+      break;
+    swap(p, index);
+    index = p;
+  }
+}
+{% endhighlight %}
+
 ### 삭제
 
 1. root(1) 노드를 삭제한다. 
 2. 마지막 노드를 root 노드(1)로 이동시키고 원소의 수를 1 줄인다. 
 3. root 노드부터 시작해서 parent와 left 또는 right child와 비교하여 parent가 더 값이 작으면 swap한다. 더 크면 삭제 과정을 종료한다. 
 4. leaf에 도달할 때 까지 위의 과정을 반복한다. 
+
+{% highlight c %}
+Item delete(){
+  Item temp;
+  temp.val = PriorityQueue[1].val;
+  swap(num_items, 1);
+  num_items--;
+  int index = 1;
+  int cr = getRChildIndex(index);
+  int cl = getLChildIndex(index);
+  int target_index;
+  while (cl <= num_items ){
+    if (cl == num_items){
+      target_index = cl;
+    }
+    else {
+      if (PriorityQueue[cr].val < PriorityQueue[cl].val)
+        target_index = cr;
+      else
+        target_index = cl;
+    }
+    if (PriorityQueue[target_index].val >= PriorityQueue[index].val)
+      break;
+    swap(target_index, index);
+    index = target_index;
+    cr = getRChildIndex(target_index);
+    cl = getLChildIndex(target_index);
+  }
+  return temp;
+}
+{% endhighlight %} 
+
+
+
 
