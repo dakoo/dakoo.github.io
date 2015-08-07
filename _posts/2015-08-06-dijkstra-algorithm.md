@@ -24,6 +24,7 @@ Dijkstra 알고리즘은 Vertex A와 그래프 내의 다른 모든 Vertex와의
   
 ### flow
 
+{% highlight bash %}
 dijkstra(G, s, n){ //G:Graph, s: 시작 정점의 index, n: 정점의 수
   loop 
     Distance[i] = 987654321
@@ -39,9 +40,8 @@ dijkstra(G, s, n){ //G:Graph, s: 시작 정점의 index, n: 정점의 수
     loop j <- i의 모든 인접 정점들       
       //인접 정점의 거리를 update. j가 이미 가지고 있던 값과 i의 시작정점으로부터의 거리+i와j간 거리를 비교하여 작은 것을 택함
       Distance[j] = Distance[j] > Distance[i] + G.e(i,j) ? Distance[i] + G.e(i,j): Distance[j]; 
-  
-
 }
+{% endhighlight %}
  
 
 
