@@ -49,7 +49,7 @@ Array의 관리를 위해 원소의 수를 가리키는 변수(마지막 index�
 
 1. 원소의 수를 1 증가한다. 
 2. 새로운 원소는 마지막 위치에 저장한다.  
-3. 부모 노드와 값을 비교해서 값이 더 크면 위치를 서로 바꾼다(swap). 더 작으면 삽입과정을 종료한다. 
+3. 부모 노드와 값을 비교해서 부모 노드의 값이 더 작으면 위치를 서로 바꾼다(swap). 부모 노드가 더 크면 삽입과정을 종료한다. 
 4. root(1)에 도달할 때까지 2를 반복한다. 
 
 {% highlight bash %}
@@ -64,8 +64,8 @@ void insert(Item b){
   int index = num_items;
   PriorityQueue[index].val = b.val;
   int p;
-  while ((p = getParentIndex(index)) > 0){
-    if (PriorityQueue[p].val <= PriorityQueue[index].val)
+  while ((p = getParentIndex(index)) > 0){ //root parent에 도달할 때 까지 
+    if (PriorityQueue[p].val > PriorityQueue[index].val) //부모 노드가 더 큰 값이면 stop
       break;
     swap(p, index);
     index = p;
@@ -77,7 +77,7 @@ void insert(Item b){
 
 1. root(1) 노드를 삭제한다. 
 2. 마지막 노드를 root 노드(1)로 이동시키고 원소의 수를 1 줄인다. 
-3. root 노드부터 시작해서 parent와 left 또는 right child와 비교하여 parent가 더 값이 작으면 swap한다. 더 크면 삭제 과정을 종료한다. 
+3. root 노드부터 시작해서 left 또는 right child와 더 큰 것을 선택해 부모 노드가 더 값이 작으면 swap한다. 부모 노드의 값이 더 크면 삭제 과정을 종료한다. 
 4. leaf에 도달할 때 까지 위의 과정을 반복한다. 
 
 {% highlight c %}
@@ -91,16 +91,16 @@ Item delete(){
   int cl = getLChildIndex(index);
   int target_index;
   while (cl <= num_items ){
-    if (cl == num_items){
+    if (cl == num_items){ //left child가 마지막이면
       target_index = cl;
     }
-    else {
-      if (PriorityQueue[cr].val < PriorityQueue[cl].val)
-        target_index = cr;
-      else
+    else {  //child 두개를 비교하여 더 큰 것을 고른다. 
+      if (PriorityQueue[cr].val < PriorityQueue[cl].val) 
         target_index = cl;
+      else
+        target_index = cr;
     }
-    if (PriorityQueue[target_index].val >= PriorityQueue[index].val)
+    if (PriorityQueue[index].val >= PriorityQueue[target_index].val) //부모 노드가 더 크면 stop
       break;
     swap(target_index, index);
     index = target_index;
