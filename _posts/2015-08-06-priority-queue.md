@@ -14,7 +14,7 @@ link: http://blog.naver.com/wpdls6012/220247604017
 
 ### 자료 구조 
 
-Array를 이용해 binary tree를 구현한다. 이때 index는 1부터 시작한다. 다음은 기초적인 알고리즘이다. 
+Array를 이용해 binary tree를 구현한다. 이때 index는 1부터 시작한다. 다음은 Array를 이용한 tree 구현의 기초적인 알고리즘이다. 
 
 {% highlight bash %}
 struct Item {
