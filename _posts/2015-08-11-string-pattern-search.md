@@ -1,4 +1,5 @@
----layout: post
+---
+layout: post
 title: 문자열 패턴 검색 - 보이어-무어 알고리즘에 대한 이해와 구현 
 description: 문자열 패턴 검색 - 보이어-무어 알고리즘에 대한 이해와 구현
 modified: 2015-08-10
