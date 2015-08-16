@@ -23,17 +23,14 @@ Dij1: i에서 j까지 경로 중 정점 1을 고려할 떄의 최단 경로를 �
 <figure>
 <img src="/images/floyd_warshall1.jpg" alt="floyd-warshall">
 </figure>
-
 2. 모든 쌍 i,j에 대해 Dij2를 구한다. Dij2는 정점 1까지를 고려햔 최소 경로 길이와 정점 2를 반드시 경유하는 거리 중 짧은 거리를 Dij2로 정한다. 
 <figure>
 <img src="/images/floyd_warshall2.jpg" alt="floyd-warshall">
 </figure>
-
 3. i에서 출발하여 정점 k를 경유하여 j로 가는 경로의  거리와 Dij(k-1)를 비교하여 더 짧은 거리를 Dijk로 정한다. 
 <figure>
 <img src="/images/floyd_warshall3.jpg" alt="floyd-warshall">
 </figure>
-
 4. 일반화 하면 다음과 같다. 
 <figure>
 <img src="/images/floyd_warshall4.jpg" alt="floyd-warshall">

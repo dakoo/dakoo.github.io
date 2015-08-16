@@ -24,28 +24,31 @@ image:
 2. 수열 A의  마지막이 공통 부분 수열에 속하지 않는 경우: A와 B의 **마지막 내용이 다르고(A[i] != B[j])**, A와 B의 LCS는 A의 길이를 하나 줄인 수열 A[1~i-1]과 수열 B[1~j]의 LCS와 동일하다. 이 경우의 **LCS[i][j] = LCS[i-1][j]**이다. 
 3. 수열 B의 마지막이 공통 부분 수열에 속하지 않는 경우: A와 B의 **마지막 내용이 다르고(A[i] != B[j])**, A와 B의 LCS는 B의 길이를 하나 줄인 수열 B[1~j-1]과 수열 A[1~i]의 LCS와 동일하다. 이 경우 **LCS[i][j] = LCS[i][j-1]**이다. 
 
-**A[i]!=B[j]이면 반드시 두번째 또는 세번째 경우에 포함되며, LCS 길이는 최대 수열의 길이이므로 두 경우 중 길이가 긴 것과 같다. 
+A[i]!=B[j]이면 반드시 두번째 또는 세번째 경우에 포함되며, LCS 길이는 최대 수열의 길이이므로 두 경우 중 길이가 긴 것과 같다. 
 
 ### 배열을 이용한 위 아이디어의 구현
 
 위의 알고리즘을 배열을 이용해 용이하게 구현할 수 있다. 
-String A는 "abcd", B는 "bca"라고 가정하자. LCS 배열을 다음과 같이 초기화 된다. LCS[0][]과 LCS[][0]을 모두 0으로 초기화 한다. 
+String A는 "abcd", B는 "bca"라고 가정하자. LCS 배열을 다음과 같이 초기화 된다. 아래와 같이 LCS[0][]과 LCS[][0]을 모두 0으로 초기화 한다. 
 
 <figure>
 <img src="/images/lcs1.jpg" alt="longest common subsequence table">
 </figure>
 
-LCS[1][1]부터 계산을 시작하는데 A[i]과 B[j]가 같지 않은 경우 LCS[i][j]는 LCS[i-1][j] 또는 LCS[i][j-1] 중 큰 것의 값과 같다. 즉, 배열에서는 위와 좌측의 값 중 큰 값을 택한다. 
+
+LCS[1][1]부터 계산을 시작하는데 A[i]과 B[j]가 같지 않은 경우 LCS[i][j]는 LCS[i-1][j] 또는 LCS[i][j-1] 중 큰 것의 값과 같다. 즉, 배열에서는 위 또는 좌 측의 값 중 큰 값을 택한다. 
 
 <figure>
 <img src="/images/lcs2.jpg" alt="longest common subsequence table">
 </figure>
+
 
 A[i]와 B[j]가 같은 경우에는 LCS[i][j]는 LCS[i-1][j-1]에 1을 증가시킨 것이다. 배열에서는 좌측 상단의 값 + 1과 같다.   
 
 <figure>
 <img src="/images/lcs3.jpg" alt="longest common subsequence table">
 </figure>
+
 
 String A의 끝(n)과 String B의 끝(m)까지 비교하면 종료된다. 이때 LCS[n][m]의 값이 A와 B의 LCS 길이가 된다. 
 
