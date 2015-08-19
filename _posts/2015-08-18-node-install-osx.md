@@ -40,9 +40,7 @@ npm ERR! tar.unpack untar error ...
 
 - 설치 시 Xcode가 필요하다. 앱스토어에서 Xcode를 다운로드 받아 한 번 실행해서 시스템 권한을 갖도록 한다. 
 
-- [homebrew](http://brew.sh/)를 설치한다. 다음 내용을 터미털에서 실행한하여 brew를 설치한다. 
-
-> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+- [homebrew](http://brew.sh/)를 설치한다. `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 터미털에서 실행한하여 brew를 설치한다. 
 
 - node를 설치한다. 이때 npm은 설치하지 않는다. 
 
@@ -59,9 +57,7 @@ export PATH="/usr/local/Cellar/node/0.12.7/bin:$PATH"
 
 >. .bash_profile 
 
-- npm을 설치한다. 설치 메시지에 큰 문제가 없다면 성공이다. 시스템에 node의 제대로 등록안된 경우 npm 설치가 안될 수 있다.  
-
-> curl -L https://www.npmjs.com/install.sh | sh
+- npm을 `curl -L https://www.npmjs.com/install.sh | sh` 명령으로 설치한다. 설치 메시지에 큰 문제가 없다면 성공이다. 시스템에 node의 제대로 등록안된 경우 npm 설치가 안될 수 있다.  
 
 #### 테스트
 

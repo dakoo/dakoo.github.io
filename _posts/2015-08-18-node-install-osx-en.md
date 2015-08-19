@@ -34,9 +34,7 @@ Performing `npm cache clean` or using `sudo` prompt is usually recommended. Howe
 
 - Xcode is prerequisite. Download Xcode from Appstore, and install. At least once, launch Xcode to give it the permission.
 
-- Copy, paste, and run the following command on a terminal to install [homebrew](http://brew.sh/). 
-
-> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+- Copy, paste, and run the `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` command on a terminal to install [homebrew](http://brew.sh/). 
 
 - Install node using the following command on a terminal 
 
@@ -53,9 +51,7 @@ export PATH="/usr/local/Cellar/node/0.12.7/bin:$PATH"
 
 >. .bash_profile 
 
-- Install npm. If the path to the node is not proper, npm installation is failed.
-
-> curl -L https://www.npmjs.com/install.sh | sh
+- Install npm using `curl -L https://www.npmjs.com/install.sh | sh`. If the path to the node is not proper, npm installation is failed.
 
 #### Test
 
