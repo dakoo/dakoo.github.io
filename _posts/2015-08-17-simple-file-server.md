@@ -17,6 +17,7 @@ I am reading the book, **Pro Angular.js** and practicing the samples on the book
 - Run `npm init` to initialize the node project. 
 
 - Install finalhandler and serve-static npms. 
+
 > npm init; npm install —save-dev final handler serve-static
 
 - Make a file - server.js - in the project root folder.  

@@ -28,18 +28,19 @@ Performing `npm cache clean` or using `sudo` prompt is usually recommended. Howe
 
 - If node and npm are already installed on OSX, you need to remove them. 
 
-	> cd /usr/local
-	> sudo rm -r bin/node bin/npm include/node /lib/node_modules
+> cd /usr/local; sudo rm -r bin/node bin/npm include/node /lib/node_modules
 
 #### proper node installation 
 
 - Xcode is prerequisite. Download Xcode from Appstore, and install. At least once, launch Xcode to give it the permission.
 
 - Copy, paste, and run the following command on a terminal to install [homebrew](http://brew.sh/). 
-	> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 - Install node using the following command on a terminal 
-	> brew install node --without-npm
+
+> brew install node --without-npm
 
 - Make the .bash_profile file on your account root folder and add the following content to the file.
 The */usr/local/Cellar/node/0.12.7/bin* indicates to location where *node* is. The path is depending on the version. Therefore, you need to check the path carefully and change the following content.
@@ -49,12 +50,14 @@ export PATH="/usr/local/Cellar/node/0.12.7/bin:$PATH"
 {% endhighlight %}
 
 - Run the .bash_profile script to register the node path to the OSX system.
-	>. .bash_profile 
+
+>. .bash_profile 
 
 - Install npm. If the path to the node is not proper, npm installation is failed.
-	> curl -L https://www.npmjs.com/install.sh | sh
 
-#### 테스트
+> curl -L https://www.npmjs.com/install.sh | sh
+
+#### Test
 
 - Run `npm` on the current terminal. If failed, run `brew uninstall node` to uninstall node and reinstall node.
 

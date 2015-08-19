@@ -29,9 +29,11 @@ npm ERR! tar.unpack untar error ...
 만약 이미 node를 설치했을 경우 다음과 같이 삭제한다. 
 
 - node와 npm을 시스템에서 제거한다. 이를 위해 *sudo*권한이 필요하다. 
+
 > cd /usr/local; sudo rm -r bin/node bin/npm include/node /lib/node_modules
 
 - 만약 이전에 brew를 통해 node를 설치했다면 다음 명령을 통해 node를 제거한다. 
+
 > brew uninstall node
 
 #### node 설치 
@@ -39,9 +41,11 @@ npm ERR! tar.unpack untar error ...
 - 설치 시 Xcode가 필요하다. 앱스토어에서 Xcode를 다운로드 받아 한 번 실행해서 시스템 권한을 갖도록 한다. 
 
 - [homebrew](http://brew.sh/)를 설치한다. 다음 내용을 터미털에서 실행한하여 brew를 설치한다. 
+
 > ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 - node를 설치한다. 이때 npm은 설치하지 않는다. 
+
 > brew install node --without-npm
 
 - 자신 계정 폴더에서 .bash_profile 파일을 생성하고 다음 내용을 추가한다.
@@ -52,9 +56,11 @@ export PATH="/usr/local/Cellar/node/0.12.7/bin:$PATH"
 {% endhighlight %}
 
 - 다음과 같이 실행하여 node파일의 경로를 system에 등록하여 어디서나 node 명령을 수행할 수 있도록 한다.
+
 >. .bash_profile 
 
 - npm을 설치한다. 설치 메시지에 큰 문제가 없다면 성공이다. 시스템에 node의 제대로 등록안된 경우 npm 설치가 안될 수 있다.  
+
 > curl -L https://www.npmjs.com/install.sh | sh
 
 #### 테스트
