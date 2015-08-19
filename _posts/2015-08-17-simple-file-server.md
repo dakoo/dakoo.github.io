@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Making simple file server
-description: Making simple file server
+title: Making a simple file server
+description: Making a simple file server
 modified: 2015-08-17
 tags: [javascript, backend, node]
 image:
