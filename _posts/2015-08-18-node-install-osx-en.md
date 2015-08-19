@@ -10,7 +10,7 @@ image:
 
 If the node is installed by the installer provided nodejs.org, a kind of file acceess problems might be happened. To avoid the issue, you need to install node and npm using nvm or brew instead of the node installer. Nvm is for Linux, whereas [brew](http://brew.sh/) is good for OSX.
 
-To use the nvm on Linux, [the articile I wrote] (http://dakoostech.blogspot.kr/2015/02/nodejs-yeoman-bower-grunt-permission.html) is useful. This article presents how to install node and npm using brew on OSX.
+To use the nvm on Linux, [the articile I wrote](http://dakoostech.blogspot.kr/2015/02/nodejs-yeoman-bower-grunt-permission.html) is useful. This article presents how to install node and npm using brew on OSX.
 
 ## Problem with the node installer
 
@@ -34,28 +34,29 @@ If node and npm are already installed on OSX, you need to remove them.
 
 #### proper node installation 
 
-1. Xcode is prerequisite. Download Xcode from Appstore, and install. At least once, launch Xcode to give it the permission.
+- Xcode is prerequisite. Download Xcode from Appstore, and install. At least once, launch Xcode to give it the permission.
 
-2. Copy, paste, and run the following command on a terminal to install [homebrew](http://brew.sh/). 
+- Copy, paste, and run the following command on a terminal to install [homebrew](http://brew.sh/). 
 > ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-3. Install node using the following command on a terminal 
+- Install node using the following command on a terminal 
 > brew install node --without-npm
 
-4. Make the .bash_profile file on your account root folder and add the following content to the file.
+- Make the .bash_profile file on your account root folder and add the following content to the file.
 The */usr/local/Cellar/node/0.12.7/bin* indicates to location where *node* is. The path is depending on the version. Therefore, you need to check the path carefully and change the following content.
+
 {% highlight bash %}
 export PATH="/usr/local/Cellar/node/0.12.7/bin:$PATH"
 {% endhighlight %}
 
-5. Run the .bash_profile script to register the node path to the OSX system.
+- Run the .bash_profile script to register the node path to the OSX system.
 >. .bash_profile 
 
-6. Install npm. If the path to the node is not proper, npm installation is failed.
+- Install npm. If the path to the node is not proper, npm installation is failed.
 > curl -L https://www.npmjs.com/install.sh | sh
 
 #### 테스트
 
-1. Run `npm` on the current terminal. If failed, run `brew uninstall node` to uninstall node and reinstall node.
+- Run `npm` on the current terminal. If failed, run `brew uninstall node` to uninstall node and reinstall node.
 
-2. After terminating the terminal, relaunch a terminal and run npm. If failed, the content of .bash_profile should be checked carefully. 
+- After terminating the terminal, relaunch a terminal and run npm. If failed, the content of .bash_profile should be checked carefully. 

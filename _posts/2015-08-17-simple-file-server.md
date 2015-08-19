@@ -12,18 +12,16 @@ I am reading the book, **Pro Angular.js** and practicing the samples on the book
 
 ### serve-static in expressjs
 
-1. Make a project folder 
+- Make a project folder 
 
-2. Run `npm init` to initialize the node project. 
+- Run `npm init` to initialize the node project. 
 
-3. Install finalhandler and serve-static npms. 
+- Install finalhandler and serve-static npms. 
+> npm init; npm install —save-dev final handler serve-static
 
-> npm init
-> npm install —save-dev final handler serve-static
+- Make a file - server.js - in the project root folder.  
 
-4. Make a file - server.js - in the project root folder.  
-
-5. Add the following contents to the server.js file. The file path with the serveStatic function should be changed for your file path.
+- Add the following contents to the server.js file. The file path with the serveStatic function should be changed for your file path.
 {% highlight javascript %}
 var http = require('http');
 
@@ -40,8 +38,8 @@ var server = http.createServer(function(req, res) {
 server.listen(3000);
 {% endhighlight %}
  
-6. Let's run the file server. 
+- Let's run the file server. 
 
 > node server.js 
 
-7. Test with `localhost:3000/filename` on a Web browser. 
+- Test with `localhost:3000/filename` on a Web browser. 

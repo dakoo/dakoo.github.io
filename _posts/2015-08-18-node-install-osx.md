@@ -27,37 +27,38 @@ npm ERR! tar.unpack untar error ...
 #### node 제거 
 
 만약 이미 node를 설치했을 경우 다음과 같이 삭제한다. 
-1. node와 npm을 시스템에서 제거한다. 이를 위해 *sudo*권한이 필요하다. 
-> cd /usr/local
-> sudo rm -r bin/node bin/npm include/node /lib/node_modules
 
-2. 만약 이전에 brew를 통해 node를 설치했다면 다음 명령을 통해 node를 제거한다. 
+- node와 npm을 시스템에서 제거한다. 이를 위해 *sudo*권한이 필요하다. 
+> cd /usr/local; sudo rm -r bin/node bin/npm include/node /lib/node_modules
+
+- 만약 이전에 brew를 통해 node를 설치했다면 다음 명령을 통해 node를 제거한다. 
 > brew uninstall node
 
 #### node 설치 
 
-1. 설치 시 Xcode가 필요하다. 앱스토어에서 Xcode를 다운로드 받아 한 번 실행해서 시스템 권한을 갖도록 한다. 
+- 설치 시 Xcode가 필요하다. 앱스토어에서 Xcode를 다운로드 받아 한 번 실행해서 시스템 권한을 갖도록 한다. 
 
-2. [homebrew](http://brew.sh/)를 설치한다. 다음 내용을 터미털에서 실행한하여 brew를 설치한다. 
+- [homebrew](http://brew.sh/)를 설치한다. 다음 내용을 터미털에서 실행한하여 brew를 설치한다. 
 > ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-3. node를 설치한다. 이때 npm은 설치하지 않는다. 
+- node를 설치한다. 이때 npm은 설치하지 않는다. 
 > brew install node --without-npm
 
-4. 자신 계정 폴더에서 .bash_profile 파일을 생성하고 다음 내용을 추가한다.
+- 자신 계정 폴더에서 .bash_profile 파일을 생성하고 다음 내용을 추가한다.
 아래의 경로는 *node* 실행 파일이 존재하고 있는 */usr/local/Cellar/node/0.12.7/bin* 폴더를 가리키는 것이며, node 버전에 따라 수정되어야 한다.
+
 {% highlight bash %}
 export PATH="/usr/local/Cellar/node/0.12.7/bin:$PATH"
 {% endhighlight %}
 
-5. 다음과 같이 실행하여 node파일의 경로를 system에 등록하여 어디서나 node 명령을 수행할 수 있도록 한다.
+- 다음과 같이 실행하여 node파일의 경로를 system에 등록하여 어디서나 node 명령을 수행할 수 있도록 한다.
 >. .bash_profile 
 
-6. npm을 설치한다. 설치 메시지에 큰 문제가 없다면 성공이다. 시스템에 node의 제대로 등록안된 경우 npm 설치가 안될 수 있다.  
+- npm을 설치한다. 설치 메시지에 큰 문제가 없다면 성공이다. 시스템에 node의 제대로 등록안된 경우 npm 설치가 안될 수 있다.  
 > curl -L https://www.npmjs.com/install.sh | sh
 
 #### 테스트
 
-1. 현재 터미널에서 npm을 실행해 보자. 실행이 실패한다면 `brew uninstall node`로 node를 삭제하고 다시 설치 순서를 진행해 보자. 설치 중 메시지를 꼼꼼히 살펴서 어디서 문제인지 파악한다. 
+- 현재 터미널에서 npm을 실행해 보자. 실행이 실패한다면 `brew uninstall node`로 node를 삭제하고 다시 설치 순서를 진행해 보자. 설치 중 메시지를 꼼꼼히 살펴서 어디서 문제인지 파악한다. 
 
-2. 터미널을 종료한 후 다시 실행해서 터미널에서 npm을 실행해 보자. 만약 npm을 찾을 수 없다면 설정의 문제가 있는 것이니 .bash_profile의 내용을 다시 한번 꼼꼼히 확인해 보자. 
+- 터미널을 종료한 후 다시 실행해서 터미널에서 npm을 실행해 보자. 만약 npm을 찾을 수 없다면 설정의 문제가 있는 것이니 .bash_profile의 내용을 다시 한번 꼼꼼히 확인해 보자. 
