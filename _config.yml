@@ -1,6 +1,6 @@
 title:            do do dakoo
 description:      just everything I learn
-disqus_shortname: dakoo
+disqus_shortname: dakoogithubio
 reading_time:     true
 words_per_minute: 50
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
@@ -33,7 +33,8 @@ google_analytics: UA-60163348-2
 google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
-
+comments: true
+share: true
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    KST/Seoul
 future:      true
