@@ -6,9 +6,10 @@ modified: 2015-08-19
 tags: [tool]
 image:
   feature: abstract-5.png
+link: http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 ---
 
-WebStorm이나 Sublime Text와 같은 훌륭한 Javascript 프로그래밍을 위한 툴들이 있지만, vim 또한 여전히 매우 훌륭한 에디터이다. Javascript 개발자을 위한 최적의 설정을 알아보자. 
+WebStorm이나 Sublime Text와 같은 훌륭한 Javascript 프로그래밍을 위한 툴들이 있지만, vim 또한 여전히 매우 훌륭한 에디터이다. Javascript 개발자을 위한 최적의 설정을 알아보자. 이 내용은 [Oliver Caldwell's blog](http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/)의 글을 참조하여 실제 설치해보면서 부딪힌 내용을 정리한 것이다. 
 
 ## .vimrc 만들기
 
@@ -20,31 +21,9 @@ vim 설정은 자신 계정 root 폴더의 .vimrc 파일이 담당한다. 최초
 
 {% highlight bash %}
 set t_Co=256 "256 color 지원
-set hlsearch " 검색어 하이라이팅
 set nu " 줄번호
 set autoindent " 자동 들여쓰기
-set scrolloff=2
-set wildmode=longest,list
-set ts=4 "tag select
-set sts=4 "st select
-set sw=1 " 스크롤바 너비
-set autowrite " 다른 파일로 넘어갈 때 자동 저장
-set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
-set cindent " C언어 자동 들여쓰기
-set bs=eol,start,indent
-set history=256
-"set paste " 붙여넣기 계단현상 없애기
-set shiftwidth=4 " 자동 들여쓰기 너비 설정
-set showmatch " 일치하는 괄호 하이라이팅
-set smartcase " 검색시 대소문자 구별
-set smarttab
-set smartindent
-set softtabstop=4
-set tabstop=4
-set ruler " 현재 커서 위치 표시
-set incsearch
 {% endhighlight %}
-
 
 ## colorscheme 설정하기 
 
@@ -191,29 +170,8 @@ let g:syntastic_check_on_open=1
 
 {% highlight bash %}
 set t_Co=256 "256 color 지원
-set hlsearch " 검색어 하이라이팅
 set nu " 줄번호
 set autoindent " 자동 들여쓰기
-set scrolloff=2
-set wildmode=longest,list
-set ts=4 "tag select
-set sts=4 "st select
-set sw=1 " 스크롤바 너비
-set autowrite " 다른 파일로 넘어갈 때 자동 저장
-set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
-set cindent " C언어 자동 들여쓰기
-set bs=eol,start,indent
-set history=256
-"set paste " 붙여넣기 계단현상 없애기
-set shiftwidth=4 " 자동 들여쓰기 너비 설정
-set showmatch " 일치하는 괄호 하이라이팅
-set smartcase " 검색시 대소문자 구별
-set smarttab
-set smartindent
-set softtabstop=4
-set tabstop=4
-set ruler " 현재 커서 위치 표시
-set incsearch
 
 syntax on
 colorscheme mango
