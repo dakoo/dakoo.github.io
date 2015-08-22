@@ -14,6 +14,38 @@ WebStorm이나 Sublime Text와 같은 훌륭한 Javascript 프로그래밍을 �
 
 vim 설정은 자신 계정 root 폴더의 .vimrc 파일이 담당한다. 최초엔 없으므로 터미털에서 `touch .vimrc`명령으로 만들어야 한다.
 
+## 기본 설정하기 
+
+.vimrc에 다음 내용을 추가한다.  
+
+{% highlight bash %}
+set t_Co=256 "256 color 지원
+set hlsearch " 검색어 하이라이팅
+set nu " 줄번호
+set autoindent " 자동 들여쓰기
+set scrolloff=2
+set wildmode=longest,list
+set ts=4 "tag select
+set sts=4 "st select
+set sw=1 " 스크롤바 너비
+set autowrite " 다른 파일로 넘어갈 때 자동 저장
+set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
+set cindent " C언어 자동 들여쓰기
+set bs=eol,start,indent
+set history=256
+"set paste " 붙여넣기 계단현상 없애기
+set shiftwidth=4 " 자동 들여쓰기 너비 설정
+set showmatch " 일치하는 괄호 하이라이팅
+set smartcase " 검색시 대소문자 구별
+set smarttab
+set smartindent
+set softtabstop=4
+set tabstop=4
+set ruler " 현재 커서 위치 표시
+set incsearch
+{% endhighlight %}
+
+
 ## colorscheme 설정하기 
 
 highlighting을 색 설정을 담당하는 것이 vim colorscheme이다. 'vim colorscheme' 키워드로 구글 검색을 하면 다양한 colorscheme을 찾을 수 있다. javascript용 colorscheme중 하나인 [mango.vim](http://www.vim.org/scripts/script.php?script_id=3779)을 기준으로 설명한다. 
@@ -25,9 +57,11 @@ highlighting을 색 설정을 담당하는 것이 vim colorscheme이다. 'vim co
 ### 설치 및 설정 
 
 자신 계정 root 폴더에 아래 명령으로 *.vim 폴더*와 *.vim/colors* 폴더를 만든다. 
+
 > $ mkdir -p ~/.vim/colors
 
 다운로드 폴더의 mango.vim을 *.vim/colors*폴더로 옮긴다. 
+
 > $ mv 다운로드폴더/mango.vim ~/.vim/colors
 
 *.virmrc* 파일에 colorscheme을 다음과 같이 설정한다. 참고로 *"*은 *.vimrc*의 comment이다.
@@ -82,7 +116,7 @@ Plugin 'jelera/vim-javascript-syntax'
 
 #### Javascript Indenting
 
-pangloss/vim-javascript와 특히 callback에 적합한 nathanaelkane/vim-indent-guides가 indenting에 적합하다.
+[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)와 특히 callback에 적합한 [nathanaelkane/vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides)가 indenting에 적합하다.
 
 {% highlight bash %}
 Plugin 'pangloss/vim-javascript'
@@ -91,7 +125,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 
 #### Typing을 편리하게
 
-Raimondi/delimitMate는 자동으로 괄호나 "를 닫게 해줘서 편하게 코딩을 할 수 있게 한다. 
+[Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)는 자동으로 괄호나 "를 닫게 해줘서 편하게 코딩을 할 수 있게 한다. 
 
 {% highlight bash %}
 Plugin 'Raimondi/delimitMate'
@@ -105,7 +139,7 @@ imap <C-c> <CR><Esc>O
 
 #### 코드 자동 완성 
 
-Valloric/YouCompleteMe을 이용해 코드 자동 완성기능을 사용할 수 있다. 
+[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)을 이용해 코드 자동 완성기능을 사용할 수 있다. 
 
 ##### YouCompleteMe 설치 및 설정
 
@@ -121,7 +155,7 @@ let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 {% endhighlight %}
 
-또한, marijnh/tern_fo도 설치하면 더욱 좋다. 
+또한, [marijnh/tern_for_vim](https://github.com/marijnh/tern_for_vim)도 설치하면 더욱 좋다. 
 
 {% highlight bash %}
 Plugin 'marijnh/tern_for_vim'
@@ -135,7 +169,7 @@ vim version이 7.3.584보다 낮을 경우엔 YouCompleteMe를 지원하지 않�
 
 #### Javascript Linting
 
-Javascript Linting 결과를 보여주는 Plugin은 scrooloose/syntastic이다. 
+Javascript Linting 결과를 보여주는 Plugin은 [scrooloose/syntastic](https://github.com/scrooloose/syntastic)이다. 
 
 {% highlight bash %}
 Plugin 'scrooloose/syntastic'
@@ -156,6 +190,31 @@ let g:syntastic_check_on_open=1
 최종 .vimrc는 다음과 같다. 위와 같이 설정한 후 터미널에서 `vim +PluginInstall +qall`를 실행하면 Vundle 창이 떠서 Plugin이 하나씩 설치되는 것을 볼 수 있다. 
 
 {% highlight bash %}
+set t_Co=256 "256 color 지원
+set hlsearch " 검색어 하이라이팅
+set nu " 줄번호
+set autoindent " 자동 들여쓰기
+set scrolloff=2
+set wildmode=longest,list
+set ts=4 "tag select
+set sts=4 "st select
+set sw=1 " 스크롤바 너비
+set autowrite " 다른 파일로 넘어갈 때 자동 저장
+set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
+set cindent " C언어 자동 들여쓰기
+set bs=eol,start,indent
+set history=256
+"set paste " 붙여넣기 계단현상 없애기
+set shiftwidth=4 " 자동 들여쓰기 너비 설정
+set showmatch " 일치하는 괄호 하이라이팅
+set smartcase " 검색시 대소문자 구별
+set smarttab
+set smartindent
+set softtabstop=4
+set tabstop=4
+set ruler " 현재 커서 위치 표시
+set incsearch
+
 syntax on
 colorscheme mango
 
