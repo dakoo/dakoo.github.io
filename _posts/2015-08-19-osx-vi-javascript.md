@@ -20,9 +20,13 @@ vim 설정은 자신 계정 root 폴더의 .vimrc 파일이 담당한다. 최초
 .vimrc에 다음 내용을 추가한다.  
 
 {% highlight bash %}
-set t_Co=256 "256 color 지원
-set nu " 줄번호
-set autoindent " 자동 들여쓰기
+set t_Co=256
+set nu
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set paste!
+set showmatch
 {% endhighlight %}
 
 ## colorscheme 설정하기 
@@ -169,9 +173,13 @@ let g:syntastic_check_on_open=1
 최종 .vimrc는 다음과 같다. 위와 같이 설정한 후 터미널에서 `vim +PluginInstall +qall`를 실행하면 Vundle 창이 떠서 Plugin이 하나씩 설치되는 것을 볼 수 있다. 
 
 {% highlight bash %}
-set t_Co=256 "256 color 지원
-set nu " 줄번호
-set autoindent " 자동 들여쓰기
+set t_Co=256
+set nu
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set paste!
+set showmatch
 
 syntax on
 colorscheme mango
