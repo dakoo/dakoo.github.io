@@ -43,7 +43,6 @@ VisualStudio의 C 또는 C++ project에서 디버깅 옵션으로 파일 입력�
 
 {% highlight c %}
 #include <stdio.h>
-#include <ifstream>
 
 #define MAX_SIZE 100
 int A[MAX_SIZE];
