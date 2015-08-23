@@ -6,7 +6,6 @@ modified: 2015-08-19
 tags: [tool]
 image:
   feature: abstract-5.png
-link: http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 ---
 
 WebStorm이나 Sublime Text와 같은 훌륭한 Javascript 프로그래밍을 위한 툴들이 있지만, vim 또한 여전히 매우 훌륭한 에디터이다. Javascript 개발자을 위한 최적의 설정을 알아보자. 이 내용은 [Oliver Caldwell's blog](http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/)의 글을 참조하여 실제 설치해보면서 부딪힌 내용을 정리한 것이다. 
