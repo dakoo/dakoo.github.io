@@ -166,6 +166,7 @@ let g:syntastic_check_on_open=1
 
 이제 scrooloose/syntastic의 사용을 위해 Linting을 수행할 jslint을 터미널에서 설치한다.  
 물론 nodejs가 미리 설치가 되어 있어야 할 것이다. 
+
 > $ npm install -g jshint
 
 ### 최종 .vimrc와 설치 
