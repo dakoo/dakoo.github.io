@@ -46,8 +46,8 @@ i에서 출발하여 정점 k를 경유하여 j로 가는 경로의  거리와 D
 D[i][j] 초기화 //선분 (i, j)의 가중치. 선분이 없으면 무한대, 자기자신(i=j)이면 0으로 초기화 
 function(D[i][j]){
 	for k in 1->n { //k는 1부터 범위를 확장해 나가는 것 
-		for k in 1->n { //단, i!= k 
-			for k in 1->n { //단, j!= i, j!=k 
+		for i in 1->n { //단, i!= k 
+			for j in 1->n { //단, j!= i, j!=k 
 				D[i][j]=min(D[i][k] + D[j][k], D[i][j])
 			}
 		}

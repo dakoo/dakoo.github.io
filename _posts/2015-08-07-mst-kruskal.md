@@ -6,7 +6,6 @@ modified: 2015-08-07
 tags: [algorithm]
 image:
   feature: abstract-19.png
-link: http://blog.naver.com/ryutuna/100123829840
 ---
 
 Minimum Spanning Tree(한국어로 최소 신장 트리) 알고리즘은 쉽게 말해 가장 비용을 적게 사용해서 네트웍을 구성하기 위한 그래프 알고리즘이다. 

@@ -6,7 +6,6 @@ modified: 2015-08-06
 tags: [algorithm]
 image:
   feature: abstract-10.png
-link: http://blog.naver.com/wpdls6012/220247604017
 ---
 
 전체적인 동작 원리는 [네이버 글](http://blog.naver.com/wpdls6012/220247604017)을 참조한다. 
