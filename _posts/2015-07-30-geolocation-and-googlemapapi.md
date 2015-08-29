@@ -6,7 +6,6 @@ modified: 2015-08-01
 tags: [webapp, javascript]
 image:
   feature: abstract-10.png
-link: https://developers.google.com/maps/documentation/javascript/examples/
 ---
 
 ## 위치와 지도 API의 사용  

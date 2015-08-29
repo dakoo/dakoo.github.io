@@ -4,7 +4,6 @@ title: 간단 hapi plugin 예제
 description:  간단 hapi plugin 예제
 modified: 2015-07-08
 tags: [hapi]
-categories: hapi
 image:
   feature: abstract-21.png
 ---

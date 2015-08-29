@@ -6,7 +6,6 @@ modified: 2015-07-30
 tags: [webapp, javascript]
 image:
   feature: abstract-18.png
-link: http://chongmoa.com/3018
 ---
 
 ## 출처 

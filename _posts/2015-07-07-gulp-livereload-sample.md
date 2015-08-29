@@ -4,7 +4,6 @@ title: 편리한 front-end 개발을 위한 gulp-livereload 예제
 description: 편리한 front-end 개발을 위한 gulp-livereload 예제
 modified: 2015-07-07
 tags: [hapi]
-categories: hapi
 image:
   feature: abstract-6.png
 ---
@@ -13,7 +12,7 @@ gulp-livereload는 클라이언트(Front-end)이 파일을 변경했을때, 개�
 
 ## 사전 준비
 
-예제를 위해 [초 간단 hapi 서버](http://dakoo.github.io/hapi.js/very-simple-hapi-server-sample/) 개발 환경이 설정되어 있어야 한다. 
+예제를 위해 [초 간단 hapi 서버](http://hochulshin.com/very-simple-hapi-server-sample/) 개발 환경이 설정되어 있어야 한다. 
 
 ## gulp와 필요한 모듈 설치
 

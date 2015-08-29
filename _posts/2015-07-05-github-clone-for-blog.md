@@ -4,7 +4,6 @@ title: Github 블로그 repository를 clone해서 글쓰기
 description: 블로그 repository가 설치되어 있지 않은 PC에서 블로그를 작성하는 방법
 modified: 2015-07-05
 tags: [blog]
-categories: blog
 image:
   feature: abstract-4.png
   credit: dargadgetz
@@ -16,7 +15,7 @@ image:
 
 ## 준비
 
-[이전 글](http://dakoo.github.io/blog/how-to-use-jekyll-on-github-2/)을 참조하여 [SourceTree 프로그램](https://www.sourcetreeapp.com/)과 [markdownpad](http://markdownpad.com/download.html)를 설치하고, 블로그를 위한 임의의 빈 폴더를 만든다.  
+[이전 글](http://hochulshin.com/how-to-use-jekyll-on-github-2/)을 참조하여 [SourceTree 프로그램](https://www.sourcetreeapp.com/)과 [markdownpad](http://markdownpad.com/download.html)를 설치하고, 블로그를 위한 임의의 빈 폴더를 만든다.  
 
 ## clone하기
 

@@ -4,7 +4,6 @@ title: hapi.js를 이용한 초 간단 서버 만들기 예제
 description: hapi.js를 이용한 초 간단 서버 만들기 예제, scaffolding 포함 
 modified: 2015-07-06
 tags: [hapi]
-categories: hapi
 image:
   feature: abstract-11.png
 ---
@@ -13,7 +12,7 @@ hapi.js는 node.js framework 중 가장 hot한 framework이라 할만한다. 더
 
 ## 사전 준비
 
-[node.js 개발 환경](http://dakoo.github.io/node.js/how-to-set-up-node.js-dev-env-on-windows/)이 설치되어 있어야 한다. 
+[node.js 개발 환경](http://hochulshin.com/node.js/how-to-set-up-node.js-dev-env-on-windows/)이 설치되어 있어야 한다. 
 
 ## 프로젝트 폴더 구조(Scaffolding) 구성하기 
 

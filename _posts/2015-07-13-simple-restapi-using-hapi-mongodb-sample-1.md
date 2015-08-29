@@ -12,7 +12,7 @@ Hapi와 mongoDB를 이용하여 간단한 REST API 서버를 구현하는 방법
 
 ## 준비 
 
-[이전 블로그 글](http://dakoo.github.io/hapi/windows-mongodb/)을 참조하여 Windows에 MongoDB를 설치하고 백그라운드 서비스로 동작시킨다. 
+[이전 블로그 글](http://hochulshin.com/windows-mongodb/)을 참조하여 Windows에 MongoDB를 설치하고 백그라운드 서비스로 동작시킨다. 
 
 ## REST API 설계
 
@@ -79,4 +79,4 @@ users
 WriteResult({"nRemoved":1})
 {% endhighlight %} 
 
-이제 [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)](http://dakoo.github.io/simple-restapi-using-hapi-mongodb-sample-2)를 통해 API를 구현하는 예를 살펴보자. 
+이제 [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)](http://hochulshin.com/simple-restapi-using-hapi-mongodb-sample-2)를 통해 API를 구현하는 예를 살펴보자. 

@@ -6,7 +6,6 @@ modified: 2015-07-21
 tags: [javascript]
 image:
   feature: abstract-21.png
-link: https://developer.mozilla.org/ko/docs/WebAPI/Using_geolocation
 ---
 
 ## geolocation Web API

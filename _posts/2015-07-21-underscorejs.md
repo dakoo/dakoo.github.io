@@ -6,7 +6,6 @@ modified: 2015-07-21
 tags: [javascript]
 image:
   feature: abstract-22.png
-link: http://seoh.github.io/blog/2012/10/09/getting-cozy-with-underscore-js/
 ---
 
 ## underscore.js 

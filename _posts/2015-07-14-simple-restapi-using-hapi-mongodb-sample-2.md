@@ -8,11 +8,11 @@ image:
   feature: abstract-16.png
 ---
 
-[Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(1)](http://dakoo.github.io/simple-restapi-using-hapi-mongodb-sample-1/) 글의 다음 순서를 진행해보자. 
+[Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(1)](http://hochulshin.com/simple-restapi-using-hapi-mongodb-sample-1/) 글의 다음 순서를 진행해보자. 
 
 ## 준비 
 
-hapi.js를 이용한 multi-port 지원 서버 예제 [블로그 글](http://dakoo.github.io/hapi/simple-multi-port-hapi-server-sample/)과 [프로젝트](https://github.com/dakoo/simple-multi-port-hapi-server-sample)를 시작 포인트로 삼아 진행하자. 프로젝트를 fork하여 새로운 프로젝트를 만들거나, clone을 한다. clone URL은 아래와 같다.
+hapi.js를 이용한 multi-port 지원 서버 예제 [블로그 글](http://hochulshin.com/simple-multi-port-hapi-server-sample/)과 [프로젝트](https://github.com/dakoo/simple-multi-port-hapi-server-sample)를 시작 포인트로 삼아 진행하자. 프로젝트를 fork하여 새로운 프로젝트를 만들거나, clone을 한다. clone URL은 아래와 같다.
 
 >https://github.com/dakoo/simple-multi-port-hapi-server-sample.git
 
@@ -34,7 +34,7 @@ Windows에서 hapi-mongodb 설치 중 아래 메시지와 함께 에러가 발�
 
 ### db 설정 파일 
 
-Server 폴더에 dbconfig.json 파일을 만들고 아래 내용을 추가한다. user-db는 [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(1)](http://dakoo.github.io/simple-restapi-using-hapi-mongodb-sample-1/)에서 만들어 둔 collection이다. 이 파일의 설정은 [mongodb 사이트](https://www.npmjs.com/package/hapi-mongodb)를 참조하면 더욱 다양하게 할 수 있다.   
+Server 폴더에 dbconfig.json 파일을 만들고 아래 내용을 추가한다. user-db는 [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(1)](http://hochulshin.com/simple-restapi-using-hapi-mongodb-sample-1/)에서 만들어 둔 collection이다. 이 파일의 설정은 [mongodb 사이트](https://www.npmjs.com/package/hapi-mongodb)를 참조하면 더욱 다양하게 할 수 있다.   
 
 {% highlight json %}
 {
@@ -205,7 +205,7 @@ exports.get = {
 
 ## API와 handler의 Routing
 
-route.js에서 기존 api handler를 삭제하고 user.js에 만든 handler를 API와 연결시킨다. [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(1)](http://dakoo.github.io/simple-restapi-using-hapi-mongodb-sample-1/)에 정의된 API를 참고하여 작성한다. 또한, page.js의 handler와 API도 연결한다. 
+route.js에서 기존 api handler를 삭제하고 user.js에 만든 handler를 API와 연결시킨다. [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(1)](http://hochulshin.com/simple-restapi-using-hapi-mongodb-sample-1/)에 정의된 API를 참고하여 작성한다. 또한, page.js의 handler와 API도 연결한다. 
 
 {% highlight javascript %}
 var page = require('./page');

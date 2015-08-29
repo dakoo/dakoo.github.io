@@ -4,7 +4,6 @@ title: Windows에 mongodb 설치하기
 description: Windows에 mongodb 설치하기
 modified: 2015-07-09
 tags: [hapi]
-categories: hapi
 image:
   feature: abstract-16.png
 ---

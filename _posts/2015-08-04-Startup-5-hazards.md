@@ -6,7 +6,6 @@ modified: 2015-08-04
 tags: [startup, english]
 image:
   feature: abstract-16.png
-link: http://www.gsb.stanford.edu/insights/yossi-feinberg-avoid-these-five-common-startup-traps
 ---
 
 ## [Original](http://www.gsb.stanford.edu/insights/yossi-feinberg-avoid-these-five-common-startup-traps)

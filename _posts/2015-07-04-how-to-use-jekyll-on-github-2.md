@@ -9,7 +9,7 @@ image:
 ---
 Github에 블로그를 만들어 보자. 이를 위해 Windows에 jekyll 환경을 구축해 jekyll 테마를 적용하고, Github에 올려 블로그를 운영하는 방법을 정리해 본다. 이 글은 두번째 순서로 Github에 저장소를 만들고, 자신 PC에서 작업한 내용을 반영하는 방법을 설명한다. 
 
-[첫번째 글: Windows에서 Jekyll 이용해 Github 블로그 만들기(1)](http://dakoo.github.io/blog/how-to-use-jekyll-on-github-1/)
+[첫번째 글: Windows에서 Jekyll 이용해 Github 블로그 만들기(1)](http://hochulshin.com/how-to-use-jekyll-on-github-1/)
 
 ## Github 블로그 저장소(Repository) 만들기
 
@@ -118,6 +118,12 @@ github의 repository 내용을 확인해서 업데이트가 잘 되었는지 확
 
 >http://자기아이디.github.io
 
-## 추가
-항상 git 클라이언트를 통해서만 블로그 내용을 업데이트 하는 것이 불편할 수 있다. 이때는 [prose](http://prose.io)에 접속해서 웹 기반으로 블로그 내용을 업데이트 해보자.
+### domain을 등록하여 github와 연결하기 
+
+[domain을 등록하여 github와 연결](http://blog.saltfactory.net/github/setting-domain-name-in-github-pages-via-cname.html)하면 위의 url이 아니라 자신이 등록한 url로 접속할 수 있다. 
+
+> http://hochulshin.com
+
+
+
 

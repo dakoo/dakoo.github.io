@@ -12,7 +12,7 @@ image:
 
 ## 준비 
 
-[Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(2)](http://dakoo.github.io/simple-restapi-using-hapi-mongodb-sample-2/) 와 [프로젝트](https://github.com/dakoo/simple-restapi-using-hapi-mongodb-sample)를 시작 포인트로 삼아 진행하자. 프로젝트를 fork하여 새로운 프로젝트를 만들거나, clone을 한다. clone URL은 아래와 같다.
+[Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(2)](http://hochulshin.com/simple-restapi-using-hapi-mongodb-sample-2/) 와 [프로젝트](https://github.com/dakoo/simple-restapi-using-hapi-mongodb-sample)를 시작 포인트로 삼아 진행하자. 프로젝트를 fork하여 새로운 프로젝트를 만들거나, clone을 한다. clone URL은 아래와 같다.
 
 >https://github.com/dakoo/simple-restapi-using-hapi-mongodb-sample.git
 
