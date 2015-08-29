@@ -1,7 +1,6 @@
 ---
-layout: post-index
-title: 
-description: ""
+layout: post-index 
+description: "Explore the unknown area"
 image:
   feature: front.png
 ---
@@ -11,7 +10,7 @@ image:
   <header>
     {% if post.image.feature %}
       <div class="entry-image-index">
-        <a href="{{ site.url }}{{ post.url }}" title="Explore the unknown area"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
+        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
       </div><!-- /.entry-image -->
     {% endif %}
     <div class="entry-meta">
