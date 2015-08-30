@@ -9,6 +9,8 @@ image:
   feature: abstract-18.png
 ---
 
+순열, 중복 순열, 조합, 중복 조합에 대한 이해를 해보자. 
+
 <section id="table-of-contents" class="toc">
   <header>
     <h3>Overview</h3>

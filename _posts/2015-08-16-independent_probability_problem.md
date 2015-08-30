@@ -9,6 +9,8 @@ image:
   feature: abstract-17.png
 ---
 
+예제를 통해 독립 시행 확률을 계산하는 방법을 알아보자.
+
 <section id="table-of-contents" class="toc">
   <header>
     <h3>Overview</h3>

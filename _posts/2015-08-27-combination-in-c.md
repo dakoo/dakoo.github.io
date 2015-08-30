@@ -9,6 +9,8 @@ image:
   feature: abstract-10.png
 ---
 
+알고스팟의 문제 중 [CLOCKSYNC](https://algospot.com/judge/problem/read/CLOCKSYNC) 라는 것이 있다. 이 문제의 해결 방법은 조합도 있지만, Greedy로 문제를 푸는 방식도 있는데 조합의 경우를 살펴보자. 
+
 <section id="table-of-contents" class="toc">
   <header>
     <h3>Overview</h3>
@@ -20,8 +22,6 @@ image:
 </section><!-- /#table-of-contents -->
 
 ### 간단한 조합 문제
-
-알고스팟의 문제 중 [CLOCKSYNC](https://algospot.com/judge/problem/read/CLOCKSYNC) 라는 것이 있다. 이 문제의 해결 방법은 조합도 있지만, Greedy로 문제를 푸는 방식도 있는데 조합의 경우를 살펴보자. 
 
 그림과 같이 4 x 4 개의 격자 형태로 배치된 16개의 시계가 있다. 이 시계들은 모두 12시, 3시, 6시, 혹은 9시를 가리키고 있다. 이 시계들이 모두 12시를 가리키도록 바꾸고 싶다.
 

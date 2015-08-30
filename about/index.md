@@ -8,6 +8,11 @@ image:
   feature: abstract-12.png
 ---
 
+<figure>
+    <img src="/images/IITBombay.png"></a>
+    <figcaption> Teaching @ IIT Bombay, 2013 </figcaption>
+</figure>
+
 <section id="table-of-contents" class="toc">
   <header>
     <h3>Overview</h3>
@@ -17,12 +22,6 @@ image:
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
-
-<figure>
-    <img src="/images/IITBombay.png"></a>
-    <figcaption> Teaching @ IIT Bombay, 2013 </figcaption>
-</figure>
-
 
 Experienced software architect and technical lead, specialized in distributed systems and software engineering practices.
 
