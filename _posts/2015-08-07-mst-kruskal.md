@@ -4,6 +4,7 @@ title: Minimum Spanning Tree - Kruskal 알고리즘에 대한 이해
 description: Minimum Spanning Tree - Kruskal 알고리즘에 대한 이해 
 modified: 2015-08-07
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-19.png
 ---

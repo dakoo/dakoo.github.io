@@ -4,9 +4,20 @@ title: LCS(Longest Common Subsequence)알고리즘
 description: LCS(Longest Common Subsequence)알고리즘
 modified: 2015-08-15
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-17.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ### 문제
 

@@ -4,9 +4,20 @@ title: 독립 시행 확률 문제
 description: 독립 시행 확률 문제
 modified: 2015-08-16
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-17.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ### 문제
 

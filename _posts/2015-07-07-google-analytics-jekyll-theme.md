@@ -4,9 +4,20 @@ title: Jekyll theme을 위한 Google Analytics 사용법
 description: Jekyll theme을 위한 Google Analytics 사용법
 modified: 2015-07-07
 tags: [blog]
+comments: true
 image:
   feature: abstract-14.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 [google analytics](http://www.google.com/intl/ko_ALL/analytics/features/index.html)는 mobile app이나 web 사이트의 방문자의 사이트 활동, 사이트 유입경로, 고객의 재방문을 유도하는 방법에 대한 분석 정보를 제공하는 강력한 도구이다. 이를 사용하여 서비스를 더욱 사용자가 원하는 방향으로 이끌수 있다. 
 

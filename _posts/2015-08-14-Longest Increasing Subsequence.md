@@ -4,6 +4,7 @@ title: LIS(Longest Increasing Subsequence)알고리즘
 description: LIS(Longest Increasing Subsequence)알고리즘
 modified: 2015-08-14
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-13.png
 ---

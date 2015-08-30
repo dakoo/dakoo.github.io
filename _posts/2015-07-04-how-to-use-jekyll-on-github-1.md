@@ -4,10 +4,22 @@ title: Windows에서 Jekyll 이용해 Github 블로그 만들기(1)
 description: Windows에서 Jekyll 이용해 Github 블로그 만들기 첫번째 
 modified: 2015-07-04
 tags: [blog]
+comments: true
 image:
   feature: abstract-11.png
 ---
+
 Github에 블로그를 만들어 보자. 이를 위해 Windows에 jekyll 환경을 구축해 jekyll 테마를 적용하고, Github에 올려 블로그를 운영하는 방법을 정리해 본다. 그 첫번째 순서로 이 글은 Windows에 jekyll 환경을 구축해서 jekyll 테마를 적용하는 것을 설명한다. 
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 
 ## 준비

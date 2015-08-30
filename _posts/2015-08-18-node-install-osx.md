@@ -4,6 +4,7 @@ title: Mac(OSX)에서의 제대로 된 node 설치
 description: Mac(OSX)에서의 제대로 된 node 설치
 modified: 2015-08-18
 tags: [javascript, backend, node]
+comments: true
 image:
   feature: abstract-20.png
 ---
@@ -11,6 +12,16 @@ image:
 node를 nodejs.org 사이트에서 다운로드하여 설치하는 경우 향후 파일 시스템 접근 시 권한 문제가 발생할 수 있다. 이 런 문제를 해결하기 위해서는 nodejs.org에서 제공하는 설치 파일을 이용해 node를 설치하는 것 대신 nvm을 이용해 설치하고, OSX의 경우는 nvm 또는 [brew](http://brew.sh/)를 이용해 설치를 해야 한다.
 
 Linux에서 nvm을 이용해 설치하는 법은 [이 전에 작성한 글](http://dakoostech.blogspot.kr/2015/02/nodejs-yeoman-bower-grunt-permission.html)을 참고하고, 이 글에서는 OSX에서 brew를 이용해 설치하는 방법을 알아보자.
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## 설치 파일을 이용해 설치할때의 문제
 

@@ -3,6 +3,7 @@ layout: post
 title: Windows에서 node.js 개발을 위한 WebStorm 환경 설정 하기
 description: Windows에서 node.js 개발을 위한 WebStorm 환경 설정 하기
 modified: 2015-07-06
+comments: true
 tags: [node]
 image:
   feature: abstract-17.png
@@ -10,6 +11,16 @@ image:
 
 최고의 Web IDE인 WebStorm은 node.js와 front-end 개발 모두에 적합하다. Windows에 WebStorm을 이용한 node.js 개발 환경을 설치해보자. 
 개발 환경 설치 후에는 프로젝트 폴더를 만들어 실제 프로젝트를 시작할 수 있다.  
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## WebStorm 설치
 

@@ -4,6 +4,7 @@ title: Github 블로그 repository를 clone해서 글쓰기
 description: 블로그 repository가 설치되어 있지 않은 PC에서 블로그를 작성하는 방법
 modified: 2015-07-05
 tags: [blog]
+comments: true
 image:
   feature: abstract-4.png
   credit: dargadgetz
@@ -12,6 +13,15 @@ image:
 블로그 repository가 설치되어 있지 않은 PC에서 블로그를 작성하는 방법을 알아보자. 
 여러가지 방법이 있겠지만, 이번에는 github의 remote repository를 clone해서 글을 작성하고 commit하는 방법을 살펴보기로 한다. 
 
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## 준비
 

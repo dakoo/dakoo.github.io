@@ -4,11 +4,23 @@ title: hapi.js를 이용한 초 간단 서버 만들기 예제
 description: hapi.js를 이용한 초 간단 서버 만들기 예제, scaffolding 포함 
 modified: 2015-07-06
 tags: [hapi]
+comments: true
 image:
   feature: abstract-11.png
 ---
 
 hapi.js는 node.js framework 중 가장 hot한 framework이라 할만한다. 더욱 널리 쓰이는 express.js framework이 여러가지 이유로 불안하기에 더욱 hapi.js를 주목해야 할 것이다. hapi.js에 대해서 앞으로 계속 다루게 될 것인데 그 가장 기초가 되는 초 간단 서버와 폴더 구조를 구성해 보자.  
+
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## 사전 준비
 

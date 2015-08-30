@@ -4,6 +4,7 @@ title: Priority Queue의 동작에 대한 이해
 description: Priority Queue의 동작에 대한 이해 
 modified: 2015-08-06
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-10.png
 ---

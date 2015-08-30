@@ -4,12 +4,23 @@ title: Javascript에서의 모듈 export/import
 description: Javascript에서의 모듈 export/import 
 modified: 2015-08-22
 tags: [javascript]
+comments: true
 image:
   feature: abstract-7.png
 ---
 
 Javascript 모듈 export와 import는 쉬워 보이면서도 꽤나 까다롭다. 대부분의 예제는 function을 export/import하는 것에 촛점을 맞추고 있어 Object의 경우, 특히 Constructor를 export/import하는 것에 대한 예제가 부족하다.
 이에 대한 설명이 [StackOverflow](http://stackoverflow.com/questions/20534702/node-js-use-of-module-exports-as-a-constructor)에 있어 핵심만 따서 설명한다.
+ 
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
  
 ### Module export/import
 

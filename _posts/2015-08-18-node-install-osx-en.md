@@ -4,6 +4,7 @@ title: Node installation in right way on Mac(OSX)
 description: Node installation in right way on Mac(OSX)
 modified: 2015-08-18
 tags: [javascript, backend, node, english]
+comments: true
 image:
   feature: abstract-21.png
 ---
@@ -11,6 +12,17 @@ image:
 If the node is installed by the installer provided nodejs.org, a kind of file acceess problems might be happened. To avoid the issue, you need to install node and npm using nvm or brew instead of the node installer. Nvm is for Linux, whereas [brew](http://brew.sh/) is good for OSX.
 
 To use the nvm on Linux, [the articile I wrote](http://dakoostech.blogspot.kr/2015/02/nodejs-yeoman-bower-grunt-permission.html) is useful. This article presents how to install node and npm using brew on OSX.
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 
 ## Problem with the node installer
 

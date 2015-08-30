@@ -4,6 +4,7 @@ title: Dijkstra's algorithm에 대한 이해
 description: Dijkstra's algorithm에 대한 이해
 modified: 2015-08-06
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-17.png
 ---
@@ -12,6 +13,17 @@ image:
 개인적으로는 그래프의 최단 경로 알고리즘를 하나만 알고있어야 한다면, Vertex들간의 최단 거리를 모두 계산해주는 Floyd-Warshall 알고리즘을 추천한다. 알고리즘도 더 쉽고 결과도 더 강력하다.
 
 [알고리즘의 Pseudo 코드와 동작에 대해 설명을 한 글](http://trowind.tistory.com/80)과 [자세하고 친절한 알고리즘 해석을 한 글](http://adnoctum.tistory.com/165)을 참고하자. 
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 
 ### 기본 자료 구조
 

@@ -4,6 +4,7 @@ title: Business Plan checklist
 description: Business Plan checklist
 modified: 2015-08-05
 tags: [startup, english]
+comments: true
 image:
   feature: abstract-11.png
 ---

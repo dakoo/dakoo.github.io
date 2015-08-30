@@ -4,6 +4,7 @@ title: Javascript scope에 대해 알고자 했던 모든 것
 description: Javascript scope에 대해 알고자 했던 모든 것
 modified: 2015-08-24
 tags: [javascript]
+comments: true
 image:
   feature: abstract-8.png
 ---

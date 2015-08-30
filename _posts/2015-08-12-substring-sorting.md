@@ -4,9 +4,20 @@ title: 부분 문자열의 사전순 정렬
 description: 부분 문자열의 사전순 정렬
 modified: 2015-08-12
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-16.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ### 문제
 

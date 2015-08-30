@@ -4,11 +4,23 @@ title: Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (1)
 description: Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (1)
 modified: 2015-07-13
 tags: [hapi]
+comments: true
 image:
   feature: abstract-5.png
 ---
 
 Hapi와 mongoDB를 이용하여 간단한 REST API 서버를 구현하는 방법을 알아보자. 가장 기본이라 할 수 있는 데이터의 CRUD(Create, Retrieve, Update, Delete)를 위한 API를 어떻게 구현하는지 이해한다면 더 복잡한 operation의 구현도 가능할 것이다. 
+
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## 준비 
 

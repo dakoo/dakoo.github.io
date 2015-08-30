@@ -4,11 +4,22 @@ title: 편리한 front-end 개발을 위한 gulp-livereload 예제
 description: 편리한 front-end 개발을 위한 gulp-livereload 예제
 modified: 2015-07-07
 tags: [hapi]
+comments: true
 image:
   feature: abstract-6.png
 ---
 
 gulp-livereload는 클라이언트(Front-end)이 파일을 변경했을때, 개발자가 브라우저를 클릭하거나 F5 키를 이용해 refresh하지 않고도 자동으로 refresh하는 기능을 제공한다. 빠른 개발을 위해 반드시 사용해 보자. 
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## 사전 준비
 

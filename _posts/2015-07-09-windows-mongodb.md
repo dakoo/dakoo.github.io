@@ -4,11 +4,22 @@ title: Windows에 mongodb 설치하기
 description: Windows에 mongodb 설치하기
 modified: 2015-07-09
 tags: [hapi]
+comments: true
 image:
   feature: abstract-16.png
 ---
 
 Windows에서 MongoDB 설치하고 구동하는 방법을 알아보자. 
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## 준비
 

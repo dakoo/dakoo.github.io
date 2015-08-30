@@ -4,6 +4,7 @@ title: 실수를 반올림하여 정수로 변환하기
 description: 실수를 반올림하여 정수로 변환하기 
 modified: 2015-08-07
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-17.png
 ---

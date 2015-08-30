@@ -4,9 +4,21 @@ title: 확률에 대한 간단 정리
 description: 확률에 대한 간단 정리 
 modified: 2015-08-14
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-19.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 
 ### 확률의 덧셈 정리
 

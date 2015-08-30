@@ -4,6 +4,7 @@ title: String pattern search algorithm - Boyer-Moore
 description: String pattern search algorithm - Boyer-Moore
 modified: 2015-08-11
 tags: [algorithm, english]
+comments: true
 image:
   feature: abstract-8.png
 ---

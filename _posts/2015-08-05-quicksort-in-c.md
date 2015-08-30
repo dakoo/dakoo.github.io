@@ -4,9 +4,20 @@ title: quick sort algorithm in C
 description: quick sort algorithm in C
 modified: 2015-08-05
 tags: [algorithm, english]
+comments: true
 image:
   feature: abstract-15.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ### The performance of quicksort
 

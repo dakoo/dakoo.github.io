@@ -4,9 +4,20 @@ title: Geolocation API와 Google map API
 description: Geolocation API와 Google map API 예제들
 modified: 2015-08-01
 tags: [webapp, javascript]
+comments: true
 image:
   feature: abstract-10.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ## 위치와 지도 API의 사용  
 

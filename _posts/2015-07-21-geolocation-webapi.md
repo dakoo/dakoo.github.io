@@ -4,6 +4,7 @@ title: geolocation Web API 자료
 description: geolocation Web API 자료
 modified: 2015-07-21
 tags: [javascript]
+comments: true
 image:
   feature: abstract-21.png
 ---

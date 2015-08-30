@@ -4,9 +4,20 @@ title: 조합 문제의 간단한 구현 방법
 description: 조합 문제의 간단한 구현 방법
 modified: 2015-08-27
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-10.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ### 간단한 조합 문제
 

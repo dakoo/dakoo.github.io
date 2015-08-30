@@ -4,9 +4,20 @@ title: 순열과 조합
 description: 순열과 조합 
 modified: 2015-08-15
 tags: [algorithm]
+comments: true
 image:
   feature: abstract-18.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
 
 ### 순열, 중복 순열, 조합, 중복 조합의 비교 
 
