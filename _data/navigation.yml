@@ -1,7 +1,8 @@
-# Menu navigation links
+# Site navigation links
 
-- title: Github
-  url: https://github.com/dakoo
-  
-- title: Old blog
-  url: http://dakoostech.blogspot.kr/
+- title: About
+  url: /about/
+
+- title: Posts
+  url: /posts/
+

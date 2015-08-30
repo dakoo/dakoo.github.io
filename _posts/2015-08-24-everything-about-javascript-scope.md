@@ -10,6 +10,18 @@ image:
 
 이 글은 javascript 전문가인 Todd Motto의 [Everything you wanted to know about Javascript Scope](http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/)라는 글을 Tood Motto의 동의를 받아 번역한 것이다. 사실 제대로 번역을 했다기 보다는 나의 관점에서 이해하기 용이한 수준으로 정리한 것이라 고백한다. 영문을 국문으로 번역하기 까다롭거나, 이해에 문제가 없는 부분은 건너 뛰거나 간략히 설명하였다. 그러므로, 내용에 대해 정확한 이해를 원한다면 Todd Motto의 원문을 참조하는 것을 권한다. 
 
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+## 글의 목적
+
 Javascript는 **scope**이라는 낯선 개념을 가지고 있는데, 이것은 초보 Javascript 개발자 만이 아니라 경험이 많은 개발자도 이해하기 쉽지 않다. 이 글은 scope, closure, this, namespace, function scope, global scope, lexical scope, public/private scope 등과 같은 Javascript의 어려운 부분에 대한 이해를 높이는 것을 목적으로 한다. 
 
 이 글을 통해 다음의 질문들에 대한 답을 얻기를 바란다. 

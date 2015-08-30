@@ -1,70 +1,61 @@
+# Site wide configuration
+
 title:            Explore and make mistakes
-description:      
-disqus_shortname: dakoogithubio
-reading_time:     true
-words_per_minute: 50
-# Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
-# When testing locally leave blank or use http://localhost:4000
-url: http://dakoo.github.io     
+locale:           en_US
+url: 
 
-# Owner/author information
-owner:
-  name:           Hochul Shin
-  avatar:         avatar.jpg
-  bio:            "Software engineer"
-  email:          
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:        
-  facebook:       
-  github:        dakoo
-  stackexchange:  
-  linkedin:      hochulshin0       
-  instagram:      
-  flickr:         
-  tumblr:         
-  # google plus id, include the '+', eg +mmistakes
-  google_plus:    
 
-# Background image to be tiled on all pages
-background: 
+# Jekyll configuration
 
-# Analytics and webmaster tools stuff goes here
-google_analytics: UA-60163348-2  
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
-comments: true
-share: true
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    KST/Seoul
-future:      true
-highlighter: pygments
+permalink:   /:categories/:title/
 markdown:    kramdown
-gems:
-  - jekyll-sitemap
+highlighter: pygments
 sass:
   sass_dir: _sass
   style: compressed
-
-# https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title/
-
-# Amount of post to show on home page
-paginate: 4
+gems:
+  - jekyll-sitemap
 
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: true
+  use_coderay: false
 
-  coderay:
-    coderay_line_numbers: nil
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
+
+# Site owner
+owner:
+  name: Hochul Shin
+  avatar: avatar.jpg
+  bio: "Software engineer specialized in distibuted systems and multimedia"
+  email:
+  disqus-shortname: dakoogithubio
+  twitter: #username
+  facebook: #username
+  google:
+    plus: #username
+    analytics: UA-60163348-2  
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: dakoo
+  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: hochulshin0
+  xing: #username
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  codepen: #username
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]

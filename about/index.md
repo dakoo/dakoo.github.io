@@ -1,11 +1,28 @@
 ---
 layout: page
 title: HOCHUL SHIN
-description: My personal history
+excerpt: "My personal history"
 modified: 2015-07-05
+comments: true
 image:
-  feature: home.png
+  feature: abstract-12.png
 ---
+
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+<figure>
+    <img src="/images/IITBombay.png"></a>
+    <figcaption> Teaching @ IIT Bombay, 2013 </figcaption>
+</figure>
+
 
 Experienced software architect and technical lead, specialized in distributed systems and software engineering practices.
 
