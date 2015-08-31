@@ -24,7 +24,7 @@ image:
 </section><!-- /#table-of-contents -->
 
 
-Experienced software architect and technical lead at Samsung R&D center, specialized in distributed systems and software engineering practices.
+Experienced software architect and technical lead at Samsung R&D center, specialized in distributed systems, multimedia and software engineering practices.
 
 # Knowledge and skills #
 
