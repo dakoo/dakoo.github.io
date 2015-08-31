@@ -23,7 +23,8 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-Experienced software architect and technical lead, specialized in distributed systems and software engineering practices.
+
+Experienced software architect and technical lead at Samsung R&D center, specialized in distributed systems, multimedia and software engineering practices.
 
 # Knowledge and skills #
 
@@ -52,10 +53,11 @@ Published a book and two papers in advanced technical areas such as multimedia, 
 - IEEE Professional Software Engineering Certification, 2015
 - Samsung Certified Software Architect, 2012
 - IEEE Certified Software Development Professional (CSDP), 2009
-- Samsung Software Engineer Competition, Silver medal, 2009 
+- Samsung Software competency competition - Second place, 2009 
 
 # Contacts
 
-- [linkedin](https://kr.linkedin.com/in/hochulshin0) for further information
-- [blog](http://dakoo.github.io) for technical articles
+- [linkedin](https://kr.linkedin.com/in/hochulshin0) for further professional information
 - [github](https://github.com/dakoo) for open source projects
+- [facebook](https://www.facebook.com/hochul.shin0) for social connections
+- [blog](http://hochulshin.com) for technical articles 
