@@ -29,7 +29,7 @@ Experienced software architect and technical lead at Samsung R&D center, special
 
 # Knowledge and skills #
 
-- Technical area: **Scalable & reliable distributed systems (Web, REST, DLNA, UPnP, SSDP, mDNS, OSGi), multimedia, UI/UX, embedded systems
+- Technical area: Scalable & reliable distributed systems (Web, REST, DLNA, UPnP, SSDP, mDNS, OSGi), multimedia, UI/UX, embedded systems
 
 - Programming & design Skills:  Java, C++, C, STL, Javascript, Boost, UML, Angular.js, Node.js, Hapi.js, MongoDB, SQLite 
 
