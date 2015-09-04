@@ -1,7 +1,6 @@
 ---
 layout: post
-title: Linux(Ubuntu, Amazon Linux)에서의 제대로 된 node 설치
-excerpt: Linux(Ubuntu, Amazon Linux)에서의 제대로 된 node 설치
+title: Linux(Ubuntu, Amazon Linux)에 제대로 nodejs 설치하기
 modified: 2015-09-04
 tags: [nodejs]
 comments: true
@@ -20,7 +19,7 @@ image:
 </section><!-- /#table-of-contents -->
 
 
-node를 nodejs.org 사이트에서 다운로드하여 설치하는 경우 향후 파일 시스템 접근 시 권한 문제가 발생할 수 있다. 예를 들어 Yeoman, Bower, Grunt등을 설치할 때 permission 문제가 발생하여 곤란을 겪을 수 있다. 
+nodejs 설치 파일을 이용해 Linux에 설치하는 경우 향후 파일 시스템 접근 시 권한 문제가 발생할 수 있다. 예를 들어 Yeoman, Bower, Grunt등을 설치할 때 permission 문제가 발생하여 곤란을 겪을 수 있다. 
 
 여러 가지 방법을 찾아보고 실행해 본 결과, 가장 좋은 방법은 node.js를 설치 시에 'sudo' permission이 아니라 일반 계정의 permission으로 설치를 하는 것이다. 그 방법은 아래의 순서와 같다. 
 
