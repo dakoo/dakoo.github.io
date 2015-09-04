@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Node installation in right way on Mac(OSX)
-description: Node installation in right way on Mac(OSX)
+title: The best way to install Nodejs on Mac(OSX)
+description: The best way to install Nodejs on Mac(OSX)
 modified: 2015-08-18
 tags: [javascript, backend, node, english]
 comments: true
