@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Linux(Ubuntu, Amazon Linux)에서의 제대로 된 node 설치
