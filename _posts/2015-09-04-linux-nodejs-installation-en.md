@@ -8,6 +8,9 @@ image:
   feature: abstract-11.png
 ---
 
+If you install the nodejs on Linux(Amazon Linux, Ubuntu) using the nodejs installer, permission problems could happen when you use Yeoman, Bower, Grunt and so on.
+After I tried the nodejs installation in several ways, eventually I knew the best way is to avoid using 'sudo' permission while installing the nodejs.
+
 <section id="table-of-contents" class="toc">
   <header>
     <h3>Overview</h3>
@@ -18,8 +21,6 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-If you install the nodejs on Linux(Amazon Linux, Ubuntu) using the nodejs installer, permission problems could happen when you use Yeoman, Bower, Grunt and so on.
-After I tried the nodejs installation in several ways, eventually I knew the best way is to avoid using 'sudo' permission while installing the nodejs.
 
 # Cleanup the old nodejs
 
