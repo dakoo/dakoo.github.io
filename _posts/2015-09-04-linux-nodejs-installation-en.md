@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Nodejs installation on Linux(Ubuntu, Amazon Linux) in proper
+title:  The best way to install Nodejs on Linux(Amazon Linux, Ubuntu)
 modified: 2015-09-04
 tags: [nodejs, en]
 comments: true
