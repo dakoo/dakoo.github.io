@@ -8,20 +8,18 @@ image:
   feature: abstract-10.png
 ---
 
+nodejs 설치 파일을 이용해 Linux에 설치하는 경우 향후 파일 시스템 접근 시 권한 문제가 발생할 수 있다. 예를 들어 Yeoman, Bower, Grunt등을 설치할 때 permission 문제가 발생하여 곤란을 겪을 수 있다. 여러 가지 방법을 찾아보고 실행해 본 결과, 가장 좋은 방법은 node.js를 설치 시에 'sudo' permission이 아니라 일반 계정의 permission으로 설치를 하는 것이다. 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>개요</h3>
-  </header>
+  <header>Overview</header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
-</section><!-- /#table-of-contents -->
+</section>
+<!-- /#table-of-contents -->
 
 
-nodejs 설치 파일을 이용해 Linux에 설치하는 경우 향후 파일 시스템 접근 시 권한 문제가 발생할 수 있다. 예를 들어 Yeoman, Bower, Grunt등을 설치할 때 permission 문제가 발생하여 곤란을 겪을 수 있다. 
-
-여러 가지 방법을 찾아보고 실행해 본 결과, 가장 좋은 방법은 node.js를 설치 시에 'sudo' permission이 아니라 일반 계정의 permission으로 설치를 하는 것이다. 그 방법은 아래의 순서와 같다. 
 
 # 기존 nodejs 제거 
 시스템에 이미 nodejs가 설치되어 있는 경우 이를 제거 한다. 
