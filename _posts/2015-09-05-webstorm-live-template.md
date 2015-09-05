@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WebStorm live template 기능을 이용해 빠르게 코딩하기
+title: 빠르고 편리한 코딩을 위한 WebStorm live template 기능
 modified: 2015-09-05
 tags: [tool]
 comments: true
@@ -35,10 +35,14 @@ for (var i = 0; i < array.length; i++) {
 
 이와 같이 template을 이용하면 매우 빠르게 코딩을 할 수 있음을 알 수 있다. 
 
-# live template의 등록 예제
+
+# live template 등록
+
+샘플을 이용하여 live template을 등록하는 방법을 알아보자. 
 
 ## 샘플 요구사항 
 
+위에서 설명한 *itar*과 동일하게 동작하는 *ffor* template을 등록해 본다. 
 *ffor*를 타이핑한 후 탭 키를 누르면 다음과 같은 코드가 완성되고, 탭 키를 눌러 이동하면서 편집하는 포인트는 변수 *i*인데, 첫 *i*의 이름을 변경하면 나머지 3개의 *i*위치에도 변수명이 동시에 변경되어야 한다. 그리고 다시 탭 키를 누르면 0이 변경될 수 있다. 탭을 다시 누르면, *array*도 변화 시킬 수 있는데 이때 *array[i]*의 *array*도 함께 변경되어야 한다. 마지막으로 탭 키를 누르면 *obj*위치의 변수명을 변경 할 수 있다. 
 
 {% highlight javascript %}
@@ -65,7 +69,6 @@ for (var i = 0; i < array.length; i++) {
 {% highlight javascript %}
 for (var $i$ = $0$; $i$ < $array$.length; $i$++) {
     var $obj$ = $array$[$i$];
-    
 }
 {% endhighlight %}
 
