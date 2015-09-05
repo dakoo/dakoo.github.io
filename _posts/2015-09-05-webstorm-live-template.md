@@ -31,10 +31,7 @@ for (var i = 0; i < array.length; i++) {
 }
 {% endhighlight %}
 
-이때 커서가 변수 *i*로 이동해 있는데 타이핑을 하면 변수 이름이 바뀌는 것을 알 수 있으며, 탭 키를 다시 누르면 커서가 *array*로 이동해서 즉시 수정을 할 수 있음을 알 수 있다. 
-
-이와 같이 template을 이용하면 매우 빠르게 코딩을 할 수 있음을 알 수 있다. 
-
+이때 커서가 변수 *i*로 이동해 있는데 타이핑을 하면 변수 이름이 바뀌는 것을 알 수 있으며, 탭 키를 다시 누르면 커서가 *array*로 이동해서 즉시 수정을 할 수 있음을 알 수 있다. 이런 template을 이용하면 매우 빠르게 코딩을 할 수 있다. 
 
 # live template 등록
 
@@ -48,7 +45,6 @@ for (var i = 0; i < array.length; i++) {
 {% highlight javascript %}
 for (var i = 0; i < array.length; i++) {
     var obj = array[i];
-    
 }
 {% endhighlight %}
 
