@@ -56,7 +56,11 @@ for (var i = 0; i < array.length; i++) {
 
 3. Live templates group 중 원하는 group을 선택한 후 **+**를 누르고 *Live Template*을 선택한다. 
 
-4. **Abbreviation**에는 ffor, **description**에는 'for 문 자동완성', **Template Text**에는 다음과 같이 추가한다. 
+4. Live template 입력하기 
+
+- **Abbreviation**에는 'ffor'
+- **description**에는 'for 문 자동완성'
+- **Template Text**에는 다음과 같이 추가한다. 
 
 {% highlight javascript %}
 for (var $i$ = $0$; $i$ < $array$.length; $i$++) {
@@ -65,10 +69,9 @@ for (var $i$ = $0$; $i$ < $array$.length; $i$++) {
 }
 {% endhighlight %}
 
-**Edit varables**를 선택하면 *Edit Template Variables*창이 뜨는데 Name 열은 채워져 있고, 나머지는 비어져 있다. Default Value는 맨처음에 드러날 값인데, 주의할 점은 반드시 " "로 둘러싸서 문자열로 입력해야 한다는 것이다. 예를 들어 Name i의 Default Value는 "i"로 한다. 
-
- 그리고, Option의 **Reformat according to style**을 선택한다. 
- 마지막으로 No application contexts. **Define**에서 *Define*을 눌러 원하는 javascript를 선택한다. 
+- **Edit varables**를 선택하면 *Edit Template Variables*창이 뜨는데 Name 열은 채워져 있고, 나머지는 비어져 있다. Default Value는 맨처음에 드러날 값인데, 주의할 점은 반드시 " "로 둘러싸서 문자열로 입력해야 한다는 것이다. 예를 들어 Name i의 Default Value는 "i"로 한다. 
+ - Option의 **Reformat according to style**을 선택한다. 
+ - 마지막으로 No application contexts. **Define**에서 *Define*을 눌러 원하는 javascript를 선택한다. 
 
 ## 테스트 
 
