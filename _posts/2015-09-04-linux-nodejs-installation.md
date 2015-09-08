@@ -47,17 +47,21 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
 {% endhighlight %}
 
-## 설정 추가 
-
-다음 shell에 nvm 설정을 추가한다. 
+이제 shell에 .nvm 설정을 추가한다. 
 
 > $ source ~/.bashrc
 
-## 테스트 
+## nvm 테스트 및 설정 
 
 다음 명령을 통해 nvm이 잘 설치되었는지 확인할 수 있다. 
 
 > $ nvm --version
+
+위 명령의 결과를 `~/.bashrc` 파일에 추가한다. (v0.10.32이 그 결과라고 가정한다.)
+
+{% highlight bash %}
+nvm use v0.10.32 
+{% endhighlight %}
 
 # nodejs 설치
 
