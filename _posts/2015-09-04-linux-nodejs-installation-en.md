@@ -49,13 +49,21 @@ You can use *wget* instead of *curl*.
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
 {% endhighlight %}
 
-## Shell configuration 
-
-Add nvm configuration to the *.bashrc* file. 
+Then, Add .nvm configuration to the *.bashrc* file. 
 
 > $ source ~/.bashrc
 
-## Test
+## nvm test and configuration 
+
+By the following command, you can get the version of nvm
+
+> $ nvm --version
+
+Attach the result of the above command to `~/.bashrc`. (i.e v0.10.32)
+
+{% highlight bash %}
+nvm use v0.10.32 
+{% endhighlight %}
 
 Check if the nvm is installed properly.
 
