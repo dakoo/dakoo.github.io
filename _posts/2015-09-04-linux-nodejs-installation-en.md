@@ -53,21 +53,6 @@ Then, Add .nvm configuration to the *.bashrc* file.
 
 > $ source ~/.bashrc
 
-## nvm test and configuration 
-
-By the following command, you can get the version of nvm
-
-> $ nvm --version
-
-Attach the result of the above command to `~/.bashrc`. (i.e v0.10.32)
-
-{% highlight bash %}
-nvm use v0.10.32 
-{% endhighlight %}
-
-Check if the nvm is installed properly.
-
-> $ nvm --version
 
 # Install the nodejs 
 
@@ -77,12 +62,18 @@ Install the stable version of the nodejs as follows.
 
 > $ nvm install stable
 
-## Test 
+## Get the version of the nodejs 
 
 Check if the nodejs is installed properly.
 
 > $ node -v 
 
+## Configuration 
+
+Attach the result of the `node -v` to `~/.bashrc`. (i.e v4.0.0)
+
+{% highlight bash %}
+nvm use v4.0.0 
+{% endhighlight %}
+
 Finally, you successfully installed the nodejs without *sudo* permission.
-
-
