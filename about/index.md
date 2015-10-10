@@ -14,24 +14,19 @@ Principal software engineer for Samsung consumer electronics products, specializ
 # Summary #
 
 - 14+ years of experience in software development in Samsung Electronics 
-
 - Currently, technical lead and Full-stack programmer for Samsung Telepresence-over-internet services and products
-
 - Led 10+ projects and participated in 20+ projects in scalable & reliable distributed systems, multimedia frameworks, and innovative technologies for technical research, proof of concept design and implementation, platform and service commercialization
 
 ### Specialties ###
 
 - Deep understanding about fundamental technologies(web, network, multimedia, and system architectures) of large scale distributed systems through developing and commercializing many software products, for instance the World-First DLNA/UPnP-compatible framework running on multiple operating systems. 
-
 - Considerable hands-on experience in software engineering. While leading globally distributed teams to deliver high quality software, I made many mistakes and learned a lot.
 
 
 ### Knowledge and Skills ###
 
 - Area: Web(HTML5, Javascript, REST API, Node.js, Webkit), Network(DLNA, UPnP, OSGi, MQTT, SOAP, RPC, HTTP, SSDP), Multimedia(Streaming Server/Client, RTP/RTSP, Metadata extraction), System(Linux Kernel, Arm, Real-time OS, Android) 
-
 - Programming:  C/C++, Javascript, Java, React.js, React.native, MongoDB, UML, SQL, AWS, Google Test Framework, Mocha, Valgrind, JUnit, Prevent, Klockworks
-
 - Project: Scrum, Kanban, GIT, SVN, Jira, RTC, Gerrit
 
 # Project Experience #
@@ -53,7 +48,6 @@ Principal software engineer for Samsung consumer electronics products, specializ
 ### AllShare Framework, Samsung Software Center, Feb 2011 ~ Dec 2012 ###
 
 - Developed a networked middleware to provide network-based multimedia sharing features for 3rd party developers.This framework mainly supports the Android and Tizen platform.
-
 - .....
 
 - Role: Technical lead and network programmer. 
@@ -61,7 +55,6 @@ Principal software engineer for Samsung consumer electronics products, specializ
 ### AllShare, Samsung TN R&D Center, Jun 2009 ~ Jan 2011 ###
 
 - Developed and commercialized a DLNA-specific application for Samsung Jet (GT-S8000), which is the world's first commercialized DLNA-certified phone, with a DMS and DMC running on the Nucleus OS. 
-
 - Developed DMPr, which is the world's first commercialized DLNA-certified DMPr for a color lazer-jet printer.
 
 - Role: Technical lead, architect, network programmer. 
@@ -88,7 +81,6 @@ Team members:Hochul Shin, Chul Seung Kim
 ### AnyGate, Samsung TN R&D Center, Jan 2000 ~ Mar 2003 ###
 
 - Implemented network device drivers on ATMOS and Linux embedded systems. 
-
 - Created utilities that enabled management of embedded systems, which in turn reduced cost of controlling and monitoring the systems.
 
 - Role:
@@ -96,11 +88,8 @@ Team members:Hochul Shin, Chul Seung Kim
 # Awards and Certifications
 
 - Certified Software Engineering Master, IEEE Computer Society, 2015
-
 - Certified Software Architect, Samsung Electronics, 2012
-
 - Certified Software Development Professional, IEEE Computer Society, 2009
-
 - Silver medal (8000 participants), Software competency competition, Samsung Electronics 2009 
 
 # Publications #
@@ -108,9 +97,7 @@ Team members:Hochul Shin, Chul Seung Kim
 Published a book and two papers in multimedia, distributed systems and UI/UX. 
 
 - Contelli: A User-Controllable Intelligent Keyboard for Watch-Sized Small Touchscreens, UIST 2014
-
 - Multimedia - A Multidisciplinary Approach to Complex Issues, Intech 2012 
-
 - Achieving Low Latency of Multimedia Content Browsing in UPnP AV Architectures, UBICOMP 2008
 
 # Education #
@@ -119,7 +106,6 @@ Published a book and two papers in multimedia, distributed systems and UI/UX.
   (Sponsored by Samsung and Korean Government. Dual degree)
   Master's degree, Computer Science
   2007
-
 - Myongji University
   Bachelor's degree, Electronics
   2000
