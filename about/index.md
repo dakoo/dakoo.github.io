@@ -13,43 +13,56 @@ image:
     <figcaption> Teaching @ IIT Bombay, 2013 </figcaption>
 </figure>
 
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
+
+Principal software engineer for Samsung consumer electronics products, specialized in reliable distributed systems and software engineering practices. 
 
 
-Experienced software architect and technical lead at Samsung R&D center, specialized in **distributed systems, multimedia and software engineering practices**.
+# Summary #
+
+- Currently, technical lead and Full-stack programmer for Samsung Telepresence-over-internet projects 
+
+- 14+ years of experience in software development in Samsung Electronics 
+
+- Led 10+ projects and participated in 20+ projects in scalable & reliable distributed systems, multimedia frameworks, and innovative technologies for technical research, proof of concept design and implementation, platform and service commercialization
+
+- Developed productive networks with open source communities and global vendors
+
+- MS degree in Computer Science
+
+### Specialties ###
+
+- Deep understanding about fundamental technologies(web, network, multimedia, and system architectures) of large scale distributed systems through developing and commercializing many software products, for instance the World-First DLNA/UPnP-compatible framework running on multiple operating systems. 
+
+- Considerable hands-on experience in software engineering. While leading globally distributed teams to deliver high quality software, I made many mistakes and learned a lot.
 
 
-# Knowledge and skills #
+### Knowledge and Skills ###
 
-- Technical area: Scalable & reliable distributed systems (Web, REST, DLNA, UPnP, SSDP, mDNS, OSGi), multimedia, UI/UX, embedded systems
+- Area: Web(HTML5, Javascript, REST API, Node.js, Webkit), Network(DLNA, UPnP, OSGi, MQTT, SOAP, RPC, HTTP, SSDP), Multimedia(Streaming Server/Client, RTP/RTSP, Metadata extraction), System(Linux Kernel, Arm, Real-time OS, Android) 
 
-- Programming & design Skills:  Java, C++, C, STL, Javascript, Boost, UML, Angular.js, Node.js, Hapi.js, MongoDB, SQLite 
+- Programming:  C/C++, Javascript, Java, React.js, React.native, MongoDB, UML, SQL, AWS, Google Test Framework, Mocha, Valgrind, JUnit, Prevent, Klockworks
 
-- SW project/product management: Kanban, Scrum, Mocha, JUnit, Google Test framework, Prevent, Klockworks, GIT, SVN, CVS, Jira, RTC, Gerrit
+- Project: Scrum, Kanban, GIT, SVN, Jira, RTC, Gerrit
 
+# Project Experience #
 
-# Experience
+- 14+ years of experience in web, network, multimedia, and system architectures at Samsung Electronics Research and Development Center
 
-15+ years of experience in software development, technical project management and strategic planning in Samsung R&D center. 
- 
-- Led 15+ projects and participated in 20+ projects in scalable & reliable distributed systems, multimedia platforms, and innovative technologies for technical research, proof of concept design and implementation, platform and service commercialization. 
+## Remote-Reality, Samsung R&D Center, 2014 ~ Current ##
 
-- Cross-function leadership with global teams. Led teams consisting of experienced researchers, software engineers, data analyst, and hardware engineers. 
+- Project: Developing the prototypes of telepresence-over-internet services and products such as service portal, drones, 360 cameras, mobile robots, and smart phones
 
-- Developed productive networks with open source communities and global vendors. 
+- Role: Designing scalable telepresence system architecture, implementing live streaming and VoD systems on AWS, and developing web front-end and Android clients  
 
+## Proactive Service Framework, Samsung Software Center, 2013 ##
 
-# Publications
+- Project: Developed a context-aware framework run on multiple distributed devices for sensor fusion and execute extensible context-aware algorithms
 
-Published a book and two papers in advanced technical areas such as multimedia, distributed systems and UI/UX. 
+- Role: Defined the requirements, designed the framework architecture, and developed the REST API 
+
+# Publications #
+
+Published a book and two papers in multimedia, distributed systems and UI/UX. 
 
 - [Contelli: A User-Controllable Intelligent Keyboard for Watch-Sized Small Touchscreens](http://www.acm.org/uist/uist2014/), UIST 2014
 
@@ -60,21 +73,11 @@ Published a book and two papers in advanced technical areas such as multimedia, 
 
 # Awards and Certifications
 
-- IEEE Professional Software Engineering Certification, 2015
+- Certified Software Engineering Master, IEEE Computer Society, 2015
 
-- Samsung Certified Software Architect, 2012
+- Certified Software Architect, Samsung Electronics, 2012
 
-- IEEE Certified Software Development Professional (CSDP), 2009
+- Certified Software Development Professional, IEEE Computer Society, 2009
 
-- Samsung Software competency competition - Second place, 2009 
+- Silver medal (8000 participants), Software competency competition, Samsung Electronics 2009 
 
-
-# Contacts
-
-- [linkedin](https://kr.linkedin.com/in/hochulshin0) for further professional information
-
-- [github](https://github.com/dakoo) for open source projects
-
-- [facebook](https://www.facebook.com/hochul.shin0) for social connections
-
-- [blog](http://hochulshin.com) for technical articles 
