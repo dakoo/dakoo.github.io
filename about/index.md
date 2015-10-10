@@ -19,14 +19,14 @@ Principal software engineer for Samsung consumer electronics products, specializ
 
 - Led 10+ projects and participated in 20+ projects in scalable & reliable distributed systems, multimedia frameworks, and innovative technologies for technical research, proof of concept design and implementation, platform and service commercialization
 
-#### Specialties ####
+### Specialties ###
 
 - Deep understanding about fundamental technologies(web, network, multimedia, and system architectures) of large scale distributed systems through developing and commercializing many software products, for instance the World-First DLNA/UPnP-compatible framework running on multiple operating systems. 
 
 - Considerable hands-on experience in software engineering. While leading globally distributed teams to deliver high quality software, I made many mistakes and learned a lot.
 
 
-#### Knowledge and Skills ####
+### Knowledge and Skills ###
 
 - Area: Web(HTML5, Javascript, REST API, Node.js, Webkit), Network(DLNA, UPnP, OSGi, MQTT, SOAP, RPC, HTTP, SSDP), Multimedia(Streaming Server/Client, RTP/RTSP, Metadata extraction), System(Linux Kernel, Arm, Real-time OS, Android) 
 
