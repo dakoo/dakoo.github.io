@@ -18,8 +18,7 @@ Systematic and Results-Driven Approach
 - Successfully headed 9 significant projects and contributed in over 12 projects in scalable and reliable distributed systems, multimedia frameworks, and innovative technologies for technical research, proof of concept design and implementation and platform and service commercialization. 
 - Envisage, develop and deliver elegant software solutions, customer-centric products, and dexterous development processes.  
 - Utilize IT skills in the development and execution of effective business models and strategies that yield constructive improvements and enhance customer satisfaction and loyalty. 
-
-### ###
+   
 
 # CORE COMPETENCIES #
 
@@ -31,7 +30,7 @@ Demonstrate a positive attitude, good work ethic, and dedication; committed to p
 - Hold strong interpersonal and verbal and written communication skills; enjoy working in a highly iterative, agile, and a team-oriented environment.
 - Work well under pressure and react to stressful situations in an effective, proactive, and innovative ways.
 
-### ###
+   
 
 # TECHNICAL SKILLS #
 
@@ -39,7 +38,7 @@ Demonstrate a positive attitude, good work ethic, and dedication; committed to p
 - Programming Languages:  C/C++, JavaScript, Java, React.js, React Native, MongoDB, UML, SQL, Valgrind, Prevent and Klockworks
 - Methodologies, Projects & Control Systems: Scrum, Kanban, GIT, SVN, Jira, RTC and Gerrit
 
-### ###
+   
 
 # PROFESSIONAL EXPERIENCE #
 
@@ -67,7 +66,7 @@ Mar 2000-Feb 2008
 - Formulated effective utilities to manage the embedded systems, this greatly enhanced effectiveness and significantly reduced costs of controlling and monitoring the systems.
 - Developed “proof of concept” features such as “IP over IEEE 1394” that supported IP packet delivery over IEEE1394 and “VoDSL” that enabled voice and packet delivery over a shared single phone line.
 
-### ###
+   
 
 # SIGNIFICANT PROJECTS UNDERTAKEN #
 
@@ -132,14 +131,14 @@ A commercialized home gateway
 - Worked as a Linux system programmer; tested and applied network device drivers on ATMOS and Linux embedded systems. 
 - Formulated effective utilities to manage the embedded systems, this greatly enhanced effectiveness and significantly reduced costs of controlling and monitoring the systems.
 
-### ###
+   
 
 # COMPETITION AND AWARD #
 
 Recipient of Silver Medal (achieved over 8000 participants) – 2009
 Software Competency Competition, Samsung Electronics
 
-### ###
+   
 
 # PROFESSIONAL CERTIFICATIONS #
 
@@ -147,7 +146,7 @@ Software Competency Competition, Samsung Electronics
 - Certified Software Architect, Samsung Electronics, 2012 
 - Certified Software Development Professional, IEEE Computer Society, 2009
 
-### ###
+   
 
 # PUBLICATIONS #
 
@@ -155,8 +154,8 @@ Software Competency Competition, Samsung Electronics
 - Multimedia - A Multidisciplinary Approach to Complex Issues, Intech 2012 
 - Achieving Low Latency of Multimedia Content Browsing in UPnP AV Architectures, UBICOMP 2008
 
-### ###
-
+   
+   
 # ACADEMIC QUALIFICATIONS #
 
 ### Master of Science – MS in Computer Science – 2007 ###
