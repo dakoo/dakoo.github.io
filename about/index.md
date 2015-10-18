@@ -8,111 +8,146 @@ image:
   feature: abstract-12.png
 ---
 
-Principal software engineer for Samsung consumer electronics products, specialized in reliable distributed systems and software engineering practices. 
-
+Accomplished and Diversely Qualified Software Development Engineer with 
+Systematic and Results-Driven Approach 
 
 # Summary #
 
-- 14+ years of experience in software development in Samsung Electronics 
-- Currently, technical lead and Full-stack programmer for Samsung Telepresence-over-internet services and products
-- Led 8+ projects and participated in 12+ projects in scalable & reliable distributed systems, multimedia frameworks, and innovative technologies for technical research, proof of concept design and implementation, platform and service commercialization
-- Master's degree in CS sponsored by Korean government and Samsung
+15 years of intense software development experience at Samsung Electronics, worked in various capacities, including technical lead and Full-stack programmer. Familiar with the full spectrum of project management skills backed by complete Software Development Life Cycle (SDLC) and IT service delivery expertise. In-depth knowledge of fundamental technologies of large-scale distributed systems, experience gained through developing and commercializing numerous software products. Successfully headed 9 significant projects and contributed in over 12 projects in scalable and reliable distributed systems, multimedia frameworks, and innovative technologies for technical research, proof of concept design and implementation and platform and service commercialization. Envisage, develop and deliver elegant software solutions, customer-centric products, and dexterous development processes.  Utilize IT skills in the development and execution of effective business models and strategies that yield constructive improvements and enhance customer satisfaction and loyalty. 
 
-### Specialties ###
+# CORE COMPETENCIES #
 
-- Deep understanding about fundamental technologies(web, network, multimedia, and system architectures) of large scale distributed systems through developing and commercializing many software products, for instance the World-First DLNA/UPnP-compatible framework running on multiple operating systems. 
-- Considerable hands-on experience in software engineering. While leading globally distributed teams to deliver high quality software, I made many mistakes and learned a lot.
-	
+- In-depth knowledge of fundamental technologies of large-scale distributed systems, experience gained through developing and commercializing numerous software products. 
+- Organized and detail-oriented, possess strong analytical, planning, and customer-interaction skills; ability to think out-of-the-box, multi-task and prioritize a broad range of responsibilities.
+- Highly inventive and client oriented, foster continuous process and performance improvements—possess demonstrated accuracy and attention to detail.
+Demonstrate a positive attitude, good work ethic, and dedication; committed to produce results quickly.
+- Work equally well independently to meet organizational goals, and collaboratively as part of a team.
+- Hold strong interpersonal and verbal and written communication skills; enjoy working in a highly iterative, agile, and a team-oriented environment.
+- Work well under pressure and react to stressful situations in an effective, proactive, and innovative ways.
 
-### Knowledge and Skills ###
+# TECHNICAL SKILLS #
 
-- Technical area: Web(HTML5, REST API, Node.js, Webkit), Network(DLNA, UPnP, OSGi, MQTT, SOAP, RPC, HTTP, SSDP), Multimedia(Streaming Server/Client, RTP/RTSP, Metadata extraction), System(Linux Kernel, Arm, Real-time OS, Android) 
-- Programming:  C/C++, Javascript, Java, React.js, React.native, MongoDB, UML, SQL, Valgrind, Prevent, Klockworks
-- Project: Scrum, Kanban, GIT, SVN, Jira, RTC, Gerrit
+- Web (HTML5, REST API, Node.js, WebKit), Network (DLNA, UPnP, OSGi, MQTT, SOAP, RPC, HTTP, SSDP), Multimedia (Streaming Server/Client, RTP/RTSP, Metadata extraction), System (Linux Kernel, Arm, Real-time OS, Android)
+- Programming Languages:  C/C++, JavaScript, Java, React.js, React Native, MongoDB, UML, SQL, Valgrind, Prevent and Klockworks
+- Methodologies, Projects & Control Systems: Scrum, Kanban, GIT, SVN, Jira, RTC and Gerrit
 
-# Projects #
+# PROFESSIONAL EXPERIENCE #
 
-- 14+ years of experience in web, network, multimedia, and system architectures at Samsung Electronics Research and Development Center
+### Principal Software Engineer, Samsung Electronics, Suwon-si, Korea ###
+
+Mar 2015-Present
+
+- Productively contributing and benefitting the company as a technical lead & a web front-end programmer.
+- Design scalable video and Telepresence system architecture, execute live streaming and VoD systems on AWS and conceptualize and develop a web front-end and android clients.
+
+### Senior Software Engineer, Samsung Electronics, Suwon-si, Korea ###
+
+Mar 2008-Feb 2015
+
+- Envisioned, designed and implemented innovative distributed systems for multimedia sharing for varied consumer products. 
+- Developed and commercialized the World first commercialized DLNA-certified software products run on real-time operating systems. 
+- Spearheaded the teams of professionals, expanded and enriched their technical capabilities while delivering worthy solutions to customers within budget and strict time-frames. 
+- Capably addressed complex issues and restructured applications to meet contingencies. 
+
+### Software Engineer, Samsung Electronics, Suwon-si, Korea ###
+
+Mar 2000-Feb 2008
+
+- Employed network device drivers for ATMOS and Linux embedded systems. 
+- Formulated effective utilities to manage the embedded systems, this greatly enhanced effectiveness and significantly reduced costs of controlling and monitoring the systems.
+- Developed “proof of concept” features such as “IP over IEEE 1394” that supported IP packet delivery over IEEE1394 and “VoDSL” that enabled voice and packet delivery over a shared single phone line.
+
+
+# SIGNIFICANT PROJECTS UNDERTAKEN #
 
 ### Remote-Reality, Samsung Electronics, 2014 ~ Current ###
 
-- Remote-Reality is a prototype of telepresence-over-internet services and products consisting of service portal, drones, 360 cameras, mobile robots, and smart phones
-- Role: Technical lead and Web front-end programmer. Designing scalable telepresence system architecture, implementing live streaming and VoD systems on AWS, and developing web front-end and Android clients  
+Developing the prototypes of Telepresence-over-internet services and products such as service portal, drones, 360 cameras, mobile robots, and smart phones
+
+- Working as a technical lead & web front-end programmer; design scalable Telepresence system architecture, implement live streaming and VoD systems on AWS and originate web front-end and android clients. 
 
 ### Proactive Service Framework, Samsung Electronics, Aug 2013 ~ Dec 2013 ###
 
-- Proactive Service Framework is a context-aware framework run on multiple distributed devices for sensor fusion and execute extensible context-aware algorithms
-- Role: Technical lead and API designer. Defined the requirements, designed the framework architecture, and developed the REST API including the implementation of automated code cleaning-up and test framework.
+Context-aware framework to run on multiple distributed devices for sensor fusion & execute extensible context-aware algorithms
+
+- Worked as a technical lead and API designer; defined requirements, designed framework architecture and developed the REST API besides implementing the automated code clean-up and testing the framework..
 
 ### AllShare Framework, Samsung Electronics, Feb 2011 ~ July 2013 ###
 
-- [AllShare Framework](http://developer.samsung.com/technical-doc/view.do?v=T000000038) is a commercialized networked middleware to provide network-based multimedia sharing features for 3rd party developers. This framework mainly supports the Android, Tizen, and Linux. 
+A commercialized networked middleware provides network-based multimedia sharing features for 3rd party developers, mainly supports the Android, Tizen, and Linux
 
-<figure>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmU4qf3xJez43CeRWEbwAXPCiTf-asr-exlmV3A_mPvhVM_N_ULYIYAl9x"></a>
-</figure>
+- Worked as a technical lead, network programmer and API designer; designed and implemented the core architecture of the AllShare Framework. 
+Formulated & implemented open-device Web API for Tizen, C++ API for Linux and Java API for Android. 
 
-- Role: Technical lead, network programmer, API designer. Designed and implemented the core architecture of the AllShare Framework. Defined and implemented open-device Web API for Tizen, C++ API for Linux, and Java API for Android.  
 
 ### AllShare Play, Samsung Electronics, Feb 2011 ~ Dec 2011 ###
 
-- [AllShare Play](http://www.samsung.com/us/2012-allshare-play/) is the next version of AllShare focused on Samsung Android smart phones and digital televisions. 
+The upcoming version of AllShare focused on Samsung Android smart phones and digital televisions
 
-<figure>
-    <img src="http://www.letsgomobile.org/images/reviews/0186/samsung-galaxy-s3-allshare-play.jpg"></a>
-</figure>
+- Worked as a network programmer; revamped the AllShare and employed effective strategies that greatly enhanced the performance and usability of the AllShare Play. 
 
-- Role: Network programmer. Redesigned the AllShare and applied many tactics to improve the performance and usability of the AllShare Play. 
 
 ### AllShare, Samsung Electronics, Jun 2009 ~ Jan 2011 ###
 
-- [AllShare](http://www.samsung.com/sec/apps/mobile/allshare/) is a commercialized DLNA-specific application for Samsung Jet (GT-S8000), which is the World-first commercialized DLNA-certified phone, with a DMS and DMC running on the Nucleus OS. 
-- Developed DMPr, which is the world's first commercialized DLNA-certified DMPr for a color lazer-jet printer.
-- Role: Technical lead, network programmer. Led the AllShare team to deliver high quality solutions with aggressive schedule on several different kinds of running environments. Fixed numurous issues and refactored the core of the applications frequently to meet the uncertain and moving requirements.  
+A profit-oriented DLNA-specific application designed for the Samsung Jet (GT-S8000), the World-first commercialized DLNA-certified phone, with a DMS and DMC run on the Nucleus OS
+
+- Worked as a technical lead and network programmer; spearheaded the international teams of professionals, expanded and enriched their capabilities and helped them deliver first-rate solutions. 
+- Adeptly addressed diverse issues, refactored the main applications and confronted with eventualities.  
+- Developed DMPr, the World-first, commercialized DLNA-certified DMPr for a color LaserJet printer.
+ 
 
 ### Samsung Media Platform, Samsung Electronics, Sep 2007 ~ May 2009 ###
 
-- Samsung Media Platform is a media sharing platform running on a variety of Samsung Electronics devices such as TV, mobile phone, camcorder, and camera products. The SMP has been implemented on various operating systems which range from resource-constrained RTOS such as Rex, Nucleus and pSOS+, to rich systems such as Linux, Windows XP and Windows Mobile. The SMP provides improvements in terms of interoperability, low development and maintenance cost, and swift launch and commercialization of products. The DLNA solutions provided by the SMP is being used in all types of electronics devices manufactured by Samsung Electronics.
-- Role: Software architect and network/multimedia programmer. Proposed, planned, designed and implemented the SMP. Designed and implemented the core of the SMP. Developed the abstract layer to support a variety of operating systems.  
+A media sharing platform runs on a variety of Samsung devices such as TV, cell phone, camcorder, and camera products. The SMP has been implemented on various operating systems, which ranges from resource-constrained RTOS such as Rex, Nucleus and pSOS+, to fertile systems such as Linux, Windows XP and Windows Mobile. The SMP provides improvements in terms of interoperability, low development and maintenance costs and swift launch and commercialization of products. The DLNA solutions provided by the SMP are currently being used in most Samsung Electronic devices.
 
-### e-life, Samsung Electronics, Feb 2005 ~ Dec 2005 ###
+- Worked as a software architect & network/multimedia programmer; conceptualized, designed and executed the SMP, the core of the SMP and the abstract layer that supported various operating systems.  
 
-- E-life is a brand for Samsung Convergence. It provides Smart Sync, Virtual DLNA Network and Personal TV Service. Smart Synch achieves intuitive content sharing among heterogeneous devices. Virtual DLNA Network overcomes the local-area limitation of DLNA and UPnP. Personal TV Service enables TV broadcasts to be forwarded to mobile phones. These applications showcase the goal of digital convergence at Samsung Electronics. 
-- Role: Network programmer. Planned and implemented the prototypes of applications.  
+
+### Elife, Samsung Electronics, Feb 2005 ~ Dec 2005 ###
+
+A brand in Samsung Convergence, it provides Smart Sync, Virtual DLNA Network and Personal TV Service. Smart Synch achieves intuitive content sharing among various devices. Virtual DLNA Network overcomes the local-area limitation of DLNA and UPnP. The Personal TV Service enables TV broadcasts to be shown on cell phones.
+
+- Worked as a network programmer; visualized, developed and implemented the prototypes of applications.  
 
 ### MagicBox, Samsung Electronics, Apr 2003 ~ Jan 2005 ###
 
-- MagicBox is a advanced IP set-top box. It provides broadcasting and VoD services via IP network.   
-- Role: Linux system programmer. Developed “proof of concept” features such as “IP over IEEE 1394” that enabled IP packet delivery over IEEE1394, and “VoDSL” that achieved voice and packet delivery over a shared single phone line.
+An advanced IP Set-top box enables broadcasting and VoD services via IP network   
+- Worked as a Linux system programmer; developed “proof of concept” features such as “IP over IEEE 1394”, it enables IP packet delivery over IEEE1394 and “VoDSL” that allows voice and packet delivery over a shared single phone line.
 
 ### AnyGate, Samsung Electronics, Jan 2000 ~ Mar 2003 ###
 
-- AnyGate is a commercialized Home gateway. 
-- Role: Linux system programmer. Implemented network device drivers on ATMOS and Linux embedded systems. Created utilities that enabled management of embedded systems, which in turn reduced cost of controlling and monitoring the systems.
+A commercialized home gateway 
 
-# Awards and Certifications
+- Worked as a Linux system programmer; tested and applied network device drivers on ATMOS and Linux embedded systems. 
+- Formulated effective utilities to manage the embedded systems, this greatly enhanced effectiveness and significantly reduced costs of controlling and monitoring the systems.
 
-- Certified Software Engineering Master, IEEE Computer Society, 2015
-- Certified Software Architect, Samsung Electronics, 2012
+
+# COMPETITION AND AWARD #
+
+Recipient of Silver Medal (achieved over 8000 participants) – 2009
+Software Competency Competition, Samsung Electronics
+
+# PROFESSIONAL CERTIFICATIONS #
+
+- Certified Software Engineering Master, IEEE Computer Society, 2015 
+- Certified Software Architect, Samsung Electronics, 2012 
 - Certified Software Development Professional, IEEE Computer Society, 2009
-- Silver medal (8000 participants), Software competency competition, Samsung Electronics 2009 
 
-<figure>
-    <img src="/images/IITBombay.png">
-    <figcaption> Teaching @ IIT Bombay, 2013 </figcaption>
-</figure>
-
-# Publications #
-
-Published a book and two papers in multimedia, distributed systems and UI/UX. 
+# PUBLICATIONS #
 
 - Contelli: A User-Controllable Intelligent Keyboard for Watch-Sized Small Touchscreens, UIST 2014
 - Multimedia - A Multidisciplinary Approach to Complex Issues, Intech 2012 
 - Achieving Low Latency of Multimedia Content Browsing in UPnP AV Architectures, UBICOMP 2008
 
-# Education #
+# ACADEMIC QUALIFICATIONS #
 
-- Master's degree in Computer Science, Georgia Institute of Technology & Korea University (Sponsored by Korean Government and Samsung), 2007
-- Bachelor's degree in Electronics, Myongji University, 2000
+### Master of Science – MS in Computer Science – 2007 ###
+
+- Georgia Institute of Technology, Atlanta, GA & Korea University, Seoul, South Korea
+- Sponsored by Korean Government and Samsung
+
+### Bachelor of Engineering (BE) in Electronics – 2000 ###
+
+Myongji University, Seoul, South Korea
 
 
