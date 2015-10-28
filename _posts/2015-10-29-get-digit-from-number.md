@@ -1,11 +1,11 @@
 ---
 layout: post
-title: How to figure out the unknown number of inputs in C
+title: How to get digits from a number
 modified: 2015-10-28
 tags: [algorithm]
 comments: true
 image:
-  feature: abstract-10.png
+  feature: abstract-11.png
 ---
 
 Let's figure out how to extract a digit from a number
