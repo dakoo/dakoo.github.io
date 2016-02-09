@@ -187,5 +187,48 @@ int lis(vector<int> &In){
 }
 ```
 
+##### [반도체 설계](https://www.acmicpc.net/problem/2352) 문제
 
+- [꼬인 전깃줄](https://www.acmicpc.net/problem/1365)과 동일한 방식으로 풀면 되는 문제이다. 
+- **최대 40000개의 입력**이며, LIS의 구성을 묻지 않고 단순히 갯수를 묻는 문제이다. 
+- **입력을 저장하지 않고 바로 처리하도록 풀었으며 이로 인해 T[]는 *index를 저장하는 것이 아니라 값을 직접 저장*하도록 수정했다. 
+
+```java
+int findSameorBig(vector<int> &T, int low, int high, int target){
+    int ans = -1;
+    while(low <= high){
+        int m = (low + high)/2;
+        if(T[m] > target){
+            ans = m;
+            high = m - 1;
+        } else {
+            low = m + 1;
+        }
+    }
+    return ans;
+}
+int main(){
+    int N;
+    cin >> N;
+    int t;
+    vector<int> T(N);
+    int lastIdx = 0;
+    cin >> t;
+    T[lastIdx] = t;
+    for(int i = 1; i<N; i++){
+        cin >> t;
+        if(T[lastIdx] < t){
+            lastIdx++;
+            T[lastIdx] = t;
+        } else if (T[0] > t){
+            T[0] = t;
+        } else {
+            int idx = findSameorBig(T, 0, lastIdx, t);
+            T[idx] = t;
+        }
+    }
+    cout << lastIdx + 1;
+    return 0;
+}
+```
 
