@@ -169,7 +169,30 @@ int main(){
 
 ### 실전 문제들 
 
+#### easy
 
+##### [꼬인 전깃줄](https://www.acmicpc.net/source/1617745)
 
+- **최대 100000개의 입력**이 들어오므로 O(n*n)으로 하면 timeout이 나므로 nlogn알고리즘을 이용해야 한다.  
+- LIS의 구성을 묻지 않고 단순히 잘라야할 전기줄의 수를 묻는 문제이므로 R[]을 저장하지 않고 T[]만 이용해서 계산한다.
 
-
+{% highlight c %}
+int lis(vector<int> &In){
+    vector<int> T(In.size());
+    int lastIdx = 0;
+    T[0] = 0;
+    int size = (int)In.size();
+    for(int i = 1; i<size; i++){
+        if(In[T[lastIdx]] < In[i]){ //In[T의 마지막]보다 더 크면 하나 증가
+            lastIdx++;
+            T[lastIdx] = i;
+        } else if(In[T[0]] > In[i]){ //In[T[0]]보다 작으면 T[0] 갱신
+            T[0] = i;
+        } else { // In[T[0]]~In[T[lastIdx]] 중 In[i]보다 같거나 큰 최초의 수를 갱신
+            int idx = findSameorBig(In, T, 0, lastIdx, In[i]);
+            T[idx] = i;
+        }
+    }
+    return lastIdx + 1;
+}
+{% endhighlight %}
