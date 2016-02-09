@@ -12,7 +12,7 @@ image:
 Longest Increasing Sequence는 "순서" 또는 "아이템들을 연속해서 조합할 때의 최대"  등을 구할 때 매우 많이 사용되는 방법이다. 
 그런데 이때 보통 i번째 아이템에 대해 0부터 i-1까지의 아이템을 비교해서 최대값을 갱신하는 O(n*n) 알고리즘이 흔히 사용된다. 
 
-```
+```java
 for(int i = 1; i<n; i++){
   for(int j = i - 1; j< i; j++){
     T[i] = max(T[i], T[j] + In[i]);
@@ -32,7 +32,7 @@ for(int i = 1; i<n; i++){
 - 각 입력값 별 LIS시 이전 아이템 저장: int R[], 초기값 -1
 - 현재의 LIS 길이 저장: int lastIdx, 초기값 0
 
-```
+```java
     vector<int> T(In.size(), 0);
     vector<int> R(In.size(), -1);
     int lastIdx = 0;
@@ -54,7 +54,7 @@ for(int i = 1; i<n; i++){
 
  항상 T[0]부터 T[lastIdx]이 가리키는 In[]값은 정렬되어 있으므로 logN탐색을 위해 [이분 탐색](http://hochulshin.com/algorithm-bisectional-search/)을 이용한다. 그렇게 T[j]가 찾아지면 R[i] = T[j-1], T[j] = i
 
-```
+```java
     for(int i = 1; i< In.size(); i++){
         if(In[T[lastIdx]] < In[i]){
             R[i] = T[lastIdx];
@@ -73,7 +73,7 @@ for(int i = 1; i<n; i++){
 
 마지막 아이템까지 진행이 끝났을 때 lastIdx + 1가 LIS의 길이가 되며, R[]은 각 index보다 앞의 것을 가리키게 된다. 그래서 순서를 구할 때는 R을 이용해서 역순으로 찾는다.
 
-```
+```java
     vector<int> Out(lastIdx + 1);  //In의 index를 저장한다. 
     int oIdx = lastIdx;
     Out[oIdx--] = T[lastIdx];
@@ -90,7 +90,7 @@ for(int i = 1; i<n; i++){
 
 ### Code
 
-```
+```java
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -157,16 +157,16 @@ int main(){
 
 [Javacode](https://github.com/mission-peace/interview/blob/master/src/com/interview/array/LongestIncreasingSubSequenceOlogNMethod.java)와 [동영상 강의](https://www.youtube.com/watch?v=S9oUiVYEq7E)를 참고하자.
 
-### 실전 문제들 
+### 실전 문제
 
-#### easy
+#### 쉬운 문제들
 
-##### [꼬인 전깃줄](https://www.acmicpc.net/source/1617745)
+##### [꼬인 전깃줄](https://www.acmicpc.net/problem/1365) 문제
 
 - **최대 100000개의 입력**이 들어오므로 O(n*n)으로 하면 timeout이 나므로 nlogn알고리즘을 이용해야 한다.  
 - LIS의 구성을 묻지 않고 단순히 잘라야할 전기줄의 수를 묻는 문제이므로 R[]을 저장하지 않고 T[]만 이용해서 계산한다.
 
-{% highlight c %}
+```java
 int lis(vector<int> &In){
     vector<int> T(In.size());
     int lastIdx = 0;
@@ -185,4 +185,7 @@ int lis(vector<int> &In){
     }
     return lastIdx + 1;
 }
-{% endhighlight %}
+```
+
+
+
