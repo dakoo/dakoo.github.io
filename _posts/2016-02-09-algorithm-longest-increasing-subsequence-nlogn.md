@@ -42,6 +42,13 @@ for(int i = 1; i<n; i++){
 - 각 입력값 별 LIS시 이전 아이템 저장: int R[], 초기값 -1
 - 현재의 LIS 길이 저장: int lastIdx, 초기값 0
 
+{% highlight c %}
+    vector<int> T(In.size(), 0);
+    vector<int> R(In.size(), -1);
+    int lastIdx = 0;
+    T[0] = 0;
+{% endhighlight %}
+
 #### 계산 
 
  In[1]부터 마지막 아이템까지 진행하면서 
@@ -51,14 +58,28 @@ for(int i = 1; i<n; i++){
 
  In[T[lastIdx]] < In[i]가 아니고, In[T[0]] > In[T[i]]이면 (가장 작은 아이템과 비교해서 더 작으면)
  T[0] = i
- 
 
  위의 조건에 만족하지 않으면 T[1]부터 T[lastIdx]중의 하나에 i값을 넣는다. 그 기준은 "In[i]의 같거나 큰 값 중 가장 작은 값"에 넣는 것이다. 이로 인해 1번에서는 넣지 않은 마지막 위치(lastIdx)에 넣어 질 수 있게 된다. 
  이렇게 하는 이유는 **항상 가장 작은 값으로 구성된 T를 유지**함으로써 LIS를 찾아낼 수 있도록 함이다. 
 
  항상 T[0]부터 T[lastIdx]이 가리키는 In[]값은 정렬되어 있으므로 logN탐색을 위해 [이분 탐색](http://hochulshin.com/algorithm-bisectional-search/)을 이용한다. 그렇게 T[j]가 찾아지면 R[i] = T[j-1], T[j] = i
+
+{% highlight c %}
+    for(int i = 1; i< In.size(); i++){
+        if(In[T[lastIdx]] < In[i]){
+            R[i] = T[lastIdx];
+            T[++lastIdx] = i;
+        } else if(In[T[0]] > In[i]){
+            T[0] = i;
+        } else {
+            int idx = findBigorSame(In, T, 0, lastIdx, In[i]);
+            R[i] =  T[idx - 1];
+            T[idx] = i;
+        }
+    }
+{% endhighlight %}
  
-### 결과 처리 
+#### 결과 처리 
 
 마지막 아이템까지 진행이 끝났을 때 lastIdx + 1가 LIS의 길이가 되며, R[]은 각 index보다 앞의 것을 가리키게 된다. 그래서 순서를 구할 때는 R을 이용해서 역순으로 찾는다.
 
