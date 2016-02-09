@@ -1,6 +1,7 @@
 ---
 layout: post
 title: [Algorithm] 이분 탐색
+description: 이분 탐색 설명
 modified: 2016-02-09
 tags: [algorithm]
 comments: true
@@ -16,7 +17,6 @@ O(logN) 시간내에 정렬된 값을 탐색하는 방법으로 조건을 만족
 중복 값 중 가장 크거나 작은 인덱스를 반환한다. 
 
 {% highlight bash %}
-
 int findIndex(int array[], int low, int high, int target_value){
     int answer = -1; // 값을 못 찾는 경우 -1 반환
     while(low <= high){
@@ -30,7 +30,6 @@ int findIndex(int array[], int low, int high, int target_value){
     }
     return answer;
 }
-
 {% endhighlight %}
 
 ### code
