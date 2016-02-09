@@ -12,13 +12,13 @@ image:
 Longest Increasing Sequence는 "순서" 또는 "아이템들을 연속해서 조합할 때의 최대"  등을 구할 때 매우 많이 사용되는 방법이다. 
 그런데 이때 보통 i번째 아이템에 대해 0부터 i-1까지의 아이템을 비교해서 최대값을 갱신하는 O(n*n) 알고리즘이 흔히 사용된다. 
 
-{% highlight c %}
+```
 for(int i = 1; i<n; i++){
   for(int j = i - 1; j< i; j++){
     T[i] = max(T[i], T[j] + In[i]);
   }
 }
-{% endhighlight %}
+```
 
 그런데 이런 식으로 하면 n이 100000이 넘어가면 계산이 불가능해진다. 그러므로 O(NlogN)알고리즘을 사용할 수 있어야 한다. 
 입력이 10000이하이면 구현이 용이한 O(n*n) 알고리즘을, 그 이상이면 O(NlogN) 알고리즘을 사용하는 것을 추천한다. 
@@ -32,12 +32,12 @@ for(int i = 1; i<n; i++){
 - 각 입력값 별 LIS시 이전 아이템 저장: int R[], 초기값 -1
 - 현재의 LIS 길이 저장: int lastIdx, 초기값 0
 
-{% highlight c %}
+```
     vector<int> T(In.size(), 0);
     vector<int> R(In.size(), -1);
     int lastIdx = 0;
     T[0] = 0;
-{% endhighlight %}
+```
 
 #### 계산 
 
@@ -54,7 +54,7 @@ for(int i = 1; i<n; i++){
 
  항상 T[0]부터 T[lastIdx]이 가리키는 In[]값은 정렬되어 있으므로 logN탐색을 위해 [이분 탐색](http://hochulshin.com/algorithm-bisectional-search/)을 이용한다. 그렇게 T[j]가 찾아지면 R[i] = T[j-1], T[j] = i
 
-{% highlight c %}
+```
     for(int i = 1; i< In.size(); i++){
         if(In[T[lastIdx]] < In[i]){
             R[i] = T[lastIdx];
@@ -67,13 +67,13 @@ for(int i = 1; i<n; i++){
             T[idx] = i;
         }
     }
-{% endhighlight %}
+```
  
 #### 결과 처리 
 
 마지막 아이템까지 진행이 끝났을 때 lastIdx + 1가 LIS의 길이가 되며, R[]은 각 index보다 앞의 것을 가리키게 된다. 그래서 순서를 구할 때는 R을 이용해서 역순으로 찾는다.
 
-{% highlight c %}
+```
     vector<int> Out(lastIdx + 1);  //In의 index를 저장한다. 
     int oIdx = lastIdx;
     Out[oIdx--] = T[lastIdx];
@@ -86,11 +86,11 @@ for(int i = 1; i<n; i++){
     for(int i = 0; i<Out.size(); i++){
         cout << In[Out[i]] << " ";
     }
-{% endhighlight %}
+```
 
 ### Code
 
-{% highlight c %}
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -151,7 +151,7 @@ int main(){
     cout << endl;
     return 0;
 }
-{% endhighlight %}
+```
 
 ### Reference
 
