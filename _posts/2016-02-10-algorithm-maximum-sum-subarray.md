@@ -137,14 +137,3 @@ int main(){
 }
 {% endhighlight %}
 
-### 참고
-
-위키피디아의 [알고리즘 설명](https://en.wikipedia.org/wiki/Maximum_subarray_problem)을 참고하자
-
-### 실전 문제들 
-
-##### [연속합](https://www.acmicpc.net/problem/1912)
-
-- Kadane 알고리즘을 알고 있는지 묻는 문제
-- **최대 100000개의 입력**이 들어오므로 O(n)알고리즘을 이용해야 한다.  
-- 영역을 필요없으므로 영역 변수는 제외한다. 
