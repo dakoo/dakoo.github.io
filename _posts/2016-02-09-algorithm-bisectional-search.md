@@ -15,7 +15,7 @@ O(logN) 시간내에 정렬된 값을 탐색하는 방법으로 조건을 만족
 중복된 값들이 포함되어 있을 수 있으므로 while문 내에서 바로 return하지 않고 탐색을 계속해서 
 중복 값 중 가장 크거나 작은 인덱스를 반환한다. 
 
-{% highlight bash %}
+```
 int findIndex(int array[], int low, int high, int target_value){
     int answer = -1; // 값을 못 찾는 경우 -1 반환
     while(low <= high){
@@ -29,11 +29,11 @@ int findIndex(int array[], int low, int high, int target_value){
     }
     return answer;
 }
-{% endhighlight %}
+```
 
 ### code
 
-{% highlight c %}
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -142,4 +142,4 @@ int main(){
     
     return 0;
 }
-{% endhighlight %}
+```
