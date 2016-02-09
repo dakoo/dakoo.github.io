@@ -15,25 +15,25 @@ Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부�
 - 지금까지의 최대 합을 저장하는 max_sum: -987654321로 초기화 
 - 현재 계산하는 아이템을 고려했을때의 최대 합을 저장하는 cur_max_sum: -987654321로 초기화
 
-{% highlight c %}
+```
     int max_sum = -987654321;
     int cur_max_sum = -987654321;
-{% endhighlight %}
+```
 
 영역이 필요하다면 s_idx와 e_idx와 max_s_idx와 max_d_idx를 사용한다. 영역을 구해야할 필요가 없다면 안써도 된다. 
 
-{% highlight c %}
+```
     int s_idx = 0;
     int e_idx = 0;
     int max_s_idx = 0;
     int max_e_idx = 0;
-{% endhighlight %}
+```
 
 ### 계산 
 
 입력을 받으면서 즉시 계산한다. 
 
-{% highlight c %}
+```
     for(int i = 0; i<size; i++){
         int t;
         scanf("%d", &t);
@@ -46,11 +46,11 @@ Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부�
             max_sum = cur_max_sum;
         }
     }
-{% endhighlight %}
+```
 
 영역을 구해야 할 경우엔 다음과 같이 영역 변수의 값을 갱신한다.  
 
-{% highlight c %}
+```
     for(int i = 0; i<size; i++){
         int t;
         scanf("%d", &t);
@@ -68,11 +68,11 @@ Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부�
             max_e_idx = e_idx;
         }
     }
-{% endhighlight %}
+```
 
 ### code
 
-{% highlight c %}
+```c
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -135,7 +135,7 @@ int main(){
     printf("%d from %d to %d", max_sum, max_s_idx, max_e_idx); //must be 33 from 7 to 8
     return 0;
 }
-{% endhighlight %}
+```
 
 ### 참고
 
