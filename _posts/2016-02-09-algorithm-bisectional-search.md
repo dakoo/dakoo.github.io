@@ -1,14 +1,13 @@
 ---
 layout: post
-title: [Algorithm] 이분 탐색
-description: 이분 탐색 설명
+title: 알고리즘 - 이분 탐색 
+description: 이분 탐색 
 modified: 2016-02-09
 tags: [algorithm]
 comments: true
 image:
   feature: algorithm.jpeg
 ---
-
 O(logN) 시간내에 정렬된 값을 탐색하는 방법으로 조건을 만족하는 다양한 값들 중 최적 값을 찾아내는데 사용된다. 
 
 ### Pseudo code
