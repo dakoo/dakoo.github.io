@@ -9,8 +9,6 @@ image:
   feature: algorithm.jpeg
 ---
 
-### LIS 
-
 Longest Increasing Sequence는 "순서" 또는 "아이템들을 연속해서 조합할 때의 최대"  등을 구할 때 매우 많이 사용되는 방법이다. 
 그런데 이때 보통 i번째 아이템에 대해 0부터 i-1까지의 아이템을 비교해서 최대값을 갱신하는 O(n*n) 알고리즘이 흔히 사용된다. 
 
