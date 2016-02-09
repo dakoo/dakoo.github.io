@@ -2,7 +2,7 @@
 layout: post
 title: 알고리즘 - maximum sum subarray
 description: maximum sum subarray
-modified: 2016-02-10
+modified: 2016-02-09
 tags: [algorithm]
 comments: true
 image:
