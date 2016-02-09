@@ -9,16 +9,6 @@ image:
   feature: algorithm.jpeg
 ---
 
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부분합 중 가장 큰 값을 O(N)시간 복잡도로 알아내는 알고리즘이다. 
 
 단순히 이것만으로 쓰이는 것이 아니라 2D Matrix에서 최대 합을 가진 영역을 알아내는 용도등을 위해 사용된다. 
