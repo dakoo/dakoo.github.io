@@ -32,6 +32,7 @@ int findIndex(int array[], int low, int high, int target_value){
 }
 
 {% endhighlight %}
+
 ### code
 
 {% highlight c %}
