@@ -34,10 +34,11 @@ public interface인 함수 프로토타입은 다음과 같이 선언했다.
 ```javascript
 class BST{
 public:
-    BST();
-    void insertItem(int key, int value);
-    void removeItem(int key);
-    bool findItem(int key, int &value); //없으면 false를 리턴
+    BST(); //자료구조(root) 초기화
+    ~BST(); //할당된 resource 모두 해제
+    void insertItem(int key, int value); //item 삽입
+    void removeItem(int key); //item 삭제
+    bool findItem(int key, int &value); //item을 key로 검색해서 value를 획득. 없으면 false를 리턴
     void print(); //tree의 모든 아이템을 inorder로 출력 
 };
 ```
