@@ -43,9 +43,9 @@ for(int i = 1; i<n; i++){
 
 항상 가장 작은 값으로 구성된 T를 유지함으로써 LIS를 찾아낼 수 있도록 In[1]부터 마지막 아이템까지 진행하면서 다음을 수행한다.
 
-1.In[T[lastIdx]] < In[i]이면,  (마지막 아이템과 비교해서 더 크면): R[i] = T[lastIdx], lastIdx++, T[lastIdx] = i
-2.In[T[lastIdx]] < In[i]가 아니고, In[T[0]] > In[T[i]]이면 (가장 작은 아이템과 비교해서 더 작으면): T[0] = i
-3.위의 조건에 만족하지 않으면 T[1]부터 T[lastIdx]중의 하나에 i값을 넣는다. 그 기준은 "In[i]의 같거나 큰 값 중 가장 작은 값"에 넣는 것이다. 이를 통해 1번에서는 넣지 않은 마지막 위치(lastIdx)에 넣어 질 수 있게 된다. 항상 T[0]부터 T[lastIdx]이 가리키는 In[]값은 정렬되어 있으므로 logN탐색을 위해 [이분 탐색](http://hochulshin.com/algorithm-bisectional-search/)을 이용한다. 그렇게 T[j]가 찾아지면: R[i] = T[j-1], T[j] = i
+- In[T[lastIdx]] < In[i]이면,  (마지막 아이템과 비교해서 더 크면): R[i] = T[lastIdx], lastIdx++, T[lastIdx] = i
+- In[T[lastIdx]] < In[i]가 아니고, In[T[0]] > In[T[i]]이면 (가장 작은 아이템과 비교해서 더 작으면): T[0] = i
+- 위의 조건에 만족하지 않으면 T[1]부터 T[lastIdx]중의 하나에 i값을 넣는다. 그 기준은 "In[i]의 같거나 큰 값 중 가장 작은 값"에 넣는 것이다. 이를 통해 마지막 위치(lastIdx)도 갱신될 수 있다. 항상 T[0]부터 T[lastIdx]이 가리키는 In[]값은 정렬되어 있으므로 logN탐색을 위해 [이분 탐색](http://hochulshin.com/algorithm-bisectional-search/)을 이용한다. 그렇게 T[j]가 찾아지면: R[i] = T[j-1], T[j] = i
 
 위의 내용을 코드로 표현하면 다음과 같다. 
 
