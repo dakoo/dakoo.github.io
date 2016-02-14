@@ -112,5 +112,9 @@ Item delete(){
 {% endhighlight %} 
 
 
+### 문제
 
+[랜선 자르기](https://www.acmicpc.net/problem/1654)는 대표적인 이분 탐색 문제이다. 마치 Coin Change 문제처럼 보이기도 하지만, 길이가 Array로 만들기 어려운 매우 큰 수가 주어진다는 점에서 다르다. 
+
+[수 찾기](https://www.acmicpc.net/problem/1920). 이분 탐색 문제처럼 보이지 않지만, 입력을 정렬함으로써 이분 탐색 문제로 만들어 푸는 것이다. 
 

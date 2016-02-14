@@ -132,7 +132,7 @@ int main(){
         }
     }
     
-    printf("%d from %d to %d", max_sum, max_s_idx, max_e_idx); //must be 33 from 7 to 8
+    printf("%d from %d to %d", max_sum, max_s_idx, max_e_idx);
     return 0;
 }
 ```
