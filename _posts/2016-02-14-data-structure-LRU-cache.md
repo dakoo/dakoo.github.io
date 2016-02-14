@@ -95,9 +95,11 @@ bool lookup(string k, int &val){
 Put method는 Hashtable에서 해당하는 key가 존재하는지 먼저 찾는다. 
 존재한다면 value를 update하고 Lookup method처럼 Linked List에서 해당 아이템을 찾아서 맨 앞으로 이동시킨다. 
 존재하지 않는다면 다음의 두가지 경우를 고려해야 한다. 
+
 - Hashtable의 아이템 숫자가 미리 정한 숫자에 도달하지 않은 경우: 아이템을 Hashtable에 추가하고, LinkedList의 맨 앞에도 추가한다. 
 - Hashtable의 아이템 숫자가 미리 정한 숫자에 도달한 경우(Full): Linked List의 맨 뒤에서 가장 오래전에 참조된 아이템의 key를 획득하고, 그 아이템을 Linked List와 Hashtable에서 제거한다. 
 그 뒤 새로운 아이템을 Hashtable에 추가하고 Linked List의 맨 앞에 추가한다. 
+
 
 ```javascript
 void put(string k, int val){
