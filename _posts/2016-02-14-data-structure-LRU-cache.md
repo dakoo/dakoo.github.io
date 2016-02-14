@@ -263,24 +263,24 @@ int main(){
     cache.put("D", 4);
     cache.put("E", 5);
     int val;
-    if(cache.lookup("A", val)){ //cache update. So the oldest one is 'B'
+    if(cache.lookup("A", val)){ //'A' is updated. So 'B' becomes the oldest.
         cout << "A's value is " << val << endl; //expected result
     } else {
         cout << "A: Not found" << endl;
     }
-    cache.put("F", 6); //cache replacement must be happened. Now the oldest one is 'C'
+    cache.put("F", 6); //Cache replacement. 'B' is removed and 'C' becomes the oldest
     if(cache.lookup("B", val)){
         cout << "B's value is " << val << endl;
     } else {
         cout << "B: Not found" << endl; //expected
     }
-    cache.put("C", 7); //cache update. Now the oldest one is 'D'
+    cache.put("C", 7); //'C' is updated. Now 'D' becomes the oldest
     if(cache.lookup("C", val)){
         cout << "C's value is " << val << endl; //expected
     } else {
         cout << "C: Not found" << endl;
     }
-    cache.put("G", 8); //cache replacement must be happened
+    cache.put("G", 8); //Cache replacement. 'D' is removed and 'E' becomes the oldest
     if(cache.lookup("D", val)){
         cout << "D's value is " << val << endl;
     } else {
