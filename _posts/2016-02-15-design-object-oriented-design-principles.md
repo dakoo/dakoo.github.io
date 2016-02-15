@@ -66,39 +66,39 @@ image:
 다음은 Button class와 Lamp class가 tightly-coupled 되어 있다. 이것은 DIP를 위배하고 있는 것이다. 왜냐하면 Button class가 직접적으로 Lamp에 의존하고 있기 때문이다. Lamp가 변경이 생기면 Button의 변경이 필요하고, 또한 Button을 Lamp만이 아니라 Motor를 위해 재 사용할 수 없다. 
 
 ```javascript
-class Button {
-private: 
-  Lamp lamp;
-  public:
-  void Poll( ){
-  	if(/*some condition*/)
-  		lamp.turnOn();
-  }
-};
+	class Button {
+	private:
+		Lamp lamp;
+	public:
+		void Poll(){
+			if (/*some condition*/)
+				lamp.turnOn();
+		}
+	};
 ```
 
 중간에 Switchable Interface를 이용해 Button의 Lamp dependency를 invert할 수 있다. Button의 인터페이스를 제공하는 Switchable을 통해 on/off를 제어하고, Lamp는 Switchable interface에 따라 구현한다. 
 
 ```javascript
-class switchable {
+class Switchable {
 public:
 	virtual void turnOn() = 0;
-  virtual void turnOff() = 0;
+	virtual void turnOff() = 0;
 };
-class switchable : public switchable {
+class Lamp : public Switchable {
 public:
 	void turnOn(){ /*…*/ };
-  void turnOff(){ /*…*/ };
+	void turnOff(){ /*…*/ };
 };
 
 class Button {
-private: 
-  Switchable sw;
+private:
+	Switchable sw;
 public:
-  void Poll( ){
-  	if(/*some condition*/)
-  		sw.turnOn();
-  }
+	void Poll(){
+		if (/*some condition*/)
+			sw.turnOn();
+	}
 };
 ```
 
