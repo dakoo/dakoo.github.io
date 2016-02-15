@@ -2,7 +2,7 @@
 layout: post
 title: 디자인 - singleton pattern
 description: singleton pattern
-modified: 2016-02-15
+modified: 2016-02-14
 tags: [design]
 comments: true
 image:
