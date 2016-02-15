@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: 디자인 - dependency injection
@@ -9,7 +8,6 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
-
 Dependency Injection은 하드코딩된 dependency르 제거하고 runtime이나 compile time에 dependency를 변경 가능하게 하는 디자인 패턴이다. 
 
 ### 개요
