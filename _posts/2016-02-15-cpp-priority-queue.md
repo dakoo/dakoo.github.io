@@ -39,8 +39,8 @@ cout << T.top(); //2
 
 primitive type이 아닌 경우, 즉 class나 struct의 경우 lessthan operator함수를 이용해서 max_heap을 구현할 수도 있다. 
 
-- operator < (lessthan)의 syntax를 정확히 기억하자. 파라미터와 return이 모두 const여야 하고 <의 방향이 같다. 
-- 호출할 때의 syntax도 priority_queue <Item, vector<Item>, less<Item> >이다. 
+- 'operator <' (lessthan)의 syntax를 정확히 기억하자. 파라미터와 return이 모두 const여야 하고 <의 방향이 같다. 
+- 호출할 때의 syntax도 'priority_queue <Item, vector<Item>, less<Item> >'이다. 
 
 ```javascript
 struct Item {
@@ -79,8 +79,8 @@ cout << T.top(); //1
 
 primitive type이 아닌 경우, 즉 class나 struct의 경우 lessthan operator함수를 이용해서 max_heap을 구현할 수도 있다. 
 
-- operator > (greaterthan)의 syntax를 정확히 기억하자. 파라미터와 return이 모두 const여야 하고 >의 방향이 같다. 
-- 호출할 때의 syntax도 priority_queue <Item, vector<Item>, greater<Item> >이다. 
+- 'operator >' (greaterthan)의 syntax를 정확히 기억하자. 파라미터와 return이 모두 const여야 하고 >의 방향이 같다. 
+- 호출할 때의 syntax도 'priority_queue <Item, vector<Item>, greater<Item> >'이다. 
 
 ```javascript
 struct compare {
