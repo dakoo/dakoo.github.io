@@ -14,7 +14,7 @@ STL의 priority_queue는 default로 max_heap으로 동작하는 자료구조이�
 
 #### 헤더와 지원하는 함수
 
-STL의 priority_queue를 쓰기위해서는 "#include <queue>"를 정의해야 하며 다음의 operation을 지원한다. 
+STL의 priority_queue를 쓰기위해서는 `#include <queue>`를 정의해야 하며 다음의 operation을 지원한다. 
 
 - push() (push_back()이 아니다)
 - pop()
@@ -66,7 +66,7 @@ int main(){
 ##### min_heap
 
 priority_queue는 default가 max_heap이므로 min_heap으로 사용하기 위해서는 다음과 같이 사용한다. 
-"#include <functional>"과 함께 다음과 같이 사용해야 한다. 
+`#include <functional>`과 함께 다음과 같이 사용해야 한다. 
 
 ```javascript
 #include <functional>
