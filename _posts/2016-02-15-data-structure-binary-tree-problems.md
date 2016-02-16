@@ -123,6 +123,33 @@ Binary Tree가 BST인지 확인하는 문제이다. 5가지 경우를 처리하�
     }
 ```
 
+#### Binary Search Tree의 최대, 최소 노드 찾기
+
+BST 속성상 가장 작은 노드는 왼쪽 끝에 위치하고 가장 큰 노드는 오른쪽 끝에 위치한다. 
+
+```javascript
+    int minVal(){
+        if (!root) return -1; //empty
+        Node *temp = root;
+        Node *p = root;
+        while (temp != NULL){
+            p = temp;
+            temp = temp->l_child;
+        }
+        return p->key;
+    }
+    int maxVal(){
+        if (!root) return -1; //empty
+        Node *temp = root;
+        Node *p = root;
+        while (temp != NULL){
+            p = temp;
+            temp = temp->r_child;
+        }
+        return p->key;
+    }
+```
+
 ### 코드  
 
 ```javascript
