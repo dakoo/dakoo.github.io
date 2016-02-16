@@ -30,17 +30,16 @@ clear(), resize()를 지원하지 않으며 constructor를 통해 크기를 정�
 priority_queue는 default가 max_heap이다. 
 primitive type인 경우 다음과 같이 사용한다. 
 
-''' javascript
+```javascript
 priority_queue <int> T;
 T.push(1);
 T.push(2);
 cout << T.top(); //2
-''' 
+```
 
 primitive type이 아닌 경우 compare함수를 이용해서 max_heap을 구현할 수도 있다. 
 
-
-''' javascript
+```javascript
 struct compare {
 	bool operator()(const int &a, const int &b){
 		return a<b;	// 생각한 것과 반대 방향이다!
@@ -50,25 +49,25 @@ priority_queue <int, vector<int>, compare> T;
 T.push(1);
 T.push(2);
 cout << T.top(); //2
-''' 
+```
 
 ##### min_heap
 
 priority_queue는 default가 max_heap이므로 min_heap으로 사용하기 위해서는 다음과 같이 사용한다. 
 "#include <functional>"과 함께 다음과 같이 사용해야 한다. 
 
-''' javascript
+```javascript
 #include <functional>
 /*...*/
 priority_queue <int, vector<int>, greater> T; //less가 아닌 greater이다. 헷갈리수 있다.
 T.push(2);
 T.push(1);
 cout << T.top(); //1
-''' 
+```
 
 primitive type이 아닌 경우 compare함수를 이용해서 min_heap을 구현할 수도 있다. 
 
-''' javascript
+```javascript
 struct compare {
 	bool operator()(const int &a, const int &b){
 		return a>b;	// 생각한 것과 반대 방향이다!
@@ -78,7 +77,7 @@ priority_queue <int, vector<int>, compare> T;
 T.push(2);
 T.push(1);
 cout << T.top(); //1
-''' 
+```
 
 ### 코드 
 
