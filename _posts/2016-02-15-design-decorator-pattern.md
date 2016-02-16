@@ -10,6 +10,11 @@ image:
 ---
 데코레이터 패턴은 필요에 따라 Object에 동적으로 Responsibility를 추가하는 패턴으로 기능 확장이 필요할 때 상속을 하는 것 대신에 쓸 수 있는 유연한 대안이 된다. 
 
+### 출처
+
+이 글은 [여기](http://wiki.gurubee.net/pages/viewpage.action?pageId=1507398&)의 글을 참조하여 간략화하고 Java를 C++로 변환한 것이다. 원 글이 훨씬 많은 정보를 포함하고 있다는 것을 기억하자. 
+
+
 ### 데코레이터 패턴의 필요성
 
 스타벅스를 생각해보자. Beverage Class를 Coffee Class가 상속하고 Coffee Class를 Espresso, Decaf, DarkRoast Class가 상속한다. 
