@@ -63,7 +63,7 @@ merge(Array, low, middle, high) {
 
 ### 코드 
 
-,,,javascript
+```javascript
 #include <vector>
 #include <limits>
 #include <iostream>
@@ -106,4 +106,4 @@ int main(){
 	}
 	return 0;
 }
-,,,
+```
