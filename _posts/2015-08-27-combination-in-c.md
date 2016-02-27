@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 조합 문제의 간단한 구현 방법
-description: 조합 문제의 간단한 구현 방법
-modified: 2015-08-27
+title: 알고리즘-combination
+description: combination
+modified: 2016-02-16
 tags: [algorithm]
 comments: true
 image:
