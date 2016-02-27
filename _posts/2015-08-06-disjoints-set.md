@@ -1,8 +1,8 @@
 ---
 layout: post
-title: disjoints-set에 대한 이해 
-description: disjoints-set에 대한 이해 
-modified: 2015-08-06
+title: 데이터구조 - disjoints-set
+description: 데이터구조 - disjoints-set
+modified: 2016-02-16
 tags: [algorithm]
 image:
   feature: abstract-11.png
