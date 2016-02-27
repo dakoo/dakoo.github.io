@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 독립 시행 확률 문제 
-description: 독립 시행 확률 문제
+title: 알고리즘 - 독립 시행 확률  
+description: 독립 시행 확률
 modified: 2015-08-16
 tags: [algorithm]
 comments: true
