@@ -1,6 +1,6 @@
 ---
 layout: post
-title: algorithm - merge sort
+title: 알고리즘 - merge sort
 description: merge sort
 modified: 2016-02-22
 tags: [algorithm]
