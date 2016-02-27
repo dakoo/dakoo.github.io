@@ -1,7 +1,7 @@
 ---
 layout: post
-title: quick sort algorithm in C
-description: quick sort algorithm in C
+title: 알고리즘 - quick sort
+description: quick sort 
 modified: 2015-08-05
 tags: [algorithm, english]
 comments: true
