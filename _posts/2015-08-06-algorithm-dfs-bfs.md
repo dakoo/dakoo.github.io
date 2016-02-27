@@ -2,7 +2,7 @@
 layout: post
 title: 알고리즘 - DFS와 BFS
 description: DFS와 BFS
-modified: 2015-08-06
+modified: 2016-02-06
 tags: [algorithm]
 comments: true
 image:
