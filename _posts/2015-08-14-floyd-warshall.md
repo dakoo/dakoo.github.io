@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 간단한 최단 거리 알고리즘 - Floyd-Warshall 
-description: 간단한 최단 거리 알고리즘 - Floyd-Warshall 
-modified: 2015-08-14
+title: 알고리즘 - Floyd-Warshall 
+description: 알고리즘 - Floyd-Warshall 
+modified: 2016-03-04
 tags: [algorithm]
 comments: true
 image:
