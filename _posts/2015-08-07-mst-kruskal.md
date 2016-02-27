@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Minimum Spanning Tree - Kruskal 알고리즘에 대한 이해 
-description: Minimum Spanning Tree - Kruskal 알고리즘에 대한 이해 
-modified: 2015-08-07
+title: 알고리즘-Minimum Spanning Tree - Kruskal
+description: Minimum Spanning Tree - Kruskal
+modified: 2016-02-16
 tags: [algorithm]
 comments: true
 image:
