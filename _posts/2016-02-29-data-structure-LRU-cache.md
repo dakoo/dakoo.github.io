@@ -2,7 +2,7 @@
 layout: post
 title: 데이터구조 - LRU(Least Recently Used) 
 description: LRU Cache
-modified: 2016-02-14
+modified: 2016-02-29
 tags: [data structure]
 comments: true
 image:
