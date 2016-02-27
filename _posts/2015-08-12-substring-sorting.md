@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 부분 문자열의 사전순 정렬
+title: 알고리즘-부분 문자열의 사전순 정렬
 description: 부분 문자열의 사전순 정렬
-modified: 2015-08-12
+modified: 2016-03-01
 tags: [algorithm]
 comments: true
 image:
