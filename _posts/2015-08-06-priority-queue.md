@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Priority Queue의 동작에 대한 이해 
-description: Priority Queue의 동작에 대한 이해 
-modified: 2015-08-06
+title: 데이터구조 - Priority Queue
+description: Priority Queue 
+modified: 2016-02-06
 tags: [algorithm]
 comments: true
 image:
