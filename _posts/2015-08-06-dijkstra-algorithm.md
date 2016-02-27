@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Dijkstra's algorithm에 대한 이해
-description: Dijkstra's algorithm에 대한 이해
-modified: 2015-08-06
+title: 알고리즘-Dijkstra's shortest path
+description: Dijkstra's shortest path
+modified: 2016-02-06
 tags: [algorithm]
 comments: true
 image:
