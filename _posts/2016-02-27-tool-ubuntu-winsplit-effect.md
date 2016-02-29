@@ -2,7 +2,7 @@
 layout: post
 title: 개발환경 - Ubuntu 14.04에서 Winsplit 효과 내기
 description: 개발환경
-modified: 2016-02-28
+modified: 2016-02-27
 tags: [tool]
 comments: true
 image:
