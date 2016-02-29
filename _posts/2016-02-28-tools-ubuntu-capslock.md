@@ -3,10 +3,10 @@ layout: post
 title: 개발환경 - Ubuntu 14.04 Caps Lock키 변경
 description: 개발환경
 modified: 2016-02-28
-tags:[development environment]
+tags: [tool]
 comments: true
 image:
- feature: algorithm.jpeg
+  feature: algorithm.jpeg
 ---
 Caps Lock 키는 소프트웨어 개발자에게 별로 유효한 키가 아니다. 그보다는 Control키나 Escape키가 더 중요하다. 특히 vi 모드를 주로 이용하는 개발자는 더욱 그러하다. 그런데, Control 키는 다른 키와 함께 눌러서 사용하고, Escape키는 그보다는 그 키 하나만 눌렀다가 떼는 형태로 사용한다. 사용하는 패턴이 다르므로 잘 사용하지 않는 Caps Lock키에 두 키를 모두 맵핑해서 사용해 보도록 하자. 손가락 위치를 많이 움직이지 않고 새끼 손가락 만으로 누를 수 있으므로 익숙해지면 입력 속도가 비약적으로 상승한다. 
 
