@@ -3,10 +3,10 @@ layout: post
 title: 개발환경 - Ubuntu 14.04에서 Winsplit 효과 내기
 description: 개발환경
 modified: 2016-02-28
-tags:[development environment]
+tags: [tool]
 comments: true
 image:
- feature: algorithm.jpeg
+  feature: algorithm.jpeg
 ---
 Winsplit은 화살표 키와 Control, Alt, Windows, Shift 키의 조합으로 활성화된 어플리케이션 창을 다른 모니터로 이동시키거나 같은 모니터내에서 미리 설정된 포지션으로 이동시키는데 탁월한 Windows용 툴이다. 현재는 지원이 더이상 없는 대신 무료 소프트웨어로 바뀌었기 때문에 무료로 사용이 가능한다. 이와 유사한 기능을 Ubuntu에서 사용해 보자. 
 
