@@ -101,9 +101,11 @@ N이 홀수인 경우는 가로, 세로 중 하나는 가운데 줄을 포함해
 #include <vector>
 using namespace std;
 int main(){
-    vector<vector<int> > T = {{1, 2, 3}, 
+    vector<vector<int> > T = {
+                             {1, 2, 3}, 
                              {4, 5, 6}, 
-                             {7, 8, 9}};
+                             {7, 8, 9}
+                             };
     int N = (int)T.size();
     for(int i = 0; i<N; i++){
         for(int j = 0; j<N; j++){
@@ -129,10 +131,12 @@ int main(){
         cout << endl;
     }
     cout <<"---------------------------"<< endl;
-    vector<vector<int> > R = {{1, 2, 3, 4}, 
+    vector<vector<int> > R = {
+                              {1, 2, 3, 4}, 
                               {5, 6, 7, 8}, 
                               {9, 10, 11, 12}, 
-                              {13, 14, 15, 16}};
+                              {13, 14, 15, 16}
+                              };
     N = (int)R.size();
     for(int i = 0; i<N; i++){
         for(int j = 0; j<N; j++){
