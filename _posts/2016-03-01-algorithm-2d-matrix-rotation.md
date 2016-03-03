@@ -97,70 +97,69 @@ N이 홀수인 경우는 가로, 세로 중 하나는 가운데 줄을 포함해
 #### 코드 
 
 ```javascript
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
+void print(vector<vector<int> > &T){
+	cout << endl;
+	for (int i = 0; i<T.size(); i++){
+		for (int j = 0; j<T.size(); j++){
+			cout << T[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+void rotate(vector<vector<int> > &T, bool isClockwiseDirection, int times){
+	int N = T.size();
+	int H = T.size() / 2;
+	if (N % 2) {// 홀수 인경우 Height를 1 증가 시켜서 1사분면을 잡는다. 
+		H++;
+	}
+	for (int t = 1; t <= times; t++){	//90 회전 횟수 
+		for (int i = 0; i<H; i++) {	
+			for (int j = 0; j<N / 2; j++){
+				if (isClockwiseDirection) {	//시계 방향
+					int temp = T[i][j];
+					T[i][j] = T[N - 1 - j][i];
+					T[N - 1 - j][i] = T[N - 1 - i][N - 1 - j];
+					T[N - 1 - i][N - 1 - j] = T[j][N - 1 - i];
+					T[j][N - 1 - i] = temp;
+				}
+				else {	//반시계 방향
+					int temp = T[i][j];
+					T[i][j] = T[j][N - 1 - i];
+					T[j][N - 1 - i] = T[N - 1 - i][N - 1 - j];
+					T[N - 1 - i][N - 1 - j] = T[N - 1 - j][i];
+					T[N - 1 - j][i] = temp;
+				}
+			}
+		}
+	}
+}
 int main(){
-    vector<vector<int> > T = {
-                             {1, 2, 3}, 
-                             {4, 5, 6}, 
-                             {7, 8, 9}
-                             };
-    int N = (int)T.size();
-    for(int i = 0; i<N; i++){
-        for(int j = 0; j<N; j++){
-            cout << T[i][j] << " ";
-        }
-        cout << endl;
-    }
-    cout <<"---------"<< endl;
-    /*시계 방향 90도 회전*/
-    for(int i = 0; i<=N/2; i++){         //세로 또는 가로 둘 중하나만 포함되도록 =표시를 하나에만 붙인다.
-        for(int j = 0; j<N/2; j++){
-            int temp = T[i][j]; //1을 저장
-            T[i][j] = T[N-1-j][i]; //4 --> 1
-            T[N-1-j][i] = T[N-1-i][N-1-j]; //3 --> 4
-            T[N-1-i][N-1-j] = T[j][N-1-i]; //2 --> 3
-            T[j][N-1-i] = temp; // 1 --> 2
-        }
-    }
-    for(int i = 0; i<N; i++){
-        for(int j = 0; j<N; j++){
-            cout << T[i][j] << " ";
-        }
-        cout << endl;
-    }
-    cout <<"---------------------------"<< endl;
-    vector<vector<int> > R = {
-                              {1, 2, 3, 4}, 
-                              {5, 6, 7, 8}, 
-                              {9, 10, 11, 12}, 
-                              {13, 14, 15, 16}
-                              };
-    N = (int)R.size();
-    for(int i = 0; i<N; i++){
-        for(int j = 0; j<N; j++){
-            cout << R[i][j] << " ";
-        }
-        cout << endl;
-    }
-    cout <<"---------"<< endl;
-    /*반시계 방향 90도 회전*/
-    for(int i = 0; i<N/2; i++){         //세로 또는 가로 둘 모두 포함 안되도록 한다.
-        for(int j = 0; j<N/2; j++){
-            int temp = R[i][j]; //1을 저장
-            R[i][j] = R[j][N-1-i]; //2 --> 1
-            R[j][N-1-i] = R[N-1-i][N-1-j]; // 3 --> 2
-            R[N-1-i][N-1-j] = R[N-1-j][i]; //4 --> 3
-            R[N-1-j][i] = temp; // 1 --> 4
-        }
-    }
-    for(int i = 0; i<N; i++){
-        for(int j = 0; j<N; j++){
-            cout << R[i][j] << " ";
-        }
-        cout << endl;
-    }
-    return 0;
+	vector<vector<int> > T_even = { 
+		{ 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } 
+	};
+	vector<vector<int> > T_odd = { 
+		{ 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } 
+	};
+
+	/*짝수크기의 2D matrix를 시계 방향으로 회전 */
+	print(T_even);
+	rotate(T_even, true, 1);
+	print(T_even);
+	rotate(T_even, true, 2);
+	print(T_even);
+	/*홀수크기의 2D matrix를 시계 반대방향으로 회전 */
+	print(T_odd);
+	rotate(T_odd, false, 1);
+	print(T_odd);
+	rotate(T_odd, false, 1);
+	print(T_odd);
+	rotate(T_odd, false, 1);
+	print(T_odd);
+	rotate(T_odd, false, 1);
+	return 0;
 }
 ```
