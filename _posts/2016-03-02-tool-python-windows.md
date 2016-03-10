@@ -20,7 +20,13 @@ Windows라고 해서 특별히 Ubuntu나 OSX와 다르지 않다. python.org에�
 
 #### 환경 변수 등록하기 
 
-python은 windows7의 경우 `C:\Users\admin\AppData\Local\Programs\Python\Python35-32\python.exe`가 default 경로이다. 자신의 PC에 설치된 python.exe 파일가 있는 경로를 복사한다. 그 다음 시스템 환경 변수의 PATH에 그 경로를 추가한다. 또한, 3rd party 모듈을 설치하기 위한 pip 명령의 경로인 `C:\Users\admin\AppData\Local\Programs\Python\Python35-32\Scripts`도 path에 추가한다. 만약 python 모듈을 등록해야 하는 일이 있다면 환경변수의 시스템 변수이름을 'PYTHONPATH'라는 이름으로 만들어 경로를 등록한다. 
+##### 3.5 버전 
+
+python 3.5는 windows7의 경우 `C:\Users\admin\AppData\Local\Programs\Python\Python35-32\python.exe`가 default 경로이다. 자신의 PC에 설치된 python.exe 파일가 있는 경로를 복사한다. 그 다음 시스템 환경 변수의 PATH에 그 경로를 추가한다. 또한, 3rd party 모듈을 설치하기 위한 pip 명령의 경로인 `C:\Users\admin\AppData\Local\Programs\Python\Python35-32\Scripts`도 path에 추가한다. 만약 python 모듈을 등록해야 하는 일이 있다면 환경변수의 시스템 변수이름을 'PYTHONPATH'라는 이름으로 만들어 경로를 등록한다. 
+
+##### 2.7 버전
+
+python 2.7은 windows7의 경우 `C:\Python27\python.exe`가 default 경로이다. 자신의 PC에 설치된 python.exe 파일가 있는 경로를 복사한다. 그 다음 시스템 환경 변수의 PATH에 그 경로를 추가한다. 또한, 3rd party 모듈을 설치하기 위한 pip 명령의 경로인 `C:\Python27\Scripts`도 path에 추가한다. 만약 python 모듈을 등록해야 하는 일이 있다면 환경변수의 시스템 변수이름을 'PYTHONPATH'라는 이름으로 만들어 경로를 등록한다.
 
 #### Brackets 에디터에서 실행
 
