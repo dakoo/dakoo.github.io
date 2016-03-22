@@ -75,7 +75,6 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 
 ```
 {
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"fade_fold_buttons": false,
 	"findreplace_small": true,
 	"highlight_line": true,
