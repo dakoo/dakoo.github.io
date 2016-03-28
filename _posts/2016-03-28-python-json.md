@@ -114,7 +114,7 @@ while True:
         js = json.loads(str(data))
     except: 
         js = None
-    if 'status' not in js or js['status'] != 'OK':
+    if 'status' not in data or js['status'] != 'OK':
         print 'Failure to Retrieve'
         print data
         continue
