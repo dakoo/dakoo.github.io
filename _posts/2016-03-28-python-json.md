@@ -27,11 +27,11 @@ jstr = '''{"x" : 1, "y": "yes", "z": [3, 4]}'''
 
 jobj = json.loads(jstr)
 
-print jobj  # {u'y': u'yes', u'x': 1, u'z': [3, 4]}
-print jobj['x'] # 1
-print jobj['y'] # "yes"
+print jobj  ''' {u'y': u'yes', u'x': 1, u'z': [3, 4]}'''
+print jobj['x'] ''' 1 '''
+print jobj['y'] ''' "yes" '''
 for i in jobj['z']:
-    print i   # 3, 4
+    print i   ''' 3, 4 '''
 ```
 
 ### json.dumps
@@ -39,13 +39,15 @@ for i in jobj['z']:
 json.dumps() returns a string from an json object. Let's look at the example below.
 
 ```javascript
+import json
+
 jobj = {
     'x': 1, 
     'y': 'yes', 
     'z': [3, 4]
 }
 jstr = json.dumps(jobj)
-print jstr # {"y": "yes", "x": 1, "z": [3, 4]}
+print jstr ''' {"y": "yes", "x": 1, "z": [3, 4]} '''
 ```
 
 ### json.load
@@ -53,14 +55,16 @@ print jstr # {"y": "yes", "x": 1, "z": [3, 4]}
 json.load is a kind of read function from file. json.load() returns an object from a file handler.
 
 ```javascript
-''' example.json file content
-  {"x" : 1, "y": "yes", "z": [3, 4]}
-'''
 import json
 
+''' 
+The content of the example.json file is
+  {"x" : 1, "y": "yes", "z": [3, 4]}
+'''
+
 with open('example.json') as f:
-  jstr = json.load(f) #instead of read()
-  print jstr # {u'y': u'yes', u'x': 1, u'z': [3, 4]}
+  jstr = json.load(f) ''' instead of read() '''
+  print jstr ''' {u'y': u'yes', u'x': 1, u'z': [3, 4]}'''
 ```
 
 #### json.dump
@@ -79,8 +83,10 @@ jobj = {
 f = open("example.json", 'w')
 json.dump(f, jobj)
 
-#The content of the example.json should be 
-# {"y": "yes", "x": 1, "z": [3, 4]}
+'''
+The content of the example.json should be 
+ {"y": "yes", "x": 1, "z": [3, 4]}
+'''
 ```
 
 
