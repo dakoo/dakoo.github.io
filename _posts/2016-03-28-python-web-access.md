@@ -27,8 +27,8 @@ for r in response_headers:
 
 print "----------- BODY ----------------"
 response_data = response.read()
-# json payload on response
-robj = json.loads(response_data)
-for r in robj:
-	print r, ":", robj[r]
+
+js = json.loads(response_data)
+print json.dumps(js, indent = 4)
+print 'session_token:', js['items'][0]['session_token']
 ```
