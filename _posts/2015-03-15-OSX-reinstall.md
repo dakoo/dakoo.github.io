@@ -15,3 +15,4 @@
     . 시스템 환결 설정정
         일반 > 기본 웹브라우저를 Chrome.app로 
         언어및 지역 > 키보드 환경설정 > 키보드 탭 > 보조키 > Caps Lock을 Control로 변경
+56ad2e79edd1fc001d7fab61.VjckNv7kwEnRslGXKrbjyVqOaMKAT9rM30i5pZNBFcQ 
