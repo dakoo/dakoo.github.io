@@ -26,7 +26,14 @@ email = raw_input("Enter your email address [yyy.zzz@gmail.com]:") or "yyy.zzz@g
 password = raw_input("Enter your password [xxxxxxxxx]:") or "xxxxxxxxx"
 duration = int(raw_input("Enter duration[30]:") or 30)
 
-payload = {"email":email, "password": password, "duration" : duration}
+import calendar
+import datetime
+def getFutureUTC(m):
+	future = datetime.datetime.utcnow() + datetime.timedelta(minutes = m)
+	return calendar.timegm(future.timetuple())
+start_time = getFutureUTC(1) # in 1 minute
+
+payload = {"email":email, "password": password, "duration" : duration, "start_time": start_time}
 
 # json payload on request
 req = urllib2.Request(url)
