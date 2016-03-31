@@ -94,6 +94,16 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 
 ### 단축키 
 
-- Control(Command) + Shift + P : package control
-- Control + Alt + N: 파일 생성
-- Command + K, Command + B: 사이드 바 열고 닫기 
+- Command + Shift + P : package control (Ubuntu: Control + Shift + P)
+- Control + Alt + N: 파일 생성 (Ubuntu: Windows + Alt + N)
+- Command + K, Command + B: 사이드 바 열고 닫기(Ubunu: Control + Shift + Alt + S as below)
+
+Ubuntu: To toggle the side bar, add the following line in `Default\ \(Linux\).sublime-keymap` file (Menu: Preference : Key Bindings - User)
+
+```
+{ "keys": ["ctrl+shift+alt+s"], "command": "toggle_side_bar" },
+```
+
+
+
+
