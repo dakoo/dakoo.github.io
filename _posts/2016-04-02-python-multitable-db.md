@@ -8,8 +8,9 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
-The following example is an example code to an XML file and produce a properly normalized database. 
-### Multi-table DB exmple
+The following example is an example code to an XML file and produce a properly normalized database.
+
+### Multi-table DB example
 
 ```python
 import xml.etree.ElementTree as ET
