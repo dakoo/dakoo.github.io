@@ -10,6 +10,8 @@ image:
 ---
 urllib and urllib2 are great modules to manipulate http messages.
 The following example is perfect to make you understand how them. 
+This code is used for an assignment for [Coursera: Using Python to Access Web Data](https://www.coursera.org/learn/python-network-data/). For furhter information, check the [Coursera: Using Python to Access Web Data](https://www.coursera.org/learn/python-network-data/) out. 
+
 
 ### POST request with json body(request/response) and extra headers
 
