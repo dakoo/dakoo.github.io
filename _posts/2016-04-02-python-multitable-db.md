@@ -9,6 +9,7 @@ image:
   feature: algorithm.jpeg
 ---
 The following example is an example code to an XML file and produce a properly normalized database.
+This code is used for an assignment for [Coursera: Using Databases with Python](https://www.coursera.org/learn/python-databases/home/welcome). For furhter information, check the [Coursera: Using Databases with Python](https://www.coursera.org/learn/python-databases/home/welcome) out. 
 
 ### Multi-table DB example
 
