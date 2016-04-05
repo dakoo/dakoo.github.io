@@ -51,9 +51,7 @@ npm ERR! tar.unpack untar error ...
 
 - [homebrew](http://brew.sh/)를 설치한다. `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 터미털에서 실행한하여 brew를 설치한다. 
 
-- node를 설치한다. 이때 npm은 설치하지 않는다. 
-
-> brew install node --without-npm
+- node를 설치한다. 이때 npm은 설치하지 않는다. `brew install node --without-npm`
 
 - 자신 계정 폴더에서 .bash_profile 파일을 생성하고 다음 내용을 추가한다.
 아래의 경로는 *node* 실행 파일이 존재하고 있는 */usr/local/Cellar/node/0.12.7/bin* 폴더를 가리키는 것이며, node 버전에 따라 수정되어야 한다.
