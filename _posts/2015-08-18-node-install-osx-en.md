@@ -47,9 +47,7 @@ Performing `npm cache clean` or using `sudo` prompt is usually recommended. Howe
 
 - Copy, paste, and run the `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` command on a terminal to install [homebrew](http://brew.sh/). 
 
-- Install node using the following command on a terminal 
-
-> brew install node --without-npm
+- Install node using the following command on a terminal: `brew install node --without-npm`
 
 - Make the .bash_profile file on your account root folder and add the following content to the file.
 The */usr/local/Cellar/node/0.12.7/bin* indicates to location where *node* is. The path is depending on the version. Therefore, you need to check the path carefully and change the following content.
