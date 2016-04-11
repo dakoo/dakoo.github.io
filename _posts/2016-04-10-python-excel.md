@@ -1,6 +1,6 @@
 ---
 layout: post
-title: python - excel file
+title: python - excel
 description: python
 modified: 2016-04-10
 tags: [python]
