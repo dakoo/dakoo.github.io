@@ -8,7 +8,7 @@ comments: true
 image:
   feature: abstract-11.png
 ---
-Using xlrd, let's handle excel files as below.
+[python-excel](http://www.python-excel.org/) contains many tools to handle excel files in the Python. Xlrd is used to read and parse old excel files(.xls). With the xlrd example below, let's see how they work.
 
 ### Example of xlrd
 
