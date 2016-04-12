@@ -73,6 +73,8 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 
 #### Preferences.sublime-settings 파일
 
+`"auto_match_enabled": false` truns off automatic parenthesis matching
+
 ```
 {
 	"fade_fold_buttons": false,
@@ -89,6 +91,7 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 	"tabs_small": true,
 	"wide_caret": true,
 	"word_wrap": true,
+	"auto_match_enabled": false
 }
 ```
 
