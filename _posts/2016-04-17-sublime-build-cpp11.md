@@ -32,4 +32,4 @@ Then, run the sublim-text3 and then select menu > Tools > Build System > New Bui
 }
 ```
 
-Finally, save the untitled.sublime-build file as a ‘python3.sublime-build’ in ../Packages/User/Python3.sublime-build. The directory is a default directory when you save the python3.sublime-build.
+Finally, save the untitled.sublime-build file as a ‘cpp.sublime-build’ in ../Packages/User/cpp.sublime-build. The directory is a default directory when you save the cpp.sublime-build. 
