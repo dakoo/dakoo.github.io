@@ -1,6 +1,6 @@
 ---
 layout: post
-title: leetcode - 
+title: leetcode-Nim-Game
 description: leetcode
 modified: 2016-04-17
 tags: [leetcode]
