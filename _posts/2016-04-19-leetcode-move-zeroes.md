@@ -59,7 +59,8 @@ public:
 	}
 };
 int main(){
-	vector<vector<int> > T = {{},
+	vector<vector<int> > T = {
+					{},
 					{0, 1, 0, 0, 2, 0},
 					{0, 0, 0, 0, 1, 2},
 					{1, 2, 0, 0, 0, 0},
