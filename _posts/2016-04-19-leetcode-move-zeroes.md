@@ -87,11 +87,11 @@ int main(){
 #### Java
 
 ```java
-
+1
 ```
 
 #### Python
 
 ```python
-
+2
 ```
