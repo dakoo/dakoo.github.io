@@ -18,7 +18,7 @@ The key change of this is doing this in-place without a copy of the array.
 
 #### Approach
 
-Look. Think of quick sort. Based on a pivot value, the smaller ones move to the front side and the bigger ones move to the back side. This problem is very similar to quick sort.The bigger than 0 is move to the front side and none-0 is move to the back-side. 
+Look. Think of quick sort. Based on a pivot value, the smaller ones move to the front side and the bigger ones move to the back side. This problem is very similar to quick sort.None-0s move to the front side and 0s move to the back-side. 
 
 ##### Quick sort
 
