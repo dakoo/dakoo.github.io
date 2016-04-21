@@ -18,9 +18,31 @@ The key change of this is doing this in-place without a copy of the array.
 
 #### Approach
 
-1. Find a zero and none-zero item. If neither of them cannot'be found, stop.
-2. If index of none-zero is larger than zero, swap zero and none-zero item and increase the index.Otherwise, increase the index of none-zero. 
-3. Repeat 1 and 2 unless either of indices is out of the array.
+Look. Think of quick sort. Based on a pivot value, the smaller ones move to the front side and the bigger ones move to the back side. This problem is very similar to quick sort.The bigger than 0 is move to the front side and none-0 is move to the back-side. 
+
+##### Quick sort
+
+The following is the C++ code of quick sort.
+
+```cpp
+int partition(vector<int> &T, int low, int high){
+	int index = low;
+	int pivot = T[high];
+	for(int i = low; i < high; i++){
+		if(T[i] < pivot){
+			swap(&T[i], &T[index]
+			index++;
+		}
+	}
+	swap(&T[high], &T[index]);
+	return index;
+}
+```
+
+We can adjust the quic sort flow for the moveZeros as follows.
+
+1. Pivot value is 0. Pivot index has no meaning. : Iteration must be the first to last item. We don't need to swap the pivot and index.  
+2. if the value of an index is not zero, swap two items i and index
 
 #### Cpp
 
@@ -33,29 +55,17 @@ using namespace std;
 class Solution {
 public:
 	void moveZeroes(vector<int> &T){
-    int len = static_cast<int>(T.size());
-		int i_zero = 0;
-		int i_none_zero = 0;
-
-		while(i_zero < len && i_none_zero < len) {
-			while(T[i_zero] != 0){ 
-				i_zero++;
-				if(i_zero == len) return;
-			}
-			while(T[i_none_zero] == 0) {
-				i_none_zero++;
-				if(i_none_zero == len) return;
-			}
-			if(i_none_zero > i_zero){
-				//swap zero and none-zero
-				T[i_zero] = T[i_none_zero];
-				T[i_none_zero] = 0;
-				i_zero++;
-				i_none_zero++;
-			} else {
-				i_none_zero++;
-			}
-		}
+		int len = static_cast<int>(T.size());
+		int index = 0;
+		int pivot = 0;
+		for(int i = 0; i < len ; i++){
+			if(T[i] != 0){
+				int tmp = T[index];
+				T[index] = T[i];
+				T[i] = tmp;	
+				index++;
+			}		
+		} 
 	}
 };
 int main(){
@@ -67,6 +77,7 @@ int main(){
 					{1, 0, 0, 0, 0, 2},
 					{1, 0, 0, 0, 0, 2},
 					{0, 0, 0, 0, 0, 0},
+					{0, -1, 1, 2, -2, 0},
 					{1, 1, 1, 1, 2, 2},};
 
 	Solution s;
@@ -88,11 +99,76 @@ int main(){
 #### Java
 
 ```java
-1
+import java.util.*;
+
+public class Solution {
+	public void moveZeroes(int[] nums){
+		int index = 0;
+		for(int i = 0; i<nums.length; i++){
+			if(nums[i] != 0){
+				int tmp = nums[i];
+				nums[i] = nums[index];
+				nums[index] = tmp;
+				index++;
+			}
+		}
+	}
+	public static void main(String[] argc){
+		int[][] T = {
+					{},
+					{0, 1, 0, 0, 2, 0},
+					{0, 0, 0, 0, 1, 2},
+					{1, 2, 0, 0, 0, 0},
+					{1, 0, 0, 0, 0, 2},
+					{1, 0, 0, 0, 0, 2},
+					{0, 0, 0, 0, 0, 0},
+					{0, -1, 1, 2, -2, 0},
+					{1, 1, 1, 1, 2, 2},};		
+		Solution s = new Solution();
+		for(int[] t : T){
+			for(int i : t){
+				System.out.print(i);	
+			}
+			System.out.println();
+			s.moveZeroes(t);
+			for(int i : t){
+				System.out.print(i);	
+			}
+			System.out.println();
+			System.out.println("--------------------------");
+		}
+	}
+}
 ```
 
 #### Python
 
+Python implemenation is dramatically short!!!
+
 ```python
-2
+class Solution(object):
+    def moveZeroes(self, nums):
+    	index = 0;
+    	for i in range(len(nums)):
+    		if nums[i] != 0:
+    			nums[index], nums[i] = nums[i], nums[index] 
+    			index += 1
+
+if __name__ == "__main__":
+	s = Solution();	
+	T = [
+		[],
+		[0, 1, 0, 0, 2, 0],
+		[0, 0, 0, 0, 1, 2],
+		[1, 2, 0, 0, 0, 0],
+		[1, 0, 0, 0, 0, 2],
+		[1, 0, 0, 0, 0, 2],
+		[0, 0, 0, 0, 0, 0],
+		[0, -1, 1, 2, -2, 0],
+		[1, 1, 1, 1, 2, 2],];	
+	for t in T:
+		print(t)
+		s.moveZeroes(t);
+		print(t)
+		print("-------------------------------")
 ```
