@@ -42,15 +42,13 @@ public:
 		}
 		for(auto c : t) {
 			auto it = T.find(c);
-			if(it != T.end()) {
-				if(it->second > 1)
-					T[c] = it->second - 1;
-				else if (it->second == 1)
-					T.erase(c);	
-				else 
-					return false;
-			}
-			else
+			if(it == T.end())
+				return false;	
+			if(it->second > 1)
+				T[c] = it->second - 1;
+			else if (it->second == 1)
+				T.erase(c);	
+			else 
 				return false;
 		}
 		if(T.size() != 0)
@@ -79,7 +77,44 @@ int main(){
 #### Java
 
 ```java
--
+import java.util.*;
+
+public class Solution {
+    public boolean isAnagram(String s, String t) {
+    	HashMap<Character, Integer> T =  new HashMap<Character, Integer>();
+    	for(char c : s.toCharArray()){
+    		if(T.containsKey(c))
+	    		T.put(c, T.get(c) + 1);
+	    	else 
+	    		T.put(c, 1);
+    	}
+    	for(char c : t.toCharArray()){
+    		if(T.containsKey(c) == false)
+    			return false;
+    		int v = T.get(c);
+    		if(v > 1)
+    			T.put(c, v - 1);
+    		else if (v == 1)
+    			T.remove(c);
+    		else 
+    			return false;
+    	}
+    	if(T.size() != 0)
+    		return false;
+    	return true;
+    }
+  	public static void main(String[] argc){
+  		Solution so =  new Solution();
+		String s[] = {"hello", "", "", "h l"};
+		String t[] = {"hello", "", "o", "hel"};
+		for(int i = 0; i< 4; i++){
+			if(so.isAnagram(s[i], t[i]))
+				System.out.println(s[i] + " and " + t[i] + " is anagram");
+			else
+				System.out.println(s[i] + " and " + t[i] + " is NOT anagram");
+		}	
+  	} 
+}
 ```
 
 #### Python
