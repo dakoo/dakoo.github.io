@@ -1,6 +1,6 @@
 ---
 layout: post
-title: leetcode-move zeroes
+title: leetcode-same tree
 description: leetcode
 modified: 2016-04-19
 tags: [leetcode]
