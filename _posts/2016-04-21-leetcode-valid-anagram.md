@@ -127,7 +127,7 @@ class Solution(object):
     		T[c] = T.get(c, 0) + 1
     	for c in t :
     		if c not in T: return False
-    		v = T.get(c, 0)  
+    		v = T.get(c)  
     		if v > 1 : 
     			T[c] = v - 1
     		elif v == 1 :
