@@ -108,28 +108,27 @@ public class Solution {
 ```python
 class Solution(object):
     def isAnagram(self, s, t):
-    	T = {}
-    	for c in s :
-    		T[c] = T.get(c, 0) + 1
-    	for c in t :
-    		if c not in T: return False
-    		v = T.get(c)  
-    		if v > 1 : 
-    			T[c] = v - 1
-    		elif v == 1 :
-    			del T[c]
-    		else :
-    			return False
-    	if len(T) != 0: return False
-    	return True
+        T = {}
+        for c in s :
+            T[c] = T.get(c, 0) + 1
+        for c in t :
+            val = T.get(c, 0)  
+            if val > 1 : 
+                T[c] = val - 1
+            elif val == 1 :
+                del T[c]
+            else:
+                return False
+        if len(T) != 0: return False
+        return True
 
 if __name__ == "__main__":
-		so = Solution()
-		s = ["hello", "", "", "h l"]
-		t = ["hello", "", "o", "hel"]
-		for i in range(len(s)):
-			if so.isAnagram(s[i], t[i]):
-				print(s[i], "and" , t[i] , "is anagram")
-			else:
-				print(s[i], "and" , t[i] , "is NOT anagram")
+        so = Solution()
+        s = ["hello", "", "", "h l"]
+        t = ["hello", "", "o", "hel"]
+        for i in range(len(s)):
+            if so.isAnagram(s[i], t[i]):
+                print(s[i], "and" , t[i] , "is anagram")
+            else:
+                print(s[i], "and" , t[i] , "is NOT anagram")
 ```
