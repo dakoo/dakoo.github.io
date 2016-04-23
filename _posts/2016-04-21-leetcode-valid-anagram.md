@@ -32,31 +32,22 @@ using namespace std;
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-		unordered_map<char, int> T;	        
-		for(auto c : s) {
-			auto it = T.find(c);
-			if(it != T.end())
-				T[c] = it->second + 1;
-			else
-				T[c] = 1;
-		}
-		for(auto c : t) {
-			auto it = T.find(c);
-			if(it == T.end())
-				return false;	
-			if(it->second > 1)
-				T[c] = it->second - 1;
-			else if (it->second == 1)
-				T.erase(c);	
-			else 
-				return false;
-		}
-		if(T.size() != 0)
-			return false;
-		return true;
+        unordered_map<char, int> T;         
+        for(auto c : s) {
+                T[c]++;
+        }
+        for(auto c : t) {
+            auto it = T.find(c);
+            if(it == T.end())
+                return false;   
+            if(--T[c] == 0)
+                T.erase(c); 
+        }
+        if(T.size() != 0)
+            return false;
+        return true;
     }
 };
-
 
 int main(){
 	Solution so;
