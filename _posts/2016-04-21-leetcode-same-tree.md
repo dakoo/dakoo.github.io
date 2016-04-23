@@ -38,8 +38,7 @@ public:
 ...
     bool isSameTree(TreeNode* p, TreeNode* q) {
     	if(p == NULL && q == NULL) return true;
-    	else if(p != NULL && q == NULL) return false;
-    	else if(p == NULL && q != NULL) return false;
+    	else if(p == NULL || q == NULL) return false;
     	if(p->val != q->val) return false;
     	return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     }
@@ -59,8 +58,7 @@ public class Solution {
 ...
     public boolean isSameTree(TreeNode p, TreeNode q) {
 		if(p == null && q == null) return true;        
-		if(p == null && q != null) return false;
-		if(p != null && q == null) return false;
+		if(p == null || q == null) return false;
 		if(p.val != q.val) return false;
 		return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
@@ -80,8 +78,7 @@ class Solution(object):
 ...
     def isSameTree(self, p, q):
     	if p == None and q == None : return True
-    	if p == None and q != None : return False
-    	if p != None and q == None : return False
+    	if p == None or q == None : return False
     	if p.val != q.val : return False
     	return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
