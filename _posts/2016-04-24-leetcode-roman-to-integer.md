@@ -81,7 +81,7 @@ Decimal value (n) Roman numeral (s)
 1000	M
 ```
 
-1. Let's store the array which contains decimal and roman. 
+1. Let's store pairs of decimal and roman in a array. 
 2. Find highest decimal value and convert it to roman character(s). - Divide the value by the decimal. If the result is not 0, add the corresponding character(s) several times as the result.
 3. Then subtract the decimal value from the value. 
 4. Repeat 2 and 3 until the value become 0 from the largest decimal value to the smallest.
