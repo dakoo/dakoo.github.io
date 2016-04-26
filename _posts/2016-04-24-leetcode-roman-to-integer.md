@@ -102,88 +102,190 @@ Decimal value (n) Roman numeral (s)
 #include <vector>
 
 using namespace std;
-struct Table {
-	int val;
-	string roman;
-	Table(int v, string r): val(v), roman(r){};
-};
 
-class Solution {
+class RomanToIntConverter {
 private:
-	unordered_map<char, int> RomanToIntTable;
-	vector<Table> intToRomanTable;
+    unordered_map<char, int> Table;
 public:
-	Solution(){
-		RomanToIntTable.insert(make_pair<char, int>('I', 1));
-		RomanToIntTable.insert(make_pair<char, int>('V', 5));
-		RomanToIntTable.insert(make_pair<char, int>('X', 10));
-		RomanToIntTable.insert(make_pair<char, int>('L', 50));
-		RomanToIntTable.insert(make_pair<char, int>('C', 100));
-		RomanToIntTable.insert(make_pair<char, int>('D', 500));
-		RomanToIntTable.insert(make_pair<char, int>('M', 1000));
-
-		intToRomanTable.push_back(Table(1, "I"));
-		intToRomanTable.push_back(Table(4, "IV"));
-		intToRomanTable.push_back(Table(5, "V"));
-		intToRomanTable.push_back(Table(9, "IX"));
-		intToRomanTable.push_back(Table(10, "X"));
-		intToRomanTable.push_back(Table(40, "XL"));
-		intToRomanTable.push_back(Table(50, "L"));
-		intToRomanTable.push_back(Table(90, "XC"));
-		intToRomanTable.push_back(Table(100, "C"));
-		intToRomanTable.push_back(Table(400, "CD"));
-		intToRomanTable.push_back(Table(500, "D"));
-		intToRomanTable.push_back(Table(900, "DM"));
-		intToRomanTable.push_back(Table(1000, "M"));
-	}
-    int romanToInt(string s) {
-    	int next = RomanToIntTable[s.back()];
-    	int sum = next;
-    	for(int i = s.length() - 2; i>=0; i--){
-    		int current = RomanToIntTable[s[i]];
-    		if(current >= next)
-    			sum += current;
-    		else 
-    			sum -= current;
-    		next = current;
-    	}
-    	return sum;
+    RomanToIntConverter(){
+        Table.insert(make_pair<char, int>('I', 1));
+        Table.insert(make_pair<char, int>('V', 5));
+        Table.insert(make_pair<char, int>('X', 10));
+        Table.insert(make_pair<char, int>('L', 50));
+        Table.insert(make_pair<char, int>('C', 100));
+        Table.insert(make_pair<char, int>('D', 500));
+        Table.insert(make_pair<char, int>('M', 1000));
     }
-    string intToRoman(int n){
-    	string ret;
-    	for(auto rit = intToRomanTable.rbegin() ; rit != intToRomanTable.rend(); rit++){
-    		if((*rit).val > n) continue; 				
-    		int temp = n / (*rit).val;
-    		for(int i = 0; i< temp; i++){
-    			ret += (*rit).roman;
-    		}	
-    		n = n % (*rit).val;
-    		if(n == 0) break;
-    	}
-    	return ret;
+    int convert(string s) {
+        int next = Table[s.back()];
+        int sum = next;
+        for(int i = s.length() - 2; i>=0; i--){
+            int current = Table[s[i]];
+            if(current >= next)
+                sum += current;
+            else 
+                sum -= current;
+            next = current;
+        }
+        return sum;
     }
 };
-int main(){	
-	vector<string> testcases1 = {"XXXVI", "MMXII", "MCMXCVI"};
-	vector<int> testcases2 = {36, 2012, 1996};
-	Solution so; 
-	for(auto t: testcases1){
-		cout << t << " -> ";		
-		cout << so.romanToInt(t) << endl;
-	}
-	cout <<"---------------"<< endl;
-	for(auto i: testcases2){
-		cout << i << " -> ";		
-		cout << so.intToRoman(i) << endl;
-	}
-	return 0;
+
+struct Pair {
+    int val;
+    string roman;
+    Pair(int v, string r): val(v), roman(r){};
+};
+class IntToRomanConverter {
+private:
+    vector<Pair> Table;
+public:
+    IntToRomanConverter(){
+        Table.push_back(Pair(1, "I"));
+        Table.push_back(Pair(4, "IV"));
+        Table.push_back(Pair(5, "V"));
+        Table.push_back(Pair(9, "IX"));
+        Table.push_back(Pair(10, "X"));
+        Table.push_back(Pair(40, "XL"));
+        Table.push_back(Pair(50, "L"));
+        Table.push_back(Pair(90, "XC"));
+        Table.push_back(Pair(100, "C"));
+        Table.push_back(Pair(400, "CD"));
+        Table.push_back(Pair(500, "D"));
+        Table.push_back(Pair(900, "CM"));
+        Table.push_back(Pair(1000, "M"));
+    }
+    string convert(int n){
+        string ret;
+        for(auto rit = Table.rbegin() ; rit != Table.rend(); rit++){
+            if((*rit).val > n) continue;                
+            int temp = n / (*rit).val;
+            for(int i = 0; i< temp; i++){
+                ret += (*rit).roman;
+            }   
+            n = n % (*rit).val;
+            if(n == 0) break;
+        }
+        return ret;
+    }
+};
+
+int main(){ 
+    vector<string> testcases1 = {"XXXVI", "MMXII", "MCMXCVI"};
+    RomanToIntConverter ric; 
+    for(auto t: testcases1){
+        cout << t << " -> ";        
+        cout << ric.convert(t) << endl;
+    }
+    cout <<"---------------"<< endl;
+    vector<int> testcases2 = {36, 2012, 1996};
+    IntToRomanConverter irc; 
+    for(auto i: testcases2){
+        cout << i << " -> ";        
+        cout << irc.convert(i) << endl;
+    }
+    return 0;
 }
 ```
 #### Java
 
-```java
+RomanToIntConverter.java 
 
+```java
+import java.util.*;
+
+public class RomanToIntConverter {
+    private HashMap<Character, Integer> Table;
+    public RomanToIntConverter(){
+        Table = new HashMap<Character, Integer>();
+        Table.put(new Character('I'), new Integer(1));
+        Table.put(new Character('V'), new Integer(5));
+        Table.put(new Character('X'), new Integer(10));
+        Table.put(new Character('L'), new Integer(50));
+        Table.put(new Character('C'), new Integer(100));
+        Table.put(new Character('D'), new Integer(500));
+        Table.put(new Character('M'), new Integer(1000));
+    }
+    public int convert(String s) {
+        char[] s_str = s.toCharArray();
+        int len = s.length();
+        int next = Table.get(s_str[len - 1]);
+        int sum = next;
+        for(int i = len - 2;  i >= 0; i--){
+            int current = Table.get(s_str[i]);
+            if(current >= next) 
+                sum += current;
+            else 
+                sum -= current;
+            next = current;
+        }
+        return sum;
+    }
+    public static void main(String[] argc){
+        String[] testcase = {"XXXVI", "MMXII", "MCMXCVI"};
+        RomanToIntConverter ric = new RomanToIntConverter();
+        for(String s : testcase){
+            System.out.print(s + " -> ");
+            System.out.println(ric.convert(s)); 
+        }
+    }
 }
+```
+
+IntToRomanConverter.java
+
+```java
+import java.util.*;
+
+public class IntToRomanConverter {
+	private class Pair {
+		public int val;
+		public String roman;
+		public Pair(int v, String r){
+			val = v;
+			roman = r;
+		};
+	}
+	private ArrayList<Pair> Table;
+	public IntToRomanConverter(){
+		Table = new ArrayList<Pair>();
+		Table.add(new Pair(1, "I"));
+		Table.add(new Pair(4, "IV"));
+		Table.add(new Pair(5, "V"));
+		Table.add(new Pair(9, "IX"));
+		Table.add(new Pair(10, "X"));
+		Table.add(new Pair(40, "XL"));
+		Table.add(new Pair(50, "L"));
+		Table.add(new Pair(90, "XC"));
+		Table.add(new Pair(100, "C"));
+		Table.add(new Pair(400, "CD"));
+		Table.add(new Pair(500, "D"));
+		Table.add(new Pair(900, "CM"));
+		Table.add(new Pair(1000, "M"));
+	}
+	public String convert(int n){
+		String ret = "";		
+		for(int i = Table.size() - 1; i>=0; i--){
+			if(Table.get(i).val > n) continue;
+			int temp = n / Table.get(i).val;	
+			for(int j = 0; j<temp; j++){
+				ret += Table.get(i).roman;
+			}
+			n = n % Table.get(i).val;
+			if(n == 0) break;
+		}
+		return ret;
+	}
+	public static void main(String[] argc){
+		int[] testcases = {36, 2012, 1996};
+		IntToRomanConverter irc = new IntToRomanConverter();
+		for(int i : testcases){
+            System.out.print(i);
+            System.out.println(" -> " + irc.convert(i)); 			
+		}
+	}
+}
+
 ```
 
 #### Python
