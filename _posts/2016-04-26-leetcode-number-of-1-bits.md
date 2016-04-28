@@ -25,8 +25,7 @@ Use bit operations to implement a function to convert decimal to binary as below
 3. Then, the remainder is 1, increase the counter.
 4. N = the quotient
 
-```python
-    [Slow version: Normal operations]
+```cpp
     int hammingWeight(uint32_t n) {
         int counter = 0;
         while(n != 0){
