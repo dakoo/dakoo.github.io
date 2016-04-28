@@ -25,12 +25,27 @@ Use bit operations to implement a function to convert decimal to binary as below
 3. Then, the remainder is 1, increase the counter.
 4. N = the quotient
 
+##### No bitwise operations
+
 ```cpp
     int hammingWeight(uint32_t n) {
         int counter = 0;
         while(n != 0){
             if(n%2) counter++;
             n = n/2;
+        } 
+        return counter;
+    }
+```
+
+##### Bitwise operations
+
+```cpp
+    int hammingWeight(uint32_t n) {
+        int counter = 0;
+        while(n != 0){
+            if(n & 0x1) counter++;
+            n = n >> 0x1;
         } 
         return counter;
     }
@@ -68,7 +83,8 @@ int main(){
 ```
 #### Java
 
-RomanToIntConverter.java 
+Bitwise operators in Java are little different from C++. Use >>> to fill the MSB with '0' instead of >>. 
+'&' must not be used in 'if' statement.
 
 ```java
 public class Solution {
