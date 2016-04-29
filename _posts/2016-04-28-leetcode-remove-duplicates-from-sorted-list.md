@@ -20,7 +20,7 @@ Handling linked list problems
 
 If a value of a node's next is the same as a value of the node, remove the node's next. Note that if the next node is deleted, don't move forward. Just stay and handle the next of the deleted one.
 
-```python
+```bash
 while(node && node->next){
     if(node->next->val == node->val) {
         ListNode* temp = node->next;
