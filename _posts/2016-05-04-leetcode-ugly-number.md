@@ -107,10 +107,10 @@ TEST_CASE( "Boundary values: [0, negative numbers, 1]", "[Solution]" ){
 - To build and run
 
 ```bash
->g++ -std=c++11 -c -o Solution.cpp Solution.o
->g++ -std=c++11 -c -o SolutionTest.cpp SolutionTest.o
->g++ -std=c++11 -o Solution Solution.o SolutionTest.o -lm
->./Solution
+g++ -std=c++11 -c Solution.cpp -o Solution.o
+g++ -std=c++11 -c SolutionTest.cpp -o SolutionTest.o
+g++ -std=c++11 -o Solution Solution.o SolutionTest.o -lm
+./Solution
 ```
 
 #### Java
