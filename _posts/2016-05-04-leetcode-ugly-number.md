@@ -37,26 +37,41 @@ O(1)
 
 [CATCH](https://github.com/philsquared/Catch/blob/master/docs/tutorial.md) used as a cpp unit-test framework.
 
+- Solution.hpp
+
 ```cpp
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+class Solution {
+public:
+    bool isUgly(int num);
+};
+```
+
+- Solution.cpp
+
+```cpp
+#include "Solution.hpp"
 #include <vector>
 
 using namespace std;
 
-class Solution {
-public:
-    bool isUgly(int num) {
-    	if(num <= 0) return false;
-    	vector<int> T = {2, 3, 5};
-    	for(auto t : T){
-    		while(num % t == 0){
-    			num = num / t;	
-    		}
-    	}
-    	return num == 1;
-    }
-};
+bool Solution::isUgly(int num) {
+	if(num <= 0) return false;
+	vector<int> T = {2, 3, 5};
+	for(auto t : T){
+		while(num % t == 0){
+			num = num / t;	
+		}
+	}
+	return num == 1;
+}
+```
+
+- SolutionTest.cpp
+
+```cpp
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
+#include "Solution.hpp"
 
 TEST_CASE( "Ugly values", "[Solution]" ){
 	Solution so;
@@ -87,6 +102,15 @@ TEST_CASE( "Boundary values: [0, negative numbers, 1]", "[Solution]" ){
 		REQUIRE(so.isUgly(1));
 	}
 }
+```
+
+- To build and run
+
+```bash
+>g++ -std=c++11 -c -o Solution.cpp Solution.o
+>g++ -std=c++11 -c -o SolutionTest.cpp SolutionTest.o
+>g++ -std=c++11 -o Solution Solution.o SolutionTest.o -lm
+>./Solution
 ```
 
 #### Java
@@ -170,6 +194,8 @@ public class SolutionTest {
 
 unittest used as a unittest framework.
 
+- Solution.py
+
 ```python
 class Solution(object):
     def isUgly(self, num):
@@ -178,8 +204,13 @@ class Solution(object):
             while num % t == 0:
                 num = num / t
         return num == 1
+```
 
+- SolutionTest.py
+
+```python
 import unittest
+from Solution import Solution
 
 class TestUM(unittest.TestCase): 
     def setUp(self):
