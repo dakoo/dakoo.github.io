@@ -91,68 +91,78 @@ TEST_CASE( "Boundary values: [0, negative numbers, 1]", "[Solution]" ){
 
 #### Java
 
+Junit used as a unit-test framework
+
+- Solution.java
+
 ```java
-public class LinkedList {
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
+package com.uglynumber;
+
+public class Solution {
+    public boolean isUgly(int num) {
+    	if(num <= 0) return false;
+    	int[] T = {2, 3, 5};
+    	for(int t : T){
+    		while(num % t == 0){
+    			num = num / t;
+    		}
+    	}
+    	return num == 1;
     }
-	private ListNode head;
-	public LinkedList(){
-		head = null;
+}
+```
+
+- SolutionTest.java
+
+```java
+package com.uglynumber.test;
+
+import static org.junit.Assert.*;
+import com.uglynumber.Solution;
+
+import org.junit.Test;
+import org.junit.Before;
+
+public class SolutionTest {
+
+	private Solution so;
+
+    @Before
+    public void setUp() throws Exception {
+    	so = new Solution();
+    }
+	
+	@Test
+	public void test_ugly_values() {
+		int[] T= {6, 8};
+		for(int t : T){
+			 assertEquals(so.isUgly(t), true);
+		}
 	}
-	public void add(int v){
-        ListNode node = new ListNode(v);
-        node.next = head;
-        head = node;
+
+	@Test
+	public void test_none_ugly_values() {
+		int[] T= {14};
+		for(int t : T){
+			 assertEquals(so.isUgly(t), false);
+		}
 	}
-    private boolean hasCycle(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
-        while(slow != null && fast != null){ 
-            fast = fast.next;
-            if(fast == null) return false;
-            if(fast == slow) return true;
-            fast = fast.next;
-            if(fast == null) return false;
-            if(fast == slow) return true;
-            slow = slow.next;
-        }
-        return false;
-    }
-    public boolean hasCycle() {
-        return hasCycle(head);  
-    }
-    public void makeCycle(){
-        ListNode temp = head;
-        ListNode prev = head;
-        while(temp != null){ 
-            prev = temp;
-            temp = temp.next;
-        }
-        if(prev != null)
-            prev.next = head;
-    }
-    public static void main(String[] argc){
-        int[] nums = {1, 2, 3, 4};
-        LinkedList ll = new LinkedList();
-        for(int i : nums){
-            ll.add(i);
-        }
-        if(ll.hasCycle())
-            System.out.println("Cycle");
-        else 
-            System.out.println("No cycle");
-        ll.makeCycle();
-        if(ll.hasCycle())
-            System.out.println("Cycle");
-        else 
-            System.out.println("No cycle");
-    }
+
+	@Test
+	public void test_boundary_ugly_values() {
+		int[] T= {1};
+		for(int t : T){
+			 assertEquals(so.isUgly(t), true);
+		}
+	}
+
+	@Test
+	public void test_boundary_none_ugly_values() {
+		int[] T= {-1, 0};
+		for(int t : T){
+			 assertEquals(so.isUgly(t), false);
+		}
+	}
 }
 ```
 
