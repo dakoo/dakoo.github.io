@@ -8,19 +8,7 @@ comments: true
 image:
   feature: abstract-11.png
 ---
-
 쉽게 사용할 수 있는 C++, java, python test framework에 대한 설명
-
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 ### C++ Test Framework
 
