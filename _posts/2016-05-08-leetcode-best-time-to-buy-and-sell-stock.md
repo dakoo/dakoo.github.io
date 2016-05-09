@@ -173,11 +173,16 @@ unittest used as a unittest framework.
 
 ```python
 class Solution(object):
-    def isPowerOfThree(self, n):
-    	if n <= 0: return False
-    	while n % 3 == 0: 
-    		n = n / 3
-    	return n == 1
+    def maxprofit(self, prices):
+        min_item = prices[0]
+        max_profit = 0
+        for item in prices:
+            if item < min_item:
+                min_item = item
+            else:
+                max_profit = max([max_profit, (item - min_item)])
+        return max_profit
+
 ```
 
 - SolutionTest.py
@@ -186,31 +191,19 @@ class Solution(object):
 import unittest
 from Solution import Solution
 
-class TestUM(unittest.TestCase): 
+
+class TestUM(unittest.TestCase):
+
     def setUp(self):
         self.so = Solution()
 
-    def test_power_of_three_1(self):
-        self.assertEqual(self.so.isPowerOfThree(1), True)
+    def test_max_profit1(self):
+        self.assertEqual(self.so.maxprofit([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), 9)
 
-    def test_power_of_three_3(self):
-        self.assertEqual(self.so.isPowerOfThree(3), True)
+    def test_max_profit2(self):
+        self.assertEqual(self.so.maxprofit([9, 8, 7, 6, 5, 4, 3, 2, 0, 1]), 1)
 
-    def test_power_of_three_9(self):
-        self.assertEqual(self.so.isPowerOfThree(9), True)
-
-    def test_power_of_three_27(self):
-        self.assertEqual(self.so.isPowerOfThree(27), True)
-
-    def test_not_power_of_three_negative1(self):
-        self.assertEqual(self.so.isPowerOfThree(-1), False)
-
-    def test_not_power_of_three_0(self):
-        self.assertEqual(self.so.isPowerOfThree(0), False)
-
-    def test_not_power_of_three_6(self):
-        self.assertEqual(self.so.isPowerOfThree(6), False)
-        
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
+
 ```
