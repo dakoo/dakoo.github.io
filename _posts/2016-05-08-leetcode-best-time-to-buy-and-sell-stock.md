@@ -2,7 +2,7 @@
 layout: post
 title: leetcode-Best Time to Buy and Sell Stock   
 description: leetcode
-modified: 2016-05-05
+modified: 2016-05-08
 tags: [leetcode]
 comments: true
 image:
@@ -12,17 +12,20 @@ image:
 
 ### Problem
 
-????????????????
+Handling arrays
 
 ### Solution 
 
 #### Approach
 
-??????????
+Traverse an array with the following procedure.
+
+- If an item is smaller than smallest one, update the smallest one.
+- Otherwise, if the profit (the item - the smallest one) is bigger than the maximum profit, update the maximum profit.
 
 #### Complexity
 
-?????????????
+O(n): traversal of an array
 
 #### Cpp
 
