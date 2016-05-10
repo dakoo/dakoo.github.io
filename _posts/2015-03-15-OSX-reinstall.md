@@ -50,8 +50,5 @@ OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참�
 
 - 일반 > 기본 웹브라우저를 Chrome.app로 
 - 언어및 지역 > 키보드 환경설정 > 키보드 탭 > 보조키 > Caps Lock을 Control로 변경
-- 
 
-http://stage.milkvr.com/api/
 
-56ad2e79edd1fc001d7fab61.VjckNv7kwEnRslGXKrbjyVqOaMKAT9rM30i5pZNBFcQ
