@@ -57,30 +57,33 @@ public:
 
 #### Java
 
+- ListNode.java
+
+```java
+package com.swappairs;
+
+public class ListNode {
+	int val;
+	ListNode next;
+	ListNode(int x) {val = x;}
+}
+```
+
 - Solution.java
 
 ```java
-package com.maxprofit;
+package com.swappairs;
 
 public class Solution {
-    public int maxProfit(final int[] prices) {
-    	if(prices.length == 0) {
-    		return 0;
-    	}
-    	int maximumProfit = 0;
-    	int minItem = prices[0];
-    	for(final int item : prices) {
-    		if(item < minItem) {
-    			minItem = item;
-    		} else {
-    			final int profit = item - minItem;
-    			if(maximumProfit < profit){
-    				maximumProfit = profit;
-    			}
-    		}
-    	}
-    	return maximumProfit;
-    }
+	public ListNode swapPairs(ListNode head) {
+		if(head == null || head.next == null) {
+			return head;
+		}
+		ListNode newhead = head.next;
+		head.next = swapPairs(head.next.next);
+		newhead.next = head;
+		return newhead;
+	}
 }
 ```
 
