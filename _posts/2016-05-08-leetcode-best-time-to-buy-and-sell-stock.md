@@ -104,15 +104,26 @@ Junit used as a unit-test framework
 - Solution.java
 
 ```java
-package com.powerofthree;
+package com.maxprofit;
 
 public class Solution {
-    public boolean isPowerOfThree(int n) {
-    	if(n <= 0) return false;
-    	while(n % 3 == 0){
-    		n /= 3;
+    public int maxProfit(final int[] prices) {
+    	if(prices.length == 0) {
+    		return 0;
     	}
-    	return n == 1;
+    	int maximumProfit = 0;
+    	int minItem = prices[0];
+    	for(final int item : prices) {
+    		if(item < minItem) {
+    			minItem = item;
+    		} else {
+    			final int profit = item - minItem;
+    			if(maximumProfit < profit){
+    				maximumProfit = profit;
+    			}
+    		}
+    	}
+    	return maximumProfit;
     }
 }
 ```
@@ -120,48 +131,36 @@ public class Solution {
 - SolutionTest.java
 
 ```java
-package com.powerofthree.test;
+package com.maxprofit.test;
 
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
-import com.powerofthree.Solution;
+
+import com.maxprofit.Solution;
 
 public class SolutionTest {
-	private Solution so;
+
+	private Solution solution;
+
 	@Before
 	public void setUp() throws Exception {
-		so = new Solution();
+		solution = new Solution();
 	}
 
 	@Test
-	public void test1IsPowerOfThree() {
-		assertEquals(so.isPowerOfThree(1), true);
+	public void testMaxProfit1() {
+		final int[] prices = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		assertEquals(solution.maxProfit(prices), 9);
 	}
+
 	@Test
-	public void test3IsPowerOfThree() {
-		assertEquals(so.isPowerOfThree(3), true);
+	public void testMaxProfit2() {
+		final int[] prices = {9, 8, 7, 6, 5, 4, 3, 2, 0, 1};
+		assertEquals(solution.maxProfit(prices), 1);
 	}
-	@Test
-	public void test9IsPowerOfThree() {
-		assertEquals(so.isPowerOfThree(9), true);
-	}
-	@Test
-	public void test27IsPowerOfThree() {
-		assertEquals(so.isPowerOfThree(27), true);
-	}
-	@Test
-	public void testNegative1IsNotPowerOfThree() {
-		assertEquals(so.isPowerOfThree(-1), false);
-	}
-	@Test
-	public void test0IsNotPowerOfThree() {
-		assertEquals(so.isPowerOfThree(0), false);
-	}
-	@Test
-	public void test6IsNotPowerOfThree() {
-		assertEquals(so.isPowerOfThree(6), false);
-	}
+
 }
 ```
 
