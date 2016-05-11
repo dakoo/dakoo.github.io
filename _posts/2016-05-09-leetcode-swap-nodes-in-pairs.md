@@ -1,0 +1,116 @@
+---
+layout: post
+title: leetcode-Swap Nodes in Pairs
+description: leetcode
+modified: 2016-05-09
+tags: [leetcode]
+comments: true
+image:
+  feature: abstract-11.png
+---
+[leetcode - Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)
+
+### Problem
+
+Handling linked lists
+
+### Solution 
+
+#### Approach
+
+Linked lists problems tend to use recursion. To design a recursive function for this problem, take the following into consideration.
+
+- What item must be returned (= What the caller function expects): the address of the head of each step must be returned.
+- Start/Stop condition: Minimum requirements to run the function. In this case, at least two items mustn't be null. 
+- Operation: swap two items and the tail item must point to the following items.
+
+#### Complexity
+
+O(n): traversal of a list
+
+#### Cpp
+
+- Solution.cpp
+
+```cpp
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* first_list, ListNode* second_list) {
+        if(first_list == nullptr && second_list == nullptr){
+            return nullptr;
+        } else if(first_list == nullptr){
+            return second_list;
+        } else if(second_list == nullptr){
+            return first_list;
+        }
+        if(first_list->val < second_list->val){
+            first_list->next = mergeTwoLists(first_list->next, second_list);
+            return first_list;
+        }
+        second_list->next = mergeTwoLists(first_list, second_list->next);
+        return second_list;
+    }
+};
+```
+
+#### Java
+
+- Solution.java
+
+```java
+package com.maxprofit;
+
+public class Solution {
+    public int maxProfit(final int[] prices) {
+    	if(prices.length == 0) {
+    		return 0;
+    	}
+    	int maximumProfit = 0;
+    	int minItem = prices[0];
+    	for(final int item : prices) {
+    		if(item < minItem) {
+    			minItem = item;
+    		} else {
+    			final int profit = item - minItem;
+    			if(maximumProfit < profit){
+    				maximumProfit = profit;
+    			}
+    		}
+    	}
+    	return maximumProfit;
+    }
+}
+```
+
+#### Python
+
+- Solution.py
+
+```python
+class ListNode(object):
+
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
+class Solution(object):
+
+    def swap_pairs(self, head):
+        if head is None:
+            return None
+        if head.next is None:
+            return head
+        newhead = head.next
+        head.next = self.swap_pairs(head.next.next)
+        newhead.next = head
+        return newhead
+
+```
