@@ -12,20 +12,20 @@ image:
 
 ### Problem
 
-Handling arrays
+Handling linked lists
 
 ### Solution 
 
 #### Approach
 
-Traverse an array with the following procedure.
+Linked lists problems tend to use recursion. To design a recursive function for this problem, take the following into consideration.
 
-- If an item is smaller than smallest one, update the smallest one.
-- Otherwise, if the profit (the item - the smallest one) is bigger than the maximum profit, update the maximum profit.
+- What item must be returned (= What the caller function expects): the address of the head of each step must be returned.
+- Start/Stop condition: Minimum requirements to run the function. In this case, at least two lists mustn't null. If both of them is null, return null. If either of them is null, return none-null list.
 
 #### Complexity
 
-O(n): traversal of an array
+O(n): traversal of two lists
 
 #### Cpp
 
@@ -170,45 +170,32 @@ public class SolutionTest {
 
 #### Python
 
-unittest used as a unittest framework.
-
 - Solution.py
 
 ```python
+class ListNode(object):
+
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
 class Solution(object):
-    def maxprofit(self, prices):
-        if len(prices) == 0:
-            return 0
-        min_item = prices[0]
-        max_profit = 0
-        for item in prices:
-            if item < min_item:
-                min_item = item
-            else:
-                max_profit = max([max_profit, (item - min_item)])
-        return max_profit
 
-```
-
-- SolutionTest.py
-
-```python
-import unittest
-from Solution import Solution
-
-
-class TestUM(unittest.TestCase):
-
-    def setUp(self):
-        self.so = Solution()
-
-    def test_max_profit1(self):
-        self.assertEqual(self.so.maxprofit([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), 9)
-
-    def test_max_profit2(self):
-        self.assertEqual(self.so.maxprofit([9, 8, 7, 6, 5, 4, 3, 2, 0, 1]), 1)
-
-if __name__ == '__main__':
-    unittest.main()
+    def mergetwolists(self, first_sorted_list, second_sorted_list):
+        if first_sorted_list is None and second_sorted_list is None:
+            return None
+        if first_sorted_list is None:
+            return second_sorted_list
+        elif second_sorted_list is None:
+            return first_sorted_list
+        if first_sorted_list.val < second_sorted_list.val:
+            first_sorted_list.next = self.mergetwolists(
+                first_sorted_list.next, second_sorted_list)
+            return first_sorted_list
+        else:
+            second_sorted_list.next = self.mergetwolists(
+                first_sorted_list, second_sorted_list.next)
+            return second_sorted_list
 
 ```
