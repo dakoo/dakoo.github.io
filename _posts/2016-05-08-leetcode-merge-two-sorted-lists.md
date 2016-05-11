@@ -61,29 +61,40 @@ public:
 
 #### Java
 
+- ListNode.java
+
+```java
+package com.mergetwolists;
+
+public class ListNode {
+	int val;
+	ListNode next;
+	ListNode(int x){val = x;}
+}
+```
+
 - Solution.java
 
 ```java
-package com.maxprofit;
+package com.mergetwolists;
 
 public class Solution {
-    public int maxProfit(final int[] prices) {
-    	if(prices.length == 0) {
-    		return 0;
+    public ListNode mergeTwoLists(ListNode firstList, ListNode secondList) {
+    	if(firstList == null && secondList == null) {
+    		return null;
     	}
-    	int maximumProfit = 0;
-    	int minItem = prices[0];
-    	for(final int item : prices) {
-    		if(item < minItem) {
-    			minItem = item;
-    		} else {
-    			final int profit = item - minItem;
-    			if(maximumProfit < profit){
-    				maximumProfit = profit;
-    			}
-    		}
+    	if(firstList == null) {
+    		return secondList;
     	}
-    	return maximumProfit;
+    	if(secondList == null) {
+    		return firstList;
+    	}
+    	if(firstList.val < secondList.val) {
+    		firstList.next = mergeTwoLists(firstList.next, secondList);
+    		return firstList;
+    	}
+    	secondList.next = mergeTwoLists(firstList, secondList.next);
+		return secondList;
     }
 }
 ```
