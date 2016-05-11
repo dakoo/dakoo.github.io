@@ -42,20 +42,15 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* first_list, ListNode* second_list) {
-        if(first_list == nullptr && second_list == nullptr){
-            return nullptr;
-        } else if(first_list == nullptr){
-            return second_list;
-        } else if(second_list == nullptr){
-            return first_list;
-        }
-        if(first_list->val < second_list->val){
-            first_list->next = mergeTwoLists(first_list->next, second_list);
-            return first_list;
-        }
-        second_list->next = mergeTwoLists(first_list, second_list->next);
-        return second_list;
+    ListNode* swapPairs(ListNode* head) {
+        if(head == nullptr)
+            return nullptr;      
+        if(head->next == nullptr)
+            return head;
+        ListNode* newhead = head->next; 
+        head->next = swapPairs(head->next->next);
+        newhead->next = head;
+        return newhead;
     }
 };
 ```
