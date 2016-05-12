@@ -20,6 +20,23 @@ CompizConfig는 Graphic 카드와 결합하여 다양한 효과를 제공하는 
 
 - `sudo apt-get install compizconfig-settings-manager`
 
+##### Trouble Shooting
+
+If you see the following messages... use Ubuntu Software Center instead of terminal.
+
+```
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Package compizconfig-settings-manager is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+However the following packages replace it:
+  compiz-core
+
+E: Package 'compizconfig-settings-manager' has no installation candidate
+```
+
 #### 설정
 
 DASH에서 `compizconfig`을 찾아서 실행한 후 winsplit효과와 같이 설정하자. 여기서의 키 설정은 나에게 익숙한 설정을 따르는 것이므로 개인별로 다를 수 있다. ubuntu는 workspace를 전환할 수 있고 default로 control+alt+화살표키가 workspace전환에 할당되어 있는데 통상 Winsplit에서는 이를 모니터간 전환에 할당한다. 그러므로 이를 어떻게 할지 고민이 필요한데 여기서는 이를 다루지 않는다.  
