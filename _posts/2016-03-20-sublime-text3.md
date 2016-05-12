@@ -54,20 +54,25 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 
 ```
 {
-	"bootstrapped": true,
-	"in_process_packages":
-	[
-	],
-	"installed_packages":
-	[
-		"AdvancedNewFile",
-		"BracketHighlighter",
-		"Package Control",
-		"SideBarEnhancements",
-		"SublimeCodeIntel",
-		"SublimeLinter",
-		"Theme - Soda"
-	]
+        "bootstrapped": true,
+        "in_process_packages":
+        [
+        ],
+        "installed_packages":
+        [
+                "AdvancedNewFile",
+                "BracketHighlighter",
+                "GitGutter",
+                "Java Velocity",
+                "Javatar",
+                "Package Control",
+                "Python Flake8 Lint",
+                "Python PEP8 Autoformat",
+                "SideBarEnhancements",
+                "SublimeCodeIntel",
+                "SublimeLinter",
+                "Theme - Soda"
+        ]
 }
 ```
 
@@ -88,6 +93,8 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 	"line_padding_top": 1,
 	"sidebar_font_big": true,
 	"soda_classic_tabs": true,
+	"tab_size": 4,
+	"translate_tabls_to_spaces": true,	
 	"tabs_small": true,
 	"wide_caret": true,
 	"word_wrap": true,
