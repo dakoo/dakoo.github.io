@@ -21,9 +21,15 @@ Package control을 다음 순서대로 설치한다.
 3. Control + ` 키를 눌러서 console창을 연 후 위에서 복사한 script를 붙여넣기하여 스크립트를 실행한다.  
 4. Sublime Text3를 재실행한다. 
 
-### 필수 package 설치
+#### Trouble Shooting
 
-Control(Command) + Shift + p를 눌러 Package Control 창을 열고 install을 타이핑해서 인스톨할 package를 찾는다. 
+If you face a ssl-related error while installing Package control, do the following on terminal.
+
+- unzip -l ~/.config/sublime-text-3/Installed\ Packages/0_package_control_loader.sublime-package
+
+After unzip the package, relaunch the Sublime Text3
+
+### Install new packages and configuration
 
 - AdvancedNewFile : Control + Alt + N으로 생성
 - BracketHighlighter
@@ -31,10 +37,11 @@ Control(Command) + Shift + p를 눌러 Package Control 창을 열고 install을 
 - SublimeLinter
 - SublimeCodeIntel
 - Theme - soda
+- etc
 
-### 기본 설정
+#### 기본 설정
 
-#### vi mode
+##### vi mode
 
 default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다. 
 
@@ -42,7 +49,7 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 2. ignored_packages에서 "Vintage"를 제거한 후 저장한다. 
 3. Sublime Text 3를 재시작한다. 
 
-### 나중에 재설치시 기본 package를 빠르게 설치하고 설정하기
+### basic package를 빠르게 설치하고 설정하기
 
 아래 두개의 파일을 운영체제 별로 다음 path에 추가한다. 이미 존재하는 파일이 있다면 덮어쓴다.
 
@@ -63,8 +70,6 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
                 "AdvancedNewFile",
                 "BracketHighlighter",
                 "GitGutter",
-                "Java Velocity",
-                "Javatar",
                 "Package Control",
                 "Python Flake8 Lint",
                 "Python PEP8 Autoformat",
@@ -75,7 +80,6 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
         ]
 }
 ```
-
 #### Preferences.sublime-settings 파일
 
 `"auto_match_enabled": false` truns off automatic parenthesis matching
@@ -113,7 +117,3 @@ Ubuntu: To toggle the side bar, add the following line in `Default\ \(Linux\).su
 ```
 { "keys": ["ctrl+shift+alt+s"], "command": "toggle_side_bar" },
 ```
-
-
-
-
