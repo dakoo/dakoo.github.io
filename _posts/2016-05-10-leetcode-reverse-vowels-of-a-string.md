@@ -38,11 +38,13 @@ O(N): Thanks to hashset
 - Solution.hpp
 
 ```cpp
+#include <string>
+
+using namespace std;
+
 class Solution {
-private:
-	int sumofsquareofdigits(int n);
 public:
-    bool isHappy(int n);
+    string reverseVowels(string s);
 };
 ```
 
@@ -51,28 +53,37 @@ public:
 ```cpp
 #include "Solution.hpp"
 #include <unordered_set>
-#include <iostream>
+#include <vector>
 
-using namespace std;
-
-int Solution::sumofsquareofdigits(int n){
-	int sum = 0;
-    while(n){
-    	int temp = n%10;
-    	sum += temp * temp;
-    	n /= 10;
-    }
-    return sum;
-}
-bool Solution::isHappy(int n) {
-	unordered_set<int> T;
-	while(T.find(n) == T.end()){
-		T.insert(n);
-		if(n == 1) 
-			return true;
-		n = sumofsquareofdigits(n);
+string Solution::reverseVowels(string str) {
+	if(str == ""){
+		return "";
+	}	
+	vector<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+	unordered_set<char> hashset;
+	for(auto c: vowels){
+		hashset.insert(c);
 	}
-	return false;
+	int len = str.size();
+	int front_index = 0;
+	int back_index = len - 1;
+	while(front_index < back_index){
+		while(front_index < len && hashset.find(str[front_index])==hashset.end()){
+			front_index++;
+		}
+		while(back_index >= 0 && hashset.find(str[back_index])==hashset.end()){
+			back_index--;
+		}
+		if(front_index >= back_index){
+			break;
+		}			
+		char temp = str[front_index];
+		str[front_index] = str[back_index];
+		str[back_index] = temp;
+		front_index++;
+		back_index--;
+	}
+	return str;
 }
 
 ```
@@ -84,25 +95,29 @@ bool Solution::isHappy(int n) {
 #include "catch.hpp"
 #include "Solution.hpp"
 
-TEST_CASE("Happy number", "[Solution]") {
+TEST_CASE("Reverse Vowels - Normal", "[Solution]") {
     Solution so;
-    SECTION("1 should be a happy number") {
-        REQUIRE(so.isHappy(1));
+    SECTION("hello should become holle") {
+        REQUIRE(so.reverseVowels("hello") == "holle");
     }
-    SECTION("19 should be a happy number") {
-        REQUIRE(so.isHappy(19));
+    SECTION("HELLO should become HOLLE") {
+        REQUIRE(so.reverseVowels("HELLO") == "HOLLE");
     }
 }
 
-TEST_CASE("Not power of three", "[Solution]") {
+TEST_CASE("Reverse Vowels - exceptional", "[Solution]") {
     Solution so;
-    SECTION("2 shouldn't be a happy number") {
-        REQUIRE(so.isHappy(2) == false);
+    SECTION("BCD should become BCD") {
+        REQUIRE(so.reverseVowels("BCD") ==  "BCD");
     }
-    SECTION("4 shouldn't be a happy number") {
-        REQUIRE(so.isHappy(4) == false);
+    SECTION("null should become null") {
+        REQUIRE(so.reverseVowels("") == "");
+    }
+    SECTION("aeioue should become euoiea") {
+        REQUIRE(so.reverseVowels("aeioue") == "euoiea");
     }
 }
+
 ```
 
 - To build and run
