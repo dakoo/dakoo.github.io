@@ -18,8 +18,14 @@ String handling using loop manipulation
 
 #### Approach
 
+##### C and Java
+
 - Manupulate 2 pointers, which are moving from front and back.
 - Check if a character is a vowel, use hashset. 
+
+##### python
+
+- Regular expression should be considered to manipulate String in python
 
 #### Complexity
 
@@ -199,6 +205,8 @@ public class SolutionTest {
 #### Python
 
 unittest used as a unittest framework.
+
+- Python regular expression : refer to [here](http://devanix.tistory.com/296)
 
 - Solution.py
 
