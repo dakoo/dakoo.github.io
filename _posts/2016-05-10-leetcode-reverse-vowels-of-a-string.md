@@ -38,13 +38,11 @@ O(N): Thanks to hashset
 - Solution.hpp
 
 ```cpp
-#include <string>
-
-using namespace std;
-
 class Solution {
+private:
+	int sumofsquareofdigits(int n);
 public:
-    string reverseVowels(string s);
+    bool isHappy(int n);
 };
 ```
 
@@ -53,38 +51,30 @@ public:
 ```cpp
 #include "Solution.hpp"
 #include <unordered_set>
-#include <vector>
+#include <iostream>
 
-string Solution::reverseVowels(string str) {
-	if(str == ""){
-		return "";
-	}	
-	vector<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
-	unordered_set<char> hashset;
-	for(auto c: vowels){
-		hashset.insert(c);
-	}
-	int len = str.size();
-	int front_index = 0;
-	int back_index = len - 1;
-	while(front_index < back_index){
-		while(front_index < len && hashset.find(str[front_index])==hashset.end()){
-			front_index++;
-		}
-		while(back_index >= 0 && hashset.find(str[back_index])==hashset.end()){
-			back_index--;
-		}
-		if(front_index >= back_index){
-			break;
-		}			
-		char temp = str[front_index];
-		str[front_index] = str[back_index];
-		str[back_index] = temp;
-		front_index++;
-		back_index--;
-	}
-	return str;
+using namespace std;
+
+int Solution::sumofsquareofdigits(int n){
+	int sum = 0;
+    while(n){
+    	int temp = n%10;
+    	sum += temp * temp;
+    	n /= 10;
+    }
+    return sum;
 }
+bool Solution::isHappy(int n) {
+	unordered_set<int> T;
+	while(T.find(n) == T.end()){
+		T.insert(n);
+		if(n == 1) 
+			return true;
+		n = sumofsquareofdigits(n);
+	}
+	return false;
+}
+
 ```
 
 - SolutionTest.cpp
@@ -94,26 +84,23 @@ string Solution::reverseVowels(string str) {
 #include "catch.hpp"
 #include "Solution.hpp"
 
-TEST_CASE("Reverse Vowels - Normal", "[Solution]") {
+TEST_CASE("Happy number", "[Solution]") {
     Solution so;
-    SECTION("hello should become holle") {
-        REQUIRE(so.reverseVowels("hello") == "holle");
+    SECTION("1 should be a happy number") {
+        REQUIRE(so.isHappy(1));
     }
-    SECTION("HELLO should become HOLLE") {
-        REQUIRE(so.reverseVowels("HELLO") == "HOLLE");
+    SECTION("19 should be a happy number") {
+        REQUIRE(so.isHappy(19));
     }
 }
 
-TEST_CASE("Reverse Vowels - exceptional", "[Solution]") {
+TEST_CASE("Not power of three", "[Solution]") {
     Solution so;
-    SECTION("BCD should become BCD") {
-        REQUIRE(so.reverseVowels("BCD") ==  "BCD");
+    SECTION("2 shouldn't be a happy number") {
+        REQUIRE(so.isHappy(2) == false);
     }
-    SECTION("null should become null") {
-        REQUIRE(so.reverseVowels("") == "");
-    }
-    SECTION("aeioue should become euoiea") {
-        REQUIRE(so.reverseVowels("aeioue") == "euoiea");
+    SECTION("4 shouldn't be a happy number") {
+        REQUIRE(so.isHappy(4) == false);
     }
 }
 ```
@@ -151,14 +138,14 @@ public class Solution {
     	int length = s.length();
     	int forwardIndex = 0;
     	int backwardIndex = length - 1;
-    	while(forwardIndex < backwardIndex) {
+    	while(forwardIndex <= backwardIndex) {
     		while(forwardIndex< length && !hashset.contains(charArray[forwardIndex])) {
     			forwardIndex++;
     		}
     		while(backwardIndex >= 0 && !hashset.contains(charArray[backwardIndex])) {
     			backwardIndex--;
     		}
-    		if( forwardIndex >= backwardIndex) {
+    		if( forwardIndex >= length || backwardIndex < 0 || forwardIndex >= backwardIndex) {
     			break;
     		}
     		char temp = charArray[forwardIndex];
@@ -224,24 +211,17 @@ unittest used as a unittest framework.
 - Solution.py
 
 ```python
+import re
+
+
 class Solution(object):
 
-    def _sumofsquareofdigits(self, n):
-        sum_ = 0
-        while n > 0:
-            temp = int(n % 10)
-            sum_ = sum_ + (temp * temp)
-            n = n / 10
-        return sum_
+    def reverse_vowels(self, str):
+        if str is None:
+            return None
+        vowels = re.findall("[aeiouAEIOU]", str)
+        return re.sub("[aeiouAEIOU]", lambda any: vowels.pop(), str)
 
-    def ishappy(self, n):
-        items = set()
-        while n not in items:
-            items.add(n)
-            if n == 1:
-                return True
-            n = self._sumofsquareofdigits(n)
-        return False
 ```
 
 - SolutionTest.py
@@ -257,18 +237,19 @@ class TestUM(unittest.TestCase):
     def setUp(self):
         self.so = Solution()
 
-    def test_happynumber_1(self):
-        self.assertEqual(self.so.ishappy(1), True)
+    def test_reverse_vowels_normal(self):
+        self.assertEqual(self.so.reverse_vowels("Holle"), "Hello")
 
-    def test_happynumber_19(self):
-        self.assertEqual(self.so.ishappy(19), True)
+    def test_reverse_vowels_no_vowel(self):
+        self.assertEqual(self.so.reverse_vowels("BCD"), "BCD")
 
-    def test_not_happynumber_2(self):
-        self.assertEqual(self.so.ishappy(2), False)
+    def test_reverse_vowels_empty_string(self):
+        self.assertEqual(self.so.reverse_vowels(None), None)
 
-    def test_not_happynumber_4(self):
-        self.assertEqual(self.so.ishappy(4), False)
+    def test_reverse_vowels_all_vowels(self):
+        self.assertEqual(self.so.reverse_vowels("aeioue"), "euoiea")
 
 if __name__ == "__main__":
     unittest.main()
+
 ```
