@@ -33,6 +33,9 @@ Vimuim is a chrome extension to control the chrome browser with vim-like control
 - n : new find match
 - N : previious find match
 
+- H : prevous
+- L : next
+
 - K : go one tab right
 - J : go one tab left
 - g0 : first tab
