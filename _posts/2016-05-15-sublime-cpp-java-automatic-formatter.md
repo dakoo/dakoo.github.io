@@ -13,5 +13,5 @@ We need automatic formatter to meet organizational requirements - often called a
 
 #### cpp and java on sublime text
 
-[Astyle](http://astyle.sourceforge.net/) is a nice automattic formatter for c/c++ and java. Sublime has [SublimeAStyleFormatter](http://theo.im/SublimeAStyleFormatter/) package.
-After installation, 'control+alt+k' on all operating systems reformats c++ and java source code.
+[Astyle](https://www.howtoinstall.co/en/ubuntu/trusty/astyle/) is a nice automattic formatter for c/c++ and java. Sublime has [SublimeAStyleFormatter](http://theo.im/SublimeAStyleFormatter/) package.
+After installation, 'control+alt+f' on all operating systems reformats c++ and java source code.
