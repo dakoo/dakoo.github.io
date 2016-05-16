@@ -122,18 +122,21 @@ Junit used as a unit-test framework
 - Solution.java
 
 ```java
-package com.uglynumber;
+package com.houserobber;
 
 public class Solution {
-    public boolean isUgly(int num) {
-    	if(num <= 0) return false;
-    	int[] T = {2, 3, 5};
-    	for(int t : T){
-    		while(num % t == 0){
-    			num = num / t;
-    		}
+    public int rob(int[] nums) {
+    	if(nums == null || nums.length == 0){
+    		return 0;
     	}
-    	return num == 1;
+        int curr = 0;
+        int prev = 0;
+        for(int i: nums) {
+            int temp = Math.max(curr, prev + i);
+            prev = curr;
+            curr = temp;
+        }
+        return curr;
     }
 }
 ```
@@ -141,54 +144,48 @@ public class Solution {
 - SolutionTest.java
 
 ```java
-package com.uglynumber.test;
+package com.houserobber.test;
 
 import static org.junit.Assert.*;
-import com.uglynumber.Solution;
 
 import org.junit.Test;
 import org.junit.Before;
 
+import com.houserobber.Solution;
+
 public class SolutionTest {
 
 	private Solution so;
-
-    @Before
-    public void setUp() throws Exception {
-    	so = new Solution();
-    }
-	
+	@Before
+	public void setUp() throws Exception {
+		so = new Solution();
+	}
 	@Test
-	public void test_ugly_values() {
-		int[] T= {6, 8};
-		for(int t : T){
-			 assertEquals(so.isUgly(t), true);
-		}
+	public void testHouseRobberNormal1() {
+		int[] nums = {0, 1, 2};
+		assertEquals(2, so.rob(nums));
+	}
+	@Test
+	public void testHouseRobberNormal2() {
+		int[] nums = {0, 1, 2, 4};
+		assertEquals(so.rob(nums), 5);
+	}
+	@Test
+	public void testHouseRobberEmpty() {
+		int[] nums = {0};
+		assertEquals(0, so.rob(nums));
+	}
+	@Test
+	public void testHouseRobberSymmetric() {
+		int[] nums = {1, 0, 0, 1};
+		assertEquals(2, so.rob(nums));
+	}
+	@Test
+	public void testHouseRobberAsymmetric() {
+		int[] nums = {0, 1, 1, 1};
+		assertEquals(2, so.rob(nums));
 	}
 
-	@Test
-	public void test_none_ugly_values() {
-		int[] T= {14};
-		for(int t : T){
-			 assertEquals(so.isUgly(t), false);
-		}
-	}
-
-	@Test
-	public void test_boundary_ugly_values() {
-		int[] T= {1};
-		for(int t : T){
-			 assertEquals(so.isUgly(t), true);
-		}
-	}
-
-	@Test
-	public void test_boundary_none_ugly_values() {
-		int[] T= {-1, 0};
-		for(int t : T){
-			 assertEquals(so.isUgly(t), false);
-		}
-	}
 }
 ```
 
@@ -200,40 +197,45 @@ unittest used as a unittest framework.
 
 ```python
 class Solution(object):
-    def isUgly(self, num):
-        if num <= 0: return False
-        for t in [2, 3, 5]:
-            while num % t == 0:
-                num = num / t
-        return num == 1
+
+    def rob(self, nums):
+        curr, prev = 0, 0
+        for i in nums:
+            temp = max(curr, prev + i)
+            curr, prev = temp, curr
+        return curr
+
 ```
 
 - SolutionTest.py
 
 ```python
 import unittest
+
 from Solution import Solution
 
-class TestUM(unittest.TestCase): 
+
+class TestUM(unittest.TestCase):
+
     def setUp(self):
         self.so = Solution()
 
-    def test_ugly_values(self):
-        for t in [6, 8]:
-            self.assertEqual( self.so.isUgly(t), True)
+    def test_house_robber_normal1(self):
+        self.assertEqual(self.so.rob([0, 1, 2]), 2)
 
-    def test_none_ugly_values(self):
-        for t in [14]:
-            self.assertEqual( self.so.isUgly(t), False)
+    def test_house_robber_normal2(self):
+        self.assertEqual(self.so.rob([0, 1, 2, 4]), 5)
 
-    def test_boundary_ugly_values(self):
-        for t in [1]:
-            self.assertEqual( self.so.isUgly(t), True)
+    def test_house_robber_empty(self):
+        self.assertEqual(self.so.rob([0]), 0)
 
-    def test_boundary_none_ugly_values(self):
-        for t in [-1, 0]:
-            self.assertEqual( self.so.isUgly(t), False)
+    def test_house_robber_symmetric(self):
+        self.assertEqual(self.so.rob([1, 0, 0, 1]), 2)
+
+    def test_house_robber_asymmetric(self):
+        self.assertEqual(self.so.rob([0, 1, 1, 1]), 2)
 
 if __name__ == "__main__":
     unittest.main()
+
 ```
