@@ -73,6 +73,7 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
                 "Package Control",
                 "Python Flake8 Lint",
                 "Python PEP8 Autoformat",
+		"SublimeAStyleFormatter",
                 "SideBarEnhancements",
                 "SublimeCodeIntel",
                 "SublimeLinter",
