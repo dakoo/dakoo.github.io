@@ -58,11 +58,11 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 class Solution {
 private:
-	void _addLevelItemsRecursively(vector<vector<int> >& llist, TreeNode* node, int level);
+    void _addLevelItemsRecursively(vector<vector<int> >& llist, TreeNode* node, int level);
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root);
 };
