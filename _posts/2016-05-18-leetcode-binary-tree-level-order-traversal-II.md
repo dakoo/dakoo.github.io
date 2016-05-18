@@ -31,8 +31,8 @@ def AddLevelItemsRecursively(two_dim_list, node, level):
 		newlist = list()
 		two_dim_list.append(newlist)
 	two_dim_list[level-1].append(node.val)
-	function(two_dim_list, node->left, level + 1)
-	function(two_dim_list, node->right, level + 1)
+	AddLevelItemsRecursively(two_dim_list, node->left, level + 1)
+	AddLevelItemsRecursively(two_dim_list, node->right, level + 1)
 
 def levelOrderBottom(root):
 	two_dim_list = list()
