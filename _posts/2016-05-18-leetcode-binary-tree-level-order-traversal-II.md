@@ -23,7 +23,7 @@ In this problem, the most difficult part is that you should return two dimension
 Normal BFS or Queue/Stack combination can't make the dimesional arrays because they don't notice when level is changed.
 Therefore, consider more straightforward solutions using recusion with level information as follows. 
 
-```
+```python
 def AddLevelItemsRecursively(two_dim_list, node, level):
 	if node is None:
 		return	
@@ -49,7 +49,7 @@ Time complexity: O(N)
 
 - Solution.hpp
 
-```
+```cpp
 #include <vector>
 
 using namespace std;
