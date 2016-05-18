@@ -27,7 +27,7 @@ Therefore, consider more straightforward solutions using recusion with level inf
 def AddLevelItemsRecursively(two_dim_list, node, level):
 	if node is None:
 		return	
-	if len(two_dim_list) != level:
+	if len(two_dim_list) == level - 1:
 		newlist = list()
 		two_dim_list.append(newlist)
 	two_dim_list[level-1].append(node.val)
@@ -50,12 +50,45 @@ Time complexity: O(N)
 - Solution.hpp
 
 ```
+#include <vector>
 
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+class Solution {
+private:
+	void _addLevelItemsRecursively(vector<vector<int> >& llist, TreeNode* node, int level);
+public:
+    vector<vector<int>> levelOrderBottom(TreeNode* root);
+};
 ```
 
 - Solution.cpp
 
 ```cpp
+#include "Solution.hpp"
 
+void Solution::_addLevelItemsRecursively(vector<vector<int> >& llist, TreeNode* node, int level) {
+    if(node == nullptr)
+        return;
+    if(llist.size() == level - 1){
+        vector<int> v;
+        llist.push_back(v);
+    }
+    llist[level - 1].push_back(node->val);
+    _addLevelItemsRecursively(llist, node->left, level+1);
+    _addLevelItemsRecursively(llist, node->right, level+1);
+}
+vector<vector<int>> Solution::levelOrderBottom(TreeNode* root) {
+    vector<vector<int> > llist;
+    _addLevelItemsRecursively(llist, root, 1);
+    reverse(begin(llist), end(llist)); 
+    return llist;
+}
 ```
 
