@@ -47,6 +47,8 @@ Time complexity: O(N)
 
 #### Cpp
 
+To reverse a vector, do "reverse(begin(v), end(v));" 
+
 - Solution.hpp
 
 ```cpp
