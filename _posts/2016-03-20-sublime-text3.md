@@ -99,13 +99,19 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
 	"sidebar_font_big": true,
 	"soda_classic_tabs": true,
 	"tab_size": 4,
-	"translate_tabls_to_spaces": true,	
+	"translate_tabs_to_spaces": true,
+	"detect_indentation": false,
 	"tabs_small": true,
 	"wide_caret": true,
 	"word_wrap": true,
 	"auto_match_enabled": false
 }
 ```
+
+### Further setting
+
+- If you see the "Tab Size:4" at the bottom of Sublime Text, change it to "Indent Using Spaces"
+
 
 ### 단축키 
 
