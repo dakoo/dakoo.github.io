@@ -17,7 +17,7 @@ Linux에서의 최소한의 vi 설정을 알아보자.
 ```
 syntax on
 set autoindent
-set tapstop=4
+set tabstop=4
 set shiftwidth=4
 set nu
 colorscheme default
