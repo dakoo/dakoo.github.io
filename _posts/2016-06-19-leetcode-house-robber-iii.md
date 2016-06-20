@@ -57,7 +57,7 @@ At each node, we should consider the maximum of the value of a tree which the no
 If the parent node is already selected, the children nodes cann't be selected. 
 Otherwise, the parent is not selected, the children nodes have two options. One is "Selected" or "Not selected". The algorithm can be as follows:
 
-```
+```python
 def maxValueOfTree(node, isParentNodeSelected):
     if node is None:
         return 0
@@ -77,7 +77,7 @@ def maxValueOfTree(node, isParentNodeSelected):
 
 Let's think about how to delete "isParentNodeSelected" argument because it increases the complexity of the implementation. We can make the function above as the following function.
 
-```
+```python
 def MaxValueOfTree(node):
     if node is None:
         return 0
@@ -100,9 +100,7 @@ def MaxValueOfTree(node):
 We can apply memoization to the approach above. To implement memorization, let's use a hashmap. 
 The key of the hashmap is 'TreeNode *' and the value is the return value.
 
-### Implementation
-
-```
+```python
 def MaxValueOfTree(self, node):
     if node is None:
         return 0
@@ -129,6 +127,10 @@ def MaxValueOfTree(self, node):
 
     return max_val
 ```
+
+##### Complexity
+
+Time complexity: O(N) thanks to memoization
 
 #### C++
 
