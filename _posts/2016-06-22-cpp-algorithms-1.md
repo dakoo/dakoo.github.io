@@ -102,3 +102,82 @@ m: All the elements are odd numbers.
 us: All the elements are odd numbers.
 um: All the elements are odd numbers.
 ```
+
+### any_of: 적어도 하나의 element라도 조건을 만족하는지 확인하는 함수
+
+**any_of** 함수는 **적어도 하나의 element라도 어떤 조건을 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of와 동일하게 사용할 수 있다.
+
+```cpp
+bool any_of (InputIterator first, InputIterator last, UnaryPredicate pred);
+```
+
+예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, **iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다.** 단지, **map의 경우 pair를 통해** element를 받아야 한다는 것을 명심하자. 
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <deque>
+#include <forward_list>
+#include <list>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+
+int main () {
+    std::array<int,8> ar{3,4,7,11,13,17,19,23};
+    std::vector<int> v{3,4,7,11,13,17,19,23};
+    std::deque<int> d{3,4,7,11,13,17,19,23};
+    std::forward_list<int> f{3,4,7,11,13,17,19,23};
+    std::list<int> l{3,4,7,11,13,17,19,23};
+    std::set<int> s{3,4,7,11,13,17,19,23};
+    std::map<int, int> m{{100,3}, {200,4}, {300, 7}, {101, 11},{102, 13}};
+    std::unordered_set<int> us{3,4,7,11,13,17,19,23};
+    std::map<int, int> um{{100,3}, {200,4}, {300, 7}, {101, 11},{102, 13}};
+    
+    if ( std::any_of(ar.begin(), ar.end(), [](int i){return i%2;}) )
+        std::cout << "a: Any of the element is an even number.\n";
+    
+    if ( std::any_of(v.begin(), v.end(), [](int i){return i%2;}) )
+        std::cout << "v: Any of the element is an even number.\n";
+    
+    if ( std::any_of(d.begin(), d.end(), [](int i){return i%2;}) )
+        std::cout << "d: Any of the element is an even number.\n";
+    
+    if ( std::any_of(f.begin(), f.end(), [](int i){return i%2;}) )
+        std::cout << "f: Any of the element is an even number.\n";
+    
+    if ( std::any_of(l.begin(), l.end(), [](int i){return i%2;}) )
+        std::cout << "l: Any of the element is an even number.\n";
+    
+    if ( std::any_of(s.begin(), s.end(), [](int i){return i%2;}) )
+        std::cout << "s: Any of the element is an even number.\n";
+    
+    if ( std::any_of(m.begin(), m.end(), [](std::pair<int, int> p){return p.second%2;}) )
+        std::cout << "m: Any of the element is an even number.\n";
+    
+    if ( std::any_of(us.begin(), us.end(), [](int i){return i%2;}) )
+        std::cout << "us: Any of the element is an even number.\n";
+    
+    if ( std::any_of(um.begin(), um.end(), [](std::pair<int, int> p){return p.second%2;}) )
+        std::cout << "um: Any of the element is an even number.\n";
+    
+    return 0;
+}
+```
+
+각 자료구조의 입력에 '4'가 포함되어 있으므로 위 코드의 출력은 다음과 같다.
+
+```
+a: Any of the element is an even number.
+v: Any of the element is an even number.
+d: Any of the element is an even number.
+f: Any of the element is an even number.
+l: Any of the element is an even number.
+s: Any of the element is an even number.
+m: Any of the element is an even number.
+us: Any of the element is an even number.
+um: Any of the element is an even number.
+```
