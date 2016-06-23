@@ -1,8 +1,8 @@
 ---
 layout: post
-title: cpp - 알고리즘 함수들(1)
-description: cpp - 알고리즘 함수들(1)
-modified: 2016-06-22
+title: cpp - STL 알고리즘 함수들(1)
+description: cpp - STL 알고리즘 함수들(1)
+modified: 2016-06-21
 tags: [cpp]
 comments: true
 image:
