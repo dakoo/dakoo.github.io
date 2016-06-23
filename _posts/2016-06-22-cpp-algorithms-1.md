@@ -138,31 +138,31 @@ int main () {
     std::map<int, int> um{{100,3}, {200,4}, {300, 7}, {101, 11},{102, 13}};
     
     if ( std::any_of(ar.begin(), ar.end(), [](int i){return i%2;}) )
-        std::cout << "a: Any of the element is an even number.\n";
+        std::cout << "a: Any of the elements is an even number.\n";
     
     if ( std::any_of(v.begin(), v.end(), [](int i){return i%2;}) )
-        std::cout << "v: Any of the element is an even number.\n";
+        std::cout << "v: Any of the elements is an even number.\n";
     
     if ( std::any_of(d.begin(), d.end(), [](int i){return i%2;}) )
-        std::cout << "d: Any of the element is an even number.\n";
+        std::cout << "d: Any of the elements is an even number.\n";
     
     if ( std::any_of(f.begin(), f.end(), [](int i){return i%2;}) )
-        std::cout << "f: Any of the element is an even number.\n";
+        std::cout << "f: Any of the elements is an even number.\n";
     
     if ( std::any_of(l.begin(), l.end(), [](int i){return i%2;}) )
-        std::cout << "l: Any of the element is an even number.\n";
+        std::cout << "l: Any of the elements is an even number.\n";
     
     if ( std::any_of(s.begin(), s.end(), [](int i){return i%2;}) )
-        std::cout << "s: Any of the element is an even number.\n";
+        std::cout << "s: Any of the elements is an even number.\n";
     
     if ( std::any_of(m.begin(), m.end(), [](std::pair<int, int> p){return p.second%2;}) )
-        std::cout << "m: Any of the element is an even number.\n";
+        std::cout << "m: Any of the elements is an even number.\n";
     
     if ( std::any_of(us.begin(), us.end(), [](int i){return i%2;}) )
-        std::cout << "us: Any of the element is an even number.\n";
+        std::cout << "us: Any of the elements is an even number.\n";
     
     if ( std::any_of(um.begin(), um.end(), [](std::pair<int, int> p){return p.second%2;}) )
-        std::cout << "um: Any of the element is an even number.\n";
+        std::cout << "um: Any of the elements is an even number.\n";
     
     return 0;
 }
@@ -171,13 +171,13 @@ int main () {
 각 자료구조의 입력에 '4'가 포함되어 있으므로 위 코드의 출력은 다음과 같다.
 
 ```
-a: Any of the element is an even number.
-v: Any of the element is an even number.
-d: Any of the element is an even number.
-f: Any of the element is an even number.
-l: Any of the element is an even number.
-s: Any of the element is an even number.
-m: Any of the element is an even number.
-us: Any of the element is an even number.
-um: Any of the element is an even number.
+a: Any of the elements is an even number.
+v: Any of the elements is an even number.
+d: Any of the elements is an even number.
+f: Any of the elements is an even number.
+l: Any of the elements is an even number.
+s: Any of the elements is an even number.
+m: Any of the elements is an even number.
+us: Any of the elements is an even number.
+um: Any of the elements is an even number.
 ```
