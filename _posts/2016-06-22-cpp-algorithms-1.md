@@ -20,11 +20,11 @@ C++ STL은 자료구조와 함께 강력한 알고리즘들을 제공하고 있�
 </div>
 </section><!-- /#table-of-contents -->
 
-## sequence 데이터 구조의 내용을 수정하지 않는 함수들
+## 데이터 구조의 내용을 수정하지 않는 함수들
 
-가장 먼저 살펴보고자 하는 함수들은 sequence 자료 구조의 내부를 변경하지 않고도 원하는 값을 얻어내는 유형의 함수들이다. 여기서 말하는 sequence 자료 구조는 STL의 **array, vector, deque, forward_list, list** container들을 말한다. 그 외의 container들인  associative(set, multiset, map, multimap) 및 unordered associative container들(unordered_set, unordered_multiset, unordered_map, unordered_multimap)과는 어떻게 동작하는지도 살펴볼 것이다.
+가장 먼저 살펴보고자 하는 함수들은 자료 구조의 내부를 변경하지 않고도 원하는 값을 얻어내는 유형의 함수들이다. 여기서 말하는 자료 구조는 iterator를 통해 접근할 수 있는 container들로 STL의 sequence container들(**array, vector, deque, forward_list, list**)과  associative(**set, multiset, map, multimap**) 및 unordered associative container들(**unordered_set, unordered_multiset, unordered_map, unordered_multimap**)등이 있다.
 
-### all_of: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
+### **all_of**: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
 
 **all_of** 함수는 **모든 element들이 어떤 조건을 모두 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. 
 
@@ -103,7 +103,7 @@ us: All the elements are odd numbers.
 um: All the elements are odd numbers.
 ```
 
-### any_of: 적어도 하나의 element라도 조건을 만족하는지 확인하는 함수
+### **any_of**: 적어도 하나의 element라도 조건을 만족하는지 확인하는 함수
 
 **any_of** 함수는 **적어도 하나의 element라도 어떤 조건을 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of와 동일하게 사용할 수 있다.
 
