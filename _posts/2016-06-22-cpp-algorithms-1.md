@@ -5,8 +5,7 @@ description: c++ - 알고리즘 함수들 (1): sequence 자료 구조의 내용�
 modified: 2015-06-22
 tags: [cpp]
 comments: true
-image:
-  feature: abstract-11.png
+image: feature: abstract-11.png
 ---
 C++ STL은 자료구조와 함께 강력한 알고리즘들을 제공하고 있다. 그 종류의 풍부함과 호환성은 때로는 사용하기 어렵게 만드는 요인이기도 하다. **<algorithm>** 헤더가 정의하고 있는 다양한 함수들을 살펴보고 정리해 두고자 한다.  
 
@@ -133,7 +132,3 @@ d: All the elements are odd numbers.
 f: All the elements are odd numbers.
 l: All the elements are odd numbers.
 ```
-
-
-
-
