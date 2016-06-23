@@ -22,7 +22,9 @@ C++ STL은 자료구조와 함께 강력한 알고리즘들을 제공하고 있�
 
 ## 데이터 구조의 내용을 수정하지 않는 함수들
 
-가장 먼저 살펴보고자 하는 함수들은 자료 구조의 내부를 변경하지 않고도 원하는 값을 얻어내는 유형의 함수들이다. 여기서 말하는 자료 구조는 iterator를 통해 접근할 수 있는 container들로 STL의 sequence container들(**array, vector, deque, forward_list, list**)과  associative(**set, multiset, map, multimap**) 및 unordered associative container들(**unordered_set, unordered_multiset, unordered_map, unordered_multimap**)등이 있다.
+가장 먼저 살펴보고자 하는 함수들은 자료 구조의 내부를 변경하지 않고도 원하는 값을 얻어내는 유형의 함수들이다. 여기서 말하는 자료 구조는 iterator를 통해 접근할 수 있는 container들로 STL의 sequence container들(**array, vector, deque, forward_list, list**)과  associative(**set, multiset, map, multimap**) 및 unordered associative container들(**unordered_set, unordered_multiset, unordered_map, unordered_multimap**)등이 있다. 
+
+> NOTE: STL이 제공하는 Container Adaptor들인 stack, queue, priority_queue 자료 구조는 iterator를 지원하지 않으므로 설명하는 함수들을 사용할 수 없다.  
 
 ### **all_of**: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
 
