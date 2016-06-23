@@ -1,8 +1,8 @@
 ---
 layout: post
-title: c++ - 알고리즘 함수들 (1): sequence 자료 구조의 내용을 수정하지 않는 함수들 
-description: c++ - 알고리즘 함수들 (1): sequence 자료 구조의 내용을 수정하지 않는 함수들 
-modified: 2015-06-22
+title: cpp - 알고리즘 함수들(1)
+description: cpp - 알고리즘 함수들(1)
+modified: 2016-06-22
 tags: [cpp]
 comments: true
 image:
