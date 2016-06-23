@@ -26,13 +26,13 @@ C++ STL은 자료구조와 함께 강력한 알고리즘들을 제공하고 있�
 
 ### all_of: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
 
-all_of 함수는 sequence 자료 구조의 모든 element들이 어떤 조건을 모두 만족하는지 확인하는 함수이다. 다음과 같은 prototype을 가진다. 
+**all_of** 함수는 **모든 element들이 어떤 조건을 모두 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. 
 
 ```cpp
 bool all_of (InputIterator first, InputIterator last, UnaryPredicate pred);
 ```
 
-사용 예는 다음과 같다. 
+예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, **iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다.** 단지, **map의 경우 pair를 통해** element를 받아야 한다는 것을 명심하자. 
 
 ```cpp
 #include <iostream>
@@ -42,6 +42,10 @@ bool all_of (InputIterator first, InputIterator last, UnaryPredicate pred);
 #include <deque>
 #include <forward_list>
 #include <list>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
 
 int main () {
     std::array<int,8> ar{3,5,7,11,13,17,19,23};
@@ -49,82 +53,43 @@ int main () {
     std::deque<int> d{3,5,7,11,13,17,19,23};
     std::forward_list<int> f{3,5,7,11,13,17,19,23};
     std::list<int> l{3,5,7,11,13,17,19,23};
-    
+    std::set<int> s{3,5,7,11,13,17,19,23};
+    std::map<int, int> m{{100,3}, {200,5}, {300, 7}, {101, 11},{102, 13}};
+    std::unordered_set<int> us{3,5,7,11,13,17,19,23};
+    std::map<int, int> um{{100,3}, {200,5}, {300, 7}, {101, 11},{102, 13}};
     
     if ( std::all_of(ar.begin(), ar.end(), [](int i){return i%2;}) )
         std::cout << "a: All the elements are odd numbers.\n";
-    else
-        std::cout << "a: some of the elements are even numbers.\n";
     
     if ( std::all_of(v.begin(), v.end(), [](int i){return i%2;}) )
         std::cout << "v: All the elements are odd numbers.\n";
-    else
-        std::cout << "v: some of the elements are even numbers.\n";
     
     if ( std::all_of(d.begin(), d.end(), [](int i){return i%2;}) )
         std::cout << "d: All the elements are odd numbers.\n";
-    else
-        std::cout << "d: some of the elements are even numbers.\n";
     
     if ( std::all_of(f.begin(), f.end(), [](int i){return i%2;}) )
         std::cout << "f: All the elements are odd numbers.\n";
-    else
-        std::cout << "f: some of the elements are even numbers.\n";
     
     if ( std::all_of(l.begin(), l.end(), [](int i){return i%2;}) )
         std::cout << "l: All the elements are odd numbers.\n";
-    else
-        std::cout << "l: some of the elements are even numbers.\n";
-    
-    return 0;
-}
-```
-
-예상 출력은 다음과 같다. 
-
-```
-a: All the elements are odd numbers.
-v: All the elements are odd numbers.
-d: All the elements are odd numbers.
-f: All the elements are odd numbers.
-l: All the elements are odd numbers.
-```
-
-associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 단지, map의 경우 pair를 통해 element를 받아야 한다. 
-
-```cpp
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <deque>
-#include <forward_list>
-#include <list>
-
-int main () {
-    std::set<int> s{3,5,7,11,13,17,19,23};
-    std::map<int, int> m{{100,3}, {200,5}, {300, 7}, {101, 11},{102, 13}};
-    std::deque<int> d{3,5,7,11,13,17,19,23};
-    std::forward_list<int> f{3,5,7,11,13,17,19,23};
-    std::list<int> l{3,5,7,11,13,17,19,23};
-    
     
     if ( std::all_of(s.begin(), s.end(), [](int i){return i%2;}) )
         std::cout << "s: All the elements are odd numbers.\n";
-    else
-        std::cout << "s: some of the elements are even numbers.\n";
     
     if ( std::all_of(m.begin(), m.end(), [](std::pair<int, int> p){return p.second%2;}) )
         std::cout << "m: All the elements are odd numbers.\n";
-    else
-        std::cout << "m: some of the elements are even numbers.\n";
     
-...
+    if ( std::all_of(us.begin(), us.end(), [](int i){return i%2;}) )
+        std::cout << "us: All the elements are odd numbers.\n";
+    
+    if ( std::all_of(um.begin(), um.end(), [](std::pair<int, int> p){return p.second%2;}) )
+        std::cout << "um: All the elements are odd numbers.\n";
+    
     return 0;
 }
 ```
 
-예상 출력은 다음과 같다. 
+위 코드의 출력은 다음과 같다. 
 
 ```
 a: All the elements are odd numbers.
@@ -132,4 +97,8 @@ v: All the elements are odd numbers.
 d: All the elements are odd numbers.
 f: All the elements are odd numbers.
 l: All the elements are odd numbers.
+s: All the elements are odd numbers.
+m: All the elements are odd numbers.
+us: All the elements are odd numbers.
+um: All the elements are odd numbers.
 ```
