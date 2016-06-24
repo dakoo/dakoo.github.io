@@ -46,7 +46,7 @@ template<class InputIterator, class UnaryPredicate>
 }
 ```
 
-#### **all_of**: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
+#### all_of: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
 
 **all_of** 함수는 **모든 element들이 어떤 조건을 모두 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. 
 
@@ -125,7 +125,7 @@ us: All the elements are odd numbers.
 um: All the elements are odd numbers.
 ```
 
-#### **any_of**: 적어도 하나의 element라도 조건을 만족하는지 확인하는 함수
+#### any_of: 적어도 하나의 element라도 조건을 만족하는지 확인하는 함수
 
 **any_of** 함수는 **적어도 하나의 element라도 어떤 조건을 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of와 동일하게 사용할 수 있다.
 
@@ -202,7 +202,7 @@ us: Any of the elements is an even number.
 um: Any of the elements is an even number.
 ```
 
-#### **none_of**: 어느 하나의 element도 조건을 만족시키지 못하는지 확인하는 함수
+#### none_of: 어느 하나의 element도 조건을 만족시키지 못하는지 확인하는 함수
 
 **none_of** 함수는 **어느 하나의 element도 조건을 만족시키지 못하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of 또는 any_of와 동일하게 사용할 수 있지만, 조금 헷갈리기도 한다. 
 
