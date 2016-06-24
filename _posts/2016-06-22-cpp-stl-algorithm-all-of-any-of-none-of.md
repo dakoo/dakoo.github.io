@@ -76,9 +76,9 @@ int main () {
     std::forward_list<int> f{3,5,7,11,13,17,19,23};
     std::list<int> l{3,5,7,11,13,17,19,23};
     std::set<int> s{3,5,7,11,13,17,19,23};
-    std::map<int, int> m{{100,3}, {200,5}, {300, 7}, {101, 11},{102, 13}};
+    std::map<int, int> m{ {100,3}, {200,5}, {300, 7}, {101, 11},{102, 13} };
     std::unordered_set<int> us{3,5,7,11,13,17,19,23};
-    std::map<int, int> um{{100,3}, {200,5}, {300, 7}, {101, 11},{102, 13}};
+    std::map<int, int> um{ {100,3}, {200,5}, {300, 7}, {101, 11},{102, 13} };
     
     if ( std::all_of(ar.begin(), ar.end(), [](int i){return i%2;}) )
         std::cout << "a: All the elements are odd numbers.\n";
@@ -155,9 +155,9 @@ int main () {
     std::forward_list<int> f{3,4,7,11,13,17,19,23};
     std::list<int> l{3,4,7,11,13,17,19,23};
     std::set<int> s{3,4,7,11,13,17,19,23};
-    std::map<int, int> m{{100,3}, {200,4}, {300, 7}, {101, 11},{102, 13}};
+    std::map<int, int> m{ {100,3}, {200,4}, {300, 7}, {101, 11},{102, 13} };
     std::unordered_set<int> us{3,4,7,11,13,17,19,23};
-    std::map<int, int> um{{100,3}, {200,4}, {300, 7}, {101, 11},{102, 13}};
+    std::map<int, int> um{ {100,3}, {200,4}, {300, 7}, {101, 11},{102, 13} };
     
     if ( std::any_of(ar.begin(), ar.end(), [](int i){return i%2;}) )
         std::cout << "a: Any of the elements is an even number.\n";
@@ -234,9 +234,9 @@ int main () {
     std::forward_list<int> f{3,5,7,11,13,17,19,23};
     std::list<int> l{3,5,7,11,13,17,19,23};
     std::set<int> s{3,5,7,11,13,17,19,23};
-    std::map<int, int> m{{100,3}, {200,5}, {300, 7}, {101, 11},{102, 13}};
+    std::map<int, int> m{ {100,3}, {200,5}, {300, 7}, {101, 11},{102, 13} };
     std::unordered_set<int> us{3,5,7,11,13,17,19,23};
-    std::map<int, int> um{{100,3}, {200,5}, {300, 7}, {101, 11},{102, 13}};
+    std::map<int, int> um{ {100,3}, {200,5}, {300, 7}, {101, 11},{102, 13} };
     
     if ( std::none_of(ar.begin(), ar.end(), [](int i){return i%2 == 0;}) )
         std::cout << "a: None of the elements is an even number.\n";
