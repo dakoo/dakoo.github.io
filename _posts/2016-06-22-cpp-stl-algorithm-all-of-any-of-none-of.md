@@ -48,13 +48,13 @@ template<class InputIterator, class UnaryPredicate>
 
 #### all_of: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
 
-**all_of** 함수는 **모든 element들이 어떤 조건을 모두 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. 
+all_of 함수는 모든 element들이 어떤 조건을 모두 만족하는지 확인하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, pred는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. 
 
 ```cpp
 bool all_of (InputIterator first, InputIterator last, UnaryPredicate pred);
 ```
 
-예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, **iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다.** 단지, **map의 경우 pair를 통해** element를 받아야 한다는 것을 명심하자. 
+예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다. 단지, map의 경우 pair를 통해 element를 받아야 한다는 것을 명심하자. 
 
 ```cpp
 #include <iostream>
@@ -127,13 +127,13 @@ um: All the elements are odd numbers.
 
 #### any_of: 적어도 하나의 element라도 조건을 만족하는지 확인하는 함수
 
-**any_of** 함수는 **적어도 하나의 element라도 어떤 조건을 만족하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of와 동일하게 사용할 수 있다.
+any_of 함수는 적어도 하나의 element라도 어떤 조건을 만족하는지 확인하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, pred는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of와 동일하게 사용할 수 있다.
 
 ```cpp
 bool any_of (InputIterator first, InputIterator last, UnaryPredicate pred);
 ```
 
-예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, **iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다.** 단지, **map의 경우 pair를 통해** element를 받아야 한다는 것을 명심하자. 
+예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다. 단지, map의 경우 pair를 통해 element를 받아야 한다는 것을 명심하자. 
 
 ```cpp
 #include <iostream>
@@ -204,15 +204,15 @@ um: Any of the elements is an even number.
 
 #### none_of: 어느 하나의 element도 조건을 만족시키지 못하는지 확인하는 함수
 
-**none_of** 함수는 **어느 하나의 element도 조건을 만족시키지 못하는지 확인**하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, **pred**는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of 또는 any_of와 동일하게 사용할 수 있지만, 조금 헷갈리기도 한다. 
+none_of 함수는 어느 하나의 element도 조건을 만족시키지 못하는지 확인하는 함수이다. 다음과 같은 prototype을 가진다. first와 last는 자료구조의 범위를 나타내기 위한 iterator이며, pred는 조건을 확인하여 bool을 반환하는 함수이다. Lambda를 이용해 구현하도록 하자. all_of 또는 any_of와 동일하게 사용할 수 있지만, 조금 헷갈리기도 한다. 
 
 ```cpp
 bool any_of (InputIterator first, InputIterator last, UnaryPredicate pred);
 ```
 
-> Note: 조건을 어느 element도 만족시키지 **못해야** true를 return하는 것이다. 
+> Note: 조건을 어느 element도 만족시키지 못해야 true를 return하는 것이다. 
 
-예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, **iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다.** 단지, **map의 경우 pair를 통해** element를 받아야 한다는 것을 명심하자. 
+예제는 다음과 같으며 sequence는 물론이고 associative 자료 구조와도 잘 동작하는 것을 아래 예를 통해 알 수 있다. 즉, iterator를 통해 접근할 수 있는 자료 구조와 모두 잘 동작한다. 단지, map의 경우 pair를 통해 element를 받아야 한다는 것을 명심하자. 
 
 ```cpp
 #include <iostream>
