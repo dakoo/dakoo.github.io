@@ -1,30 +1,14 @@
 ---
 layout: post
-title: cpp - STL 알고리즘 함수들(1)
-description: cpp - STL 알고리즘 함수들(1)
-modified: 2016-06-21
+title: c++ STL - all_of, any_of, none_of 
+description: c++ STL 
+modified: 2015-06-22
 tags: [cpp]
 comments: true
 image:
   feature: abstract-11.png
 ---
-C++ STL은 자료구조와 함께 강력한 알고리즘들을 제공하고 있다. 그 종류의 풍부함과 호환성은 때로는 사용하기 어렵게 만드는 요인이기도 하다. **<algorithm>** 헤더가 정의하고 있는 다양한 함수들을 살펴보고 정리해 두고자 한다.  
-
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
-## 데이터 구조의 내용을 수정하지 않는 함수들
-
-가장 먼저 살펴보고자 하는 함수들은 자료 구조의 내부를 변경하지 않고도 원하는 값을 얻어내는 유형의 함수들이다. 여기서 말하는 자료 구조는 iterator를 통해 접근할 수 있는 container들로 STL의 sequence container들(**array, vector, deque, forward_list, list**)과  associative(**set, multiset, map, multimap**) 및 unordered associative container들(**unordered_set, unordered_multiset, unordered_map, unordered_multimap**)등이 있다. 
-
-> NOTE: STL이 제공하는 Container Adaptor들인 stack, queue, priority_queue 자료 구조는 iterator를 지원하지 않으므로 설명하는 함수들을 사용할 수 없다.  
+C++ STL은 자료구조와 함께 강력한 알고리즘들을 제공하고 있다. 그 종류의 풍부함과 호환성은 때로는 사용하기 어렵게 만드는 요인이기도 하다. 그 중 c++11에 추가된 all_of, any_of, none_of를 살펴보자. 
 
 ### all_of, any_of, none_of
 
@@ -60,7 +44,6 @@ template<class InputIterator, class UnaryPredicate>
   }
   return true;
 }
-
 ```
 
 #### **all_of**: 모든 element들이 조건을 모두 만족하는지 확인하는 함수
@@ -195,8 +178,6 @@ int main () {
         std::cout << "s: Any of the elements is an even number.\n";
     
     if ( std::any_of(m.begin(), m.end(), [](std::pair<int, int> p){return p.second%2;}) )
-        std::cout << "m: Any of the elements is an even number.\n";
-    
     if ( std::any_of(us.begin(), us.end(), [](int i){return i%2;}) )
         std::cout << "us: Any of the elements is an even number.\n";
     
