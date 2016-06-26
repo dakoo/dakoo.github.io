@@ -65,7 +65,6 @@ image:
 #### 이메일을 쓸 때 느낌표와 -를 적절히 이용해 열의와 강조를 표현한다. 
 
 > I am looking forward to meeting with you!
-
 > We need to prepare a presentation for a client - by tomorrow.
 
 #### 단호하게 no라고 하지 말라. 
