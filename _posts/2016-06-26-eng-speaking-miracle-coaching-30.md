@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [책] 영어 스피킹 - 기적의 영어 코칭 30
+title: When Ubuntu 14.04 should be reinstalled
 description: When Ubuntu 14.04 should be reinstalled
 modified: 2016-06-26
 tags: [dev]
@@ -8,83 +8,5 @@ comments: true
 image:
   feature: abstract-11.png
 ---
-Keep in mind that almost all default configuration should be kept. Ubuntu14.04 is great Linux OS package and you don't have to take any radical changes.
-
-## New Account
-
-- On Settings > User Account, create new account and set the password.
-- Add the new account to sudoers by 'sudo adduser account_name sudo'
-- logout and login
-
-## Chrome
-
-- First of all, install chrome on Safari browser
- 
-## Terminal 
-
-Run Ubuntu terminal and configure it on Profile Preference as follows.
-
-- General > Font: Ubuntu Mono, size 11
-- Colors > Builtin Schemes: White on black
-
-Shortening bash prompt on ubuntu as described at [my blog](http://hochulshin.com/ubuntu-shortening-bash-prompt/).
-
-## Architecture
-
-Check the ubuntu architecture as below
-
-- uname -a
-
-If a result is 'x86_64', the architecture is 64bits.
-
-## CompizConfig
-
-- [Refer to my blog article](http://hochulshin.com/tool-ubuntu-winsplit-effect/) to install and config CompizConfig.
-
-## Keymap change
-
-- [Refer to my blog article](http://hochulshin.com/tools-ubuntu-capslock/) to change key map.
-
-## Development
-
-### Sublime text 3 and packages
-
-- [Refer to my blog article](http://hochulshin.com/sublime-text3/)
-
-### Python
-
-- [Python build on Sublime](http://hochulshin.com/sublime-run-python3/)
-- [Code convention on Sublime](http://hochulshin.com/python-code-convention/)
-- [Formatter on Sublime](http://hochulshin.com/sublime-python-automatic-formatter/)
-- [Unit Test](http://hochulshin.com/unittest-cpp-java-python/)
-
-### Java(Eclipse)
-
-- [Installation](http://www.krizna.com/ubuntu/install-eclipse-ubuntu-14-04/)
-
-After eclipse installation, install vim plugin.
-
-- [vim plugin](http://vrapper.sourceforge.net/documentation/?topic=basics)
-- [Code convention check](http://hochulshin.com/java-coding-convention/)
-- [Unit Test](http://hochulshin.com/unittest-cpp-java-python/)
-
-### Java(Python)
-
-- [Formatter on sublime](http://hochulshin.com/sublime-cpp-java-automatic-formatter/)
-
-### CPP
-
-To install g++, use the following commands.
-
-- sudo apt-get update
-- sudo apt-get install g++
-
-In addition, you should consider cpp code convention and formatter.
-
-- [Code convention](http://hochulshin.com/cpp-code-convention/)
-- [Formatter on sublime](http://hochulshin.com/sublime-cpp-java-automatic-formatter/)
-- [Unit Test](http://hochulshin.com/unittest-cpp-java-python/)
-
-### ffmpeg
-
-- [Installation](http://www.faqforge.com/linux/how-to-install-ffmpeg-on-ubuntu-14-04/)
+asdfasdfasfd
+asdfadfs
