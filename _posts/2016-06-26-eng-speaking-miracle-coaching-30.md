@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 책 - 영어 스피킹 - 기적의 영어 코칭 30
-description: d
+description: en
 modified: 2016-06-26
 tags: [dev]
 comments: true
@@ -73,6 +73,7 @@ image:
 - 우선 긍정하고 but으로 말하고자 하는 바를 표현하라. 
 
 > I see what you mean, but ~
+
 > Well, I can see your point, but ~
 
 - I don't know 대신 I am unsure, but let me find out과 같이 표현하여 긍정적이면서 적극적인 인상을 주자.
@@ -80,7 +81,9 @@ image:
 - I can't 대신 좀 더 자신의 책임을 관리하며 더 높은 우선 순위의 일을 한다는 뉘앙스로 말하자. 
 
 > I can't attend the meeting. -> I **am unable to** attend the meeting.
+
 > I can't find your email. -> I'm **having difficulty** finding your email. 
+
 > He can't understand you. -> **It's challenging for him to** understand you.
 
 #### 능숙하게 대화를 마무리하자. 
@@ -94,7 +97,9 @@ image:
 위의 1~3번을 합쳐서 하면 다음과 같다. 
 
 > Well, Mark, it's been really nice speaking with you. 
+
 > So, I've enjoyed chatting with you, Mark.
+
 > Well, Mike, I'm delighted we had this chance to talk.
 
 특정 주제를 언급하는 법은 다음과 같다. 
@@ -104,20 +109,27 @@ image:
 4. 자신 때문에 빨리 마무리 해야 한다는 점을 언급하자. 
 
 > I should be getting back to work.
+
 > I should be heading home.
+
 > I should be catching my train.
+
 > Oh, I just noticed my friend and I should say hello.
+
 > I need to see a few more people before it gets too late.
 
 5. 좀 더 대화를 나누고 싶은 감정을 표현한다. 
 
 > I hope we have a chance to speak again soon. 
+
 > Maybe we'll have a chance to talk more later.
 
 6. 마무리 인사
 
 > It was great to meet you! B-Bye.
+
 > Hope you enjoy your stay in Korea!
+
 > It was so good to see you!
 
 위의 것을 모두 합친 예는 다음과 같다. 
@@ -209,18 +221,27 @@ You can으로 시작하는 문장은 무례하고, 어휘가 부족하고, 세�
 - 메일 주제를 단도직입적으로 알리기 
 
 > I write to update you on ~ 
+
 > I write with some news about ~
+
 > I'm writing to ask about ~
+
 > I'm writing to schedule another meeting. 
+
 > I'm writing to confirm the arrival of our package. 
+
 > I wanted to follow up on ~ (~에 대한 후속 조치를 위해)
+
 > I wanted to ask for your advice about ~
 
 - 최신 상대 행동이나 상호 교류에 대한 감사. 구체적으로 써야 한다. 
 
 > It was great seeing you last month at the conference in Washington.
+
 > Our conversation yesterday helped to clarify several issues. 
+
 > Thank you for sending the updated budget information. It's quite helpful for our planning.
+
 > I appreciated your coming to our office last week. The discussion was a valuable step for our project. 
 
 #### 구동사를 공부해서 문맥에 맞게 사용하자. 원어민은 구동사를 선호한다!
@@ -255,21 +276,29 @@ You can으로 시작하는 문장은 무례하고, 어휘가 부족하고, 세�
 #### 단어의 마지막 t와 d발음은 끝까지 하라. 교육 수준의 지표란다!
 
 > That's right!
+
 > That's an excellent idea!
+
 > I bought a gift.
+
 > That's good.
+
 > The bill was paid on Friday.
+
 > I'll send a card.
 
 get, want, put, write, start, need, find, hold, read, stand의 t와 d음을 생략하지 말고 끝까지 명확히 발음하라. 
 
 > Could you hold on for a minute?
+
 > Next week it will be cold, with a lot of wind.
+
 > The food is great at a Korean restaurant in my neighborhood.
 
 #### 발표시 요점을 말하기 전에 스스로에게 질문하는 수사 의문문을 적절히 사용하자. 
 
 > How can we fix this problem?
+
 > What's imporant for us to remember here?
 
 위의 말을 평서문으로 했다면 너무 평범해서 재미가 없다. 하지만, 청중에게 질문을 던지면 긴장감이 생기게 되고 자신과 대화를 하고 있다는 친근감을 주게된다. 
