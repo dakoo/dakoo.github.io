@@ -1,7 +1,7 @@
 ---
 layout: post
-title: When Ubuntu 14.04 should be reinstalled
-description: When Ubuntu 14.04 should be reinstalled
+title: 책 - 영어 스피킹 - 기적의 영어 코칭 30
+description: d
 modified: 2016-06-26
 tags: [dev]
 comments: true
