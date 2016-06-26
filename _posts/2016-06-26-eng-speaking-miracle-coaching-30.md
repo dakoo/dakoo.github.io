@@ -135,7 +135,11 @@ image:
 위의 것을 모두 합친 예는 다음과 같다. 
 
 ```
-Well, Mark, it's been really nice speaking with you. I especally enjoyed hearing about your interest in art. But, I need to see a few more people before it gets too late. Maybe we'll have a chance to talk more later. It was great to meet you! B-Bye.
+Well, Mark, it's been really nice speaking with you. 
+I especally enjoyed hearing about your interest in art. 
+But, I need to see a few more people before it gets too late. 
+Maybe we'll have a chance to talk more later. It was great to meet you! 
+B-Bye.
 ```
 
 ### 약간의 노력으로 절대적인 효과를 얻는다. 
