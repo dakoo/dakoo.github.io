@@ -1,6 +1,6 @@
 ---
 layout: post
-title: When OSX should be reinstalled
+title: [python] http client using urllib
 description: When OSX should be reinstalled
 modified: 2016-06-28
 tags: [blog]
