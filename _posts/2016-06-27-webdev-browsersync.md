@@ -24,7 +24,9 @@ Chrome browser should be installed.
 
 Let's use npm to install browsersync as below:
 
-> npm install -g browser-sync
+```
+npm install -g browser-sync
+```
 
 ## How to use browsersync
 
@@ -52,7 +54,9 @@ index.html
 
 In the project folder, type the following command. 
 
-> browser-sync start --server --directory --files "*"
+```
+browser-sync start --server --directory --files "*"
+```
 
 If you can see that a new page is launched on a new chrome tab, it would succeed. Select the example file.
 
