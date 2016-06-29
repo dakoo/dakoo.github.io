@@ -1,11 +1,12 @@
 ---
 layout: post
-title: [python] HTTP client example with urllib
-description: HTTP client example with urllib
-modified: 2016-06-28
-tags: [python]
+title: When OSX should be reinstalled
+description: When OSX should be reinstalled
+modified: 2015-07-04
+tags: [blog]
 comments: true
-image: feature: abstract-11.png
+image:
+  feature: abstract-11.png
 ---
 Python HTTP client can be very easily built by urllib.
 
