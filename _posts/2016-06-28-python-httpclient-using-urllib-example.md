@@ -1,6 +1,6 @@
 ---
 layout: post
-title: python - httpclient using urllib
+title: python - httpclient example using urllib
 description: python
 modified: 2016-06-28
 tags: [dev]
