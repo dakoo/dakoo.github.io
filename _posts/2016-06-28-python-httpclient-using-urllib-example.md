@@ -1,12 +1,11 @@
 ---
 layout: post
 title: [python] HTTP client example with urllib
-description:  HTTP client example with urllib
+description: HTTP client example with urllib
 modified: 2016-06-28
 tags: [python]
 comments: true
-image:
-  feature: abstract-11.png
+image: feature: abstract-11.png
 ---
 Python HTTP client can be very easily built by urllib.
 
