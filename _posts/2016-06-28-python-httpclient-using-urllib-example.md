@@ -8,7 +8,7 @@ comments: true
 image:
   feature: abstract-11.png
 ---
-Python HTTP client can be very easily built by urllib. 
+Python HTTP client can be very easily built by urllib.
 
 ## Example
 
