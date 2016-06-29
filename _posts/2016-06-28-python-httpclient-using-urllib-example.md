@@ -1,12 +1,12 @@
 ---
 layout: post
-title: When OSX should be reinstalled
-description: When OSX should be reinstalled
-modified: 2015-07-04
-tags: [blog]
+title: [python] HTTP client example with urllib
+description: python
+modified: 2016-06-28
+tags: [dev]
 comments: true
 image:
-  feature: abstract-11.png
+  feature: abstract-14.png
 ---
 Python HTTP client can be very easily built by urllib.
 
