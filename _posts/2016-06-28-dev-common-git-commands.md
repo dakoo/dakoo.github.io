@@ -11,7 +11,9 @@ image:
 Git commands are very simple and easy. But little bit confusing. 
 
 ## Common Git Commands
+
 ### Github commands:
+
 Command      | Description
 ------------ | -------------
 git add . |Add all changes to all files at your current working directory location. Must be a git project.
@@ -28,7 +30,9 @@ git status|Get the status of files in the current repo.
 
 
 ### Git examples:
+
 **Merging a branch into the master**
+
 ```
 git checkout -b 'hotfix'
 Switched to new branch "hotfix"
