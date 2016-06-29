@@ -1,9 +1,9 @@
 ---
 layout: post
-title: [python] http client using urllib
-description: When OSX should be reinstalled
+title: python - httpclient using urllib
+description: python
 modified: 2016-06-28
-tags: [blog]
+tags: [dev]
 comments: true
 image:
   feature: abstract-11.png
