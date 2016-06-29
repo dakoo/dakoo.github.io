@@ -1,9 +1,9 @@
 ---
 layout: post
-title: [python] HTTP client example with urllib
-description: [python] HTTP client example with urllib
-modified: 2016-06-28
-tags: [dev]
+title: When OSX should be reinstalled
+description: When OSX should be reinstalled
+modified: 2015-07-04
+tags: [blog]
 comments: true
 image:
   feature: abstract-11.png
