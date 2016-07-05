@@ -50,7 +50,7 @@ image:
 
 주의: 기존 instance에 새로운 key-pair를 적용하는 것은 [매우 귀찮은 작업](http://stackoverflow.com/questions/7881469/change-key-pair-for-ec2-instance)이다. 그러므로 pem과 User는 별도로 생각하는 것이 좋다. 즉, pem 파일을 user마다 별도로 만드는 것이 아니라 pem 파일의 공유 범위를 제어해서 해결하는 것이 더 좋다. 
 
-1.위에서 생성한 IAM User로 AWS에 접속한다. 
+1. 위에서 생성한 IAM User로 AWS에 접속한다. 
 2. **EC2** > (NETWORK &B SECURITY) **Key Pairs**로 이동한다. 
 3. **Create Key Pair**를 선택한다. 
 4. Key Pair name을 입력하고 **Create**를 누른다. 
