@@ -41,14 +41,14 @@ image:
 
 ### IAM User로 AWS API 접속하기 위한 Access Key 만들기
 
-1.위에서 생성한 IAM User로 AWS에 접속한다. 
+1. 위에서 생성한 IAM User로 AWS에 접속한다. 
 2. **IAM** > **Users**로 이동한다. 
 3. User(자기 자신)을 선택해서 **Security Credentials 탭**을 누른다. 
 4. **Create Access Key**를 선택해서 **Download Credentials**를 눌러 Access Key ID와 Secret Access Key를 저장한 csv 파일을 다운로드 받는다. 
 
 ### IAM User로 EC2 접속하기 위한 pem 파일 만들기
 
-NOTE: 기존 instance에 새로운 key-pair를 적용하는 것은 [매우 귀찮은 작업](http://stackoverflow.com/questions/7881469/change-key-pair-for-ec2-instance)이다. 그러므로 pem과 User는 별도로 생각하는 것이 좋다. 즉, pem 파일을 user마다 별도로 만드는 것이 아니라 pem 파일의 공유 범위를 제어해서 해결하는 것이 더 좋다. 
+주의: 기존 instance에 새로운 key-pair를 적용하는 것은 [매우 귀찮은 작업](http://stackoverflow.com/questions/7881469/change-key-pair-for-ec2-instance)이다. 그러므로 pem과 User는 별도로 생각하는 것이 좋다. 즉, pem 파일을 user마다 별도로 만드는 것이 아니라 pem 파일의 공유 범위를 제어해서 해결하는 것이 더 좋다. 
 
 1.위에서 생성한 IAM User로 AWS에 접속한다. 
 2. **EC2** > (NETWORK &B SECURITY) **Key Pairs**로 이동한다. 
