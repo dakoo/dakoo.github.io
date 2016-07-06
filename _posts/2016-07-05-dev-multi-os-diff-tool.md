@@ -13,11 +13,11 @@ Ubuntu와 OSX에서는 상대적으로 빈곤한 diff 툴을 제공하는데, �
 
 ## Diffmerge
 
-[diffmerge](http://www.sourcegear.com/diffmerge/downloads.php)는 직관적이고 Windows, OSX, Ubuntu, Fedora 모두 설치 파일을 제공하는 멀티 OS diff 툴이다. 
+[diffmerge](http://www.sourcegear.com/diffmerge/downloads.php)는 직관적이고 Windows, OSX, Ubuntu, Fedora 모두 설치 파일을 제공하는 멀티 OS diff 툴이다. 3파일 비교도 지원한다. 
 
 ## Diffuse
 
-[diffuse](http://diffuse.sourceforge.net/download.html)는 쓰기 편리하고 2개의 화면만이 아니라 3개의 화면을 이용해서 동시 Diff/Merge를 지원한다. Windows와 Ubuntu는 Diffuse 사이트에서 설치 파일을 다운받아서 설치하면 되므로 따로 설명할 필요가 없다.  
+[diffuse](http://diffuse.sourceforge.net/download.html)는 쓰기 편리하고 2개의 파일만이 아니라 3개의 파일도 지원한다.  Windows와 Ubuntu는 Diffuse 사이트에서 설치 파일을 다운받아서 설치하면 되므로 따로 설명할 필요가 없다.  
 
 ### OSX - 설치하지 말것 
 
