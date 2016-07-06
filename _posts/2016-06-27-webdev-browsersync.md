@@ -58,6 +58,12 @@ In the project folder, type the following command.
 browser-sync start --server --directory --files "*"
 ```
 
+Do the following command so that you can synchronize the change of the internal files.
+
+```
+browser-sync start --server --directory --files "**/*"
+```
+
 If you can see that a new page is launched on a new chrome tab, it would succeed. Select the example file.
 
 ### Test browsersync 
