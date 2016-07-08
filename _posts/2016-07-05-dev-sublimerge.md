@@ -21,7 +21,7 @@ Ubuntu와 OSX에서는 상대적으로 빈곤한 diff 툴을 제공하는데, �
 
 ### 파일 또는 directory 비교 
 
-- sidebar에서 두개의 파일 또는 폴더를 마우스로 선택한다. 선택을 위해서는 control + left click을 한다. 
+- sidebar에서 두개의 파일 또는 폴더를 마우스로 선택한다. 선택을 위해서는 **control + left click**을 한다. 
 - 오른쪽 마우스 키를 눌러서 뜬 팝업 메뉴에서 Sublimerge를 실행시킨다. 
 
 #### 단축키
@@ -33,4 +33,4 @@ Ubuntu와 OSX에서는 상대적으로 빈곤한 diff 툴을 제공하는데, �
 - shift + 'right': 왼쪽 코드를 오른쪽에 모두 덮어쓰기
 - 'left' : 왼쪽 코드를 오른쪽에 덮어쓰기
 - shift + 'left' : 오른쪽 코드를 왼쪽에 모두 덮어쓰기
-
+- control + shift + w: 윈도우 닫기 (이것은 sublime text의 단축키)
