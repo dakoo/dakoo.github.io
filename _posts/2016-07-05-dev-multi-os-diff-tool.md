@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 개발 환경 - diffmerge와 diffuse (멀티 OS diff 툴)
-description: 개발 환경 - diffmerge와 diffuse (멀티 OS diff 툴)
+title: 개발 환경 - kdiff3와 diffuse (멀티 OS diff 툴)
+description: 개발 환경 - kdiff3와 diffuse (멀티 OS diff 툴)
 modified: 2016-07-05
 tags: [dev]
 comments: true
@@ -9,11 +9,11 @@ image:
   feature: abstract-11.png
 ---
 Windows는 다양한 diff 툴이 있다. 무료인 Win Merge, 유료인 Araxis Merge 등은 직관적이고 사용이 편리하다. 
-Ubuntu와 OSX에서는 상대적으로 빈곤한 diff 툴을 제공하는데, 이번에 소개하는 Diffmerge와 Diffuse는 무료 툴이면서도 쓰기 편리하다. OSX는 Diffmerge를 사용하자. 
+Ubuntu와 OSX에서는 상대적으로 빈곤한 diff 툴을 제공하는데, 이번에 소개하는 kdiff3와 Diffuse는 무료 툴이면서도 쓰기 편리하다. OSX는 kdiff3를 사용하자. 
 
-## Diffmerge
+## Kdiff3
 
-[diffmerge](http://www.sourcegear.com/diffmerge/downloads.php)는 직관적이고 Windows, OSX, Ubuntu, Fedora 모두 설치 파일을 제공하는 멀티 OS diff 툴이다. 3파일 비교도 지원한다. 
+[kdiff3](http://kdiff3.sourceforge.net/)는 직관적이고 Windows, OSX, Ubuntu 모두 설치 파일을 제공하는 멀티 OS diff 툴이다. 3파일 비교도 지원한다. 
 
 ## Diffuse
 
