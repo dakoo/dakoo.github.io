@@ -77,13 +77,15 @@ default로 disable인 Vintage를 활성화하면 vi mode로 동작하게 된다.
                 "SideBarEnhancements",
                 "SublimeCodeIntel",
                 "SublimeLinter",
-                "Theme - Soda"
+                "Theme - Soda",
+                "Sublimerge Pro"
         ]
 }
 ```
+
 #### Preferences.sublime-settings 파일
 
-`"auto_match_enabled": false` truns off automatic parenthesis matching
+`"auto_match_enabled": false`는 automatic parenthesis matching을 끄는 설정
 
 ```
 {
