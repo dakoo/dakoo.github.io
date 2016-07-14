@@ -64,8 +64,14 @@ ContentUploaders Group을 만든 후 IAM 서비스에서 다음과 같이 진행
 5. Review 단계에서 **Create Group**을 선택한다.
 6. 이제 WebUsers 그룹이 생기고 Users가 0인 것을 확인 할 수 있다.
 
+#### WebUser 사용자 생성하고 그룹에 등록하기 
 
+WebUsers Group을 만든 후 IAM 서비스에서 다음과 같이 진행한다. 
 
+1. 왼편 탐색창에서 **User**를 선택한 후 **Create New Users**를 선택한다.
+2. 아래 **Generate an access key for each user** 선택을 해제 후 Enter user Names:에 WebUser를 입력하고 Create를 누른다.
+3. Users에서 생성된 WebUser를 선택해서 Summary 정보 페이지의 아래에 위치한 Groups 탭의 **Add User to Groups**를 선택한다.
+4. 위에서 생성한 WebUsers 그룹을 선택하고 **Add to Groups**을 선택한다.
 
 
 
