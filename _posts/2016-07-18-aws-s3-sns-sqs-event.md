@@ -1,3 +1,13 @@
+---
+layout: post
+title: AWS S3 파일 생성시 SNS, SQS를 통해 EC2로 전달하기 
+description: AWS S3 파일 생성시 SNS, SQS를 통해 EC2로 전달하기 
+modified: 2016-07-18
+tags: [aws]
+comments: true
+image:
+  feature: abstract-14.png
+---
 S3에 file이 upload가 되면 그 Event가 AWS SNS(Simple Notification Service)를 통해 AWS SQS(Simple Queue Service)에 전달되고, 이를 EC2에서 읽어서 파일을 가공하는 것을 살펴보자. 
 
 ### Architecture
