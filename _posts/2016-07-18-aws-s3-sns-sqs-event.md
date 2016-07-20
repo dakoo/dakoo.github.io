@@ -144,6 +144,70 @@ S3 bucket에서 topic 접근 권한을 가져야만 event를 전달할 수 있�
 
 ### EC2에서 SQS 읽기
 
+#### 테스트를 위해 Ubuntu AMI로 Instance 만들어 실행시키기
+
+1. AWS EC2 Console로 이동한다. 
+2. **Launch Instance**를 선택한다. 
+3. Step 1: Choose an Amazon Machine Image (AMI)에서 **Ubuntu**를 선택한다. 
+4. Step 2: Choose an Instance Type에서 적당한 것을 고른다. 테스트 용이면 t2.micro로 충분하다. 그 뒤 **Review and Launch**를 선택해서 바로 구동한다. 
+5. Step 7: Review Instance Launch에서 테스트 용이므로 모든 설정을 default로 해서 **Launch**를 누른다. 
+6. 'Select an existing key pair or create a new key pair'에서 IAM user을 위해 미리 만들어든 keypair를 사용하거나 새로 만들 수 있다. 여기서는 테스트 용이므로 EC2 Instance에 접근하기 위한 keypair를 새로 만들어보자.**Create a new key pair**를 선택하고, **key pair name**을 적당히 적고 **Download Key Pair**를 선택해서 다운로드 받자. 그리고, 'pem' 키는 분실하면 안된다.
+7. **Launch Instances**를 눌러서 실행한다. 
+
+#### EC2 인스턴스에 연결하기
+
+1. AWS EC2 Console로 이동한다. 
+2. 해당 instance의 state가 running인지 확인한다. 
+3. 해당 instance를 선택하면 아래 Description에 Public IP를 저장해 둔다. 
+4. 터미널에서 pem 파일이 있는 폴더로 이동한다. 
+5. 'chmod 400 pem파일명'으로 pem 파일의 permission을 변경한다. 
+6. [이전 글](http://hochulshin.com/dev-aws-ec2-connection-basic/)을 참조해서 그 instance로 연결한다. (ssh -i [pem파일경로] ubuntu@[ec2 instance의 publicIP] )
+
+#### EC2에 필요한 package 설정하기  
+
+1. 앞에서 열어둔 EC2 instance와 연결된 terminal로 이동한다. 
+2. 실행에 필요한 package를 설치해야 한다. 
+3. sudo apt-get update
+4. sudo apt-get -y install python-pip 
+5. sudo pip install boto3
+
+#### Credentials 설정하기 
+
+이 단계를 위해 AWS IAM console > Users > User 선택 > Security Credentials > Access Keys에서 생성한 후 id와 access key 정보를 복사한다. 
+
+1. 앞에서 열어둔 EC2 instance와 연결된 terminal로 이동한다. 
+2. ~/.aws 폴더가 있는지 확인해서 없으면 폴더를 만든다. 
+3. ~/.aws/crendentials 파일을 만들고 아래와 같이 key id와 access key를 추가한다. 
+
+```
+[default]
+aws_access_key_id = YOUR_KEY
+aws_secret_access_key = YOUR_SECRET
+```
+
+#### Region 설정하기
+
+1. 앞에서 열어둔 EC2 instance와 연결된 terminal로 이동한다. 
+2. ~/.aws/config 파일을 만들고 아래와 같이 region을 추가한다. 서울의 경우는 다음과 같다. 
+
+```
+[default]
+region=ap-northeast-2
+```
+
+#### boto3 테스트하기 
+
+1. 앞에서 열어둔 EC2 instance와 연결된 terminal로 이동한다. 
+2. python을 타이핑하여 python interpreter를 실행시킨다. 
+3. 아래 명령을 python interpreter에서 실행하여 s3 bucket 목록이 잘 출력되는지 확인하자. 
+
+```
+>>> import boto3
+>>> s3 = boto3.resource('s3')
+>>> for bucket in s3.buckets.all():
+        print(bucket.name)
+```
+
 #### AWS SQS로부터 메시지 읽기위한 Python code 
 
 앞에서 만든 SQS 이름을 기록해 두자. 
@@ -286,35 +350,40 @@ if __name__ == '__main__':
 
 ```
 
-#### 테스트를 위해 Ubuntu AMI로 Instance 만들어 실행시키기
-
-1. AWS EC2 Console로 이동한다. 
-2. **Launch Instance**를 선택한다. 
-3. Step 1: Choose an Amazon Machine Image (AMI)에서 **Ubuntu**를 선택한다. 
-4. Step 2: Choose an Instance Type에서 적당한 것을 고른다. 테스트 용이면 t2.micro로 충분하다. 그 뒤 **Review and Launch**를 선택해서 바로 구동한다. 
-5. Step 7: Review Instance Launch에서 테스트 용이므로 모든 설정을 default로 해서 **Launch**를 누른다. 
-6. 'Select an existing key pair or create a new key pair'에서 IAM user을 위해 미리 만들어든 keypair를 사용하거나 새로 만들 수 있다. 여기서는 테스트 용이므로 EC2 Instance에 접근하기 위한 keypair를 새로 만들어보자.**Create a new key pair**를 선택하고, **key pair name**을 적당히 적고 **Download Key Pair**를 선택해서 다운로드 받자. 향후 작업을 편하게 하기 위해선 앞에서 만든 python 파일이 있는 폴더에 저장한다. 그리고, 'pem' 키는 분실하면 안된다.
-7. **Launch Instances**를 눌러서 실행한다. 
-
 #### EC2 인스턴스에 연결해서 파일 업로드 하기
 
-1. AWS EC2 Console로 이동한다. 
-2. 해당 instance의 state가 running인지 확인한다. 
-3. 해당 instance를 선택하면 아래 Description에 Public IP를 저장해 둔다. 
-4. 터미널에서 pem 파일이 있는 폴더로 이동한다. 
-5. 'chmod 400 pem파일명'으로 pem 파일의 permission을 변경한다. 
-6. [이전 글](http://hochulshin.com/dev-aws-ec2-connection-basic/)을 참조해서 그 instance로 연결한다. (ssh -i [pem파일경로] ubuntu@[ec2 instance의 publicIP] )
-7. instance상에 폴더를 하나 만든다. 이름은 'test'라고 임의로 정한다.  
-8. Local의 terminal을 하나 더 열어 앞의 python 파일이 있는 폴더로 이동한다. 
-9. [이전 글](http://hochulshin.com/dev-aws-ec2-connection-basic/)을 참조해서 앞에서 준비해 둔 python 파일들을 upload한다. 그 뒤 앞에서 instance에 연결된 터미널을 이용해 python 파일들이 모두 잘 추가되었는지 확인한다. 
+1. instace에 연결된 터미널로 instance상에 폴더를 하나 만든다. 이름은 'test'라고 임의로 정한다.  
+2. Local의 terminal을 하나 더 열어 앞의 python 파일이 있는 폴더로 이동한다. 
+3. [이전 글](http://hochulshin.com/dev-aws-ec2-connection-basic/)을 참조해서 앞에서 준비해 둔 python 파일들을 upload한다. 그 뒤 앞에서 instance에 연결된 터미널을 이용해 python 파일들이 모두 잘 추가되었는지 확인한다. 
 
 ```
 scp -i [pem 파일 경로] utils.py ubuntu@[public 주소]:~/test/utils.py
 scp -i [pem 파일 경로] sqs_consumer.py ubuntu@[public 주소]:~/test/sqs_consumer.py
 ```
 
-### 테스트하기
+### 실행하기 
 
 #### EC2에서 Consumer 실행하기 
 
-1. 앞에서 열어둔 EC2 instance와 연결된 terminal에서 다음 명령을 실행한다. 
+instace에 연결된 터미널에서 test 폴더에서 다음 명령으로 consumer를 실행시킨다. 
+
+- python sqs_consumer.py
+
+다음과 같은 메시지를 볼 수 있을 것이다. 
+
+```
+SQSConsumer Thread running!
+('No. of Messages to consume:', 0)
+....
+```
+
+#### S3에 파일 upload하기
+
+AWS S3 console에서 해당 bucket으로 이동하여 upload를 선택하고, file을 upload한다. 
+
+
+
+
+
+
+
