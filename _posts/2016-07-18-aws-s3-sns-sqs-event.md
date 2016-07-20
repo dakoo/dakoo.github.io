@@ -234,7 +234,7 @@ def connect2Service(service):
 ```
 
 - sqs_consumer.py를 만들고 다음 내용을 추가한다. 
-- 앞에서 생성한 AWS SQS이름을 QUEUE_NAME 변수의 값으로 입력한다. 
+- 앞에서 생성한 AWS SQS이름을 QUEUE_NAME 변수의 값으로 입력한다. SLEEP, maxRetry, maxMsgs는 설정 변경 가능하다. 아래 예제는 10000번 재시도를 하는 것으로 되어 있다. 
 
 ```python
 # Copyright 2015 Amazon Web Services, Inc. or its affiliates. All rights reserved.
@@ -263,7 +263,7 @@ class SQSConsumer (threading.Thread):
 
 	def run(self):
 		print("SQSConsumer Thread running!")
-		maxRetry = 5
+		maxRetry = 10000 # MAXIMUM 10000 tries
 		numMsgs = 0
 		maxMsgs = self.getNumberOfMessages()
 		count = 0
