@@ -141,3 +141,180 @@ S3 bucket에서 topic 접근 권한을 가져야만 event를 전달할 수 있�
 3. Queues Page에서 생성된 Queue를 선택한 뒤 **Queue Actions**에서 **Subscribe Queues to SNS Topic**을 선택한다. 
 4. **Choose a Topic**에서 앞에서 생성된 SNS topic을 선택한 후 **Subscribe**를 선택한다. 
 5. 이제 AWS SNS Console로 가서 앞에서 만든 SNS topic을 보면 **Endpoint**가 이번에 만든 Queue로 설정이 되어 있다.
+
+### EC2에서 SQS 읽기
+
+#### AWS SQS로부터 메시지 읽기위한 Python code 
+
+앞에서 만든 SQS 이름을 기록해 두자. 
+
+- utils.py 파일을 만들고 다음 내용을 추가한다. 
+
+```python
+# Copyright 2015 Amazon Web Services, Inc. or its affiliates. All rights reserved.
+
+import boto3, botocore
+from botocore.exceptions import NoCredentialsError
+
+NUM_MESSAGES = 10
+
+def connect2Service(service):
+	#Returning the connection
+	try:
+		return boto3.resource(service)
+	except botocore.exceptions.BotoCoreError as e:                                         
+		if isinstance(e, botocore.exceptions.NoCredentialsError):
+			print("No AWS Credentials file found or credentials are invalid")
+	return None
+
+```
+
+- sqs_consumer.py를 만들고 다음 내용을 추가한다. 
+- 앞에서 생성한 AWS SQS이름을 QUEUE_NAME 변수의 값으로 입력한다. 
+
+```python
+# Copyright 2015 Amazon Web Services, Inc. or its affiliates. All rights reserved.
+
+import threading
+import time
+import utils
+
+QUEUE_NAME = "QUEUE-NAME"
+QUEUE_ATTR_NAME = "ApproximateNumberOfMessages"
+SLEEP = 10
+
+def Connect2sqs():
+	#Connect to SQS service
+	return utils.connect2Service('sqs')
+
+#The SQSConsumer class retrieves messages from an SQS queue.
+class SQSConsumer (threading.Thread):
+	sqs = Connect2sqs()
+
+	def __init__(self, threadID, name, counter):
+		threading.Thread.__init__(self)
+		self.threadID = threadID
+		self.name = name
+		self.counter = counter
+
+	def run(self):
+		print("SQSConsumer Thread running!")
+		maxRetry = 5
+		numMsgs = 0
+		maxMsgs = self.getNumberOfMessages()
+		count = 0
+		print("No. of Messages to consume:", maxMsgs)
+		while numMsgs < maxMsgs or count < maxRetry:
+			time.sleep(SLEEP)
+			numMsgs += self.consumeMessages()
+			count += 1
+			print("Iteration No.:", count, numMsgs)
+		print("SQSConsumer Thread Stopped")
+		
+	def getQueue(self, sqsQueueName=QUEUE_NAME):
+  #Get the SQS queue using the SQS resource object and QUEUE_NAME
+		queue = None
+		try:
+			queue = self.sqs.get_queue_by_name(QueueName=sqsQueueName)
+		except Exception as err:
+			print("Error Message {0}".format(err))
+		return queue
+
+	def getNumberOfMessages(self):
+		numMessages = 0
+		try:
+			queue = self.getQueue()
+			if queue:				
+			  # Receive messages from the SQS queue by using the receive_messages API method.
+				# Enable long polling and set maximum number of messages to 10.
+				attribs = queue.attributes
+				numMessages = int(attribs.get(QUEUE_ATTR_NAME))
+		except Exception as err:
+			print("Error Message {0}".format(err))
+		return numMessages
+
+	def consumeMessages(self, sqsQueueName=QUEUE_NAME):
+		numMsgs = 0
+		try:
+			queue = self.getQueue()
+			if queue:
+				mesgs =  queue.receive_messages(													
+										AttributeNames=['All'], MaxNumberOfMessages=10, WaitTimeSeconds=20)
+				if not len(mesgs):
+					print("There are no messages in Queue to display")
+					return numMsgs
+				for mesg in mesgs:		
+					# Retrieve the Attributes of a message.
+					attributes = mesg.attributes		
+					senderId = attributes.get('SenderId')
+					sentTimestamp = attributes.get('SentTimestamp')
+					
+					# Retrieve the body of a message.
+					bd = mesg.body
+					messagebody = eval(bd)
+					print(messagebody)
+
+        	# Delete Message from the SQS queue
+					self.deleteMessage(queue, mesg)
+					time.sleep(1)
+				numMsgs = len(mesgs)
+		except Exception as err:
+			print("Error Message {0}".format(err))
+		return numMsgs
+
+	def deleteMessage(self, queue, mesg):
+		try:
+			#Delete Message from the SQS queue
+			mesg.delete() 									
+			print("Message deleted from Queue")
+			return True
+		except Exception as err:
+			print("Error Message {0}".format(err))
+		return False
+	
+def main():
+	try:
+		thread1 = SQSConsumer(1, "Thread-1", 1)
+		thread1.start()
+	except Exception as err:
+		print("Error Message {0}".format(err))
+	thread1.join()
+	return thread1
+
+if __name__ == '__main__':
+	main()
+
+```
+
+#### 테스트를 위해 Ubuntu AMI로 Instance 만들어 실행시키기
+
+1. AWS EC2 Console로 이동한다. 
+2. **Launch Instance**를 선택한다. 
+3. Step 1: Choose an Amazon Machine Image (AMI)에서 **Ubuntu**를 선택한다. 
+4. Step 2: Choose an Instance Type에서 적당한 것을 고른다. 테스트 용이면 t2.micro로 충분하다. 그 뒤 **Review and Launch**를 선택해서 바로 구동한다. 
+5. Step 7: Review Instance Launch에서 테스트 용이므로 모든 설정을 default로 해서 **Launch**를 누른다. 
+6. 'Select an existing key pair or create a new key pair'에서 IAM user을 위해 미리 만들어든 keypair를 사용하거나 새로 만들 수 있다. 여기서는 테스트 용이므로 EC2 Instance에 접근하기 위한 keypair를 새로 만들어보자.**Create a new key pair**를 선택하고, **key pair name**을 적당히 적고 **Download Key Pair**를 선택해서 다운로드 받자. 향후 작업을 편하게 하기 위해선 앞에서 만든 python 파일이 있는 폴더에 저장한다. 그리고, 'pem' 키는 분실하면 안된다.
+7. **Launch Instances**를 눌러서 실행한다. 
+
+#### EC2 인스턴스에 연결해서 파일 업로드 하기
+
+1. AWS EC2 Console로 이동한다. 
+2. 해당 instance의 state가 running인지 확인한다. 
+3. 해당 instance를 선택하면 아래 Description에 Public IP를 저장해 둔다. 
+4. 터미널에서 pem 파일이 있는 폴더로 이동한다. 
+5. 'chmod 400 pem파일명'으로 pem 파일의 permission을 변경한다. 
+6. [이전 글](http://hochulshin.com/dev-aws-ec2-connection-basic/)을 참조해서 그 instance로 연결한다. (ssh -i [pem파일경로] ubuntu@[ec2 instance의 publicIP] )
+7. instance상에 폴더를 하나 만든다. 이름은 'test'라고 임의로 정한다.  
+8. Local의 terminal을 하나 더 열어 앞의 python 파일이 있는 폴더로 이동한다. 
+9. [이전 글](http://hochulshin.com/dev-aws-ec2-connection-basic/)을 참조해서 앞에서 준비해 둔 python 파일들을 upload한다. 그 뒤 앞에서 instance에 연결된 터미널을 이용해 python 파일들이 모두 잘 추가되었는지 확인한다. 
+
+```
+scp -i [pem 파일 경로] utils.py ubuntu@[public 주소]:~/test/utils.py
+scp -i [pem 파일 경로] sqs_consumer.py ubuntu@[public 주소]:~/test/sqs_consumer.py
+```
+
+### 테스트하기
+
+#### EC2에서 Consumer 실행하기 
+
+1. 앞에서 열어둔 EC2 instance와 연결된 terminal에서 다음 명령을 실행한다. 
