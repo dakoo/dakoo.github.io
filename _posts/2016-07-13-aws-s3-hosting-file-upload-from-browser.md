@@ -104,7 +104,7 @@ AWS Console에서 S3로 이동한다. 여기서는 위에서 웹호스팅을 한
 Facebook, Google, Amazon과 같은 Login Provider와 Amazon Cognito를 연결해 놓으면, 사용자는 Login Provider의 인증을 받으면 AWS STS의 token을 발급받아 AWS 서비스에 접근할 수 있게 된다. 아래 글은 다음 2단계에 거쳐 설명한다. 
 
 1. Web Browser에서 Login Provider의 인증 후 S3 접근하기 
-2. Web Browser에서 Login Provider의 인증 후 S3 접근하기인데 Login Provider가 Amazon Cognito와 연계된 경우
+2. Login Provider가 Amazon Cognito와 연계해 사용자 인증하기
 
 ### 1단계: Facebook을 Login Provider로 설정하여 S3에 접근하기
 
