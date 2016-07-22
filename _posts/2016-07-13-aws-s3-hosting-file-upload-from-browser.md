@@ -92,13 +92,13 @@ AWS Console에서 S3로 이동한다. 여기서는 위에서 웹호스팅을 한
 
 위에서 다룬 AWS S3 웹 호스팅의 URL을 얻기 위해 해당 Bucket의 Properties > Static Website Hosting에서 EndPointURL을 복사해 둔다. 
 
-
 ## Upload 권한 설정하기
 
+AWS 접근 권한에 대해서는 [AWS 문서](http://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/authentication-flow.html)를 참조하자. 이 문서에는 여러가지 방식의 권한 설정 방식이 있는데 여기서는 'External Provider Authflow' 중 'Enhanced (Simplified) Authflow'를 통해 인증하고 있다. 이것은 AWS STS의 key가 사용자 기기로 전달되지 않고, 대신 Cognito가 처리하는 방식이다. 
 아래 그림을 보자.  S3에 접근하기 위한 권한을 어떻게 얻는지를 나타낸다. Device는 웹브라우저라고 생각해도 된다.
 
 <figure>
-	<img src="http://mblogthumb2.phinf.naver.net/20160127_69/zinato_1453875299959U3k23_PNG/%BD%BA%C5%A9%B8%B0%BC%A6_2016-01-27_%BF%C0%C8%C4_3.14.33.png?type=w2" alt="">
+	<img src="http://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/images/amazon-cognito-ext-auth-enhanced-flow.png" alt="">
 </figure>
 
 Facebook, Google, Amazon과 같은 Login Provider와 Amazon Cognito를 연결해 놓으면, 사용자는 Login Provider의 인증을 받으면 AWS STS의 token을 발급받아 AWS 서비스에 접근할 수 있게 된다. 아래 글은 다음 2단계에 거쳐 설명한다. 
@@ -352,5 +352,215 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 8. facebook-xxxxxxx 폴더 아래에 아이템이 추가되어 있음을 확인할 수 있다!!!! 성공!!!!
 
 ### 2단계: Amazon Cognito와 Facebook Login Provider 연결하기
+
+#### 구조 
+
+<figure>
+	<img src="http://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/images/amazon-cognito-ext-auth-enhanced-flow.png" alt="">
+</figure>
+
+위 그림에 따라 구현해야 할 것들은 다음과 같다는 것을 이해하자. 일부는 1단계에서 구현했으나 상당 부분은 아직 구현되어 있지 않다. 
+
+##### 브라우저에서 구현해야 할 것들
+
+브라우저의 javascript 코드는 다음을 지원해야 한다. 
+
+- Facebook에 Login (이것은 1단계에서 완료)
+- Amazon Cognito에 GetId를 호출하여 Cognito ID를 전달받기 
+- Amazon Cognito에 GetCredentialsForIdentity를 호출하여 Cognito로부터 Credentials를 획득하기 
+
+##### Amazon Cognito에서 설정해야 할 것들
+
+1. GetId이나 GetCredentialsForIdentity 요청이 오면 Facebook과 일련의 validation 과정을 진행해야 한다. 이를 위해 Cognito에 **facebook의 AppID가 등록**되어 있어야 하고 반환해 줄 **Identity(ID) pool**을 만들어 두어야 한다.  
+2. Cognito에 의해 전달된 Credential를 가지고 AWS 서비스(여기서는 S3)에 접근하기 할 수 있도록 **AWS 서비스에 맞게 Role과 Policy를 설정**하는 것을 해야 한다. 
+
+#### Amazon Cognito 설정하기 
+
+##### Amazon Cognito에서 facebook app id 등록하고 Identity pool 생성하기 
+
+- NOTE: Cognito는 Seoul Region은 현재 지원하지 않는다. 그러므로 **tokyo region**을 선택하여 진행한다. Cognito만 별개의 region으로 두어도 서비스는 가능하다!! 
+
+1. AWS > AWS Cognito console로 이동한다. 처음이동한 경우 *Manage Federated Identity**를 선택한다. 
+2. Step 1: Create identity pool에서 **identity pool 이름**을 입력한다. 
+3. **Authorization Providers** 섹션의 **Facebook** 탭으로 이동해 페이스북 App ID를 입력한다. facebook app id는 [facebook 개발자 page](https://developers.facebook.com/apps/)에서 확인 할 수 있다. 
+4. **Create Pool** 버튼을 선택해 pool을 만든다. 
+5. IAM Role 설정 창은 default로 두고 **Allow** 버튼을 눌러 진행한다. 
+6. **Dashboard**을 선택해 들어가 **Edit identity pool**을 선택해 pool ID가 나오면 이를 복사해 저장하고 그 page를 빠져나온다. 
+
+##### Amazon Cognito를 이용해서 S3 접근하도록 IAM Role 설정하기
+
+1단계에서는 facebook id를 가지고 접근하도록 되어 role과 policy가 설정되어 있다. 그것을 삭제하고 대신 Cognito가 발급한 Credential를 가지고 접근 하도록 해야 한다. 
+
+1. AWS IAM Console > **Roles**로 이동한다. 
+2. 앞에서 Cognito의 identity pool 생성과 함께 만들어져 있는 2개의 Role이 있다는 것을 확인한다. Cognito_[pool이름]Auth_Role과 Cognito_[pool이름] Unauth_Role이다.  
+3. 1단계에서 만들어둔 Facebook을 이용해 접근하는 Role을 선택해, 설정했던 Policy 이름을 확인한다. 
+4. Cognito_[pool이름]Auth_Role을 선택한다. Permissions 탭의 **Attach Policy**를 선택하고, 위에서 확인한 Policy를 선택한다. 즉, 1단계의 Policy를 동일하게 적용하는 것이다. 
+5. **AttachPolicy**를 한다. 
+6. 1단계에서 만들어둔 Facebook을 이용해 접근하는 Role을 선택해 삭제한다. 
+
+#### Browser에서 구동될 Javascript 수정하기
+
+##### facebook login 코드 
+
+```python
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AWS SDK for JavaScript - Sample Application</title>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
+</head>
+<body>
+    <input type="file" id="file-chooser" />
+    <button id="upload-button" style="display:none">Upload to S3</button>
+    <div id="results"></div>
+    <div id="fb-root"></div>
+    <div id="status"></div>
+
+    <script type="text/javascript">
+        var FacebookAppId = '{FACEBOOK-APP-ID}';
+        var roleArn = '{ROLE-ARN}';
+        var bucketName = '{BUCKET-NAME}';
+        var AwsRegion = '{AWS-REGION}';
+        var AwsCognitoPoolId = '{AWS-COGNITO-ID}';
+        var fbUserId;
+
+        AWS.config.region = AwsRegion;
+        var bucket = new AWS.S3({
+            params: {
+                Bucket: bucketName
+            }
+        });
+
+        var fileChooser = document.getElementById('file-chooser');
+        var button = document.getElementById('upload-button');
+        var results = document.getElementById('results');
+        button.addEventListener('click', function() {
+            var file = fileChooser.files[0];
+            if (file) {
+                results.innerHTML = '';
+                //Object key will be facebook-USERID#/FILE_NAME
+                var objKey = 'facebook-' + fbUserId + '/' + file.name;
+                var params = {
+                    Key: objKey,
+                    ContentType: file.type,
+                    Body: file,
+                    ACL: 'public-read'
+                };
+                bucket.putObject(params, function(err, data) {
+                    if (err) {
+                        results.innerHTML = 'ERROR: ' + err;
+                    } else {
+                        listObjs();
+                    }
+                });
+            } else {
+                results.innerHTML = 'Nothing to upload.';
+            }
+        }, false);
+
+        function listObjs() {
+            var prefix = 'facebook-' + fbUserId;
+            bucket.listObjects({
+                Prefix: prefix
+            }, function(err, data) {
+                if (err) {
+                    results.innerHTML = 'ERROR: ' + err;
+                } else {
+                    var objKeys = "";
+                    data.Contents.forEach(function(obj) {
+                        objKeys += obj.Key + "<br>";
+                    });
+                    results.innerHTML = objKeys;
+                }
+            });
+        }
+
+        function statusChangeCallback(response) {
+            fbUserId = response.authResponse.userId;
+
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+                });
+
+                // Add the Facebook access token to the Cognito credentials login map.
+                AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                    IdentityPoolId: AwsCognitoPoolId,
+                    Logins: {
+                        'graph.facebook.com': response.authResponse.accessToken
+                    }
+                });
+
+                //Get IdentityId
+                var cognitoidentity = new AWS.CognitoIdentity({
+                    apiVersion: '2014-06-30'
+                });
+                var paramsForGetId = {
+                    IdentityPoolId: AwsCognitoPoolId,
+                    Logins: {
+                        'graph.facebook.com': response.authResponse.accessToken
+                    }
+                };
+                cognitoidentity.getId(paramsForGetId, function(err, data) {
+                    if (err) {
+                        console.log(err, err.stack);
+                    } else {
+                        console.log("IdentityId : ", data.IdentityId);
+                        var paramsForgetCreditialsForIdentity = {
+                            IdentityId: data.IdentityId,
+                            Logins: {
+                                'graph.facebook.com': response.authResponse.accessToken
+
+                            }
+                        };
+                        cognitoidentity.getCredentialsForIdentity(paramsForgetCreditialsForIdentity, function(err, data) {
+                            if (err) console.log(err, err.stack);
+                            else console.log("getCredentialsForIdentity : ", data);
+                        });
+                    }
+                });
+            } else if (response.status === 'not_authorized') {
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+            } else {
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+            }
+        }
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: FacebookAppId,
+                cookie: true,
+                xfbml: true,
+                version: 'v2.5'
+            });
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+                button.style.display = 'block';
+            });
+        };
+        // Load the Facebook SDK asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        
+    </script>
+
+</body>
+</html>
+
+```
+
+
+
 
 
