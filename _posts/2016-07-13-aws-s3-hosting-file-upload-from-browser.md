@@ -13,6 +13,16 @@ Web Browser에서 AWS에 접근해서 사용하기 위해서는 AWS가 사용하
 - S3에서 웹 호스팅하기 
 - S3로 브라우저에서 접근할 때 Facebook id로 허용하기 
 
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Overview</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 # S3에서 웹호스팅하며 facebook id로 로그인하기
 
 ## S3이용한 웹 호스팅 
@@ -83,16 +93,31 @@ AWS Console에서 S3로 이동한다. 여기서는 위에서 웹호스팅을 한
 위에서 다룬 AWS S3 웹 호스팅의 URL을 얻기 위해 해당 Bucket의 Properties > Static Website Hosting에서 EndPointURL을 복사해 둔다. 
 
 
-## Facebook App ID 획득하기 
+## Upload 권한 설정하기
 
-### Facebook 개발자로 등록하기
+아래 그림을 보자.  S3에 접근하기 위한 권한을 어떻게 얻는지를 나타낸다. Device는 웹브라우저라고 생각해도 된다.
+
+<figure>
+	<img src="http://mblogthumb2.phinf.naver.net/20160127_69/zinato_1453875299959U3k23_PNG/%BD%BA%C5%A9%B8%B0%BC%A6_2016-01-27_%BF%C0%C8%C4_3.14.33.png?type=w2" alt="">
+</figure>
+
+Facebook, Google, Amazon과 같은 Login Provider와 Amazon Cognito를 연결해 놓으면, 사용자는 Login Provider의 인증을 받으면 AWS STS의 token을 발급받아 AWS 서비스에 접근할 수 있게 된다. 아래 글은 다음 2단계에 거쳐 설명한다. 
+
+1. Web Browser에서 Login Provider의 인증 후 S3 접근하기 
+2. Web Browser에서 Login Provider의 인증 후 S3 접근하기인데 Login Provider가 Amazon Cognito와 연계된 경우
+
+### 1단계: Facebook을 Login Provider로 설정하여 S3에 접근하기
+
+#### Facebook App ID 획득하기 
+
+##### Facebook 개발자로 등록하기
 
 다음과 같이 facebook 개발자로 등록하자 
 
 1. [facebook 개발자 page](https://developers.facebook.com/apps)에 이동한다. 
 2. 자신이 이미 facebook id가 있고 login이 되어 있다면 그 계정으로 가입할지를 묻는 창이 뜬다. 선택을 하자. 
 
-### Facebook 개발자 인 경우 
+##### Facebook 개발자 인 경우 
 
 1. [facebook 개발자 page](https://developers.facebook.com/apps)에 이동한다. 
 2. **새 앱 만들기** 버튼을 누른다. 
@@ -104,7 +129,7 @@ AWS Console에서 S3로 이동한다. 여기서는 위에서 웹호스팅을 한
 8. **설정**에서 **앱 도메인**에 Endpoint URL(https://제외)을 붙여 넣는다. 
 9. 변경 내용을 저장한다. 
 
-### 테스트 
+##### facebook app 설정 테스트 
 
 index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 upload한다.  아래에서 <script></script> 내용은 facebook Setup 페이지의 **Setup the Facebook SDK for JavaScript**의 내용을 복사해서 붙여 넣기 한 것인데, 해당 app id만 넣어도 된다.  
 
@@ -145,11 +170,11 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 이제 위에서 복사한 EndPoint URL로 브라우저에서 접근해서 Hello S3! 아래에 Like 버튼이 보이면 성공한 것이다. 
 
 
-## Facebook을 통해 Login할 수 있는 AWS IAM Role을 생성하기 
+#### Facebook을 통해 Login할 수 있는 AWS IAM Role을 생성하기 
 
 진행 이전에 미리 AWS Bucket이름과 생성한 Facebook App ID를 준비하자. 
 
-### facebook id로 S3에 컨텐츠를 추가할 수 있는 Policy 생성 
+##### facebook id로 S3에 컨텐츠를 추가할 수 있는 Policy 생성 
 
 1. AWS Console에서 **IAM** > **Policies**로 이동한다. **Get Started** 버튼이 보이면 누른다. 
 2. **Create Policy** > **Create Your Own Policy**를 선택한다. 
@@ -188,7 +213,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 }
 ```
 
-### Facebook id로 S3 접근 할 수 있는 Policy를 적용한 Role 생성
+##### Facebook id로 S3 접근 할 수 있는 Policy를 적용한 Role 생성
 
 1. IAM > **Roles** 섹션으로 이동하여 **Create New Role**을 선택한다. 
 2. Role이름을 입력한 후 다음 page에서 **Role for Identity Provider Access** -> **Grant access to web identity providers.**를 선택한다. 
@@ -197,7 +222,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 5. **Attach Poliy** 단계에서 앞에서 만든 policy를 선택하고 **Next Step**을 누른후 **Create Role**을 선택한다. 
 6. 생성된 Role을 선태하면 Summary 섹션에 다음 단계에 필요한 ARN Role이 있다. 이를 복사해 놓는다. 
 
-# S3에 facebook id로 권한 얻어 웨브라우저로 파일 업로드하기 
+#### S3에 facebook id로 권한 얻어 웨브라우저로 파일 업로드하기 
 
 다음 과정을 진행하기 이전에 다음 내용이 필요하다. 
 
@@ -207,7 +232,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 - URL(3 Console > 해당 버킷 선택 > Properites > Static Website Hosting에서 Endpoint)
 - Role ARN(IAM Console> Roles> 해당 Role 선택해서 Summary 섹션에서 확인)
 
-## File upload 페이지
+##### File upload 페이지
 
 다음이 S3로 upload하는 예제이다. 여기서 'YOUR_APP_ID', 'YOUR_ROLE_ARN', 'YOUR_BUCKET_NAME', and 'YOUR_BUCKET_REGION'은 위에서 찾아놓은 적당한 값으로 바꾸고 index.html로 저장하자.  
 
@@ -315,7 +340,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 
 원래 bucket에 있던 index.html을 삭제하고 이 파일을 upload하면서 혹은 이후에 **make public**을 선택하자. 
 
-## 테스트
+##### Facebook Login Provider 테스트
 
 1. Webbrowser에서 Bucket EndPoint를 입력하여 업로드한 index.html파일을 로딩하자. 
 2. 혹시 Popup을 막는 메시지가 뜨면 허용하도록 한다. 
@@ -325,4 +350,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 6. 'facebook.... '와 같은 메시지가 뜨면 성공이다. 
 7. AWS S3 console로 해당 bucket으로 이동한다. 
 8. facebook-xxxxxxx 폴더 아래에 아이템이 추가되어 있음을 확인할 수 있다!!!! 성공!!!!
+
+### 2단계: Amazon Cognito와 Facebook Login Provider 연결하기
+
 
