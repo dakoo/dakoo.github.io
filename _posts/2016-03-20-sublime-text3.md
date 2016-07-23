@@ -12,6 +12,14 @@ image:
 
 Sublime Text3를 [여기](https://www.sublimetext.com/3)에서 다운로드 받아 설치한다.
 
+ubuntu 터미널에서 설치할 때에는 다음과 같이 한다. 
+
+```
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
+```
+
 ### Package Control 설치 
 
 Package control을 다음 순서대로 설치한다. 
