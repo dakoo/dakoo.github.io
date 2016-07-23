@@ -182,7 +182,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
             "s3:PutObjectAcl"
          ],
          "Resource": [
-            "arn:aws:s3:::YOUR_BUCKET_NAME/facebook-${graph.facebook.com:id}/*"
+            "arn:aws:s3:::YOUR_BUCKET_NAME/*"
          ],
          "Effect": "Allow"
       },
@@ -193,12 +193,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
          "Resource": [
             "arn:aws:s3:::YOUR_BUCKET_NAME"
          ],
-         "Effect": "Allow",
-         "Condition": {
-            "StringEquals": {
-               "s3:prefix": "facebook-${graph.facebook.com:id}"
-            }
-         }
+         "Effect": "Allow"
       }
    ]
 }
