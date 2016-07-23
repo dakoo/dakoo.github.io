@@ -13,16 +13,6 @@ Web Browser에서 AWS에 접근해서 사용하기 위해서는 AWS가 사용하
 - S3에서 웹 호스팅하기 
 - S3로 브라우저에서 접근할 때 Facebook id로 허용하기 
 
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 # S3에서 웹호스팅하며 facebook id로 로그인하기
 
 ## S3이용한 웹 호스팅 
@@ -37,6 +27,8 @@ Webpage를 호스팅할 사이트 URL이 필요하다. 여러가지 방식이 �
 4. Index Document에는 'index.html'을 입력한다. 
 5. 저장하기 전에 **Endpoint**라고 되어 있는 부분의 URL을 복사해 둔다. 
 6. 저장한다. 
+
+- **S3 Bucekt이름**과 **EndPoint**를 저장한다. 
 
 ### 테스트
 
@@ -89,9 +81,6 @@ AWS Console에서 S3로 이동한다. 여기서는 위에서 웹호스팅을 한
 </CORSConfiguration>
 ```
 
-
-위에서 다룬 AWS S3 웹 호스팅의 URL을 얻기 위해 해당 Bucket의 Properties > Static Website Hosting에서 EndPointURL을 복사해 둔다. 
-
 ## Upload 권한 설정하기
 
 AWS 접근 권한에 대해서는 [AWS 문서](http://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/authentication-flow.html)를 참조하자. 이 문서에는 여러가지 방식의 권한 설정 방식이 있는데 여기서는 'External Provider Authflow' 중 'Enhanced (Simplified) Authflow'를 통해 인증하고 있다. 이것은 AWS STS의 key가 사용자 기기로 전달되지 않고, 대신 Cognito가 처리하는 방식이다. 
@@ -128,6 +117,8 @@ Facebook, Google, Amazon과 같은 Login Provider와 Amazon Cognito를 연결해
 7. Setup 페이지의 우측 상단에 **Skip ... **선택하여 App 관리 페이지로 이동한다. 
 8. **설정**에서 **앱 도메인**에 Endpoint URL(https://제외)을 붙여 넣는다. 
 9. 변경 내용을 저장한다. 
+
+- **Facebook App ID**를 저장해 둔다.
 
 ##### facebook app 설정 테스트 
 
@@ -573,16 +564,23 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 <body>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.30.min.js"></script>
     <script>
-        var AWSRegion = '{AWS-Region}';
-        var AWSS3BucketName = '{AWS-S3-Bucket-Name}';
-        var AWSCognitoPoolId = '{AWS-Cognito-Id}';
-        var FacebookAppId = '{Facebook-App-Id}';
+        var AWSRegion = 'ap-northeast-1';
+        var AWSS3BucketName = 'soma-ss-service';
+        var AWSCognitoPoolId = 'ap-northeast-1:8e8e2f38-9c93-473b-8ccb-b19dc03a279f';
+        var FacebookAppId = '1278483742163649';
 
-        var fileChooser = document.getElementById('file-chooser');
-        var button = document.getElementById('upload-button');
-        var results = document.getElementById('results');
+
+
+
+
 
         function statusChangeCallback(response) {
+            
+            var fileChooser = document.getElementById('file-chooser');
+            var button = document.getElementById('upload-button');
+            var results = document.getElementById('results');
+
+
             console.log('statusChangeCallback');
             console.log(response);
             console.log("userId : " + response.authResponse.userId);
@@ -635,7 +633,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
                     }
                 });
 
-                var bucket = new AWS.S3({
+                              var bucket = new AWS.S3({
                     params: {
                         Bucket: AWSS3BucketName
                     }
@@ -681,7 +679,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
                             results.innerHTML = objKeys;
                         }
                     });
-                }
+                } 
 
 
             } else if (response.status === 'not_authorized') {
@@ -694,7 +692,6 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
                 document.getElementById('status').innerHTML = 'Please log ' +
                     'into Facebook.';
             }
-
 
         }
 
@@ -730,7 +727,7 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 
             FB.getLoginStatus(function(response) {
                 statusChangeCallback(response);
-                button.style.display = 'block';
+
             });
 
         };
@@ -758,11 +755,8 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
         }
     </script>
 
-
-
-
     <input type="file" id="file-chooser" />
-    <button id="upload-button" style="display:none">Upload to S3</button>
+    <button id="upload-button">Upload to S3</button>
     <div id="results"></div>
     <div id="fb-root"></div>
     <div id="status"></div>
