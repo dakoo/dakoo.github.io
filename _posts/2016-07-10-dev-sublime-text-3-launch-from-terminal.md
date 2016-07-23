@@ -38,7 +38,7 @@ sublime text를 설치 후 특정 폴더에서 다음과 같이 입력하면 바
 OSX와의 통일을 위해 ~/.bashrc에 다음을 추가한다. 
 
 ```
-alias sublime = 'subl'
+alias sublime='subl'
 ```
 
 이제 다음과 같이 실행하면 된다. 
