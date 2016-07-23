@@ -559,22 +559,16 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 <body>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.30.min.js"></script>
     <script>
-        var AWSRegion = 'ap-northeast-1';
-        var AWSS3BucketName = 'soma-ss-service';
-        var AWSCognitoPoolId = 'ap-northeast-1:8e8e2f38-9c93-473b-8ccb-b19dc03a279f';
-        var FacebookAppId = '1278483742163649';
+        var AWSRegion = '{AWS-REGION}';
+        var AWSS3BucketName = '{BUCKET-NAME}';
+        var AWSCognitoPoolId = '{AWS-COGNITO-ID}';
+        var FacebookAppId = '{FACEBOOK-APP-ID}';
 
-
-
-
-
+        var fileChooser = document.getElementById('file-chooser');
+        var button = document.getElementById('upload-button');
+        var results = document.getElementById('results');
 
         function statusChangeCallback(response) {
-            
-            var fileChooser = document.getElementById('file-chooser');
-            var button = document.getElementById('upload-button');
-            var results = document.getElementById('results');
-
 
             console.log('statusChangeCallback');
             console.log(response);
@@ -585,7 +579,14 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
             // for FB.getLoginStatus().
             if (response.status === 'connected') {
                 // Logged into your app and Facebook.
-                testAPI();
+
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+
+                    document.getElementById('status').innerHTML =
+                        'Thanks for logging in, ' + response.name + '!';
+                });
 
                 //AWS REGION
                 AWS.config.region = AWSRegion;
@@ -628,17 +629,17 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
                     }
                 });
 
-                              var bucket = new AWS.S3({
+                var bucket = new AWS.S3({
                     params: {
                         Bucket: AWSS3BucketName
                     }
                 });
 
-                button.addEventListener('click', function() {
+                document.getElementById('upload-button').addEventListener('click', function() {
                     console.log('clicked');
-                    var file = fileChooser.files[0];
+                    var file = document.getElementById('file-chooser').files[0];
                     if (file) {
-                        results.innerHTML = '';
+                        document.getElementById('results').innerHTML = '';
                         //Object key will be facebook-USERID#/FILE_NAME
                         var objKey = file.name;
                         var params = {
@@ -649,13 +650,13 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
                         };
                         bucket.putObject(params, function(err, data) {
                             if (err) {
-                                results.innerHTML = 'ERROR: ' + err;
+                                document.getElementById('results').innerHTML = 'ERROR: ' + err;
                             } else {
                                 listObjs();
                             }
                         });
                     } else {
-                        results.innerHTML = 'Nothing to upload.';
+                        document.getElementById('results').innerHTML = 'Nothing to upload.';
                     }
                 }, false);
 
@@ -665,16 +666,16 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
                         Prefix: prefix
                     }, function(err, data) {
                         if (err) {
-                            results.innerHTML = 'ERROR: ' + err;
+                            document.getElementById('results').innerHTML = 'ERROR: ' + err;
                         } else {
                             var objKeys = "";
                             data.Contents.forEach(function(obj) {
                                 objKeys += obj.Key + "<br>";
                             });
-                            results.innerHTML = objKeys;
+                            document.getElementById('results').innerHTML = objKeys;
                         }
                     });
-                } 
+                }
 
 
             } else if (response.status === 'not_authorized') {
@@ -702,27 +703,12 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
         window.fbAsyncInit = function() {
             FB.init({
                 appId: FacebookAppId,
-                cookie: true, // enable cookies to allow the server to access
-                // the session
                 xfbml: true, // parse social plugins on this page
                 version: 'v2.5' // use version 2.2
             });
-
-            // Now that we've initialized the JavaScript SDK, we call
-            // FB.getLoginStatus().  This function gets the state of the
-            // person visiting this page and can return one of three states to
-            // the callback you provide.  They can be:
-            //
-            // 1. Logged into your app ('connected')
-            // 2. Logged into Facebook, but not your app ('not_authorized')
-            // 3. Not logged into Facebook and can't tell if they are logged into
-            //    your app or not.
-            //
-            // These three cases are handled in the callback function.
-
-            FB.getLoginStatus(function(response) {
+            FB.login(function(response) {
                 statusChangeCallback(response);
-
+                document.getElementById('upload-button').style.display = 'block';
             });
 
         };
@@ -736,18 +722,6 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
-        // Here we run a very simple test of the Graph API after login is
-        // successful.  See statusChangeCallback() for when this call is made.
-        function testAPI() {
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-                console.log('Successful login for: ' + response.name);
-
-                document.getElementById('status').innerHTML =
-                    'Thanks for logging in, ' + response.name + '!';
-            });
-        }
     </script>
 
     <input type="file" id="file-chooser" />
@@ -758,7 +732,6 @@ index.html을 다음과 같은 내용으로 만든후 위에 만든 bucket에 up
 </body>
 
 </html>
-
 ```
 
 
