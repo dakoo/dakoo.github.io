@@ -21,12 +21,12 @@ Open /etc/environment (sudo vi /etc/environment) and modify the content as follo
 
 ```
 JAVA_HOME="....:/usr/lib/jvm/java-8-oracle/" 
-JDK_HOME="/usr/lib/jvm/java-8-oracle/"
+export JDK_HOME="/usr/lib/jvm/java-8-oracle/"
 ```
 
 Then reload the configuration and test it. 
 
 ```
 $ source /etc/environment
-$ java -version
+$ env # check JAVA_HOME and JDK_HOME
 ```
