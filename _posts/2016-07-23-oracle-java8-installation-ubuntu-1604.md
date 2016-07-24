@@ -10,11 +10,23 @@ image:
 ---
 On Ubunut 16.04, Oracle java 8 SDK can be installed by the following steps:
 
-1. sudo add-apt-repository ppa:webupd8team/java
-2. sudo apt-get update
-3. sudo apt-get install oracle-java8-installer
-4. sudo update-alternatives --config java  ##If multiple jdks have been installed, you can choose a primary jdk.  
-5. sudo vi /etc/environment 
-6. JAVA_HOME="/usr/lib/jvm/java-8-oracle" should be added to the /etc/environment
-7. source /etc/environment
-8. java -version # To verify the steps above
+```
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt-get install oracle-java8-installer
+$ sudo update-alternatives --config java  ##If multiple jdks have been installed, you can choose a primary jdk.  
+```
+
+Open /etc/environment (sudo vi /etc/environment) and modify the content as follows:
+
+```
+JAVA_HOME="....:/usr/lib/jvm/java-8-oracle/" 
+JDK_HOME="/usr/lib/jvm/java-8-oracle/"
+```
+
+Then reload the configuration and test it. 
+
+```
+$ source /etc/environment
+$ java -version
+```
