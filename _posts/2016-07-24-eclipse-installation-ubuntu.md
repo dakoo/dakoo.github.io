@@ -55,7 +55,7 @@ For Eclipse icon to be displayed in dash, run following command:
 
 ### For the AWS Toolkit for Eclipse
 
-1. Menu > Help > Install New Software... 
-2. In the Work with box, type https://aws.amazon.com/eclipse and then press Enter.
-3. Choose the components of the AWS Toolkit for Eclipse that you want to install. If you want to install all components, click Select All.
-4. Then install them.
+1. Menu > Help > Install New Software... > Add button
+2. Name: aws, Location: https://aws.amazon.com/eclipse
+3. Select all > Next ...
+4. Accept the license agreement > Finish
