@@ -44,10 +44,18 @@ For Eclipse icon to be displayed in dash, run following command:
 3. Select all > Next ...
 4. Accept the license agreement > Finish
 
-### Other Projects (Web, Design, and etc)
+### For Web Projects
 
 1. Menu > Help > Install New Software... 
 2. The drop down menu of Work with
 3. Select the corresponding version. For example, mars if the version of eclipse is mars(4.5)
-4. Type some string in the type filter text box and install them. 
+4. In the box of software list, find 'Web, XML, Java EE and OSGi Enterprise Development'.
+5. Select Eclipse Java EE Developer Tools, Eclipse java Web Developer Tools Eclipse Web Developer Tools, and JavaScript Development Tools
+6. Install them and accept the term of license agreement. 
 
+### For the AWS Toolkit for Eclipse
+
+1. Menu > Help > Install New Software... 
+2. In the Work with box, type https://aws.amazon.com/eclipse and then press Enter.
+3. Choose the components of the AWS Toolkit for Eclipse that you want to install. If you want to install all components, click Select All.
+4. Then install them.
