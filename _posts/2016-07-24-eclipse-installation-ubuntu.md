@@ -59,3 +59,20 @@ For Eclipse icon to be displayed in dash, run following command:
 2. Name: aws, Location: https://aws.amazon.com/eclipse
 3. Select all > Next ...
 4. Accept the license agreement > Finish
+
+#### Register AWS Key ID
+
+##### Create AWS Key
+
+1. Open the AWS > IAM console.
+2. From the navigation menu, click Users.
+3. Select your IAM user name.
+4. Click User Actions, and then click Manage Access Keys.
+5. Click Create Access Key. Now you get the Access Key. 
+
+##### Register AWS Key in the eclipse
+
+1. Open Eclipse’s Preferences dialog box and click AWS Toolkit in the sidebar.
+2. Type or paste your AWS access key ID in the Access Key ID box.
+3. Type or paste your AWS secret access key in the Secret Access Key box.
+4. Click Apply or OK to store your access key information.
