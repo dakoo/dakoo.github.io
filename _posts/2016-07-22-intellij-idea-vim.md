@@ -10,6 +10,8 @@ image:
 ---
 To use the vim mode on Intellij IDEA, you should use a VIM plugin as follows:
 
+### Installation
+
 1. Launch the Intellij IDEA
 2. Select **IntelliJ IDEA** > **Preferences** on the menu bar
 3. Select **Plugin** on the Preferences window
@@ -18,5 +20,12 @@ To use the vim mode on Intellij IDEA, you should use a VIM plugin as follows:
 6. Select **IDEAVim** on the list and click the **Install** button. 
 7. Close all open windows and restart the IntellJ IDEA
 8. You should see the **Tool** > **Vim Emulator (Enabled)** on the menu bar
+
+### Shortcut Configuration
+
+1. File > Settings 
+2. Other Settgins > Vim Emulation
+3. Set Every Handlers as IDE 
+
 
 Let's enjoy vim!
