@@ -128,7 +128,7 @@ S3 bucket에서 topic 접근 권한을 가져야만 event를 전달할 수 있�
 2. Buckets 중 event를 발생시킬 bucket을 선택하여 **Properties**를 선택한 후 **Events**를 클릭한다. 
 3. **Name**상자에 이벤트를 구성하는 이름을 입력한다. 예를 들어 'ImageAddedEvent'
 4. **Events** 상자를 클릭하고 이벤트 발생 시 전달할 이벤트 유형을 선택한다. 여기서는 ObjectCreated(All)에서 Put과 CompleteMultiPartUpload를 선택하면 새로운 파일이 추가되면 이벤트가 뜬다. 
-5. **Prefix**와 **Suffix**를 정할 수 있지만, 단순히 정하는 것이 아니라 filter rule에 대해 이해해야 한다. 여기서는 일단 아무것도 정하지 않고 간다. 
+5. **Prefix**와 **Suffix**를 정할 수 있지만, 단순히 정하는 것이 아니라 [filter rule](http://docs.aws.amazon.com/ko_kr/AmazonS3/latest/dev/NotificationHowTo.html)에 대해 이해해야 한다. 하나의 suffix와 prefix를 정하는 것이 유효하다고 이해하는 것이 좋다. 여기서는 일단 아무것도 정하지 않고 간다. 
 6. **SendTo** 항목에는 **SNS topic**을 설정한다. 
 7. 해당 topic을 선택하거나, **Add SNS topic ARN**을 선택하여 **SNS Topic ARN** 상자에 앞에서 만들어 둔 SNS topic arn을 붙여 넣기 한다. 
 8. **Save**를 한다. 만약 위에서 Topic Policy를 제대로 설정하지 않았다면 에러가 뜨고 저장에 실패할 것이다. 
