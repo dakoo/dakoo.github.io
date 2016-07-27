@@ -242,6 +242,8 @@ def connect2Service(service):
 import threading
 import time
 import utils
+import json
+import subprocess
 
 QUEUE_NAME = "QUEUE-NAME"
 QUEUE_ATTR_NAME = "ApproximateNumberOfMessages"
@@ -313,10 +315,21 @@ class SQSConsumer (threading.Thread):
 					senderId = attributes.get('SenderId')
 					sentTimestamp = attributes.get('SentTimestamp')
 					
-					# Retrieve the body of a message.
+					# !!!!!!!!Retrieve the body of a message.!!!!!!!!!!!!!!
 					bd = mesg.body
-					messagebody = eval(bd)
-					print(messagebody)
+                                        event = eval(bd)
+                                        jsonmsg = json.loads(event['Message'])
+                                        fileName = jsonmsg["Records"][0]["s3"]["object"]["key"]
+                                        size = jsonmsg["Records"][0]["s3"]["object"]["size"]
+                                        bucketName = jsonmsg["Records"][0]["s3"]["bucket"]["name"]
+                                        print(fileName)
+                                        print(size)
+                                        print(bucketName)
+
+
+					# !!!! The example of excution of bashscript!!!!
+                                        #filePath = "/mnt/s3mount/" + fileName
+                                        #subprocess.call(["./soma_aws.sh", filePath, "/mnt/s3output"])
 
         	# Delete Message from the SQS queue
 					self.deleteMessage(queue, mesg)
@@ -379,18 +392,10 @@ SQSConsumer Thread running!
 
 #### S3에 파일 upload하기
 
-AWS S3 console에서 해당 bucket으로 이동하여 upload를 선택하고, file을 upload하면서 EC2와 연결된 terminal에 event가 오는 것을 확인한다. 그 예는 다음과 같다. [메시지 포맷](http://docs.aws.amazon.com/ko_kr/AmazonS3/latest/dev/notification-content-structure.html)에 따라 적당히 parsing하여 사용 가능하다. 
-
-```
-...
-('Iteration No.:', 72, 12)
-{'SignatureVersion': '1', 'UnsubscribeURL': 'https://sns.ap-northeast-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-northeast-2:979976764865:imageAdded:fdd4cff2-04e1-40a8-9b56-0763298d35c7', 'SigningCertURL': 'https://sns.ap-northeast-2.amazonaws.com/SimpleNotificationService-bb750dd426d95ee9390147a5624348ee.pem', 'MessageId': '48ce1d24-ea57-5352-b84e-4d2c0668a959', 'Timestamp': '2016-07-20T03:03:27.762Z', 'Message': '{"Records":[{"eventVersion":"2.0","eventSource":"aws:s3","awsRegion":"ap-northeast-2","eventTime":"2016-07-20T03:03:27.718Z","eventName":"ObjectCreated:Put","userIdentity":{"principalId":"AWS:AIDAJL6WCETJGXINP73DW"},"requestParameters":{"sourceIPAddress":"54.239.116.35"},"responseElements":{"x-amz-request-id":"57F9AA788E010D9D","x-amz-id-2":"jnyBK0e8raFIKETDWdxIeT1GRBc/S0Po86JgTVM0imVLEwM9zGyvinzV61XieApuhdRkRTmE0i0="},"s3":{"s3SchemaVersion":"1.0","configurationId":"ImageAddedEvent","bucket":{"name":"soma-web-service","ownerIdentity":{"principalId":"A4WSME9G15NSX"},"arn":"arn:aws:s3:::soma-web-service"},"object":{"key":"download.png","size":4488,"eTag":"bedac2bde0ee495645d31c5d31899b40","sequencer":"00578EE9FFAE85C996"}}}]}', 'Signature': 'X4a078vAwQyy7tNUfyC9Zm4C+eJUGwl7OBHvj5QxrgiyNjFdZSC4Dc5uXrWeEdPZ7uc/s1W8TDUBUPr+fTR73w6w5m/qNMaXZ060fshaVPVbzPSfgZgx6dpPGL6QB3n8ByV1ttBBKRDXkqlntDQoziUZx9vgak5mUXJIoQmxhZFDRbvkiCLi36CwgKhlLnLgWY2sSqLchAi2VguHiqJhv7d/bgUzCehe17Umqhgv9DDAWt7eXy4l+McuT56tQsB9Vk8KXAu25nKX7zwozNIb74MVxvlyzOZ5+WmGDV9yKCCFgdyMDQP5BwGWNK45t10QfYRg/XwLB64bEmWRSOYTGw==', 'Type': 'Notification', 'TopicArn': 'arn:aws:sns:ap-northeast-2:979976764865:imageAdded', 'Subject': 'Amazon S3 Notification'}
-Message deleted from Queue
-('Iteration No.:', 73, 13)
-...
-```
+AWS S3 console에서 해당 bucket으로 이동하여 upload를 선택하고, file을 upload하면서 EC2와 연결된 terminal에 event가 오는 것을 확인한다. [메시지 포맷](http://docs.aws.amazon.com/ko_kr/AmazonS3/latest/dev/notification-content-structure.html)에 따라 적당히 parsing하여 사용 가능하다. 
 
 동시에 여러 file을 선택해서 올리는 경우도 하나의 파일에 대해 하나의 이벤트가 발생하는 것을 확인할 수 있다. 
+위의 코드로는 file이름, size, bucket 이름이 출력될 것이다. 
 
 #### 모니터링
 
