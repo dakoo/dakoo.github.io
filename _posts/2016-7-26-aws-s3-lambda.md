@@ -45,7 +45,20 @@ S3 Bucket(ss-user-image) --> lambda (python) --> S3 Bucket(ss-user-image-resized
 
 ## 2. Lambda function 생성해서 수동으로 테스트하기
 
-### 2.1 코드 준비하기 
+아래 내용은 Lambda function을 zip으로 압축해서 등록하고 테스트 하는 방법이다. AWS Console상에서 코드를 직접 붙여 넣는 경우 간단한 코드는 되지만, dependency가 있는 라이브러리를 올리는 것은 까다롭다. 그래서 아래와 같은 방법을 사용하는 것이다. 
+
+### 2.1 실행을 위한 IAM role만들기 
+
+1. AWS IAM console 
+2. **Roles** > **Create New Role** 
+3. **Role name**에 'lambda-s3-execution-role** 입력 후 **Next** 선택
+4. Select Role Type에서 **AWS Service Roles** > **AWS Lambda**의 **select** 버튼 선택하여 해당 role에 Lambda 서비스를 동작할 수 있는 role permission을 부여한다. 
+5. **Attach Policy**에서 Policy Type 검색에서 **AWSLambdaExecute**을 찾아서 선택하고 **Next Step**. 
+6. 이제 Role ARN을 저장하고 **Create Role**을 선택한다. 
+
+- 저장할 것: Role ARN
+
+### 2.2 코드 준비하기 
 
 다음의 python code는 source bucket의 image를 받아서 resize를 한 후 그 결과를 destination bucket에 저장하는 예이다. 다음의 코드는 아래 기능을 수행한다. 
 
@@ -81,7 +94,7 @@ def handler(event, context):
         s3_client.upload_file(upload_path, '{}-resized'.format(bucket), key)
 ```
 
-### 2.2 패키지 만들기 
+### 2.3 패키지 만들기 
 
 1. 위의 코드를 CreateThumbnail.py로 저장한다. 
 2. scp -i [pem 파일] [CreateThumbnail.py 경로] ec2-user@public-ip-address:~/CreateThumbnail.py 로 py파일을 EC2로 upload한다. 
@@ -104,17 +117,6 @@ zip -r9 ~/CreateThumbnail.zip *
 cd ~
 zip -g CreateThumbnail.zip CreateThumbnail.py
 ```
-
-### 2.3 실행을 위한 IAM role만들기 
-
-1. AWS IAM console 
-2. **Roles** > **Create New Role** 
-3. **Role name**에 'lambda-s3-execution-role** 입력 후 **Next** 선택
-4. Select Role Type에서 **AWS Service Roles** > **AWS Lambda**의 **select** 버튼 선택하여 해당 role에 Lambda 서비스를 동작할 수 있는 role permission을 부여한다. 
-5. **Attach Policy**에서 Policy Type 검색에서 **AWSLambdaExecute**을 찾아서 선택하고 **Next Step**. 
-6. 이제 Role ARN을 저장하고 **Create Role**을 선택한다. 
-
-- 저장할 것: Role ARN
 
 ### 2.4 Lambda function 생성
 
@@ -195,7 +197,7 @@ $ aws lambda create-function \
       {  
          "eventVersion":"2.0",
          "eventSource":"aws:s3",
-         "awsRegion":"us-west-2",
+         "awsRegion":"ap-northeast-1",
          "eventTime":"1970-01-01T00:00:00.000Z",
          "eventName":"ObjectCreated:Put",
          "userIdentity":{  
