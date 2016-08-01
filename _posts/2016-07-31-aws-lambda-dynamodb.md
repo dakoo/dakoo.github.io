@@ -81,47 +81,48 @@ table_name = {TABLE-NAME}
      
 s3_client = boto3.client('s3')
 dynamodb_table = boto3.resource('dynamodb', region_name).Table(table_name)
-     
-def resize_image(image_path, resized_path):
-    with Image.open(image_path) as image:
-        image.thumbnail(tuple(x / 2 for x in image.size))
-        image.save(resized_path)
-     
-def handler(event, context):
-    for record in event['Records']:
-        bucket = record['s3']['bucket']['name']
-        key = record['s3']['object']['key'] 
-        download_path = '/tmp/{}{}'.format(uuid.uuid4(), key)
-        upload_path = '/tmp/resized-{}'.format(key)
-        
-        s3_client.download_file(bucket, key, download_path)
-        resize_image(download_path, upload_path)
-        output_bucket = '{}-resized'.format(bucket)
-        s3_client.upload_file(upload_path, output_bucket, key)
-        
-        imageID = key
-        date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-        imageURL = "https://s3-{}.amazonaws.com/{}/{}".format(region_name, bucket,key)
-        thumbnailURL = "https://s3-{}.amazonaws.com/{}-resized/{}".format(region_name, bucket,key)
-      
-        dynamodb_table.put_item(
-          Item={
-            'ImageID':key,
-            'Date': date,
-            'ImageURL': imageURL,
-            'ThumbnailURL':thumbnailURL
-          }
-        )
 
-        response = table.query(
-          KeyConditionExpression=Key('ImageID').eq(key)
-        )
-        items = response['Items']
-        file_path = '/tmp/{}-dynamodb_update'.format(key)
-        f = open(filepath, 'w')
-        f.write(items)
-        f.close()
-        s3_client.upload_file(file_path, output_bucket, '{}-dynamodb_update'.format(key))
+def resize_image(image_path, resized_path):
+  with Image.open(image_path) as image:
+    image.thumbnail(tuple(x / 2 for x in image.size))
+    image.save(resized_path)
+
+def handler(event, context):
+  for record in event['Records']:
+    bucket = record['s3']['bucket']['name']
+    key = record['s3']['object']['key'] 
+    download_path = '/tmp/{}{}'.format(uuid.uuid4(), key)
+    upload_path = '/tmp/resized-{}'.format(key)
+
+    s3_client.download_file(bucket, key, download_path)
+    resize_image(download_path, upload_path)
+    output_bucket = '{}-resized'.format(bucket)
+    s3_client.upload_file(upload_path, output_bucket, key)
+
+    imageID = key
+    date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    imageURL = "https://s3-{}.amazonaws.com/{}/{}".format(region_name, bucket,key)
+    thumbnailURL = "https://s3-{}.amazonaws.com/{}-resized/{}".format(region_name, bucket,key)
+
+    dynamodb_table.put_item(
+      Item={
+        'ImageID':key,
+        'Date': date,
+        'ImageURL': imageURL,
+        'ThumbnailURL':thumbnailURL
+      }
+    )
+
+    response = dynamodb_table.query(
+      KeyConditionExpression=Key('ImageID').eq(key)
+    )
+    items = response['Items']
+    file_path = '/tmp/{}-dynamodb_update'.format(key)
+    f = open(filepath, 'w')
+    f.write(items)
+    f.close()
+    s3_client.upload_file(file_path, output_bucket, '{}-dynamodb_update'.format(key))
+
 ```
 
 ### 2.3 패키지 만들기
@@ -180,7 +181,7 @@ region=ap-northeast-1
 #### 함수 생성
 
 1. ssh -i [pem 파일] ubuntu@public-ip-address 로 EC2에 접속한다. 
-2. 다음 Lambda CLI command를 실행하여 Lambda function을 생성한다. 
+2. 다음 Lambda CLI command를 실행하여 Lambda function을 생성한다. (!)아래 내용은 file로 bash script로 만들어서 실행하는 것이 좋다. 
 
 - {Region} : 예를 들어 ap-northeast-1
 - {file-path}: 루트일 경우 생략 (fileb://CreateThumbnail2.zip)
@@ -269,7 +270,7 @@ $ aws lambda create-function \
 
 #### event 실행 
 
-Amazon Linux EC2와 연결된 terminal에서 아래의 AWS Lambda CLI를 실행한다. 
+Amazon Linux EC2와 연결된 terminal에서 아래의 AWS Lambda CLI를 실행한다. 이것도 bash script로 만들어 두는 것이 좋다. 
 
 - {region}: 예를 들어 ap-northeast-1
 - {file-path}: 루트일 경우 생략 (fileb://input.txt)
@@ -295,7 +296,10 @@ outputfile.txt
 
 #### 결과 확인 
 
-이제 S3의  'ss-user-image-resized' bucket에 thumbnail이 생성되어 있는지 확인하자. 그리고 무엇보다 중요한 것은  'ss-user-image-resized' bucket에 dynamodb_update 파일이 생성되어 있는 것이다.  dynamodb_update 파일을 download해서 정상적으로 dynamodb의 table로부터 URL을 읽었는지를 확인하자. 
+- S3의  'ss-user-image-resized' bucket에 thumbnail이 생성되어 있는지 확인하자. 
+- DynamoDB console의 table에서 item이 제대로 들어갔는지 확인한다. 
+- 'ss-user-image-resized' bucket에 dynamodb_update 파일이 생성되어 있는지 확인한다.  
+- dynamodb_update 파일을 download해서 정상적으로 dynamodb의 table로부터 URL을 읽었는지를 확인하자. 
 
 - 혹시 에러가 발생했다면 CloudWatch > Logs에서 확인 가능하다.  
 
