@@ -283,3 +283,32 @@ outputfile.txt
 
 S3 ss-user-image bucket에 파일을 upload한다. 그리고 ss-user-image-resized로 이동해서 thumbnail이 생성되어 있는지 확인하자.
 
+## 4. S3 설정 및 외부 사용자 테스트
+
+### 4.1 S3 접근 Permission 문제 
+
+S3 ss-user-image-resized로 이동해서 생성된 thumbnail의 **Properties**를 선택한 후 **Link**를 click한다. 
+아마도 permission deny로 Webbrowser에서 file을 열수 없을 것이다. 
+
+### 4.2 S3 설정
+
+[S3 버킷 정책 예제](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-2)의 익명 사용자에게 읽기 전용 권한 부여를 참고하자. S3 ss-user-image-resized bucket의 **Properties** > **permissions** > **Add bucket policy**를 선택해서 아래 내용을 paste한다. {bucket-name} 대신 ss-user-image-resized를 넣는다.  
+
+```
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Sid":"AddPerm",
+      "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::{bucket-name}/*"]
+    }
+  ]
+}
+```
+
+### 4.3 S3 테스트 
+
+S3 ss-user-image-resized로 이동해서 생성된 thumbnail의 **Properties**를 선택한 후 **Link**를 click해본다. 정상적으로 열리거나 download 창이 뜨면 이제 성공이다!
