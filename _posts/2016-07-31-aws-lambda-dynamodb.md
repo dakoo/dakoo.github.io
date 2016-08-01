@@ -53,7 +53,7 @@ DynamoDB의 Table은 다음과 같다. 이름은 'UserImage'이라고 하자. Im
 
 ### 2.2 코드 준비하기 
 
-다음의 python code는 source bucket의 image를 받아서 resize를 한 후 그 결과를 destination bucket에 저장한 후 그 내용을 dynamodb에 저장하는 것이다. [dynamodb와 python tutorial](http://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/gettingstartedguide/GettingStarted.Python.html)을 참조하자!
+다음의 python code는 source bucket의 image를 받아서 resize를 한 후 그 결과를 destination bucket에 저장한 후 그 내용을 dynamodb에 저장하는 것이다. [dynamodb와 python tutorial](http://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/gettingstartedguide/GettingStarted.Python.html)과 [boto3 dynamodb tutorial](http://boto3.readthedocs.io/en/latest/guide/dynamodb.html)을 참조하자!
 
 - source bucket이름은 s3로부터의 event로부터 추출한다. 
 - destination bucket의 이름은 source bucket이름 + '-resized' 로 만든다. 만약 bucket이름을 바꾸고 싶다면 이 부분을 수정하면 된다. 
@@ -66,6 +66,7 @@ DynamoDB의 Table은 다음과 같다. 이름은 'UserImage'이라고 하자. Im
 ```python
 from __future__ import print_function
 import boto3
+from boto3.dynamodb.conditions import Key, Attr
 import botocore.exceptions
 import os
 import sys
@@ -112,6 +113,15 @@ def handler(event, context):
           }
         )
 
+        response = table.query(
+          KeyConditionExpression=Key('ImageID').eq(key)
+        )
+        items = response['Items']
+        file_path = '/tmp/{}-dynamodb_update'.format(key)
+        f = open(filepath, 'w')
+        f.write(items)
+        f.close()
+        s3_client.upload_file(file_path, output_bucket, '{}-dynamodb_update'.format(key))
 ```
 
 ### 2.3 패키지 만들기
