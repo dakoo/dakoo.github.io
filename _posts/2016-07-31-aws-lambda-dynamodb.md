@@ -116,12 +116,14 @@ def handler(event, context):
     response = dynamodb_table.query(
       KeyConditionExpression=Key('ImageID').eq(key)
     )
-    items = response['Items']
-    file_path = '/tmp/{}-dynamodb_update'.format(key)
-    f = open(filepath, 'w')
-    f.write(items)
+    file_path = '/tmp/dynamodb_response'
+    f = open(file_path, 'w')
+    items = json.dumps(response['Items'])
+    for item in items:
+        f.write(str(item))
     f.close()
-    s3_client.upload_file(file_path, output_bucket, '{}-dynamodb_update'.format(key))
+    s3_client.upload_file(file_path, output_bucket, 'dynamodb_response')
+
 
 ```
 
@@ -132,26 +134,46 @@ def handler(event, context):
 1. 위의 코드를 CreateThumbnail2.py로 저장한다. 
 2. scp -i [pem 파일] [CreateThumbnail2.py 경로] ec2-user@public-ip-address:~/CreateThumbnail2.py 로 py파일을 EC2로 upload한다. 
 3. ssh -i [pem 파일] ec2-user@public-ip-address 로 EC2에 접속한다. 
-4. 설치 및 압축을 위해 다음 명령들을 순차적으로 실행한다. 
+4. 설치를 하지 않은 경우 설치를 위해 다음 명령들을 순차적으로 실행한다. (이전 포스트에서 진행한 것이므로 아마 설치가 되어 있을 것임)
 
 ```bash
 #### 이전 포스트에서 진행한 것이므로 SKIP
-#sudo yum install python27-devel python27-pip gcc
-#sudo yum install libjpeg-devel zlib-devel   --> 실행한 후 중간에 y
-#virtualenv ~/shrink_venv
+sudo yum install python27-devel python27-pip gcc
+sudo yum install libjpeg-devel zlib-devel   --> 실행한 후 중간에 y
+virtualenv ~/shrink_venv
 
 source ~/shrink_venv/bin/activate  --> shrink_venv 환경으로 모드 변환
 
-#pip install Pillow
-#pip install boto3
+pip install Pillow
+pip install boto3
+#####
+```
 
-zip -9 ~/CreateThumbnail2.zip --> error가 표시되지만 무시하고(믿고!) 그대로 진행한다. 
+- 이제 python 코드와 환경을 압축하자. 아래 코드는 루트 폴더에서 **bash script로 만들어서** 진행하자. Compress_py.sh로 저장하고 `chmod +x Compress_py.sh`로 실행 권한을 준 후 실행한다. 
+
+```bash
+#!/bin/bash
+zip_file_name=CreateThumbnail2.zip
+python_file_name=CreateThumbnail2.py
+
+echo "
+Deleting the old compressed file
+"
+
+rm -rf $zip_file_name
+
+echo "
+Compressing the new lambda function and environment
+"
+source ~/shrink_venv/bin/activate
+zip -9 ~/${zip_file_name}
 cd $VIRTUAL_ENV/lib/python2.7/site-packages
 zip -r9 ~/CreateThumbnail2.zip *
 cd $VIRTUAL_ENV/lib64/python2.7/site-packages
-zip -r9 ~/CreateThumbnail2.zip *
+zip -r9 ~/${zip_file_name} *
 cd ~
-zip -g CreateThumbnail2.zip CreateThumbnail.py
+zip -g ${zip_file_name} ${python_file_name}
+~                                               
 ```
 
 ### 2.4 Lambda function 생성
@@ -181,28 +203,51 @@ region=ap-northeast-1
 #### 함수 생성
 
 1. ssh -i [pem 파일] ubuntu@public-ip-address 로 EC2에 접속한다. 
-2. 다음 Lambda CLI command를 실행하여 Lambda function을 생성한다. (!)아래 내용은 file로 bash script로 만들어서 실행하는 것이 좋다. 
+2. 다음 Lambda CLI command를 실행하여 Lambda function을 생성한다. bash script로 만들어서 실행하는 것이 좋다.  
 
 - {Region} : 예를 들어 ap-northeast-1
-- {file-path}: 루트일 경우 생략 (fileb://CreateThumbnail2.zip)
-- {role-arn}: 앞에서 저장한 role의 arn
-- {runtime}: nodejs4.3, python2.7, java8 중 하나를 선택 
+- {file-path}: 루트일 경우 생략 (예: CreateThumbnail2.zip)
+- {role-arn}: 앞에서 저장한 role의 arn (IAM >ROLES에서 확인)
+- {runtime}: nodejs4.3, python2.7, java8 중 하나를 선택. 여기서는 python2.7
 - {user-name}: ~/.aws/crendentials에 저장된 AWS user name
+- {handler} : py파일 내의 handler
+- {function_name} : lambda function name
+
+```bash
+#!/bin/bash
+region={Region}
+role_arn={role-arn}
+function_name={function_name}
+handler={handler}
+compressed_file_path={file-path}
+runtime={runtime}
+user_name={user-name}
+
+
+echo "
+deleting the exising lambda function
+"
+aws lambda delete-function \
+ --function-name $function_name \
+ --profile $user_name \
+ --region $region
+
+echo "
+creating a new lambda function
+"
+
+aws lambda create-function \
+ --function-name $function_name \
+ --zip-file fileb://${compressed_file_path} \
+ --role $role_arn \
+ --handler ${function_name}.${handler} \
+ --runtime $runtime \
+ --profile $user_name \
+ --region $region
 
 ```
-$ aws lambda create-function \
---region {Region} \
---function-name CreateThumbnail2 \
---zip-file fileb://{file-path}/CreateThumbnail2.zip \
---role {role-arn} \
---handler CreateThumbnail2.handler \
---runtime {runtime} \
---profile {user-name} \
---timeout 10 \
---memory-size 1024
-```
 
-위 명령을 수행한 뒤 나오는 아래와 같은 출력에서 **function ARN**을 저장한다. 
+아래와 같이 로그가 나오면 성공한 것이다. AWS Lambda console에서도 function 생성을 확인 가능하다.
 
 ```
 {
@@ -210,7 +255,7 @@ $ aws lambda create-function \
     "FunctionName": "CreateThumbnail2", 
     "CodeSize": 8733802, 
     "MemorySize": 1024, 
-    "FunctionArn": "arn:aws:lambda:ap-northeast-1:xxxxxx:function:CreateThumbnail2", <-- 저장
+    "FunctionArn": "arn:aws:lambda:ap-northeast-1:xxxxxx:function:CreateThumbnail2", 
     "Version": "$LATEST", 
     "Role": "arn:aws:iam::xxxxxx:role/lambda-s3-execution-role", 
     "Timeout": 10, 
@@ -223,7 +268,7 @@ $ aws lambda create-function \
 
 #### event 준비 
 
-- 터미널을 Local에서 새로 열어 pem파일이 있는 폴더에 아래 내용을 input.txt 파일로 저장한다. 코드 중 {sourcebucket}에 'ss-user-image'를 넣는다. 이때, AWS S3 Console로 이동하여 {HappyFace.jpg}에 해당하는 image 파일을  'ss-user-image'에 upload해서 올려 놓는다. 
+- 터미널을 Local에서 새로 열어 pem파일이 있는 폴더에 아래 내용을 input.txt 파일로 저장한다. 코드 중 {sourcebucket}에 'ss-user-image'를 넣는다. 이때, AWS S3 Console로 이동하여 **{HappyFace.jpg}에 해당하는 image 파일을  'ss-user-image'에 upload해서 올려 놓는다**. 
 
 ```
 {  
@@ -270,20 +315,35 @@ $ aws lambda create-function \
 
 #### event 실행 
 
-Amazon Linux EC2와 연결된 terminal에서 아래의 AWS Lambda CLI를 실행한다. 이것도 bash script로 만들어 두는 것이 좋다. 
+Amazon Linux EC2와 연결된 terminal에서 아래의 AWS Lambda CLI를 실행한다. 이것도 bash script로 만들어 두는 것이 좋다. (send_fake_event.sh)
 
-- {region}: 예를 들어 ap-northeast-1
-- {file-path}: 루트일 경우 생략 (fileb://input.txt)
+- {Region} : 예를 들어 ap-northeast-1
+- {file-path}: 루트일 경우 생략 (예: input.txt)
 - {user-name}: ~/.aws/crendentials에 저장된 AWS user name
+- {function_name} : lambda function name
+- {outputfile} : output file(생성될) (있어도 상관없음)
 
 ```
-$ aws lambda invoke \
+#!/bin/bash
+region={region}
+function_name={function_name}
+event_file={file-path}
+user_name={user-name}
+output_file={outputfile}
+
+echo "
+testing new lambda function by sending an event
+"
+aws lambda invoke \
 --invocation-type Event \
---function-name CreateThumbnail2 \
---region {region} \
---payload file://{file-path}/input.txt \
---profile {user-name} \
-outputfile.txt
+--function-name $function_name \
+--region $region \
+--log-type Tail \
+--payload file://${event_file} \
+--profile ${user_name} \
+--output json \
+${output_file}
+
 ```
 
 다음과 같은 Status Code가 뜨면 명령은 제대로 전달 된 것이다.  
@@ -298,7 +358,7 @@ outputfile.txt
 
 - S3의  'ss-user-image-resized' bucket에 thumbnail이 생성되어 있는지 확인하자. 
 - DynamoDB console의 table에서 item이 제대로 들어갔는지 확인한다. 
-- 'ss-user-image-resized' bucket에 dynamodb_update 파일이 생성되어 있는지 확인한다.  
+- 'ss-user-image-resized' bucket에 xxx-update.txt파일이 생성되어 있는지 확인한다.  
 - dynamodb_update 파일을 download해서 정상적으로 dynamodb의 table로부터 URL을 읽었는지를 확인하자. 
 
 - 혹시 에러가 발생했다면 CloudWatch > Logs에서 확인 가능하다.  
@@ -318,3 +378,7 @@ outputfile.txt
 ### 3.2 테스트
 
 S3 ss-user-image bucket에 파일을 upload한다. 그리고 ss-user-image-resized로 이동해서 thumbnail이 생성되어 있는지 확인하고 dynamodb_update 파일이 잘 생성되고 update되었는지 내용을 확인한다. 
+
+## 4. Future work
+
+여기서는 구현하지 않지만, S3의 파일과 Dynamodb의 item과 동기화를 위해서는 S3의 Object가 Delete시에도 비슷한 trigger가 발생해서 Lambda를 통해 dynamodb를 update하면 해야 한다. 
