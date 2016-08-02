@@ -1,7 +1,7 @@
 ---
 layout: post
-title: aws lambda에서 dynamodb data update하기 
-description: aws lambda에서 dynamodb data update하기 
+title: S3 파일 upload시에 aws lambda를 통해 dynamodb에 아이템 추가하기 
+description: S3 파일 upload시에 aws lambda를 통해 dynamodb에 아이템 추가하기 
 modified: 2016-07-31
 tags: [dev]
 comments: true
