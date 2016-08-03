@@ -491,13 +491,13 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 }
 ```
 
-- GET으로  **{invoke URL}/memos/?tag=X** 을 통해 제대로 update되었는지 확인한다. 
+- GET으로  **{invoke URL}/memos/{memoId}** 를 통해 제대로 update되었는지 확인한다. 
 
 ##### 아이템 메시지 삭제 테스트 
 
 1. Postman창에서 method를 DELETE로 바꾸고 request URL은 유지한다. 
 2. **Send**한다. 
-3. GET으로  **{invoke URL}/memos/ 해서 삭제되었는지 확인한다. 
+3. GET으로 **{invoke URL}/memos/?tag=X** 해서 삭제되었는지 확인한다. 
 
 이제 Backend 쪽은 끝났다. Frontend를 구현해 보자. 
 
