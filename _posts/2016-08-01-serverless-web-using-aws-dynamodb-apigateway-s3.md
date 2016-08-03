@@ -227,7 +227,7 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 }
 ```
 
-오른쪽에 로그 창이 뜨면서 처리 내용이 나타난다. 특별한 이상이 없고 Response body가 `{}`이면 정상적으로 처리된 것이다. AWS DynamoDB console로 이동해서 Memos table > items tab에서 정상적으로 추가되었는지 확인해보자. 
+오른쪽에 로그 창이 뜨면서 처리 내용이 나타난다. 특별한 이상이 없고 Response body가 `{}`이면 정상적으로 처리된 것이다. AWS DynamoDB console로 이동해서 Memos table > items tab에서 정상적으로 추가되었는지 확인해보자. default로 'test-invoke-request'가 memoId인 item이 생긴다. 
 
 
 ##### 중간 검증 : Deploy해서 테스트하기
@@ -258,10 +258,6 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 
 
-
-
-
-
 #### 2.2.2 메모 획득 API 추가 
 
 ##### 설정
@@ -283,34 +279,20 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 ```
 { 
     "TableName": "Memos",
-    "Item": {
-        	"memoId": {
-                    "S": "$context.requestId"
-          },
-          "tag": {
-              "S": "$input.path('$.tag')"
-          },
-          "message": {
-              "S": "$input.path('$.message')"
-          }
+    "Key": {
+      "memoId": { 
+        "S": "$input.params('memoId')"
       }
+    }
 }
 ```
 
 ##### 테스트
 
-1. memos - POST - Method Execution 화면으로 돌아간다 .
-2. 왼쪽 Client box상단의 **Test**를 선택한다. 
-3. **Request Body 창**에 다음을 추가하고 **Test** button을 선택한다. 
+1. memos - POST - Method Execution 화면의 **Test**를 선택 
+2. **Request Body 창** > Path memoid 입력창에 test-invoke-request를 입력 후 **Test**
 
-```
-{
-  "message":  "I really enjoyed the Galaxy note 7!!",
-  "tag": "device"
-}
-```
-
-오른쪽에 로그 창이 뜨면서 처리 내용이 나타난다. 특별한 이상이 없고 Response body가 `{}`이면 정상적으로 처리된 것이다. AWS DynamoDB console로 이동해서 Memos table > items tab에서 정상적으로 추가되었는지 확인해보자. 
+오른쪽에 로그 창 Response body에 item 정보가 뜨면 성공이다. 
 
 
 
