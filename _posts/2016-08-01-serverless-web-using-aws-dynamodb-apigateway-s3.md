@@ -17,9 +17,9 @@ image:
 기능 요구사항은 다음과 같다. 
 
 1. 메모 생성 (내용과 tag를 입력)
-2. 메모 삭제 
-3. 메모 업데이트 (내용과 tag)
-4. 메모 보기 (내용, tag, 시간)
+2. 메모 보기 (내용, tag)
+3. 메모 내용 업데이트
+4. 메모 삭제 
 5. 메모 리스트 보기
 6. 특정 tag를 가진 메모 리스트만 보기 
 
@@ -66,7 +66,23 @@ HTTP Method: GET
 
 응답의 Body는 json type으로 메모의 message와 tag이다. 
 
-#### 2.0.3 메모 삭제 
+
+#### 2.0.3 메모 내용 업데이트 
+
+메모 내용을 update한다. 
+
+```
+Resource: /memos/{memoId}
+HTTP Method: PUT
+HTTP Request Body:
+{
+  "message": "This is an example message"
+}
+```
+
+응답의 Body는 없다({}). 
+
+#### 2.0.4 메모 삭제 
 
 메모를 선택해서 삭제한다. 
 
@@ -76,23 +92,6 @@ HTTP Method: DELETE
 HTTP Request Body:
 {
   "memoId": "example-memo-id"
-}
-```
-
-응답의 Body는 없다({}). 
-
-
-#### 2.0.4 메모 업데이트 
-
-메모 내용이나 tag를 update한다. 
-
-```
-Resource: /memos/{memoId}
-HTTP Method: PUT
-HTTP Request Body:
-{
-  "message": "This is an example message",
-  "tag": "example-tag"
 }
 ```
 
@@ -258,6 +257,8 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 
 
+
+
 #### 2.2.2 메모 획득 API 추가 
 
 ##### 설정
@@ -286,6 +287,58 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
     }
 }
 ```
+
+##### 테스트
+
+1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
+2. memoId에 test-invoke-request 입력 후 **Test**
+3. item 정보가 response body에 나타나면 성공!
+
+
+#### 2.2.3 메모 내용 업데이트 API 추가 
+
+##### 설정
+
+1. {memoId} resource 선택 후 > **Actions** > **Create Method** 
+2. Dropdown 메뉴에서 **PUT** > **v** 마크를 선택  
+3. Integration type에서 **Show Advanced** >  **AWS Service Proxy** 
+4. AWS Region(Tokyo는 ap-northeast-1)을 선택, AWS Service로 **DynamoDB** 선택 
+5. HTTP method는 **POST**, Action type은 **use action name**를 선택
+6. Action에는 **UpdateItem**을 입력한 후 Save한다. 
+7. Execution role은 위에서 만든 IAM ROLE ARN을 입력 후 **Save**
+
+{memoId} Resource로 들어오는 PUT request를 Dynamo DB의 UpdateItem API의 parameter로 변환하자. 
+
+1. **Integaration Request** > **Body Mapping Templates** 섹션 
+2. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
+3. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
+
+```
+{
+    "TableName": "Memos",
+    "Key": {
+        "memoId": {
+            "S": "$input.params('memoId')"
+        }
+    },
+    "UpdateExpression": "set message = :val1",
+    "ExpressionAttributeValues": {
+        ":val1": {"S": "$input.path('$.message')"}
+    },
+    "ReturnValues": "NONE"
+}
+```
+
+
+
+
+
+
+
+
+
+
+
 
 ##### 테스트
 
