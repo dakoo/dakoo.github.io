@@ -8,7 +8,7 @@ comments: true
 image:
   feature: abstract-17.png
 ---
-퀵 메모장 기능을 지원하는 Serverless Web Server를 간단히 구축해 보자. 
+퀵 메모장 기능을 지원하는 Serverless Web Server를 간단히 구축해 보자. Serverless는 보통 API Gateway - Lambda - DynamoDB 구조가 많은데 Lambda를 배제하고 API Gateway와 DynamoDB를 연결하는 것이 훨씬 Simple하다. 
 
 ## 0. 기능 요구사항 및 참조 사항 
 
