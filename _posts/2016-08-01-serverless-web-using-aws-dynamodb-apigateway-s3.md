@@ -379,6 +379,12 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 #### 2.2.5 tag와 일치하는 메모 리스트 획득하기
 
+tag에 일치하는 리스트를 획득하기 위해서 다음과 같이 queryString을 이용한다. 
+
+> /memos/?tag='X'
+
+item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수도 함께 얻는 것을 구현한다. 
+
 ##### 테스트 환경 
 
 1. AWS DynamoDB console > Tables > Memos table > Items 탭
@@ -406,45 +412,72 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 /memos Resource로 들어오는 GET request를 Dynamo DB의 Query API의 parameter로 변환하자. 
 
-1. **Integaration Request** > **Body Mapping Templates** 섹션 
-2. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
-3. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
+1. **Method Request** > **URL Query String Parameters** 
+2. **Add Query String**을 선택 후 name은 **tag**로 지정 (/memos/?tag=xxx에서 tag에 해당)
+3. **Integaration Request** > **URL Query String Parameters** 
+4. 2. **Add Query String**을 선택 후 name은 **tag**, mapped from은 **method.request.querystring.tag**으로 지정(Method Request에 설정한 QueryString과 연결)
+5. **Body Mapping Templates** 섹션 
+6. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
+7. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
 
 ```
-{ 
-    "TableName": "Memos",
-    "Key": {
-      "memoId": { 
-        "S": "$input.params('memoId')"
-      }
-    }
-}
-
 {
     "TableName": "Memos",
     "IndexName": "tag-index",
-    "Limit": 100,
-    "ConsistentRead": true,
     "ProjectionExpression": "memoId, message",
     "KeyConditionExpression": "tag = :v1",
     "ExpressionAttributeValues": {
-        ":v1": {"S": "$input.params('pageId')"}
+        ":v1": {
+            "S": "$input.params('tag')"
+        }
     },
     "ReturnConsumedCapacity": "TOTAL"
 }
-        
+  
 ```
 
 ##### 테스트
 
-1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
-2. memoId에 test-invoke-request를 입력하여 **Test**
-3. Response body가 {}이면 성공~!
+1. memos - GET - Method Execution 화면 > **Test**를 선택한다. 
+2. QueryString tag에 X를 입력하여 **Test**
+3. 다음과 같은 결과를 얻으면 성공
 
-
-
-
-
+```
+{
+  "ConsumedCapacity": {
+    "CapacityUnits": 0.5,
+    "TableName": "Memos"
+  },
+  "Count": 3,
+  "Items": [
+    {
+      "message": {
+        "S": "111aaa"
+      },
+      "memoId": {
+        "S": "2"
+      }
+    },
+    {
+      "message": {
+        "S": "1"
+      },
+      "memoId": {
+        "S": "1"
+      }
+    },
+    {
+      "message": {
+        "S": "333"
+      },
+      "memoId": {
+        "S": "3"
+      }
+    }
+  ],
+  "ScannedCount": 3
+}
+```
 
 ### 2.3 Test
 
