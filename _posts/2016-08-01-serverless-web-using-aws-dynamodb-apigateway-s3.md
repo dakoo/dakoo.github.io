@@ -97,16 +97,7 @@ HTTP Request Body:
 
 응답의 Body는 없다({}). 
 
-#### 2.0.5 tag를 이용해 메모 리스트 얻기
-
-tag에 해당하는 메모 id 리스트를 가져온다. 
-
-```
-Resource: /memos/tag='example-tag'
-HTTP Method: GET
-```
-
-#### 2.0.6 메모 리스트 보기
+#### 2.0.5 메모 리스트 보기
 
 메모 id 리스트를 가져온다. 
 
@@ -117,12 +108,22 @@ HTTP Method: GET
 
 응답의 Body는 json type으로 메모들의 id를 가져온다. 
 
+#### 2.0.6 tag를 이용해 메모 리스트 얻기
+
+tag에 해당하는 메모 id 리스트를 가져온다. 
+
+```
+Resource: /memos?tag=example-tag
+HTTP Method: GET
+```
+
+
 ### 2.1 DynamoDB
 
 DynamoDB table을 만들자. 
 
 1. AWS DynamoDB console로 이동한다. 
-2. **Create Table**을 선택한 후 이름을 Memos로 선택한다. 
+2. **Create Table**을 선택한 후 이름을 Memos로 선택
 3. memoId를 Primary key로 하고 나머지는 default setting으로 하고 **Create**를 선택한다.table 생성이 완료되면 Status가 Active로 바뀐다. 
 4. 생성된 table의 Indexes 탭을 선택하고 **Create index**를 선택한다. 
 5. Primary key는 tag(String)로 입력한다. 그러면 자동으로 index name은 tag-index이 된다.
@@ -336,7 +337,7 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 3. Response body가 {}이면 성공~!
 
 
-#### 2.2.3 메모 삭제 API 추가 
+#### 2.2.4 메모 삭제 API 추가 
 
 ##### 설정
 
@@ -370,6 +371,61 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
 2. memoId에 test-invoke-request를 입력하여 **Test**
 3. Response body가 {}이면 성공~!
+
+
+
+#### 2.2.5 메모 리스트 획득하기
+
+##### 테스트 환경
+
+1. AWS DynamoDB console > Tables > Memos table > Items 탭
+2. Create Item을 눌러서 Text 모드로 변환 후 아이템을 여러개 추가. tag가 'X'인 아이템을 몇개 만듦 
+
+```
+{
+  "memoId": "1",
+  "tag": "X",
+  "message": "111"
+}
+```
+
+이제 AWS API Gateway로 이동
+
+##### 설정
+
+1. /memos resource 선택 후 > **Actions** > **Create Method** 
+2. Dropdown 메뉴에서 **DELETE** > **v** 마크를 선택  
+3. Integration type에서 **Show Advanced** >  **AWS Service Proxy** 
+4. AWS Region(Tokyo는 ap-northeast-1)을 선택, AWS Service로 **DynamoDB** 선택 
+5. HTTP method는 **POST**, Action type은 **use action name**를 선택
+6. Action에는 **DeleteItem**을 입력한 후 Save한다. 
+7. Execution role은 위에서 만든 IAM ROLE ARN을 입력 후 **Save**
+
+{memoId} Resource로 들어오는 DELETE request를 Dynamo DB의 DeleteItem API의 parameter로 변환하자. 
+
+1. **Integaration Request** > **Body Mapping Templates** 섹션 
+2. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
+3. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
+
+```
+{ 
+    "TableName": "Memos",
+    "Key": {
+      "memoId": { 
+        "S": "$input.params('memoId')"
+      }
+    }
+}
+```
+
+##### 테스트
+
+1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
+2. memoId에 test-invoke-request를 입력하여 **Test**
+3. Response body가 {}이면 성공~!
+
+
+
 
 
 
