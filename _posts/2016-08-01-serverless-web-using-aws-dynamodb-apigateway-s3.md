@@ -374,9 +374,12 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 
 
+
+
+
 #### 2.2.5 메모 리스트 획득하기
 
-##### 테스트 환경
+##### 테스트 환경 
 
 1. AWS DynamoDB console > Tables > Memos table > Items 탭
 2. Create Item을 눌러서 Text 모드로 변환 후 아이템을 여러개 추가. tag가 'X'인 아이템을 몇개 만듦 
@@ -394,14 +397,14 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 ##### 설정
 
 1. /memos resource 선택 후 > **Actions** > **Create Method** 
-2. Dropdown 메뉴에서 **DELETE** > **v** 마크를 선택  
+2. Dropdown 메뉴에서 **GET** > **v** 마크를 선택
 3. Integration type에서 **Show Advanced** >  **AWS Service Proxy** 
 4. AWS Region(Tokyo는 ap-northeast-1)을 선택, AWS Service로 **DynamoDB** 선택 
 5. HTTP method는 **POST**, Action type은 **use action name**를 선택
-6. Action에는 **DeleteItem**을 입력한 후 Save한다. 
+6. Action에는 **Query**를 입력한 후 Save한다. 
 7. Execution role은 위에서 만든 IAM ROLE ARN을 입력 후 **Save**
 
-{memoId} Resource로 들어오는 DELETE request를 Dynamo DB의 DeleteItem API의 parameter로 변환하자. 
+/memos Resource로 들어오는 GET request를 Dynamo DB의 Query API의 parameter로 변환하자. 
 
 1. **Integaration Request** > **Body Mapping Templates** 섹션 
 2. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
