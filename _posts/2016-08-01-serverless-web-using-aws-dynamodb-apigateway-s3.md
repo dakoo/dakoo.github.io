@@ -160,7 +160,9 @@ Resource를 만들자.
 
 1. 생성된 MemosApi에서 **Actions**버튼을 눌러 **Create Resource**를 선택한다. 
 2. Resource Name: memos로 입력한다. Resource Path는 자동으로 /memos 가 된다. 
-4. **₢reate Resource**를 선택
+3. **₢reate Resource**를 선택
+4. /memos를 선택한 후 **Actions**버튼을 눌러 **Create Resource**를 선택한다.
+5. Resource Name: memoId로 입력한다. Resource Path는 {memoId}로 바꾼다. 
 
 #### 2.2.1 메모 생성 API 추가 
 
@@ -180,7 +182,7 @@ HTTP Request Body:
 
 Dynamo DB의 **PutItem API**와 위에서 생성한 Resource로 들어오는 **POST request**를 mapping하자. 
 
-1. 위에서 생성한 resource를 선택해서 **Create Method**의 dropdown 메뉴에서 POST를 선택 후  v마크를 선택한다. 
+1. 위에서 생성한 /memos resource를 선택해서 **Create Method**의 dropdown 메뉴에서 POST를 선택 후  v마크를 선택한다. 
 2. Integration type에서 **Show Advanced**를 선택하고 **AWS Service Proxy**를 선택 한다. 
 3. AWS Region(Tokyo는 ap-northeast-1)을 선택한 후 AWS Service로 **DynamoDB**를 선택한다. 
 4 HTTP method는 **POST**, Action type은 **use action name**를 선택하고, Action에는 **PutItem**을 입력한 후 Save한다. 여기서 말하는 POST는 API Gateway와 DynamoDB간의 protocol로 뒤의 API들도 모두 POST를 사용한다. 
@@ -254,29 +256,30 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 응답으로 `{}`가 왔는지 확인한다. AWS DynamoDB console로 이동해서 확인한다. 새로운 item이 추가되어 있다면 성공!!!
 
-#### 2.2.2 메모 삭제 API 추가 
+
+
+
+
+
+
+#### 2.2.2 메모 획득 API 추가 
 
 ##### 설정
 
-Dynamo DB의 Putitem API와 위에서 생성한 Resource로 들어오는 POST request를 mapping하자. 
+1. {memoId} resource 선택 후 > **Actions** > **Create Method** 
+2. Dropdown 메뉴에서 **GET** > **v** 마크를 선택  
+3. Integration type에서 **Show Advanced** >  **AWS Service Proxy** 
+4. AWS Region(Tokyo는 ap-northeast-1)을 선택, AWS Service로 **DynamoDB** 선택 
+5. HTTP method는 **POST**, Action type은 **use action name**를 선택
+6. Action에는 **GetItem**을 입력한 후 Save한다. 
+7. Execution role은 위에서 만든 IAM ROLE ARN을 입력 후 **Save**
 
-1. 위에서 생성한 resource를 선택해서 **Create Method**의 dropdown 메뉴에서 POST를 선택 후  v마크를 선택한다. 
-2. Integration type에서 **Show Advanced**를 선택하고 **AWS Service Proxy**를 선택 한다. 
-3. AWS Region(Tokyo는 ap-northeast-1)을 선택한 후 AWS Service로 **DynamoDB**를 선택한다. 
-5. HTTP method는 **POST**, Action type은 **use action name**를 선택하고, Action에는 **PutItem**을 입력한 후 Save한다. 
-6. Execution role은 위에서 만든 IAM ROLE ARN을 입력한다. 
-7. **Save**
-8. 이제 memos - POST - Method Execution 화면이 뜬다. 
+{memoId} Resource로 들어오는 GET request를 Dynamo DB의 GetItem API의 parameter로 변환하자. 
 
-mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구조를 만들자. POST request로부터 2개의 변수($.input)를 얻는다. 그리고 각각의 memo는 unique Id를 가지게 된다. 이것은 API Gateway가 제공하는 $context 변수로부터 추출한다.  ($context.requestId). 자세한 내용은  [여기](http://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html)를 참조하자. 아래의 구성을 통해 API가 어떻게 호출되었을지라도 PutItem API는 memoId, tag, message를 이용해 호출되게 된다. 
+1. **Integaration Request** > **Body Mapping Templates** 섹션 
+2. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
+3. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
 
-1. diagram에서 우측 DynamoDB box로 들어가는 화살표를 내보내는 것이 **Integaration Request** Box이다. **Integaration Request**을 선택하자. 
-2. /memos - POST - Integration Request page에서 **Body Mapping Templates** 섹션을 선택한다. 
-3. **+Add mapping template**을 선택한 후 application/json을 입력후 v를 선택한다. 
-4. Generate template이라는 dropdown 메뉴와 editor 창이 뜨는 데 drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가한다. 
-
-- 테이블 이름: Memos
-- Item: memoId, tag, message
 ```
 { 
     "TableName": "Memos",
