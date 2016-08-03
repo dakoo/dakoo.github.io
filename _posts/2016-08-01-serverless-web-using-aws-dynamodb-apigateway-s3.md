@@ -10,7 +10,9 @@ image:
 ---
 퀵 메모장 기능을 지원하는 Serverless Web Server를 간단히 구축해 보자. 
 
-## 0. 기능 요구사항
+## 0. 기능 요구사항 및 참조 사항 
+
+### 요구사항 
 
 기능 요구사항은 다음과 같다. 
 
@@ -18,8 +20,13 @@ image:
 2. 메모 삭제 
 3. 메모 업데이트 (내용과 tag)
 4. 메모 보기 (내용, tag, 시간)
-5. 메모 리스트 보기 (시간 순 정렬)
-6. 특정 tag를 가진 메모 리스트만 보기 (시간 순 정렬)
+5. 메모 리스트 보기
+6. 특정 tag를 가진 메모 리스트만 보기 
+
+### 참조 할 것
+
+- [DynamoDB API](http://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/APIReference/API_Operations.html)를 이해해야 아래의 변환 template을 만들수 있다. 
+- [API Gateway에서 Request로부터 variable 획득하기](http://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html)를 를 알아야 한다. 
 
 ## 1. Architecture
 
@@ -48,7 +55,18 @@ HTTP Request Body:
 
 응답의 Body는 없다({}). 
 
-#### 2.0.2 메모 삭제 
+#### 2.0.2 메모 보기
+
+메모 id를 이용해 내용을 읽어온다. 
+
+```
+Resource: /memos/{memoId}
+HTTP Method: GET
+```
+
+응답의 Body는 json type으로 메모의 message와 tag이다. 
+
+#### 2.0.3 메모 삭제 
 
 메모를 선택해서 삭제한다. 
 
@@ -63,7 +81,8 @@ HTTP Request Body:
 
 응답의 Body는 없다({}). 
 
-#### 2.0.3 메모 업데이트 
+
+#### 2.0.4 메모 업데이트 
 
 메모 내용이나 tag를 update한다. 
 
@@ -79,18 +98,16 @@ HTTP Request Body:
 
 응답의 Body는 없다({}). 
 
-#### 2.0.4 메모 보기
+#### 2.0.5 tag를 이용해 메모 리스트 얻기
 
-메모 id를 이용해 내용을 읽어온다. 
+tag에 해당하는 메모 id 리스트를 가져온다. 
 
 ```
-Resource: /memos/{memoId}
+Resource: /memos/tag='example-tag'
 HTTP Method: GET
 ```
 
-응답의 Body는 json type으로 메모의 message와 tag이다. 
-
-#### 2.0.5 메모 리스트 보기
+#### 2.0.6 메모 리스트 보기
 
 메모 id 리스트를 가져온다. 
 
@@ -100,15 +117,6 @@ HTTP Method: GET
 ```
 
 응답의 Body는 json type으로 메모들의 id를 가져온다. 
-
-#### 2.0.6 tag를 이용해 메모 리스트 얻기
-
-tag에 해당하는 메모 id 리스트를 가져온다. 
-
-```
-Resource: /memos/tag='example-tag'
-HTTP Method: GET
-```
 
 ### 2.1 DynamoDB
 
@@ -170,30 +178,28 @@ HTTP Request Body:
 
 ##### 설정
 
-Dynamo DB의 Putitem API와 위에서 생성한 Resource로 들어오는 POST request를 mapping하자. 
+Dynamo DB의 **PutItem API**와 위에서 생성한 Resource로 들어오는 **POST request**를 mapping하자. 
 
 1. 위에서 생성한 resource를 선택해서 **Create Method**의 dropdown 메뉴에서 POST를 선택 후  v마크를 선택한다. 
 2. Integration type에서 **Show Advanced**를 선택하고 **AWS Service Proxy**를 선택 한다. 
 3. AWS Region(Tokyo는 ap-northeast-1)을 선택한 후 AWS Service로 **DynamoDB**를 선택한다. 
-5. HTTP method는 **POST**, Action type은 **use action name**를 선택하고, Action에는 **PutItem**을 입력한 후 Save한다. 
-6. Execution role은 위에서 만든 IAM ROLE ARN을 입력한다. 
-7. **Save**
-8. 이제 memos - POST - Method Execution 화면이 뜬다. 
+4 HTTP method는 **POST**, Action type은 **use action name**를 선택하고, Action에는 **PutItem**을 입력한 후 Save한다. 여기서 말하는 POST는 API Gateway와 DynamoDB간의 protocol로 뒤의 API들도 모두 POST를 사용한다. 
+5. Execution role은 위에서 만든 IAM ROLE ARN을 입력한다. 
+6. **Save**
+7. 이제 memos - POST - Method Execution 화면이 뜬다. 
 
-mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구조를 만들자. POST request로부터 2개의 변수($.input)를 얻는다. 그리고 각각의 memo는 unique Id를 가지게 된다. 이것은 API Gateway가 제공하는 $context 변수로부터 추출한다.  ($context.requestId). 자세한 내용은  [여기](http://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html)를 참조하자. 아래의 구성을 통해 API가 어떻게 호출되었을지라도 PutItem API는 memoId, tag, message를 이용해 호출되게 된다. 
+mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구조를 만들자. POST request로부터 2개의 변수($.input)를 얻는다. 그리고 각각의 memo는 unique Id를 가지게 된다. 이것은 API Gateway가 제공하는 $context 변수로부터 추출한다.  ($context.requestId). 자세한 내용은  
 
 1. diagram에서 우측 DynamoDB box로 들어가는 화살표를 내보내는 것이 **Integaration Request** Box이다. **Integaration Request**을 선택하자. 
 2. /memos - POST - Integration Request page에서 **Body Mapping Templates** 섹션을 선택한다. 
 3. **+Add mapping template**을 선택한 후 application/json을 입력후 v를 선택한다. 
 4. Generate template이라는 dropdown 메뉴와 editor 창이 뜨는 데 drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가한다. 
 
-- 테이블 이름: Memos
-- Item: memoId, tag, message
 ```
 { 
     "TableName": "Memos",
     "Item": {
-        	"memoId": {
+          "memoId": {
                     "S": "$context.requestId"
           },
           "tag": {
@@ -249,19 +255,6 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 응답으로 `{}`가 왔는지 확인한다. AWS DynamoDB console로 이동해서 확인한다. 새로운 item이 추가되어 있다면 성공!!!
 
 #### 2.2.2 메모 삭제 API 추가 
-
-앞에서 진행한 메모 생성 API를 추가한 것을 참고하여 삭제 API도 추가해보자.  
-
-```
-Resource: /memos/{memoId}
-HTTP Method: DELETE
-HTTP Request Body:
-{
-  "memoId": "example-memo-id"
-}
-```
-
-응답의 Body는 없다({}). 
 
 ##### 설정
 
