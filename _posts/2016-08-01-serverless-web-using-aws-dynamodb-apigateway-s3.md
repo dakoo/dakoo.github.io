@@ -377,7 +377,7 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 
 
-#### 2.2.5 메모 리스트 획득하기
+#### 2.2.5 tag와 일치하는 메모 리스트 획득하기
 
 ##### 테스트 환경 
 
@@ -419,6 +419,20 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
       }
     }
 }
+
+{
+    "TableName": "Memos",
+    "IndexName": "tag-index",
+    "Limit": 100,
+    "ConsistentRead": true,
+    "ProjectionExpression": "memoId, message",
+    "KeyConditionExpression": "tag = :v1",
+    "ExpressionAttributeValues": {
+        ":v1": {"S": "$input.params('pageId')"}
+    },
+    "ReturnConsumedCapacity": "TOTAL"
+}
+        
 ```
 
 ##### 테스트
