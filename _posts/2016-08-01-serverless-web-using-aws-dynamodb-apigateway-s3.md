@@ -97,18 +97,7 @@ HTTP Request Body:
 
 응답의 Body는 없다({}). 
 
-#### 2.0.5 메모 리스트 보기
-
-메모 id 리스트를 가져온다. 
-
-```
-Resource: /memos/
-HTTP Method: GET
-```
-
-응답의 Body는 json type으로 메모들의 id를 가져온다. 
-
-#### 2.0.6 tag를 이용해 메모 리스트 얻기
+#### 2.0.5 tag를 이용해 메모 리스트 얻기
 
 tag에 해당하는 메모 id 리스트를 가져온다. 
 
@@ -116,7 +105,6 @@ tag에 해당하는 메모 id 리스트를 가져온다.
 Resource: /memos?tag=example-tag
 HTTP Method: GET
 ```
-
 
 ### 2.1 DynamoDB
 
@@ -228,36 +216,6 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 ```
 
 오른쪽에 로그 창이 뜨면서 처리 내용이 나타난다. 특별한 이상이 없고 Response body가 `{}`이면 정상적으로 처리된 것이다. AWS DynamoDB console로 이동해서 Memos table > items tab에서 정상적으로 추가되었는지 확인해보자. default로 'test-invoke-request'가 memoId인 item이 생긴다. 
-
-
-##### 중간 검증 : Deploy해서 테스트하기
-
-나중에 진행할 것인데, 확신을 갖고 싶다면 아래 내용을 진행해서 검증하자. 나중에 다시 진행할 것이다. 
-
-1. AWS API Gateway Console로 이동한다. 
-2. 생성된 Resource(/memos)를 선택한다. 
-3. **Actions** 버튼을 눌러 dropdown 중에 **Deploy API**를 선택한다. 
-4. Deployment stage에서 **New Stage**를 선택하고 Stage name은 'prod'로 하자. 이 이름은 나중에 URL의 일부가 된다. 
-5. 나머지는 그대로 두고 **Deploy**를 선택한다. 
-6. prod Stage Editor에서 URL을 저장하고 모든 것을 default로 한뒤 **invoke URL**을 저장하자. 
-7. **Save Changes**
-8. Chrome Browser를 열고 extension으로 Postman을 설치한 후 실행한다. 
-9. 계정이 없으면 만든 후 로그인 한다. 
-10. Postman창에서 GET을 POST로 바꾸고 request URL은 앞에서 복사한 **{invoke URL}/memos** 를 넣는다. 
-11. Body는 raw를 선택하고 오른쪽의 dropdown 메뉴에서 JSON(application/json)을 선택한다. 이렇게 하면 자동으로 Header 탭의 내용도 update가 된다. 
-12. Body의 내용으로 아래 내용을 붙여 넣기 하고 **Send**한다. 
- 
-```
-{
-  "message":  "This message should reach the dynamoDB",
-  "tag": "impossible"
-}
-```
-
-응답으로 `{}`가 왔는지 확인한다. AWS DynamoDB console로 이동해서 확인한다. 새로운 item이 추가되어 있다면 성공!!!
-
-
-
 
 
 #### 2.2.2 메모 획득 API 추가 
@@ -479,7 +437,68 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 }
 ```
 
-### 2.3 Test
+### 2.3 Deploy해서 테스트하기
+
+#### 2.3.1 Deploy하기
+
+1. AWS API Gateway Console로 이동한다. 
+2. 생성된 Resource(/memos)를 선택한다. 
+3. **Actions** 버튼을 눌러 dropdown 중에 **Deploy API**를 선택한다. 
+4. Deployment stage에서 **New Stage**를 선택하고 Stage name은 'prod'로 하자. 이 이름은 나중에 URL의 일부가 된다. 
+5. 나머지는 그대로 두고 **Deploy**를 선택한다. 
+6. prod Stage Editor에서 URL을 저장하고 모든 것을 default로 한뒤 **invoke URL**을 저장하자. 
+7. **Save Changes**
+
+#### 2.3.2 테스트하기
+
+1. Chrome Browser를 열고 extension으로 Postman을 설치한 후 실행한다. 
+2. 계정이 없으면 만든 후 로그인 한다. 
+
+##### 아이템 생성 테스트 
+
+1. Postman창에서 method를 POST로 바꾸고 request URL은 앞에서 복사한 **{invoke URL}/memos** 를 넣는다. 
+2. Body는 raw를 선택하고 오른쪽의 dropdown 메뉴에서 JSON(application/json)을 선택한다. 이렇게 하면 자동으로 Header 탭의 내용도 update가 된다. 
+3. Body의 내용으로 아래 내용을 붙여 넣기 하고 **Send**한다. 
+ 
+```
+{
+  "message":  "This message should reach the dynamoDB",
+  "tag": "X"
+}
+```
+
+응답으로 `{}`가 왔는지 확인한다. 
+
+##### 아이템 리스트 획득 테스트 
+
+1. Postman창에서 method를 GET으로 바꾸고 request URL은 앞에서 복사한 **{invoke URL}/memos/?tag=x** 를 넣는다. 
+2. Send하고 위에서 만든 item을 포함해서 결과가 잘 오는지 확인한다. 
+
+##### 아이템 정보 획득 테스트 
+
+1. 위의 결과에서 memoId를 하나 획득한다. 
+2. Postman창에서 method를 GET으로 바꾸고 request URL은 앞에서 복사한 **{invoke URL}/memos/{memoId}** 를 넣는다. 
+3. Send하고 결과가 잘 오는지 확인한다. 
+
+##### 아이템 메시지 업데이트 테스트 
+
+1. Postman창에서 method를 PUT으로 바꾸고 request URL은 유지한다. 
+2. Body의 내용으로 아래 내용을 붙여 넣기 하고 **Send**한다. 
+ 
+```
+{
+  "message":  "This is updated"
+}
+```
+
+- GET으로  **{invoke URL}/memos/{memoId}** 을 통해 제대로 update되었는지 확인한다. 
+
+##### 아이템 메시지 삭제 테스트 
+
+1. Postman창에서 method를 DELETE로 바꾸고 request URL은 유지한다. 
+2. **Send**한다. 
+3. GET으로  **{invoke URL}/memos/ 해서 삭제되었는지 확인한다. 
+
 
 ### 3. Static Contents 처리
 
