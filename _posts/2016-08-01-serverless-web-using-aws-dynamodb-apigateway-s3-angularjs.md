@@ -1,114 +1,167 @@
 ---
 layout: post
-title: AWS DynamoDB, API Gateway, S3를 이용한 Serverless Web Server 구축   
-description: AWS DynamoDB, API Gateway, S3를 이용한 Serverless Web Server 구축 
+title: AWS DynamoDB, API Gateway, S3, angularjs를 이용한 Serverless Web Service 구축   
+description: AWS DynamoDB, API Gateway, S3, angularjs를 이용한 Serverless Web Service 구축   
 modified: 2018-08-01
 tags: [aws]
 comments: true
 image:
   feature: abstract-17.png
 ---
-퀵 메모장 기능을 지원하는 Serverless Web Server를 간단히 구축해 보자. Serverless는 보통 API Gateway - Lambda - DynamoDB 구조가 많은데 Lambda를 배제하고 API Gateway와 DynamoDB를 연결하는 것이 훨씬 Simple하다. 
+!!현재 작성 중!!  
 
-## 0. 기능 요구사항 및 참조 사항 
+최근 아주 핫한 기술인 Amazon Web Service를 활용한 Bankend의 Serviceless Architecture와 Frontend의 AngularJS를 이용해서 Web Service를 구축해보자. 복잡한 예보다는 간단한 메모장 서비스를 구현하는 예를 들어 설명할 것인데, 뼈대와 기본 구조를 이해하는 것에는 충분할 것이다. 
+일반적인 Backend의 Serverless Architecture는 [Client - AWS API Gateway - AWS Lambda - AWS DynamoDB] 구조를 사용하는 경우가 많다. 이에 반해 이 예에서는 [Client - AWS API Gateway - AWS DynamoDB]로 하여 중간에 Application 로직을 담당하는 컴포넌트를 제거한 초경량 Serverless Architecture로 구성된다. 
 
-### 요구사항 
+## 0. 요구사항 및 참조 사항 
 
-기능 요구사항은 다음과 같다. 
+### 0.1 기능 요구사항 
+
+구현할 메모장 서비스의 기능 요구사항은 다음과 같다. 
 
 1. 메모 생성 (내용과 tag를 입력)
 2. 메모 보기 (내용, tag)
 3. 메모 내용 업데이트
 4. 메모 삭제 
-5. 메모 리스트 보기
-6. 특정 tag를 가진 메모 리스트만 보기 
+5. 특정 tag를 가진 메모 리스트만 보기 
 
-### 참조 할 것
+### 0.2 참조 할 자료들
 
 - [DynamoDB API](http://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/APIReference/API_Operations.html)를 이해해야 아래의 변환 template을 만들수 있다. 
 - [API Gateway에서 Request로부터 variable 획득하기](http://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html)를 를 알아야 한다. 
 
-## 1. Architecture
+## 1. 전체 Architecture
+
+### 1.1 시스템 구성 
+
+Webbrowser에서는 S3로부터 HTML, CSS, JS, 이미지 파일등을 로딩하며, API Gateway를 통해 동적 컨텐츠인 메모를 추가/삭제/검색한다. 이 과정에서 Angular JS는 API Gateway와의 CRUD communication과 동적 page 구현을 담당하게 된다. 
 
 ```
-( Webbrowser ) --------- (S3) - Static contents(image, html, js, css 파일들)
+( Webbrowser ) ----<----- (S3) - 정적 컨텐츠 (image, html, js, css)
     |
-    |--------------------(API Gateway) -------- (DynamoDB) - Dynamic contents
+    |-----<CRUD>---------(API Gateway) -------- (DynamoDB) - 동적 컨텐츠 (data)
 ```
-## 2. Dynamic Contents 처리
 
-### 2.0 API 정의
+### 1.2 CRUD API 정의 
 
-#### 2.0.1 메모 생성
+webbrowser와 API Gateway간의 CRUD API는 다음과 같이 정의된다. 
 
-새로운 메모를 추가한다. 
+#### 1.2.1 메모 생성 API
+
+새로운 메모를 추가하기 위한 API는 다음과 같다. 
+
+- Resource: /memos
+- HTTP Method: POST
+- HTTP Request Body: application/json, 아래의 예와 같다. 
 
 ```
-Resource: /memos
-HTTP Method: POST
-HTTP Request Body:
 {
   "message": "This is an example message"
   "tag": "example-tag"
 }
 ```
 
-응답의 Body는 없다({}). 
+- Response: {} 
 
-#### 2.0.2 메모 보기
+#### 1.2.2 메모 획득 API
 
-메모 id를 이용해 내용을 읽어온다. 
+메모 id를 이용해 내용을 읽어오는 API는 다음과 같다. 
+
+- Resource: /memos/{memoId}
+- HTTP Method: GET
+- HTTP Request Body: 없음
+- Response: application/json, 메모의 message와 tag, 아래 예와 같다. 
+ 
+```
+{
+  "message": "This is an example message"
+  "tag": "example-tag"
+}
+```
+
+#### 1.2.3 메모 내용 업데이트 API
+
+메모의 내용을 업데이트하는 API는 다음과 같다. 
+
+- Resource: /memos/{memoId}
+- HTTP Method: PUT
+- HTTP Request Body: application/json, 아래의 예와 같다. 
 
 ```
-Resource: /memos/{memoId}
-HTTP Method: GET
-```
-
-응답의 Body는 json type으로 메모의 message와 tag이다. 
-
-
-#### 2.0.3 메모 내용 업데이트 
-
-메모 내용을 update한다. 
-
-```
-Resource: /memos/{memoId}
-HTTP Method: PUT
-HTTP Request Body:
 {
   "message": "This is an example message"
 }
 ```
 
-응답의 Body는 없다({}). 
+- Response: {} 
 
-#### 2.0.4 메모 삭제 
+#### 1.2.4 메모 삭제 API
 
-메모를 선택해서 삭제한다. 
+memoId로 메모를 선택해서 삭제한다. 
 
-```
-Resource: /memos/{memoId}
-HTTP Method: DELETE
-HTTP Request Body:
-{
-  "memoId": "example-memo-id"
-}
-```
+- Resource: /memos/{memoId}
+- HTTP Method: DELETE
+- HTTP Request Body: 없음
+- Response: {}
 
-응답의 Body는 없다({}). 
-
-#### 2.0.5 tag를 이용해 메모 리스트 얻기
+#### 1.2.5 메모 리스트 획득 API
 
 tag에 해당하는 메모 id 리스트를 가져온다. 
 
+- Resource: /memos/
+- QueryString: tag, 아래와 같은 예 
+
 ```
-Resource: /memos?tag=example-tag
-HTTP Method: GET
+/memos/?tag=X
 ```
 
-### 2.1 DynamoDB
+- HTTP Method: GET
+- HTTP Request Body: 없음
+- Response: application/json, 해당하는 item의 숫자와 각 아이템의 메시지, memoId를 획득. 아래의 예와 같다. 
 
-DynamoDB table을 만들자. 
+```
+{
+  "ConsumedCapacity": {
+    "TableName": "Memos"
+  },
+  "Count": 3,
+  "Items": [
+    {
+      "message": {
+        "S": "111aaa"
+      },
+      "memoId": {
+        "S": "2"
+      }
+    },
+    {
+      "message": {
+        "S": "1"
+      },
+      "memoId": {
+        "S": "1"
+      }
+    },
+    {
+      "message": {
+        "S": "333"
+      },
+      "memoId": {
+        "S": "3"
+      }
+    }
+  ],
+  "ScannedCount": 3
+}
+```
+
+## 2. Backend Architecture 
+
+AWS Console에서 순서대로 따라가보며 [AWS API Gateway - AWS DynamoDB]라는 초경량 Serverless Architecture를 구성해보자. 일본 도쿄 리전(ap-northeast-1)에서 구현했다는 것을 참고로 하자. 
+
+### 2.1 AWS DynamoDB
+
+이 예에서 활용될 AWS DynamoDB table을 만들어 보자. 
 
 1. AWS DynamoDB console로 이동한다. 
 2. **Create Table**을 선택한 후 이름을 Memos로 선택
