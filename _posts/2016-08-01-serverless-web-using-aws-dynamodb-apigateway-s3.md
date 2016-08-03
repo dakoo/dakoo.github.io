@@ -329,23 +329,47 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 }
 ```
 
+##### 테스트
+
+1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
+2. memoId에 test-invoke-request, Request body에는 `{ "message" : "new message" }`
+3. Response body가 {}이면 성공~!
 
 
+#### 2.2.3 메모 삭제 API 추가 
 
+##### 설정
 
+1. {memoId} resource 선택 후 > **Actions** > **Create Method** 
+2. Dropdown 메뉴에서 **DELETE** > **v** 마크를 선택  
+3. Integration type에서 **Show Advanced** >  **AWS Service Proxy** 
+4. AWS Region(Tokyo는 ap-northeast-1)을 선택, AWS Service로 **DynamoDB** 선택 
+5. HTTP method는 **POST**, Action type은 **use action name**를 선택
+6. Action에는 **DeleteItem**을 입력한 후 Save한다. 
+7. Execution role은 위에서 만든 IAM ROLE ARN을 입력 후 **Save**
 
+{memoId} Resource로 들어오는 DELETE request를 Dynamo DB의 DeleteItem API의 parameter로 변환하자. 
 
+1. **Integaration Request** > **Body Mapping Templates** 섹션 
+2. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
+3. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
 
-
-
-
+```
+{ 
+    "TableName": "Memos",
+    "Key": {
+      "memoId": { 
+        "S": "$input.params('memoId')"
+      }
+    }
+}
+```
 
 ##### 테스트
 
-1. memos - POST - Method Execution 화면의 **Test**를 선택 
-2. **Request Body 창** > Path memoid 입력창에 test-invoke-request를 입력 후 **Test**
-
-오른쪽에 로그 창 Response body에 item 정보가 뜨면 성공이다. 
+1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
+2. memoId에 test-invoke-request를 입력하여 **Test**
+3. Response body가 {}이면 성공~!
 
 
 
