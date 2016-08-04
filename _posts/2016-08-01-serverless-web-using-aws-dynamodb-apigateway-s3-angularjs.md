@@ -155,7 +155,7 @@ tag에 해당하는 메모 id 리스트를 가져온다.
 }
 ```
 
-## 2. Backend Architecture 
+## 2. Backend 
 
 AWS Console에서 순서대로 따라가보며 [AWS API Gateway - AWS DynamoDB]라는 초경량 Serverless Architecture를 구성해보자. 일본 도쿄 리전(ap-northeast-1)에서 구현했다는 것을 참고로 하자. 
 
@@ -163,80 +163,84 @@ AWS Console에서 순서대로 따라가보며 [AWS API Gateway - AWS DynamoDB]�
 
 이 예에서 활용될 AWS DynamoDB table을 만들어 보자. 
 
-1. AWS DynamoDB console로 이동한다. 
-2. **Create Table**을 선택한 후 이름을 Memos로 선택
-3. memoId를 Primary key로 하고 나머지는 default setting으로 하고 **Create**를 선택한다.table 생성이 완료되면 Status가 Active로 바뀐다. 
-4. 생성된 table의 Indexes 탭을 선택하고 **Create index**를 선택한다. 
-5. Primary key는 tag(String)로 입력한다. 그러면 자동으로 index name은 tag-index이 된다.
-6. **Projected atttributes**는 include로 한뒤 tag, message를 추가한다. 
-7. **Create index**를 선택한다. Table의 상태가 Updating으로 바뀌었다가 Active로 바뀐다. 
-8. Table을 선택해서 Overview에서 ARN을 복사한다. 
+1. AWS DynamoDB console로 이동
+2. **Create Table** >  **name**은 Memos로 입력
+3. **Primary key**는 memoId,나머지는 default setting으로 하고 **Create**를 선택
+4. 생성된 table의 **Indexes 탭**을 선택하고 **Create index** 선택 
+5. **Primary key**는 tag(String)로 입력. 자동으로 index name은 tag-index이 된다. 
+6. **Projected atttributes**는 **include**로 한뒤 tag와 message 추가 
+7. **Create index**
+8. Table을 선택 > Overview에서 ARN을 복사
 
 #### 2.2 IAM Role 만들기 
 
-API가 호출되었을 때 API Gateway가 DynamoDB table을 handling할 수 있도록 DynamoDB table에 접근할 수 있는 IAM role을 만들어야 한다. 
+API가 호출되었을 때 API Gateway가 DynamoDB table을 handling할 수 있도록 DynamoDB table에 접근할 수 있는 IAM role을 만들어 보자. 
 
-1. AWS IAM console로 이동한다. 
-2. Roles > Create New Role
-3. Role이름은 apigateway-dynamodb
-4. AWS Service Roles에서 **Amazon API Gateway**를 선택한다. 
-5. Attach Policy에 있는 AmazonAPIGatewayPushToCloudWatchLogs를 **선택하지 않고** **Next Step** > **Create Role**
-6. Permission tab의 **Inline Policies** > **Click here**후 **policy generator** > **Select**
-7. Effect - Allow, AWS Service - Amazon DynamoDB, Actions - all actions, ARN은 위에서 복사한 DynamoDB의 ARN을 입력한다. 
-8. **Add Statement**를 선택한다. 
-9. 모든 것이 성공적이면 새로운 Role의 permission이 추가된 것을 알 수 있다. **Next Step** > **Apply Policy**
-10. 생성된 role을 선택한 후 Role ARN을 복사한다. 
-
-### 2.2 API Gateway
-
-새로운 API를 만들어보자. 
-
-1. AWS API Gateway console로 이동한다. 
-2. **New API**를 선택한다. 
-3. API이름은 MemosApi로 하고 description에는 설명을 추가한 후 **Create API**를 선택한다. 
-
-#### 2.2.0 리소스 추가 
-
-Resource를 만들자. 
-
-1. 생성된 MemosApi에서 **Actions**버튼을 눌러 **Create Resource**를 선택한다. 
-2. Resource Name: memos로 입력한다. Resource Path는 자동으로 /memos 가 된다. 
-3. **₢reate Resource**를 선택
-4. /memos를 선택한 후 **Actions**버튼을 눌러 **Create Resource**를 선택한다.
-5. Resource Name: memoId로 입력한다. Resource Path는 {memoId}로 바꾼다. 
-
-#### 2.2.1 메모 생성 API 추가 
-
-앞에서 정의한 API는 다음과 같다. message와 tag외에 memoID가 dynamoDB item에 추가되어야 한다. 응답의 body는 없다({}). 
+1. AWS IAM console로 이동
+2. **Roles** > **Create New Role**
+3. **Role 이름**은 apigateway-dynamodb 입력 > **Next Step**
+4. **AWS Service Roles** > **Amazon API Gateway** > **Select**
+5. Attach Policy에 있는 AmazonAPIGatewayPushToCloudWatchLogs를 선택하지 않고(!) **Next Step** > **Create Role**
+6. 생성된 Role을 클릭해서 Summary Page로 진입
+7. **Permissions tab** > **Inline Policies** 선택
+8. **click here** > **Custom Policy** > **Select**
+9. **Policy name**은 MyDynamoDBAllAccess로 입력하고 아래의 policy를 붙여넣고 **Apply Policy** 선택
 
 ```
-Resource: /memos
-HTTP Method: POST
-HTTP Request Body:
 {
-  "message": "This is an example message"
-  "tag": "example-tag"
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1470209124000",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
 }
 ```
 
-##### 설정
+### 2.2 API Gateway
 
-Dynamo DB의 **PutItem API**와 위에서 생성한 Resource로 들어오는 **POST request**를 mapping하자. 
+이제 Client와 DynamoDB와의 연결을 담당하는 API Gateway를 구성해 보자. 먼저 API를 생성후에 다음 순서를 진행한다.  
 
-1. 위에서 생성한 /memos resource를 선택해서 **Create Method**의 dropdown 메뉴에서 POST를 선택 후  v마크를 선택한다. 
-2. Integration type에서 **Show Advanced**를 선택하고 **AWS Service Proxy**를 선택 한다. 
-3. AWS Region(Tokyo는 ap-northeast-1)을 선택한 후 AWS Service로 **DynamoDB**를 선택한다. 
-4 HTTP method는 **POST**, Action type은 **use action name**를 선택하고, Action에는 **PutItem**을 입력한 후 Save한다. 여기서 말하는 POST는 API Gateway와 DynamoDB간의 protocol로 뒤의 API들도 모두 POST를 사용한다. 
-5. Execution role은 위에서 만든 IAM ROLE ARN을 입력한다. 
-6. **Save**
-7. 이제 memos - POST - Method Execution 화면이 뜬다. 
+1. AWS API Gateway console로 이동
+2. **New API** 선택
+3. **API name**은 MemosApi, description에는 설명을 추가한 후 **Create API**를 선택
 
-mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구조를 만들자. POST request로부터 2개의 변수($.input)를 얻는다. 그리고 각각의 memo는 unique Id를 가지게 된다. 이것은 API Gateway가 제공하는 $context 변수로부터 추출한다.  ($context.requestId). 자세한 내용은  
+#### 2.2.0 리소스 추가
 
-1. diagram에서 우측 DynamoDB box로 들어가는 화살표를 내보내는 것이 **Integaration Request** Box이다. **Integaration Request**을 선택하자. 
-2. /memos - POST - Integration Request page에서 **Body Mapping Templates** 섹션을 선택한다. 
-3. **+Add mapping template**을 선택한 후 application/json을 입력후 v를 선택한다. 
-4. Generate template이라는 dropdown 메뉴와 editor 창이 뜨는 데 drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가한다. 
+API의 뼈대인 Resource를 만들자. API 정의에 따라 /memos와 /memos/{memoId}를 생성한다. 
+
+1. 생성된 MemosApi에서 **Actions** > **Create Resource** 선택 
+2. **Resource Name** - memos,  **Resource Path**는 자동으로 /memos 가 됨 
+3. **Create Resource** 선택
+4. /memos 선택 후 **Actions** > **Create Resource** 선택
+5. **Resource Name** - memoId, **Resource Path**는 {memoId}로 입력 
+ 
+#### 2.2.1 메모 생성 API 구현
+
+생성한 /memos Resource로 들어오는 **POST request**와 Dynamo DB의 **PutItem API**을 mapping하는 것으로 메모 생성 API를 구현하자.  
+
+##### 맵핑
+
+1. 위에서 생성한 /memos resource를 선택 > **Create Method** >  **POST** 선택 후  **v** 마크 선택 
+2. Integration type page에서 **Show Advanced** > **AWS Service Proxy** 
+3. **AWS Region**에 Tokyo는 ap-northeast-1 선택, **AWS Service** > **DynamoDB** 선택 (아래 철차는 API Gateway와 DynamoDB간 프로토콜 정의)
+4. **HTTP method**는 **POST**, **Action type**은 **use action name**를 선택
+5. **Action**에는 **PutItem** 입력 후 **Save** 
+6. Execution role은 위에서 만든 IAM ROLE ARN을 입력한다. 
+7. **Save**
+
+/memos Resource로 들어오는 POST request를 Dynamo DB의 PutItem API의 parameter로 변환하자. 
+
+1. **Integaration Request** > **Body Mapping Templates** 섹션 
+2. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
+3. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
 
 ```
 { 
@@ -257,9 +261,9 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 ##### 테스트
 
-1. memos - POST - Method Execution 화면으로 돌아간다 .
-2. 왼쪽 Client box상단의 **Test**를 선택한다. 
-3. **Request Body 창**에 다음을 추가하고 **Test** button을 선택한다. 
+1. memos - POST - Method Execution 화면 > **Test**를 선택
+2. memoId에 test-invoke-request 입력 후 **Test**
+3. **Request Body 창**에 다음을 추가하고 **Test** button 눌러  Response body가 `{}`이면 성공!
 
 ```
 {
@@ -268,12 +272,13 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 }
 ```
 
-오른쪽에 로그 창이 뜨면서 처리 내용이 나타난다. 특별한 이상이 없고 Response body가 `{}`이면 정상적으로 처리된 것이다. AWS DynamoDB console로 이동해서 Memos table > items tab에서 정상적으로 추가되었는지 확인해보자. default로 'test-invoke-request'가 memoId인 item이 생긴다. 
+default로 'test-invoke-request'가 memoId인 item이 생기는데 이는 아래 테스트에 활용한다. 
 
+#### 2.2.2 메모 획득 API 구현
 
-#### 2.2.2 메모 획득 API 추가 
+생성한 /memos/{memoId} Resource로 들어오는 **GET request**와 Dynamo DB의 **GetItem API**을 mapping하는 것으로 메모 획득 API를 구현하자.  
 
-##### 설정
+##### 맵핑
 
 1. {memoId} resource 선택 후 > **Actions** > **Create Method** 
 2. Dropdown 메뉴에서 **GET** > **v** 마크를 선택  
@@ -302,14 +307,16 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 ##### 테스트
 
-1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
+1. memos - POST - Method Execution 화면 > **Test**를 선택
 2. memoId에 test-invoke-request 입력 후 **Test**
 3. item 정보가 response body에 나타나면 성공!
 
 
-#### 2.2.3 메모 내용 업데이트 API 추가 
+#### 2.2.3 메모 내용 업데이트 API 구현
 
-##### 설정
+생성한 /memos/{memoId} Resource로 들어오는 **PUT request**와 Dynamo DB의 **UpdateItem API**을 mapping하는 것으로 메모 업데이트 API를 구현하자.  
+
+##### 맵핑
 
 1. {memoId} resource 선택 후 > **Actions** > **Create Method** 
 2. Dropdown 메뉴에서 **PUT** > **v** 마크를 선택  
@@ -343,14 +350,16 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 ##### 테스트
 
-1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
+1. memos - POST - Method Execution 화면 > **Test**를 선택
 2. memoId에 test-invoke-request, Request body에는 `{ "message" : "new message" }`
 3. Response body가 {}이면 성공~!
 
 
-#### 2.2.4 메모 삭제 API 추가 
+#### 2.2.4 메모 삭제 API 구현
 
-##### 설정
+생성한 /memos/{memoId} Resource로 들어오는 **DELETE request**와 Dynamo DB의 **DeleteItem API**을 mapping하는 것으로 메모 삭제 API를 구현하자.  
+
+##### 맵핑
 
 1. {memoId} resource 선택 후 > **Actions** > **Create Method** 
 2. Dropdown 메뉴에서 **DELETE** > **v** 마크를 선택  
@@ -379,24 +388,19 @@ mapping template은 DynamoDB의 PutItem API를 호출할 때 필요한 JSON 구�
 
 ##### 테스트
 
-1. memos - POST - Method Execution 화면 > **Test**를 선택한다. 
+1. memos - POST - Method Execution 화면 > **Test**를 선택
 2. memoId에 test-invoke-request를 입력하여 **Test**
 3. Response body가 {}이면 성공~!
 
+#### 2.2.5 메모 리스트 획득구현
 
-
-
-
-
-#### 2.2.5 tag와 일치하는 메모 리스트 획득하기
-
-tag에 일치하는 리스트를 획득하기 위해서 다음과 같이 queryString을 이용한다. 
+생성한 /memos/ Resource로 들어오는 **GET request**와 Dynamo DB의 **Query API**을 mapping하는 것으로 메모 리스트 획득 API를 구현하자. 이때 Query String을 이용해 원하는 tag를 API Gateway에 전달한다.
 
 > /memos/?tag='X'
 
-item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수도 함께 얻는 것을 구현한다. 
+##### 테스트 위한 아이템 만들기 
 
-##### 테스트 환경 
+테스트를 용이하게 하기 위해 item을 미리 만들어 두자. 
 
 1. AWS DynamoDB console > Tables > Memos table > Items 탭
 2. Create Item을 눌러서 Text 모드로 변환 후 아이템을 여러개 추가. tag가 'X'인 아이템을 몇개 만듦 
@@ -411,7 +415,7 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 
 이제 AWS API Gateway로 이동
 
-##### 설정
+##### 맵핑
 
 1. /memos resource 선택 후 > **Actions** > **Create Method** 
 2. Dropdown 메뉴에서 **GET** > **v** 마크를 선택
@@ -423,13 +427,18 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 
 /memos Resource로 들어오는 GET request를 Dynamo DB의 Query API의 parameter로 변환하자. 
 
+Query String을 이용하기 위해서는 **Method Request** box에서 설정을 해야 한다. 
+
 1. **Method Request** > **URL Query String Parameters** 
-2. **Add Query String**을 선택 후 name은 **tag**로 지정 (/memos/?tag=xxx에서 tag에 해당)
-3. **Integaration Request** > **URL Query String Parameters** 
-4. 2. **Add Query String**을 선택 후 name은 **tag**, mapped from은 **method.request.querystring.tag**으로 지정(Method Request에 설정한 QueryString과 연결)
-5. **Body Mapping Templates** 섹션 
-6. **+Add mapping template**을 선택한 후 application/json을 입력후 **v** 선택
-7. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
+2. **Add Query String** > **name** tag로 지정 (/memos/?tag=xxx에서 tag에 해당)
+
+이제 **Integaration Request** box에서 설정하자. 
+
+1 **Integaration Request** > **URL Query String Parameters** 
+2. **Add Query String** > **name**은 **tag**, **mapped from**은 **method.request.querystring.tag** 지정(Method Request에 설정한 QueryString과 연결)
+3. **Body Mapping Templates** 섹션 >**+Add mapping template** 
+4. application/json을 입력후 **v** 선택
+5. drowdown 메뉴는 그대로 두고 아래 내용을 editor창에 추가 
 
 ```
 {
@@ -449,7 +458,7 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 
 ##### 테스트
 
-1. memos - GET - Method Execution 화면 > **Test**를 선택한다. 
+1. memos - GET - Method Execution 화면 > **Test**를 선택
 2. QueryString tag에 X를 입력하여 **Test**
 3. 다음과 같은 결과를 얻으면 성공
 
@@ -490,28 +499,34 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 }
 ```
 
-### 2.3 Deploy해서 테스트하기
+### 2.3 배포 및 테스트
 
-#### 2.3.1 Deploy하기
+이제 AWS API Gateway를 실제 인터넷 망에 접속해서 테스트 해보자. 이를 위해서 API Gatway의 API를 배포해야 하고, Client로는 Chrome 앱인 Postman을 이용하자. 
 
-1. AWS API Gateway Console로 이동한다. 
-2. 생성된 Resource(/memos)를 선택한다. 
-3. **Actions** 버튼을 눌러 dropdown 중에 **Deploy API**를 선택한다. 
-4. Deployment stage에서 **New Stage**를 선택하고 Stage name은 'prod'로 하자. 이 이름은 나중에 URL의 일부가 된다. 
-5. 나머지는 그대로 두고 **Deploy**를 선택한다. 
-6. prod Stage Editor에서 URL을 저장하고 모든 것을 default로 한뒤 **invoke URL**을 저장하자. 
+#### 2.3.1 배포
+
+1. AWS API Gateway Console로 이동
+2. 생성된 Resource(/memos)를 선택 
+3. **Actions** 버튼 > **Deploy API** 선택
+4. Deployment stage > **New Stage** 선택, **Stage name**은 임의로 'prod'로 입력. (배포 후 이 이름은 나중에 URL의 일부가 됨. 예를 들어 `~~/prod/memos`가 됨)
+5. 나머지는 그대로 두고 **Deploy** 선택 
+6. 모든 것을 default로 한뒤 **invoke URL** 복사하여 저장 
 7. **Save Changes**
 
-#### 2.3.2 테스트하기
+#### 2.3.2 테스트
 
-1. Chrome Browser를 열고 extension으로 Postman을 설치한 후 실행한다. 
-2. 계정이 없으면 만든 후 로그인 한다. 
+다음과 같이 postman을 설치하여 배포된 API에 접근해 테스트 해보자 
+
+##### Postman 설치
+
+1. Chrome Browser를 열고 앱으로 Postman을 설치한 후 실행
+2. 계정이 없으면 만든 후 로그인 
 
 ##### 아이템 생성 테스트 
 
-1. Postman창에서 method를 POST로 바꾸고 request URL은 앞에서 복사한 **{invoke URL}/memos** 를 넣는다. 
-2. Body는 raw를 선택하고 오른쪽의 dropdown 메뉴에서 JSON(application/json)을 선택한다. 이렇게 하면 자동으로 Header 탭의 내용도 update가 된다. 
-3. Body의 내용으로 아래 내용을 붙여 넣기 하고 **Send**한다. 
+1. Postman창에서 **method**는 POST, **request URL**은 {invoke URL}/memos 
+2. **Body**는 **raw** 선택 후 오른쪽 dropdown 메뉴 > **JSON(application/json)**을 선택 
+3. Body 입력 box에 아래 내용을 붙여넣기 후 **Send** 
  
 ```
 {
@@ -520,23 +535,24 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 }
 ```
 
-응답으로 `{}`가 왔는지 확인한다. 
+응답으로 `{}`가 왔는지 확인
 
 ##### 아이템 리스트 획득 테스트 
 
-1. Postman창에서 method를 GET으로 바꾸고 request URL은 앞에서 복사한 **{invoke URL}/memos/?tag=X** 를 넣는다. 
-2. Send하고 위에서 만든 item을 포함해서 결과가 잘 오는지 확인한다. 
+1. **method**를 GET, **request URL**은 {invoke URL}/memos/?tag=X
+2. **Send** 후 위에서 만든 item을 포함해서 결과가 잘 오는지 확인
 
 ##### 아이템 정보 획득 테스트 
 
-1. 위의 결과에서 memoId를 하나 획득한다. 
-2. Postman창에서 method를 GET으로 바꾸고 request URL은 앞에서 복사한 **{invoke URL}/memos/{memoId}** 를 넣는다. 
-3. Send하고 결과가 잘 오는지 확인한다. 
+1. 위의 결과에서 memoId를 하나 복사 
+2. **method**를 GET, **request URL**은 {invoke URL}/memos/{memoId} 
+3. Send하고 결과가 잘 오는지 확인 
 
 ##### 아이템 메시지 업데이트 테스트 
 
-1. Postman창에서 method를 PUT으로 바꾸고 request URL은 유지한다. 
-2. Body의 내용으로 아래 내용을 붙여 넣기 하고 **Send**한다. 
+1. **method**를 PUT, **request URL**은 {invoke URL}/memos/{memoId} 
+2. Body 입력 box에 아래 내용을 붙여넣기 후 **Send** 
+3. GET,  {invoke URL}/memos/{memoId}로 **Send**하여 update되었는지 확인
  
 ```
 {
@@ -544,21 +560,20 @@ item의 모든 attribute가 아닌 message와 memoId만 획득하고, 총 갯수
 }
 ```
 
-- GET으로  **{invoke URL}/memos/{memoId}** 를 통해 제대로 update되었는지 확인한다. 
-
 ##### 아이템 메시지 삭제 테스트 
 
-1. Postman창에서 method를 DELETE로 바꾸고 request URL은 유지한다. 
-2. **Send**한다. 
-3. GET으로 **{invoke URL}/memos/?tag=X** 해서 삭제되었는지 확인한다. 
+1. **method**를 DELETE, **request URL**은 {invoke URL}/memos/{memoId} 
+2. **Send**
+3. GET, **{invoke URL}/memos/?tag=X 으로 삭제되었는지 확인
+ 
+#### 이제 Backend 쪽은 끝났다. Frontend를 구현해 보자. ####
 
-이제 Backend 쪽은 끝났다. Frontend를 구현해 보자. 
+## 3. Frontend
 
-
-### 3. Static Contents 처리
-
-### 3.1 Web page 
+### 3.1 Angular JS를 이용한 Webpage 구현
 
 ### 3.2 Local data를 이용한 테스트
 
-## 4. 테스트
+### 3.3 S3 Hosting을 이용한 테스트
+
+## 4. 통합 검증
