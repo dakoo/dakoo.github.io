@@ -6,7 +6,7 @@ modified: 2018-08-01
 tags: [aws]
 comments: true
 image:
-  feature: abstract-17.png
+  feature: abstract-19.png
 ---
 !!현재 작성 중!!  
 
@@ -576,7 +576,7 @@ Query String을 이용하기 위해서는 **Method Request** box에서 설정을
 2. **Send**
 3. GET, **{invoke URL}/memos/?tag=X 으로 삭제되었는지 확인
  
-#### 이제 Backend 쪽은 끝났다. Frontend를 구현해 보자. ####
+이제 Backend 쪽은 끝났다. Frontend를 구현해 보자!!!
 
 ## 3. Frontend
 
