@@ -121,14 +121,14 @@ username은 브라우저 탭에 표시된다. 예를 들어 dakoo(Hochul Shin)�
 
 여기까지 봤으면 이건 아무것도 아님을 알 것이다. 로컬의 repository를 push하면 된다. 
 
-##### 2.2.1 github에서 프로젝트 만들기 
+##### 2.3.1 github에서 프로젝트 만들기 
 
 1. Github의 계정으로 로그인 
 2. Create a new repository를 선택
 3. Repository name을 선정하고 description 입력 후 **Create repository**
 4. 생성된 https URL을 복사
 
-##### 2.2.2 로컬 
+##### 2.3.2 로컬 
 
 로컬에는 이미 repository가 있다면, 
 
