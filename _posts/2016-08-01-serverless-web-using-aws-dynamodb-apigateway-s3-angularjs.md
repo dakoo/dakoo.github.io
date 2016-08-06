@@ -42,14 +42,16 @@ image:
 
 ## 1. 전체 Architecture
 
+EC2는 물론이고 Lambda마저도 사용하지 않는 초경량 Web Service를 구현하기 위해서 S3는 Static Web Hosting을 담당하고, DynamoDB는 data를 관리하고 API Gateway는 그 사이의 proxying을 담당하는 구조를 사용한다. 
+
 ### 1.1 시스템 구성 
 
 Webbrowser에서는 S3로부터 HTML, CSS, JS, 이미지 파일등을 로딩하며, API Gateway를 통해 동적 컨텐츠인 메모를 추가/삭제/검색한다. 이 과정에서 Angular JS는 API Gateway와의 CRUD communication과 동적 page 구현을 담당하게 된다. 
 
 ```
-( Webbrowser ) ----<----- (S3) - 정적 컨텐츠 (image, html, js, css)
-    |
-    |-----<CRUD>---------(API Gateway) -------- (DynamoDB) - 동적 컨텐츠 (data)
+( Webbrowser ) ---------(API Gateway)----------- (S3) - 정적 컨텐츠 (image, html, js, css)
+                              |
+                              ------------------ (DynamoDB) - 동적 컨텐츠 (data)
 ```
 
 ### 1.2 CRUD API 정의 
@@ -165,9 +167,9 @@ tag에 해당하는 메모 id 리스트를 가져온다.
 }
 ```
 
-## 2. Backend 
+## 2. Backend - Dynamic Content용 Serverless Architecture
 
-AWS Console에서 순서대로 따라가보며 [AWS API Gateway - AWS DynamoDB]라는 초경량 Serverless Architecture를 구성해보자. 일본 도쿄 리전(ap-northeast-1)에서 구현했다는 것을 참고로 하자. 
+Backend 쪽에서 Dynamic Content를 위한 구조 잡아보자. 여기서는 [API Gatway - DynamoDB] 구조이다. 일본 도쿄 리전(ap-northeast-1)에서 구현했다는 것을 참고로 하자. 
 
 ### 2.1 AWS DynamoDB
 
@@ -188,7 +190,7 @@ API가 호출되었을 때 API Gateway가 DynamoDB table을 handling할 수 있�
 
 1. AWS IAM console로 이동
 2. **Roles** > **Create New Role**
-3. **Role 이름**은 apigateway-dynamodb 입력 > **Next Step**
+3. **Role 이름**은 myapigateway 입력 > **Next Step**
 4. **AWS Service Roles** > **Amazon API Gateway** > **Select**
 5. Attach Policy에 있는 AmazonAPIGatewayPushToCloudWatchLogs를 선택하지 않고(!) **Next Step** > **Create Role**
 6. 생성된 Role을 클릭해서 Summary Page로 진입
@@ -214,7 +216,7 @@ API가 호출되었을 때 API Gateway가 DynamoDB table을 handling할 수 있�
 }
 ```
 
-### 2.2 API Gateway
+### 2.3 API Gateway
 
 이제 Client와 DynamoDB와의 연결을 담당하는 API Gateway를 구성해 보자. 먼저 API를 생성후에 다음 순서를 진행한다.  
 
@@ -222,7 +224,7 @@ API가 호출되었을 때 API Gateway가 DynamoDB table을 handling할 수 있�
 2. **New API** 선택
 3. **API name**은 MemosApi, description에는 설명을 추가한 후 **Create API**를 선택
 
-#### 2.2.0 리소스 추가
+#### 2.3.0 리소스 추가
 
 API의 뼈대인 Resource를 만들자. API 정의에 따라 /memos와 /memos/{memoId}를 생성한다. 
 
@@ -232,7 +234,7 @@ API의 뼈대인 Resource를 만들자. API 정의에 따라 /memos와 /memos/{m
 4. /memos 선택 후 **Actions** > **Create Resource** 선택
 5. **Resource Name** - memoId, **Resource Path**는 {memoId}로 입력 
  
-#### 2.2.1 메모 생성 API 구현
+#### 2.3.1 메모 생성 API 구현
 
 생성한 /memos Resource로 들어오는 **POST request**와 Dynamo DB의 **PutItem API**을 mapping하는 것으로 메모 생성 API를 구현하자.  
 
@@ -284,7 +286,7 @@ API의 뼈대인 Resource를 만들자. API 정의에 따라 /memos와 /memos/{m
 
 default로 'test-invoke-request'가 memoId인 item이 생기는데 이는 아래 테스트에 활용한다. 
 
-#### 2.2.2 메모 획득 API 구현
+#### 2.3.2 메모 획득 API 구현
 
 생성한 /memos/{memoId} Resource로 들어오는 **GET request**와 Dynamo DB의 **GetItem API**을 mapping하는 것으로 메모 획득 API를 구현하자.  
 
@@ -322,7 +324,7 @@ default로 'test-invoke-request'가 memoId인 item이 생기는데 이는 아래
 3. item 정보가 response body에 나타나면 성공!
 
 
-#### 2.2.3 메모 내용 업데이트 API 구현
+#### 2.3.3 메모 내용 업데이트 API 구현
 
 생성한 /memos/{memoId} Resource로 들어오는 **PUT request**와 Dynamo DB의 **UpdateItem API**을 mapping하는 것으로 메모 업데이트 API를 구현하자.  
 
@@ -365,7 +367,7 @@ default로 'test-invoke-request'가 memoId인 item이 생기는데 이는 아래
 3. Response body가 {}이면 성공~!
 
 
-#### 2.2.4 메모 삭제 API 구현
+#### 2.3.4 메모 삭제 API 구현
 
 생성한 /memos/{memoId} Resource로 들어오는 **DELETE request**와 Dynamo DB의 **DeleteItem API**을 mapping하는 것으로 메모 삭제 API를 구현하자.  
 
@@ -402,7 +404,7 @@ default로 'test-invoke-request'가 memoId인 item이 생기는데 이는 아래
 2. memoId에 test-invoke-request를 입력하여 **Test**
 3. Response body가 {}이면 성공~!
 
-#### 2.2.5 메모 리스트 획득구현
+#### 2.3.5 메모 리스트 획득구현
 
 생성한 /memos/ Resource로 들어오는 **GET request**와 Dynamo DB의 **Query API**을 mapping하는 것으로 메모 리스트 획득 API를 구현하자. 이때 Query String을 이용해 원하는 tag를 API Gateway에 전달한다.
 
@@ -509,11 +511,11 @@ Query String을 이용하기 위해서는 **Method Request** box에서 설정을
 }
 ```
 
-### 2.3 배포 및 테스트
+### 2.4 배포 및 테스트
 
 이제 AWS API Gateway를 실제 인터넷 망에 접속해서 테스트 해보자. 이를 위해서 API Gatway의 API를 배포해야 하고, Client로는 Chrome 앱인 Postman을 이용하자. 
 
-#### 2.3.1 배포
+#### 2.4.1 배포
 
 1. AWS API Gateway Console로 이동
 2. 생성된 Resource(/memos)를 선택 
@@ -523,7 +525,7 @@ Query String을 이용하기 위해서는 **Method Request** box에서 설정을
 6. 모든 것을 default로 한뒤 **invoke URL** 복사하여 저장 
 7. **Save Changes**
 
-#### 2.3.2 테스트
+#### 2.4.2 테스트
 
 다음과 같이 postman을 설치하여 배포된 API에 접근해 테스트 해보자 
 
@@ -576,14 +578,70 @@ Query String을 이용하기 위해서는 **Method Request** box에서 설정을
 2. **Send**
 3. GET, **{invoke URL}/memos/?tag=X 으로 삭제되었는지 확인
  
+
+## 3. Backend - Static Content용 Serverless Architecture
+
+nodejs, flask, django와 같은 Web Framework 대신 Static Web hosting을 위해 S3를 사용하자. 그리고 S3에 접근하기 위한 Proxy로 API Gateway를 사용한다. 
+
+### 3.1 S3 Bucket 설정
+
+1. AWS S3 console로 이동한다. 
+2. **Create Bucket** > **Bucket Name**은 memo-web-service-1으로 하고 bucket 생성
+3. 생성된 bucket의 **Properties**  > **Static Web Hosting**  > **Enable website hosting** 을 선택
+4. **Index Document**에 index.html 입력 후 **Save**
+5. End point URL 저장 
+6. 아래 내용으로 간단히 index.html 파일을 local에 만든 후 해당 bucket으로 upload
+7. S3 console에서 업로드된 index.html 선택 > **Actions** > Make Public
+7. web browser에서 End point URL로 접근해서 보이면 성공
+
+```
+<html>
+<bod>
+<h1>Hi S3</h1>
+</body>
+</html>
+```
+
+### 3.2 IAM Role 설정 
+
+API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자. 
+
+1. AWS IAM Console로 이동
+2. **Roles** > 앞에서 생성한 myapigateway 선택
+3. **Permissions tab** > **Managed Policies** > **Attach Policy**
+4. Policy Type 검색 창에 AmazonS3ReadOnlyAccess 입력해서 찾은 후 선택 > **Attach Policy**
+
+### 3.3 API Gateway 설정
+
+#### 3.3.0 API 생성
+
+/Statc을 static content의 API로 하자.  
+
+1. API Gateway Console > Create new API > New API
+2. API name : StaticApi
+3. **Create API**
+
+
+#### 3.3.1 Resource 생성
+
+/static 아래 {item} resource가 S3 bucket내의 item에 대응되도록 하자. 예를 들어 /static/index.html은 S3의 memo-web-service-1 bucket의 index.html object와 맵핑된다. 
+
+1. 위에서 생성된 StaticApi 선택 > **Actions** > **Create Resource**
+2. Resource Name: static, Resource Path: /static > **Create Resource**
+3. 생성된 /static 선택 > **Actions** > **Create Resource**
+4. Resource Name: item, Resource Path: {item} > **Create Resource**
+
+#### 3.3.2 API root에 Get method
+
+
 이제 Backend 쪽은 끝났다. Frontend를 구현해 보자!!!
 
-## 3. Frontend
+## 4. Frontend
 
-### 3.1 Angular JS를 이용한 Webpage 구현
+### 4.1 Angular JS를 이용한 Webpage 구현
 
-### 3.2 Local data를 이용한 테스트
+### 4.2 Local data를 이용한 테스트
 
-### 3.3 S3 Hosting을 이용한 테스트
+### 4.3 S3 Hosting을 이용한 테스트
 
-## 4. 통합 검증
+## 5. 통합 검증
