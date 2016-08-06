@@ -609,7 +609,7 @@ API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자.
 1. AWS IAM Console로 이동
 2. **Roles** > 앞에서 생성한 myapigateway 선택
 3. **Permissions tab** > **Managed Policies** > **Attach Policy**
-4. Policy Type 검색 창에 AmazonS3ReadOnlyAccess 입력해서 찾은 후 선택 > **Attach Policy**
+4. Policy Type 검색 창에 AmazonS3FullAccess 입력해서 찾은 후 선택 > **Attach Policy**
 
 ### 3.3 API Gateway 설정
 
@@ -624,14 +624,41 @@ API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자.
 
 #### 3.3.1 Resource 생성
 
-/static 아래 {item} resource가 S3 bucket내의 item에 대응되도록 하자. 예를 들어 /static/index.html은 S3의 memo-web-service-1 bucket의 index.html object와 맵핑된다. 
+/static/{folder}/{item} resource의 {folder}가 bucket, {item}이 bucket내의 item에 대응되도록 하자. 예를 들어 /static/memo-web-service-1/index.html은 S3 memo-web-service-1 bucket의 index.html object와 맵핑된다. 
 
 1. 위에서 생성된 StaticApi 선택 > **Actions** > **Create Resource**
-2. Resource Name: static, Resource Path: /static > **Create Resource**
+2. **Resource Name**: static, **Resource Path**: /static > **Create Resource**
 3. 생성된 /static 선택 > **Actions** > **Create Resource**
-4. Resource Name: item, Resource Path: {item} > **Create Resource**
+4. **Resource Name**: folder, **Resource Path**: {folder} > **Create Resource**
+5. 생성된 {folder} 선택 > **Actions** > **Create Resource**
+6. **Resource Name**: item, **Resource Path**: {item} > **Create Resource**
 
-#### 3.3.2 API root에 Get method
+#### 3.3.2 /static에 Get method 구현
+
+1. /static 선택 > **Create Method** 
+2. **Integration Type** > **AWS Service Proxy**
+3. **AWS Region**: ap-northeast-1
+4. **HTTP method**: GET
+5. **Action Type** : Use path override
+6. **Path override(optional)** : /
+7. 위에서 복사한 IAM ARN을 **Execution Role**에 입력 > **Save** 
+
+API Gateway와 S3간 Header mapping을 해야한다. 
+
+1. API Gateway console > **Method Response** 
+2. **+add header**를 눌러 Content-Type header를 추가한다. 
+3. **Method Response**을 선택해 **Header Mappings** section으로 이동
+4. Content-Type reponse header의 mapping value로 integration.response.header.Content-Type을 추가 
+
+##### 테스트
+
+1. **Method Execution** > **Test**
+2. 결과가 정상적으로 오면 성공!
+
+
+------------------------
+
+
 
 
 이제 Backend 쪽은 끝났다. Frontend를 구현해 보자!!!
