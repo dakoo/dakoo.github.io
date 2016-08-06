@@ -635,25 +635,26 @@ API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자.
 
 #### 3.3.2 /static에 Get method 구현
 
-1. /static 선택 > **Create Method** 
-2. **Integration Type** > **AWS Service Proxy**
-3. **AWS Region**: ap-northeast-1
+1. /static 선택 > **Create Method** > **GET** 
+2. **Integration Type** > (Show advance) > **AWS Service Proxy**
+3. **AWS Region**: ap-northeast-1, **AWS Service**: S3
 4. **HTTP method**: GET
 5. **Action Type** : Use path override
 6. **Path override(optional)** : /
-7. 위에서 복사한 IAM ARN을 **Execution Role**에 입력 > **Save** 
+7. 위에서 복사한 IAM Role의 ARN을 **Execution Role**에 입력 > **Save** 
 
 API Gateway와 S3간 Header mapping을 해야한다. 
 
-1. API Gateway console > **Method Response** 
-2. **+add header**를 눌러 Content-Type header를 추가한다. 
-3. **Method Response**을 선택해 **Header Mappings** section으로 이동
-4. Content-Type reponse header의 mapping value로 integration.response.header.Content-Type을 추가 
+1. GET - Method Execution console > **Method Response** > **200**을 선택하여 펼침
+2. **+add header**를 눌러 Content-Type, Content-Length, Timestamp를 각각 추가 
+3. GET - Method Execution console > **Integration Response**을 선택
+4. **-**을 선택해 페이지 펼침 > **Header Mappings** section으로 이동
+4. 편집 아이콘 클릭해 mapping value로 integration.response.header.Content-Type, integration.response.header.Content-Lenght, integration.response.header.Timestamp를 각각 추가 
 
 ##### 테스트
 
-1. **Method Execution** > **Test**
-2. 결과가 정상적으로 오면 성공!
+1. GET - Method Execution console > **Test**
+2. **Test** 버튼 눌러 결과가 정상적으로 오면 성공!
 
 
 ------------------------
