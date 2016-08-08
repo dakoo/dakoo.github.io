@@ -1,16 +1,15 @@
 ---
 layout: post
-title: AWS DynamoDB, API Gateway, S3, angularjs를 이용한 Serverless Web Service 구축   
-description: AWS DynamoDB, API Gateway, S3, angularjs를 이용한 Serverless Web Service 구축   
+title: AWS DynamoDB, API Gateway, S3를 이용한 Serverless Web Service 구축   
+description: AWS DynamoDB, API Gateway, S3를 이용한 Serverless Web Service 구축   
 modified: 2018-08-01
 tags: [aws]
 comments: true
 image:
   feature: abstract-19.png
 ---
-!!현재 작성 중!!  
 
-최근 아주 핫한 기술인 Amazon Web Service를 활용한 Bankend의 Serviceless Architecture와 Frontend의 AngularJS를 이용해서 Web Service를 구축해보자. 복잡한 예보다는 간단한 메모장 서비스를 구현하는 예를 들어 설명할 것인데, 뼈대와 기본 구조를 이해하는 것에는 충분할 것이다. 
+최근 아주 핫한 기술인 Amazon Web Service를 활용한 Bankend의 Serviceless Architecture를 이용해서 Web Service를 구축해보자. 복잡한 예보다는 간단한 메모장 서비스를 구현하는 예를 들어 설명할 것인데, 뼈대와 기본 구조를 이해하는 것에는 충분할 것이다. 
 일반적인 Backend의 Serverless Architecture는 [Client - AWS API Gateway - AWS Lambda - AWS DynamoDB] 구조를 사용하는 경우가 많다. 이에 반해 이 예에서는 [Client - AWS API Gateway - AWS DynamoDB]로 하여 중간에 Application 로직을 담당하는 컴포넌트를 제거한 초경량 Serverless Architecture로 구성된다. 
 
 <section id="table-of-contents" class="toc">
@@ -182,7 +181,7 @@ Backend 쪽에서 Dynamic Content를 위한 구조 잡아보자. 여기서는 [A
 5. **Primary key**는 tag(String)로 입력. 자동으로 index name은 tag-index이 된다. 
 6. **Projected atttributes**는 **include**로 한뒤 tag와 message 추가 
 7. **Create index**
-8. Table을 선택 > Overview에서 ARN을 복사
+8. Table을 선택 > Overview에서 ARN을 복사(IAM 설정시 사용)
 
 #### 2.2 IAM Role 만들기 
 
@@ -196,7 +195,11 @@ API가 호출되었을 때 API Gateway가 DynamoDB table을 handling할 수 있�
 6. 생성된 Role을 클릭해서 Summary Page로 진입
 7. **Permissions tab** > **Inline Policies** 선택
 8. **click here** > **Custom Policy** > **Select**
-9. **Policy name**은 MyDynamoDBAllAccess로 입력하고 아래의 policy를 붙여넣고 **Apply Policy** 선택
+9. **Policy name**은 MyDynamoDBAllAccess로 입력하고 아래의 policy를 붙여넣고 **Apply Policy** 선택. 
+
+ 
+- {DynamoDB-Table-ARN} 대신 DynamoDB table의 ARN을 넣는다. 이것은 각 데이터를 접근할 수 있는 권한을 준다.  
+- {DynamoDB-Table-ARN/index/Index-Name} 대신에 DynamoDB table의 ARN + '/index/' + index-name(index-name은 dynamodb table의 indexes tab에서 확인 가능)을 입력한다. 이것은 tag를 이용한 검색 시 권한을 준다. 
 
 ```
 {
@@ -209,7 +212,8 @@ API가 호출되었을 때 API Gateway가 DynamoDB table을 handling할 수 있�
                 "dynamodb:*"
             ],
             "Resource": [
-                "*"
+                "{DynamoDB-Table-ARN}",
+                "{DynamoDB-Table-ARN/index/Index-Name}",                
             ]
         }
     ]
@@ -322,7 +326,6 @@ default로 'test-invoke-request'가 memoId인 item이 생기는데 이는 아래
 1. memos - POST - Method Execution 화면 > **Test**를 선택
 2. memoId에 test-invoke-request 입력 후 **Test**
 3. item 정보가 response body에 나타나면 성공!
-
 
 #### 2.3.3 메모 내용 업데이트 API 구현
 
@@ -608,8 +611,25 @@ API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자.
 
 1. AWS IAM Console로 이동
 2. **Roles** > 앞에서 생성한 myapigateway 선택
-3. **Permissions tab** > **Managed Policies** > **Attach Policy**
-4. Policy Type 검색 창에 AmazonS3FullAccess 입력해서 찾은 후 선택 > **Attach Policy**
+3. **Permissions tab** > **Inline Policies** 
+4. **Create Role Policy** > **Custom Policy** > **Select**
+5. Policy name : S3memo-web-service-1FullAccess
+6. Policy document에 아래 내용 넣는다. {BUCKET-NAME}을 memo-web-service-1으로 변경
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": ["arn:aws:s3:::{BUCKET-NAME}"]
+    }
+  ]
+}
+```
+
+
 5. **Trust Relationships tab** > **Edit Trust Relationshiop**. 
 6. 아래 내용과 같아야 한다. 다르면 붙여넣기후 **Update Trust Policy**
 
@@ -635,16 +655,14 @@ API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자.
 
 /Statc을 static content의 API로 하자.  
 
-1. API Gateway Console > Create new API > New API
-2. API name : StaticApi
-3. **Create API**
+1. API Gateway Console > 기존에 만든 MemosApi로 이동한다.  
 
 
 #### 3.3.1 Resource 생성
 
 /static/{folder}/{item} resource의 {folder}가 bucket, {item}이 bucket내의 item에 대응되도록 하자. 예를 들어 /static/memo-web-service-1/index.html은 S3 memo-web-service-1 bucket의 index.html object와 맵핑된다. 
 
-1. 위에서 생성된 StaticApi 선택 > **Actions** > **Create Resource**
+1. MemosApi의 **/** 선택 > **Actions** > **Create Resource**
 2. **Resource Name**: static, **Resource Path**: /static > **Create Resource**
 3. 생성된 /static 선택 > **Actions** > **Create Resource**
 4. **Resource Name**: folder, **Resource Path**: {folder} > **Create Resource**
@@ -668,7 +686,6 @@ API Gateway와 S3간 Header mapping을 해야한다.
 1. GET - Method Execution console > **Method Response** > **200**을 선택하여 펼침
 2. **+add header**를 눌러 Content-Type, Content-Length, Timestamp를 각각 추가 
 3. GET - Method Execution console > **Integration Response**을 선택
-4. **HTTP status regex**에는 \d{3} 입력
 5. **-**을 선택해 페이지 펼침 > **Header Mappings** section으로 이동
 6. 편집 아이콘 클릭해 mapping value로 integration.response.header.Content-Type, integration.response.header.Content-Length, integration.response.header.Date를 각각 추가 
 
@@ -771,16 +788,4 @@ API Gateway와 S3간 Header mapping을 해야한다.
 </html>
 ```
 
-이제 Backend 쪽은 끝났다. Frontend를 구현해 보자!!!
-
-## 4. Frontend
-
-아주 간단한 List View를 AngularJS를 이용해 만들어 보자. Data는 처음에는 js 파일 내에 포함해서 테스트하고, 나중에는 http ajax를 이용해 API Gateway를 통해 DynamoDB로부터 가져온다고 가정한다. 
-
-### 4.1 JSON 데이터
-
-### 4.2 Angular JS를 이용한 Webpage 구현
-
-### 4.3 S3 Hosting을 이용한 테스트
-
-## 5. 통합 검증
+이제 Backend 쪽은 끝났다. Frontend를 구현하는 것을 다음 글에서 다루어보자. 
