@@ -657,7 +657,6 @@ API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자.
 
 1. API Gateway Console > 기존에 만든 MemosApi로 이동한다.  
 
-
 #### 3.3.1 Resource 생성
 
 /static/{folder}/{item} resource의 {folder}가 bucket, {item}이 bucket내의 item에 대응되도록 하자. 예를 들어 /static/memo-web-service-1/index.html은 S3 memo-web-service-1 bucket의 index.html object와 맵핑된다. 
@@ -669,57 +668,10 @@ API Gateway에서 S3로 접근할 수 있도록 IAM Role을 설정하자.
 5. 생성된 {folder} 선택 > **Actions** > **Create Resource**
 6. **Resource Name**: item, **Resource Path**: {item} > **Create Resource**
 
-#### 3.3.2 GET: /static - Bucket List 획득
-
 S3로 보내는 Request는 [여기](http://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/integrating-api-with-aws-services-s3.html)를 참고하자. 
 
-1. /static 선택 > **Create Method** > **GET** 
-2. **Integration Type** > (Show advance) > **AWS Service Proxy**
-3. **AWS Region**: ap-northeast-1, **AWS Service**: S3
-4. **HTTP method**: GET
-5. **Action Type** : Use path override
-6. **Path override(optional)** : /
-7. 위에서 복사한 IAM Role의 ARN을 **Execution Role**에 입력 > **Save** 
 
-API Gateway와 S3간 Header mapping을 해야한다. 
-
-1. GET - Method Execution console > **Method Response** > **200**을 선택하여 펼침
-2. **+add header**를 눌러 Content-Type, Content-Length, Timestamp를 각각 추가 
-3. GET - Method Execution console > **Integration Response**을 선택
-5. **-**을 선택해 페이지 펼침 > **Header Mappings** section으로 이동
-6. 편집 아이콘 클릭해 mapping value로 integration.response.header.Content-Type, integration.response.header.Content-Length, integration.response.header.Date를 각각 추가 
-
-##### 테스트
-
-1. GET - Method Execution console > **Test**
-2. **Test** 버튼을 누르면 다음과 같은 error가 오면 **정상!!!**
-
-```
-{
-  "message": "Internal server error"
-}
-
-Execution log for request test-request
-Mon Aug 08 02:21:01 UTC 2016 : Starting execution for request: test-invoke-request
-Mon Aug 08 02:21:01 UTC 2016 : HTTP Method: GET, Resource Path: /static
-Mon Aug 08 02:21:01 UTC 2016 : Method request path: {}
-Mon Aug 08 02:21:01 UTC 2016 : Method request query string: {}
-Mon Aug 08 02:21:01 UTC 2016 : Method request headers: {}
-Mon Aug 08 02:21:01 UTC 2016 : Method request body before transformations: null
-Mon Aug 08 02:21:01 UTC 2016 : Execution failed due to configuration error: Invalid endpoint address
-Mon Aug 08 02:21:01 UTC 2016 : Method completed with status: 500
-```
-
-##### Deploy후 테스트
-
-1. API Gateway console에서 생성한 StaticApi 선택
-2. **Actions** > **Deploy API**
-3. **Deployment Stage**는 New Stage를 선택하고 **Stage Name**은 'prod'로 입력 > **Deploy**
-4. invoke URL을 복사
-5. chrome의 Postman App을 실행하고 복사한 URL + '/static'을 URL 창에 붙여 넣고, Get Method로 Send
-6. Bucket list 정보를 정상적으로 수신하면 성공!!!!!
-
-#### 3.3.2 GET: /static/{folder} - Bucket내 Object List 획득 
+#### 3.3.1 GET: /static/{folder} - Bucket내 Object List 획득 
 
 1. {folder} 선택 > **Create Method** > **GET** 
 2. **Integration Type** > (Show advance) > **AWS Service Proxy**
@@ -749,7 +701,7 @@ API Gateway와 S3간 Header mapping을 해야한다.
 5. chrome의 Postman App을 실행하고 복사한 URL + '/static/memo-web-service-1'을 URL 창에 붙여 넣고, Get Method로 Send
 6. object list 정보를 정상적으로 수신하면 성공!!!!!
 
-#### 3.3.3 GET: /static/{folder}/{item} - Bucket내 Object 획득 
+#### 3.3.2 GET: /static/{folder}/{item} - Bucket내 Object 획득 
 
 1. {item} 선택 > **Create Method** > **GET** 
 2. **Integration Type** > (Show advance) > **AWS Service Proxy**
