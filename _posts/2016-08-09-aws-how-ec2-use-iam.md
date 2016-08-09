@@ -1,6 +1,17 @@
-
+---
+layout: post
+title: AWS EC2에 IAM Role 설정하기 
+description: AWS EC2에 IAM Role 설정하기 
+modified: 2016-08-09
+tags: [aws]
+comments: true
+image:
+  feature: abstract-21.png
+---
 AWS의 핵심 Computing 서비스인 EC2에서 다른 AWS 서비스를 사용하기 위해서는 IAM Role을 가지고 있어야 한다. 
 중요한 것은 EC2 생성 이후에는 변경은 용이하나 Role을 할당하는 것은 어려우므로, EC2 생성시에는 빈 Role이라도 반드시 할당하도록 하자.
+
+- NOTE: EC2 생성시에 반드시 Role을 할당하자!
 
 ### IAM Role 생성
 
