@@ -6,7 +6,7 @@ modified: 2016-08-09
 tags: [aws]
 comments: true
 image:
-  feature: abstract-11.png
+  feature: abstract-12.png
 ---
 이 예제는 [이전에 구현한 Memos dynamodb table에 접근하는 AWS Gateway](http://hochulshin.com/serverless-web-using-aws-dynamodb-apigateway-s3/#api-gateway-)을 기준으로 설명한다. 즉, AWS API Gateway 대신 여기서 설명하는 Flask/EC2 구성을 사용할 수 있도록 구현한다. 
 
@@ -184,7 +184,7 @@ def memos():
     if query != None :
         response = table.query(
             IndexName="tag-index",
-            KeyConditionExpression=Key('tag').eq(tag)
+            KeyConditionExpression=Key('tag').eq(query)
         )
         return json.dumps(response["Items"], cls=DecimalEncoder)
     else:
@@ -262,7 +262,7 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function($scope, $http) {
 
-    $http.get('videos').then(function(response){
+    $http.get('memos').then(function(response){
         $scope.items = response.data;
     }, function(response){
         console.log("ERROR: GET /memos");
@@ -365,25 +365,25 @@ class DecimalEncoder(json.JSONEncoder):
 
 app = Flask(__name__, static_url_path='/static')
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('soma-videos')
+table = dynamodb.Table('Memos')
 
-@app.route('/videos')
-def videos():
-    query = request.args.get('creation')
+@app.route('/memos')
+def memos():
+    query = request.args.get('tag')
     if query != None :
         response = table.query(
             IndexName="creation-index",
-            KeyConditionExpression=Key('creation').eq(int(query))
+            KeyConditionExpression=Key('creation').eq(query)
         )
         return json.dumps(response["Items"], cls=DecimalEncoder)
     else:
         response = table.scan()
         return json.dumps(response["Items"], cls=DecimalEncoder)
 
-@app.route('/videos/<title>')
-def getVideo(title):
+@app.route('/memos/<memoId>')
+def getVideo(memoId):
     response = table.query(
-        KeyConditionExpression=Key('title').eq(title)
+        KeyConditionExpression=Key('memoId').eq(memoId)
     )
     return json.dumps(response["Items"], cls=DecimalEncoder)
 
@@ -419,7 +419,7 @@ def sendjs(path):
     <div ng-app="myApp" ng-controller="myCtrl">
         <table>
             <tr ng-repeat="item in items">
-                <td> <a href={{item.url}}>{{item.title}} </a></td>
+                <td> {{item.message}} </td>
             </tr>
         </table>
     </div>
@@ -436,10 +436,10 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function($scope, $http) {
 
-    $http.get('videos').then(function(response){
+    $http.get('memos').then(function(response){
         $scope.items = response.data;
     }, function(response){
-        console.log("ERROR: GET /videos");
+        console.log("ERROR: GET /Memos");
     });
 });
 
