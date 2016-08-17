@@ -1,9 +1,9 @@
 ---
 layout: post
-title: When OSX should be reinstalled
-description: When OSX should be reinstalled
+title: OSX - When OSX should be reinstalled
+description: OSX - When OSX should be reinstalled
 modified: 2015-07-04
-tags: [blog]
+tags: [OSX]
 comments: true
 image:
   feature: abstract-11.png
