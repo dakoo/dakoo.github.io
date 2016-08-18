@@ -23,7 +23,7 @@ vi모드를 주로 사용하는 개발자들은 생산성을 높이기 위해 �
 
 - xcape를 설치하자. 
  
-```
+```bash
 $ sudo apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
 $ git clone https://github.com/alols/xcape.git
 $ cd xcape
@@ -33,7 +33,7 @@ $ sudo make install
 
 - 자신의 계정의 root 폴더로 이동해서 .profile 파일을 열고 다음을 추가하자. 
 
-```
+```bash
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape;Control_L=Escape'
 ```
@@ -50,7 +50,7 @@ vi를 사용하기 위해서는 Escape 키로만 동작하도록 해도 충분�
 - 위와 같이 xcape를 설치한다. 
 - 자신의 계정의 root 폴더로 이동해서 .profile 파일을 열고 다음을 추가하자. 
 
-```
+```bash
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
 ```
@@ -59,7 +59,7 @@ xcape -e 'Caps_Lock=Escape'
 
 - gnome-tweak-tool을 설치해서 Caps Lock의 설정을 변경한다. 
 
-```
+```bash
 $ sudo apt-get install gnome-tweak-tool
 ```
 
