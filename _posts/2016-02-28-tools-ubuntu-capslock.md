@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ubuntu - Caps Lock를 Control과 Esc로 변경
+title: Ubuntu - Caps Lock키를 Control키/Esc키로 변경
 description: 개발환경
 modified: 2016-02-28
 tags: [tool]
@@ -12,16 +12,16 @@ Caps Lock 키는 소프트웨어 개발자에게 별로 유효한 키가 아니�
 
 ### Ubuntu 14.04 키보드 및 단축키 설정
 
-#### 1. Caps Lock을 Control과 Esc키를 동시에 진원하도록 변경 
+#### 1. Caps Lock을 Control과 Esc키를 동시에 지원하도록 변경 
 
 vi모드를 주로 사용하는 개발자들은 생산성을 높이기 위해 키보드의 Caps Lock 키가 다음과 같이 동작하도록 하자. 
 
-- 누르면 Control 키로 동작 
-- 떼면 Escape키로 동작
+1. 누르면 Control 키로 동작 
+2. 떼면 Escape키로 동작
 
 다음과 같이 설정하자. 
 
-1. xcape를 설치하자. 
+- xcape를 설치하자. 
  
 ```
 $ sudo apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
@@ -31,7 +31,7 @@ $ make
 $ sudo make install
 ```
 
-2. 자신의 계정의 root 폴더로 이동해서 .profile 파일을 열고 다음을 추가하자. 
+- 자신의 계정의 root 폴더로 이동해서 .profile 파일을 열고 다음을 추가하자. 
 
 ```
 setxkbmap -option 'caps:ctrl_modifier'
@@ -42,13 +42,13 @@ xcape -e 'Caps_Lock=Escape;Control_L=Escape'
 
 vi를 사용하기 위해서는 Escape 키로만 동작하도록 해도 충분하다. 이를 위해서는 두 가징 방법이 있다. 
 
-- xcape을 사용하여 변경하는 방법
-- gnome-tweak-tool을 사용해서 변경하는 방법 
+1. xcape을 사용하여 변경하는 방법
+2. gnome-tweak-tool을 사용해서 변경하는 방법 
 
 ##### 2.1 xcape을 사용하는 방법
 
-1. 위와 같이 xcape를 설치한다. 
-2. 자신의 계정의 root 폴더로 이동해서 .profile 파일을 열고 다음을 추가하자. 
+- 위와 같이 xcape를 설치한다. 
+- 자신의 계정의 root 폴더로 이동해서 .profile 파일을 열고 다음을 추가하자. 
 
 ```
 setxkbmap -option 'caps:ctrl_modifier'
@@ -57,12 +57,12 @@ xcape -e 'Caps_Lock=Escape'
 
 ##### 2.2 gnome-tweak-tool을 사용해서 변경하는 방법 
 
-1. gnome-tweak-tool을 설치해서 Caps Lock의 설정을 변경한다. 
+- gnome-tweak-tool을 설치해서 Caps Lock의 설정을 변경한다. 
 
 ```
 $ sudo apt-get install gnome-tweak-tool
 ```
 
-2. DASH에서 `tweak-tool`을 찾아서 실행한다. 
-3. Typing(입력) 메뉴에서 Caps Lock 키 동작을 `Make Caps Lock an additionnal Escape key'으로 설정한다. 
+- DASH에서 `tweak-tool`을 찾아서 실행한다. 
+- Typing(입력) 메뉴에서 Caps Lock 키 동작을 `Make Caps Lock an additionnal Escape key'으로 설정한다. 
 
