@@ -35,6 +35,14 @@ user = {user name}
 ```
 
 - Note: {실행할 command}에서 command는 `which` 명령으로 나오는 full path까지 적는다. 
+- Note: export 변수는 다음과 같이 command이전에 추가한다. 변수 사이는 ,로 구분한다. 
+
+```
+environment = 
+    {변수1}={변수 내용1},
+    {변수2}={변수 내용2},
+command ... 
+```
 
 ### 3 supervisord를 통한 프로그램 실행
 
@@ -132,3 +140,62 @@ command = /home/ubunutu/nwork/venv/bin/python test.py
 directory = /home/ubuntu/nwork/
 user = ubuntu
 ```
+
+
+### 8 virtualenv에서의 flask 서버 구동 예제  
+
+#### 8.1 virtualenv 환경만들기 
+
+/home/ubuntu 아래에서 다음과 같이 폴더와 파일을 만든다. 
+
+```
+$ mkdir server
+$ cd server
+```
+
+[virtualenv 관련 글](http://hochulshin.com/python-virtualenv-ubuntu/)과 [flask 서버 관련 글](http://hochulshin.com/aws-ec2-flask-dynamodb-angularjs/)을 참조해서 virtualenv를 설치하고 환경을 만들고 flask를 설치하자. 
+
+```
+$ virtualenv venv
+$ source venv/bin/activate
+$ sudo pip install Flask
+```
+
+#### 8.2 python 프로그램
+
+/home/ubuntu/server 폴더에서 run-server.py 파일을 만들고 아래 내용을 넣는다. 
+
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello, World!"
+```
+
+#### 8.3 supervisord 설치 및 설정
+
+- /etc/supervisor/conf.d/flask-settings.conf 파일을 만들고 아래 내용을 붙여 넣는다. export 변수인 `FLASK_APP=run-server.py`도 설정되어야 한다. 
+
+```
+[program:flask-settings]
+environment=
+    FLASK_APP=run-server.py
+command = /home/ubunutu/server/venv/bin/python run-server.py
+directory = /home/ubuntu/server/
+user = ubuntu
+```
+
+
+#### 8.4 supervisord 실행
+
+```
+$ sudo supervisorctl reread
+$ sudo supervisorctl update
+$ sudo supervisorctl start all
+```
+
+#### 8.5 테스트
+
+브라우저에서 localhost:5000으로 접근해서 hello, world가 보이면 성공이다. 
