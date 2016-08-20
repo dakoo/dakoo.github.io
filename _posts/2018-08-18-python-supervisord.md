@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - ubuntu 시작시 자동 실행(2) 
-description: python - ubuntu 시작시 자동 실행(2) 
+title: python - ubuntu 시작시 자동 실행(2) - supervisord 
+description: python - ubuntu 시작시 자동 실행(2) - supervisord 
 modified: 2016-08-18
 tags: [python]
 comments: true
