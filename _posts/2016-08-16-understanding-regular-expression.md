@@ -34,7 +34,7 @@ Regular expression에 대해 간단히 살펴보자.
 |[a-z]|a에서 z까지의 character 중 하나|
 |[^a-c]|a에서 c까지 character를 제외한 것 중 하나|
 |[0-9]|0부터 9까지의 숫자 중 하나|
-|slash.|.|
+|\\.|.|
 |^abc|abc로 시작하는 문자열|
 |abc$|abc로 끝나는 문자열|
 |(...)|하나의 문자가 아닌 Group을 지정|
