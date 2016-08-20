@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - ubuntu 시작시 자동 실행(1): /etc/rc.local
-description: python - ubuntu 시작시 자동 실행(1): /etc/rc.local 
+title: python - ubuntu 시작시 자동 실행(1) 
+description: python - ubuntu 시작시 자동 실행(1) 
 modified: 2016-08-18
 tags: [python]
 comments: true
