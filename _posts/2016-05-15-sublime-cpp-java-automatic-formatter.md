@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tool - cpp and java automatic formatter  
+title: C++ Java - Automatic formatter  
 description: cpp and java automatic formatter  
 modified: 2016-05-15
 tags: [dev]
