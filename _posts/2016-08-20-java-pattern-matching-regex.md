@@ -95,7 +95,9 @@ Valid
 
 #### 예제 3
 
-입력 text에서 연속으로 반복되는 단어 제거하자. 이때 대소문자는 상관없이 제거하자. 예를 들어 'Goodbye bye Bye bye world World WORLD'가 입력이라면 'Goodbye bye world'가 출력이여야 한다. 
+##### 입력 
+
+text에서 연속으로 반복되는 단어 제거하자. 이때 대소문자는 상관없이 제거하자. 예를 들어 'Goodbye bye Bye bye world World WORLD'가 입력이라면 'Goodbye bye world'가 출력이여야 한다. 
 
 ```
 import java.util.regex.Matcher;
@@ -115,7 +117,21 @@ class Solution {
 }
 ```
 
-출력
+위의 pattern을 설명하면 다음과 같다. 
+
+- '\\b~~~\\b'를 이용해 공백으로 구분된 단어만 잡아냄 
+- '(w+)'는 단어
+- '\\b\\W+\\b\\1\\b': 앞의 단어와 구분되며(\\b), 알파벳이 아닌 것이 - 예를 들어 줄바꿈이 나타날 수 있고(\\W+), 이전 단어와 일치(\\1)하는 것
+- '*': 연속으로 출현 
+
+위와 같은 패턴으로 하면 m.find()를 통해 다음이 찾아진다. 
+
+- 'Goodbye'
+- 'bye Bye bye'
+-  'world World WORLD'
+
+
+##### 출력
 
 ```
 Goodbye bye world
