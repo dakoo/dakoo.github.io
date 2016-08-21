@@ -1,9 +1,9 @@
 ---
 layout: post
-title: dev tool - how to use vim on intellj IDEA
-description: dev tool - how to use vim on intellj IDEA
+title: Java, Vi - how to use vim on intellj IDEA
+description: Java, Vi - how to use vim on intellj IDEA
 modified: 2015-07-22
-tags: [tool]
+tags: [java, vi]
 comments: true
 image:
   feature: abstract-14.png

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: python - httpclient example using urllib
-description: python
+title: Python - httpclient example using urllib
+description: Python
 modified: 2016-06-28
-tags: [dev]
+tags: [python]
 comments: true
 image:
   feature: abstract-11.png

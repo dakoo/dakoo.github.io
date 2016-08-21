@@ -1,9 +1,9 @@
 ---
 layout: post
-title: sublime text3 configuration to run python3
+title: Python - sublime text3 configuration to run python3
 description: dev
 modified: 2016-04-06
-tags: [dev]
+tags: [python, sublime]
 comments: true
 image:
   feature: algorithm.jpeg

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - csv
-description: python 
+title: Python - csv
+description: Python 
 modified: 2016-04-10
 tags: [python]
 comments: true

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 개발환경 - 부팅가능한 usb 스틱 만들기 
-description: 개발환경 - 부팅가능한 usb 스틱 만들기 
+title: Ubuntu - 부팅가능한 usb 스틱 만들기 
+description: Ubuntu - 부팅가능한 usb 스틱 만들기 
 modified: 2016-07-02
 tags: [dev]
 comments: true

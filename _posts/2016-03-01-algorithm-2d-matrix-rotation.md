@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - 2D Matrix 회전 
+title: Algorithm - 2D Matrix 회전 
 description: 2D matrix 
 modified: 2016-02-29
 tags: [algorithm]

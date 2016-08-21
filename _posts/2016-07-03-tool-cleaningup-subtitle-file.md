@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 자작 툴 - 자막 파일을 text 파일로 바꾸어주는 파이썬 코드
-description: 자작 툴 - 자막 파일을 text 파일로 바꾸어주는 파이썬 코드
+title: Python - 자막 파일을 text 파일로 바꾸어주는 파이썬 코드
+description: Python - 자막 파일을 text 파일로 바꾸어주는 파이썬 코드
 modified: 2016-07-03
-tags: [tool]
+tags: [python]
 comments: true
 image:
   feature: abstract-11.png

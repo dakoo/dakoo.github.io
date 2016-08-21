@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발 환경- 다양한 플랫폼을 지원하는 Git Client
-description: 다양한 플랫폼을 지원하는 Git Client
+title: Git - 다양한 플랫폼을 지원하는 Git Client
+description: Git - 다양한 플랫폼을 지원하는 Git Client
 modified: 2016-07-03
-tags: [dev]
+tags: [git]
 comments: true
 image:
   feature: abstract-11.png

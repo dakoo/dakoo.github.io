@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Web Dev - Browsersync
-description: Web Dev - Browsersync
+title: Web - Browsersync
+description: Web - Browsersync
 modified: 2016-06-27
-tags: [web dev]
+tags: [web]
 comments: true
 image:
   feature: abstract-11.png

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: java - coding convention
-description: java - coding convention
+title: Java - coding convention
+description: Java - coding convention
 modified: 2016-05-07
-tags: [blog]
+tags: [java]
 comments: true
 image:
   feature: abstract-11.png

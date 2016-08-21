@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - many-to-many relationship database
-description: python
+title: Python - many-to-many relationship database
+description: Python
 modified: 2016-04-03
 tags: [python]
 comments: true

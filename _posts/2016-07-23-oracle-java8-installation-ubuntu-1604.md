@@ -1,9 +1,9 @@
 ---
 layout: post
-title: How to install Oracle Java 8 SDK on Ubuntu 16.04
-description: How to install Oracle Java 8 SDK on Ubuntu 16.04
+title: Ubuntu, Java - How to install Oracle Java 8 SDK on Ubuntu 16.04
+description: Ubuntu, Java - How to install Oracle Java 8 SDK on Ubuntu 16.04
 modified: 2016-07-23
-tags: [dev]
+tags: [ubuntu, java]
 comments: true
 image:
   feature: abstract-20.png

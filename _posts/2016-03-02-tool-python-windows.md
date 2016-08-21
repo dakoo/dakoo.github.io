@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발환경 - Python on Windows 
+title: Python - on Windows 
 description: python 
 modified: 2016-03-02
-tags: [tool]
+tags: [python]
 comments: true
 image:
   feature: algorithm.jpeg

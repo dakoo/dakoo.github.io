@@ -1,9 +1,9 @@
 ---
 layout: post
-title: cpp - coding convention
-description: cpp - coding convention
+title: C++ - coding convention
+description: C++ - coding convention
 modified: 2016-05-07
-tags: [blog]
+tags: [cpp]
 comments: true
 image:
   feature: abstract-11.png

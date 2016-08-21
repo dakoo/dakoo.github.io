@@ -1,9 +1,9 @@
 ---
 layout: post
-title: c++ STL - all_of, any_of, none_of 
-description: c++ STL 
+title: C++ - STL all_of, any_of, none_of 
+description: C++ STL 
 modified: 2015-06-22
-tags: [cpp]
+tags: [c++]
 comments: true
 image:
   feature: abstract-11.png

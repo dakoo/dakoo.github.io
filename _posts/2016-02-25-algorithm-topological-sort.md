@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - Topological Sort
+title: Algorithm - Topological Sort
 description: Topological Sort
 modified: 2016-02-25
 tags: [algorithm]

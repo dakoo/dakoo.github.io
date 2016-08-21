@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - excel
-description: python
+title: Python - excel
+description: Python
 modified: 2016-04-10
 tags: [python]
 comments: true

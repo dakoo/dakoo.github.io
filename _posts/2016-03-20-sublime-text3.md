@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발 환경 - sublime text3 설치와 설정
+title: Sublime text3 - 설치와 설정
 description: 개발 환경
 modified: 2016-03-20
-tags: [개발 환경]
+tags: [sublime]
 comments: true
 image:
   feature: algorithm.jpeg

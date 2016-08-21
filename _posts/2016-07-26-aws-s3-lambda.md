@@ -1,7 +1,7 @@
 ---
 layout: post
-title: AWS S3에 image file 업로드시 lambda를 통해 resize하기 
-description: AWS S3에 image file 업로드시 lambda를 통해 resize하기
+title: AWS - S3에 image file 업로드시 lambda를 통해 resize하기 
+description: AWS - S3에 image file 업로드시 lambda를 통해 resize하기
 modified: 2016-07-18
 tags: [aws]
 comments: true

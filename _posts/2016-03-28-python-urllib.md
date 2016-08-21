@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - urllib
-description: python
+title: Python - urllib
+description: Python
 modified: 2016-03-28
 tags: [python]
 comments: true

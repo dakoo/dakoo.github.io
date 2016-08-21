@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발환경 - AWS EC2 접속 기본
-description: 개발환경 - AWS EC2 접속 기본
+title: AWS - EC2 접속 기본
+description: AWS - EC2 접속 기본
 modified: 2016-06-02
-tags: [dev]
+tags: [aws]
 comments: true
 image:
   feature: abstract-11.png

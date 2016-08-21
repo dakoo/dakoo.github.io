@@ -1,7 +1,7 @@
 ---
 layout: post
-title: AWS S3에서 Web hosting하며 file upload하기 
-description: AWS S3에서 Web hosting하며 file upload하기 
+title: AWS - S3에서 Web hosting하며 file upload하기 
+description: AWS - S3에서 Web hosting하며 file upload하기 
 modified: 2016-07-13
 tags: [aws]
 comments: true

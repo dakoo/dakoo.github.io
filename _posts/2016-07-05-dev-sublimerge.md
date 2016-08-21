@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발 환경 - sublimerge
+title: Sublime text - sublimerge
 description: 개발 환경 - sublimerge
 modified: 2016-07-05
-tags: [dev]
+tags: [sublime]
 comments: true
 image:
   feature: abstract-11.png

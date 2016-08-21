@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - json
-description: python
+title: Python - json
+description: Python
 modified: 2016-03-28
 tags: [python]
 comments: true

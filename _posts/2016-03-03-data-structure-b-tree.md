@@ -1,6 +1,6 @@
 ---
 layout: post
-title: data structure - B-tree 
+title: Data Structure - B-tree 
 description: B-tree
 modified: 2016-03-12
 tags: [data structure]

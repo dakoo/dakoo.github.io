@@ -3,7 +3,7 @@ layout: post
 title: C++ - file IO
 description: file IO
 modified: 2016-02-22
-tags: [c++]
+tags: [cpp]
 comments: true
 image:
   feature: algorithm.jpeg

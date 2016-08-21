@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발환경 - Linux에서의 최소한의 vi 설정
-description: 개발환경 - 최소한의 vi 설정
+title: Ubuntu - 최소한의 vi 설정
+description: Ubuntu - 최소한의 vi 설정
 modified: 2016-05-31
-tags: [dev]
+tags: [ubuntu]
 comments: true
 image:
   feature: abstract-11.png

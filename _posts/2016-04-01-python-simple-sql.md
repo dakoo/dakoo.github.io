@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - simple sql 
-description: python - simple sql  
+title: Python - simple sql 
+description: Python - simple sql  
 modified: 2016-04-01
 tags: [python]
 comments: true

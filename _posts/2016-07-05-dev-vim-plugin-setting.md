@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발 환경 - vi plugin 설치
+title: Vi - vi plugin 설치
 description: 개발 환경 - vi plugin 설치
 modified: 2016-07-05
-tags: [dev]
+tags: [vi]
 comments: true
 image:
   feature: abstract-11.png

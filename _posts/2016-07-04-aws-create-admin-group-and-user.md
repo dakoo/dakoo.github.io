@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AWS IAM - admin group 만들고 사용자 추가하기
+title: AWS - IAM admin group 만들고 사용자 추가하기
 description: AWS - IAM admin group 만들고 사용자 추가하기
 modified: 2016-07-03
 tags: [aws]

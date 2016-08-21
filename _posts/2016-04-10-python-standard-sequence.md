@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - standard sequence 
-description: python - standard sequence 
+title: Python - standard sequence 
+description: Python - standard sequence 
 modified: 2016-04-10
 tags: [python]
 comments: true

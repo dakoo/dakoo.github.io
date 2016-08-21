@@ -1,9 +1,9 @@
 ---
 layout: post
-title: dev - common git commands
-description: common git commands
+title: Git - common git commands
+description: Git - common git commands
 modified: 2016-06-28
-tags: [dev]
+tags: [git]
 comments: true
 image:
   feature: abstract-11.png

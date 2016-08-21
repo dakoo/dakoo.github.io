@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Tool - python automatic formatter  
-description: python automatic formatter  
+title: Python - automatic formatter  
+description: Python - automatic formatter  
 modified: 2016-05-09
-tags: [dev]
+tags: [python]
 comments: true
 image:
   feature: abstract-11.png

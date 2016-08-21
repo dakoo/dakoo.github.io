@@ -1,9 +1,9 @@
 ---
 layout: post
-title: dev-how to shorten bash prompt on ubuntu
-description: how to shorten bash prompt
+title: Ubuntu - how to shorten bash prompt on ubuntu
+description: Ubuntu - how to shorten bash prompt
 modified: 2016-05-10
-tags: [dev]
+tags: [ubuntu]
 comments: true
 image:
   feature: abstract-12.png

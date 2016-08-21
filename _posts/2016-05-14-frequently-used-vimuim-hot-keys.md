@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Frequently used Vimuim keys
-description: Frequently used Vimuim keys
+title: Vi - Frequently used Vimuim keys
+description: Vi - Frequently used Vimuim keys
 modified: 2016-05-14
-tags: [dev]
+tags: [vi]
 comments: true
 image:
   feature: abstract-11.png

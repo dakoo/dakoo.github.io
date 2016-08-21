@@ -1,9 +1,9 @@
 ---
 layout: post
-title: dev - 터미널에서 sublime 바로 열기
-description: dev - 터미널에서 sublime 바로 열기
+title: Sublime text - 터미널에서 sublime 바로 열기
+description: Sublime text - 터미널에서 sublime 바로 열기
 modified: 2016-07-10
-tags: [dev]
+tags: [sublime]
 comments: true
 image:
   feature: abstract-11.png

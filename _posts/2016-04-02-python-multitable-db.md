@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - multi-table db
-description: python
+title: Python - multi-table db
+description: Python
 modified: 2016-04-02
 tags: [python]
 comments: true

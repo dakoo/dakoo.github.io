@@ -1,7 +1,7 @@
 ---
 layout: post
-title: python - special methods
-description: python - special methods
+title: Python - special methods
+description: Python - special methods
 modified: 2016-04-11
 tags: [python]
 comments: true

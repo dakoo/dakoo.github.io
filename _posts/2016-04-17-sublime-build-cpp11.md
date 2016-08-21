@@ -1,9 +1,9 @@
 ---
 layout: post
-title: sublime text3 configuration to build c++11
-description: sublime text3 
+title: C++ - sublime text3 configuration to build c++11
+description: C++ - sublime text3 
 modified: 2015-07-04
-tags: [dev]
+tags: [cpp, sublime]
 comments: true
 image:
   feature: abstract-11.png

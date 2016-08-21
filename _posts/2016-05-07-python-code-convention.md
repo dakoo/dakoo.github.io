@@ -1,9 +1,9 @@
 ---
 layout: post
-title: python - coding convention
-description: python - coding convention
+title: Python - coding convention
+description: Python - coding convention
 modified: 2016-05-07
-tags: [blog]
+tags: [python]
 comments: true
 image:
   feature: abstract-11.png

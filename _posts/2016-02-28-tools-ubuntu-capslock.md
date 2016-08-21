@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu - Caps Lock키를 Control키/Esc키로 변경
 description: 개발환경
 modified: 2016-02-28
-tags: [tool]
+tags: [ubuntu]
 comments: true
 image:
   feature: algorithm.jpeg
