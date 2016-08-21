@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발 - bash 참조 사이트들
-description: 개발 - bash 참조 사이트들
+title: Ubuntu - bash 참조 사이트들
+description: Ubuntu - bash 참조 사이트들
 modified: 2016-08-02
-tags: [dev]
+tags: [ubuntu]
 comments: true
 image:
   feature: abstract-17.png
