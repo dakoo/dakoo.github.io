@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 데이터 구조 - Binary tree 문제들
+title: Data Structure - Binary tree 문제들
 description: binary tree 및 binary search tree 문제들 
 modified: 2016-02-15
 tags: [data structure]
