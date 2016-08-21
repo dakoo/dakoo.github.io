@@ -1,6 +1,6 @@
 ---
 layout: post
-title: web - 자주 추가하는 js와 css
+title: Web - 자주 추가하는 js와 css
 description:  web - 자주 추가하는 js와 css
 modified: 2016-07-04
 tags: [web]
