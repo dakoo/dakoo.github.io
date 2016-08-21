@@ -1,7 +1,7 @@
 ---
 layout: post
-title: java - intellij의 live template 기능 사용하기 
-description:  java - intellij의 live template 기능 사용하기 
+title: Java - intellij의 live template 기능 사용하기 
+description:  Java - intellij의 live template 기능 사용하기 
 modified: 2016-08-17
 tags: [java]
 comments: true
