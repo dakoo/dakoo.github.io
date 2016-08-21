@@ -41,7 +41,7 @@ Regular expression에 대해 간단히 살펴보자.
 |abc$|abc로 끝나는 문자열|
 |(...)|하나의 문자가 아닌 Group을 지정|
 |(a(bc)) 또는 (ab)c(de)|문자열을 하나가 아니라 동시에 여러 개 추출|
-|(abc|def)|abc 또는 def|
+|(abc\|def)|abc 또는 def|
 |(.*)|아무것도 없는 것을 포함해 모두 선택|
 
 ### 설명
@@ -60,14 +60,14 @@ Regular expression에 대해 간단히 살펴보자.
 
 - 0회이상 반복 - (ab)*: {}, ab, abab, ababab ...
 - 1회이상 반복 - (ab)+: ab, abab, ababab ...
-- A 또는 B - (ab|cd)e: abe, cde
-- a 또는 b의 0회 이상 반복 - (a|b)*c : c, ac, bc, aac, abc, bbc, bac, aaac....
+- A 또는 B - (ab\|cd)e: abe, cde
+- a 또는 b의 0회 이상 반복 - (a\|b)*c : c, ac, bc, aac, abc, bbc, bac, aaac....
 
 #### 문자
 
 - 어떤 character라도 상관없이 하나의 문자 - .: a, b, c, d, .... 1, 2, 3, 4... *, !, # ...
 - 4개의 character로 구성된 문자열 - ^.{4}$:  abcd, aaaa, bcaz ...
-- a 또는 b - [ab] = a|b 
+- a 또는 b - [ab] = a\|b 
 - 영문자 또는 숫자 - [a-zA-Z0-9]
 - %앞에 숫자 - [0-9]%
 - 소수점 뒤 3자리 숫자로 끝나는 문자 - [0-9]+\.[0-9]{3}$
@@ -174,7 +174,7 @@ Skip	I love logs
 Skip	I love cogs	
 ```
 
-- 'I love (cats|dogs)'
+- 'I love (cats\|dogs)'
 
 #### 예제 10
 
