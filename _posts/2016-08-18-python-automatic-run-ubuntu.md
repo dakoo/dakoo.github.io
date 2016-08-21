@@ -1,9 +1,9 @@
 ---
 layout: post
-title: python - ubuntu 시작시 자동 실행(1) 
-description: python - ubuntu 시작시 자동 실행(1) 
+title: Python - ubuntu 시작시 자동 실행(1) 
+description: Python - ubuntu 시작시 자동 실행(1) 
 modified: 2016-08-18
-tags: [python]
+tags: [python, ubuntu]
 comments: true
 image:
   feature: abstract-13.png
