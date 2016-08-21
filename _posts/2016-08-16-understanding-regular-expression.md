@@ -35,6 +35,8 @@ Regular expression에 대해 간단히 살펴보자.
 |[^a-c]|a에서 c까지 character를 제외한 것 중 하나|
 |[0-9]|0부터 9까지의 숫자 중 하나|
 |\\.|.|
+|\\b|단어의 경계를 표현, 예를 들어 on1 on on2가 있을 때 가운데 on만 뽑아내기 위해 '/\\bon\\b/'를 사용
+|\\숫자|backreference. 찾아진 문자열이 여러 개일때 \\1, \\2, \\3 등으로 referencing|
 |^abc|abc로 시작하는 문자열|
 |abc$|abc로 끝나는 문자열|
 |(...)|하나의 문자가 아닌 Group을 지정|
