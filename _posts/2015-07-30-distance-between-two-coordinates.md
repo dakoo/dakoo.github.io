@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 두 좌표 사이의 거리 계산하는 방법
+title: Web - 두 좌표 사이의 거리 계산하는 방법
 description: 두 좌표 사이의 거리 계산하는 방법
 modified: 2015-07-30
 tags: [webapp, javascript]
