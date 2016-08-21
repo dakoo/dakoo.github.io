@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LCS(Longest Common Subsequence)알고리즘 
+title: Algorithm - LCS(Longest Common Subsequence) 
 description: LCS(Longest Common Subsequence)알고리즘
 modified: 2015-08-15
 tags: [algorithm]

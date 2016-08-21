@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 디자인 - dependency injection
+title: Design - dependency injection
 description: dependency injection
 modified: 2016-02-15
 tags: [design]

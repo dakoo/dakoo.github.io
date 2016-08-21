@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 디자인 - OOD 초간단 접근법
+title: Design - OOD 초간단 접근법
 description: OOD 초간단 접근법
 modified: 2016-02-16
 tags: [design]

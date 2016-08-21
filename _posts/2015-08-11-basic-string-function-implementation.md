@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 문자열을 다루기 위한 기본 함수들
+title: C - 문자열을 다루기 위한 기본 함수들
 description: 문자열을 다루기 위한 기본 함수들 
 modified: 2015-08-11
 tags: [algorithm]

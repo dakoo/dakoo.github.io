@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 데이터구조 - Priority Queue
+title: Data Structure - Priority Queue
 description: Priority Queue 
 modified: 2016-02-06
 tags: [algorithm]

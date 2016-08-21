@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 데이터구조 - disjoints-set
+title: Data Structure - disjoints-set
 description: 데이터구조 - disjoints-set
 modified: 2016-02-16
 tags: [algorithm]

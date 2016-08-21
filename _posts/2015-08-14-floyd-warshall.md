@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - Floyd-Warshall 
+title: Algorithm - Floyd-Warshall 
 description: 알고리즘 - Floyd-Warshall 
 modified: 2016-03-04
 tags: [algorithm]

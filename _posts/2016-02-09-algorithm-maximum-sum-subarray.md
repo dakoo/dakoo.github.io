@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - maximum sum subarray
+title: Algorithm - maximum sum subarray
 description: maximum sum subarray
 modified: 2016-02-09
 tags: [algorithm]

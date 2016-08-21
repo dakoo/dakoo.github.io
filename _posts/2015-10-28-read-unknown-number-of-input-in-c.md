@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to figure out the unknown number of inputs in C
+title: C++ - How to figure out the unknown number of inputs in C
 modified: 2015-10-28
-tags: [algorithm]
+tags: [cpp]
 comments: true
 image:
   feature: abstract-10.png

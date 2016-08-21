@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘-LIS(Longest Increasing Subsequence) O(N*N) 
+title: Algorithm - LIS(Longest Increasing Subsequence) O(N*N) 
 description: LIS(Longest Increasing Subsequence)알고리즘
 modified: 2016-03-03
 tags: [algorithm]

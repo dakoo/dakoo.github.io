@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Travelling Salesman Problem(TSP) 알고리즘 
+title: Algorithm - Travelling Salesman Problem(TSP) 
 description: Travelling Salesman Problem(TSP) 알고리즘 
 modified: 2015-08-15
 tags: [algorithm]

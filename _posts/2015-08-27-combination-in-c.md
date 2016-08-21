@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘-combination
+title: Algorithm - combination
 description: combination
 modified: 2016-02-16
 tags: [algorithm]

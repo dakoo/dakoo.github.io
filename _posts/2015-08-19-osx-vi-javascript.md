@@ -1,9 +1,9 @@
 ---
 layout: post
-title: OSX에서의 javascript를 위한 vim 에디터 설정
-description: OSX에서의 javascript를 위한 vim 에디터 설정
+title: Javascript - Vi 에디터 설정
+description: Javascript를 위한 vim 에디터 설정
 modified: 2015-08-19
-tags: [tool]
+tags: [javascript, v
 comments: true
 image:
   feature: abstract-5.png

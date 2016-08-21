@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to get digits from a number
+title: Algorithm - How to get digits from a number
 modified: 2015-10-28
 tags: [algorithm]
 comments: true

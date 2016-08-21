@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 데이터구조 - hash table
+title: data structure - hash table
 description: hash table
 modified: 2016-02-13
 tags: [data structure]

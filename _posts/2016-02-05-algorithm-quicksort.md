@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - quick sort
+title: Algorithm - quick sort
 description: quick sort 
 modified: 2015-08-05
 tags: [algorithm, english]

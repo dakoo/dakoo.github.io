@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘-순열과 조합
+title: Algorithm - 순열과 조합
 description: 순열과 조합 
 modified: 2016-02-22
 tags: [algorithm]

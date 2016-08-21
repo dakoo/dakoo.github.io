@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 편리한 front-end 개발을 위한 gulp-livereload 예제
+title: Web - 편리한 front-end 개발을 위한 gulp-livereload 예제
 description: 편리한 front-end 개발을 위한 gulp-livereload 예제
 modified: 2015-07-07
-tags: [hapi]
+tags: [web]
 comments: true
 image:
   feature: abstract-6.png

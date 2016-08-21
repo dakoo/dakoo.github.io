@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript에서의 모듈 export/import 
+title: Javascript - 모듈 export/import 
 description: Javascript에서의 모듈 export/import 
 modified: 2015-08-22
 tags: [javascript]

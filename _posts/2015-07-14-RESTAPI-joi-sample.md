@@ -1,6 +1,6 @@
 ---
 layout: post
-title: REST API 서버에 joi 적용 예제 
+title: Nodejs - REST API 서버에 joi 적용 예제 
 description: REST API 서버에 joi 적용 예제 
 modified: 2015-07-14
 tags: [hapi]

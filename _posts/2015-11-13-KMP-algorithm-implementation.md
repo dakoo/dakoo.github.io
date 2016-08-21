@@ -1,6 +1,6 @@
 ---
 layout: post
-title: KMP algorithm to search a pattern in a string
+title: Algorithm - KMP algorithm to search a pattern in a string
 modified: 2015-11-15
 tags: [algorithm]
 comments: true

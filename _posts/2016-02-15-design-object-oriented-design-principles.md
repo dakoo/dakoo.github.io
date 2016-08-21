@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 디자인 - Object Oriented Design Principles
+title: Design - Object Oriented Design Principles
 description: Object Oriented Design Principles
 modified: 2016-02-15
 tags: [design]

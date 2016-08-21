@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘-Minimum Spanning Tree - Kruskal
+title: Algorithm - Minimum Spanning Tree - Kruskal
 description: Minimum Spanning Tree - Kruskal
 modified: 2016-02-16
 tags: [algorithm]

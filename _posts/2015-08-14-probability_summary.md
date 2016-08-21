@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 확률에 대한 간단 정리
+title: Algorithm - 확률에 대한 간단 정리
 description: 확률에 대한 간단 정리 
 modified: 2015-08-14
 tags: [algorithm]

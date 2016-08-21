@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Windows에 mongodb 설치하기
+title: Nodejs - Windows에 mongodb 설치하기
 description: Windows에 mongodb 설치하기
 modified: 2015-07-09
 tags: [hapi]

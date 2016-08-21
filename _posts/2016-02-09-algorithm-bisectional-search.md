@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - 이분 탐색 
+title: Algorithm - 이분 탐색 
 description: 이분 탐색 
 modified: 2016-02-09
 tags: [algorithm]

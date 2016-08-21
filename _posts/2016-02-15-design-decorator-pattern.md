@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 디자인 - decorator 패턴 
+title: Design - decorator 패턴 
 description: decorator 패턴 
 modified: 2016-02-15
 tags: [design]

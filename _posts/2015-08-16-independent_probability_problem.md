@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - 독립 시행 확률  
+title: Algorithm - 독립 시행 확률  
 description: 독립 시행 확률
 modified: 2015-08-16
 tags: [algorithm]

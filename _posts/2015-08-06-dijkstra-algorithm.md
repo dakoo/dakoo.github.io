@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘-Dijkstra's shortest path
+title: Algorithm - Dijkstra's shortest path
 description: Dijkstra's shortest path
 modified: 2016-02-06
 tags: [algorithm]

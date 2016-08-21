@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 디자인 - abstract factory pattern
+title: Design - abstract factory pattern
 description:  abstract factory pattern
 modified: 2016-02-14
 tags: [design]

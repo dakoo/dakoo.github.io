@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)
+title: Nodejs - Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)
 description: Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (2)
 modified: 2015-07-14
 tags: [hapi]

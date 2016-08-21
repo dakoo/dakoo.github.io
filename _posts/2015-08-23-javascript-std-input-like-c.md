@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript에서 알고리즘 문제 풀이위한 input 구현
+title: Javascript - 알고리즘 문제 풀이위한 input 구현
 description: Javascript에서의 알고리즘 문제 풀이위한 input 구현
 modified: 2015-08-23
 tags: [javascript]

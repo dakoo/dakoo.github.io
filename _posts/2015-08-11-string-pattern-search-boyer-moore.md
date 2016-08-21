@@ -1,6 +1,6 @@
 ---
 layout: post
-title: String pattern search algorithm - Boyer-Moore 
+title: Algorithm - String pattern search with Boyer-Moore 
 description: String pattern search algorithm - Boyer-Moore
 modified: 2015-08-11
 tags: [algorithm, english]

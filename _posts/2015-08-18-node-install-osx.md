@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mac(OSX)에 nodejs를 설치하는 최고의 방법
+title: Nodejs - Mac(OSX)에 nodejs를 설치하는 최고의 방법
 description: Mac(OSX)에 nodejs를 설치하는 최고의 방법
 modified: 2015-08-18
 tags: [javascript, backend, node]

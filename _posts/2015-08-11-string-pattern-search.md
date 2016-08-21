@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘-보이어-무어
+title: Algorithm - 보이어-무어
 description: 문자열 패턴 검색 - 보이어-무어 알고리즘에 대한 이해와 구현
 modified: 2016-02-28
 tags: [algorithm]

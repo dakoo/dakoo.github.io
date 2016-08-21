@@ -1,6 +1,6 @@
 ---
 layout: post
-title: hapi.js를 이용한 구조화된 간단 서버 예제
+title: Nodejs - hapi.js를 이용한 구조화된 간단 서버 예제
 description: hapi.js를 이용한 구조화된 간단 서버 예제
 modified: 2015-07-08
 tags: [hapi]

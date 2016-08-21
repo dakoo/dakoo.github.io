@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - k번째 큰(작은) 아이템 찾기
+title: Algorithm - k번째 큰(작은) 아이템 찾기
 description: k번째 아이템 찾기
 modified: 2016-02-22
 tags: [algorithm]

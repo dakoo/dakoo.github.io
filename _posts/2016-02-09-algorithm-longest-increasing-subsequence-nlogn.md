@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 알고리즘 - Longest Increasing Subsequence
+title: Algorithm - Longest Increasing Subsequence
 description: LIS 
 modified: 2016-02-09
 tags: [algorithm, Dynamic Programming, LIS]
