@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C++ - sublime text3 configuration to build c++11
+title: C++ Sublime text - Build c++11 on Sublime
 description: C++ - sublime text3 
 modified: 2015-07-04
 tags: [cpp, sublime]
