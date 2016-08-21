@@ -1,6 +1,6 @@
 ---
 layout: post
-title: data structure - binary search tree
+title: Data Structure - binary search tree
 description: binary search tree
 modified: 2016-02-13
 tags: [data structure]
