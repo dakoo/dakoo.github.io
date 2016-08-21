@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Github의 Repository를 이용해서 web page 만들기 
-description: Github의 Repository를 이용해서 web page 만들기
+title: Github - Repository를 이용해서 web page 만들기 
+description: Github - Repository를 이용해서 web page 만들기
 modified: 2016-08-10
-tags: [blog]
+tags: [github]
 comments: true
 image:
   feature: abstract-19.png
