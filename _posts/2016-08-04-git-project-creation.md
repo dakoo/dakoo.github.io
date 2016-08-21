@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 개발 - git 프로젝트 생성의 모든 것
-description: 개발 - git 프로젝트 생성의 모든 것
+title: Git - 프로젝트 생성의 모든 것
+description: Git - 프로젝트 생성의 모든 것
 modified: 2015-07-04
-tags: [blog]
+tags: [git]
 comments: true
 image:
   feature: abstract-12.png
