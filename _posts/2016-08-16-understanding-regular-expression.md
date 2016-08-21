@@ -1,7 +1,7 @@
 ---
 layout: post
-title: regular expression에 대한 간단 이해
-description: regular expression에 대한 간단 이해
+title: Regular expression - 간단 이해
+description: Regular expression - 간단 이해
 modified: 2016-08-16
 tags: [re]
 comments: true
