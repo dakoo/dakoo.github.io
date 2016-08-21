@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Tool - unit test framework들 - C++, java, python
-description: Tool - unit test framework들 - C++, java, python
+title:  C++ Java Python - unit test framework
+description: C++ Java Python - unit test framework
 modified: 2016-05-07
-tags: [tool]
+tags: [C++, Java, Python]
 comments: true
 image:
   feature: abstract-11.png
