@@ -1,9 +1,9 @@
 ---
 layout: post
-title: S3 파일 upload시에 aws lambda를 통해 dynamodb에 아이템 추가하기 
-description: S3 파일 upload시에 aws lambda를 통해 dynamodb에 아이템 추가하기 
+title: AWS - S3 파일 upload시에 aws lambda를 통해 dynamodb에 아이템 추가하기 
+description: AWS - S3 파일 upload시에 aws lambda를 통해 dynamodb에 아이템 추가하기 
 modified: 2016-07-31
-tags: [dev]
+tags: [aws]
 comments: true
 image:
   feature: abstract-21.png
