@@ -10,7 +10,7 @@ image:
 ---
 Intellj IDEA를 Ubuntu에 설치하는 법을 알아보자. 
 
-먼저 Java가 설치되어 있어야 한다. 이를 위해 [이전 글]()을 참조하자.
+먼저 Java가 설치되어 있어야 한다. 이를 위해 [이전 글](http://hochulshin.com/oracle-java8-installation-ubuntu-1604/)을 참조하자.
 
 ### 설치 
 
