@@ -52,6 +52,13 @@ $ sudo supervisorctl update
 $ sudo supervisorctl start {프로그램명}
 ```
 
+##### trouble shooting
+
+만약 socket.py를 열수 없다는 error가 발생하거나 하면, 다음을 실행시킨다. 
+
+- sudo supervisord -c /etc/supervisor/supervisord.conf
+- sudo supervisorctl -c /etc/supervisor/supervisord.conf
+
 ### 4 python code를 update시 재구동 
 
 ```
