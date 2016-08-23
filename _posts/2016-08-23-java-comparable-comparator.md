@@ -69,7 +69,7 @@ public class Solution {
 
 Book instance를 비교하기 위해서는 **Comparable interface**에서 정의하는 **public int compareTo(Object o)**을 구현해야 한다. Book class를 다음과 같이 수정해 보자. 여기서는 ascending order를 가정한다. 
 
-```
+```java
 public class Book implements Comparable<Book>{
     private int price;
     public Book(int price){
@@ -106,7 +106,7 @@ Comparator는 static Comparator instance로 비교 대상인 object를 수정하
 
 Comparator의 syntax는 다음과 같다. 
 
-```
+```java
 public static Comparator<Type> myComparator
                           = new Comparator<Type>() {
 
@@ -121,7 +121,7 @@ public static Comparator<Type> myComparator
 
 위의 myComparator를 다음과 같이 사용하면 된다. 
 
-```
+```java
 Collections.sort(myList, myComparator);
 ```
 
@@ -129,7 +129,7 @@ Collections.sort(myList, myComparator);
 
 2.1의 Book class를 그대로 두고 (Comparable Interface 구현 없이) sorting을 해보자. 
 
-```
+```java
 public class Book{
     private int price;
     public Book(int price){
@@ -144,7 +144,7 @@ public class Book{
 
 ##### 4.2.1 Comparator
 
-```
+```java
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -181,7 +181,7 @@ public class Solution {
 
 다음과 같이 anonymous Comparator를 사용해 작성할 수도 있다. 
 
-```
+```java
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -214,7 +214,7 @@ public class Solution {
 
 Anonymous function은 Java의 Lambda로 변환 가능하다. 이제 마지막 코드를 보자.
 
-```
+```java
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
@@ -241,13 +241,13 @@ public class Solution {
 참고로 Java의 Lambda에서는 
 
 
-```
+```java
  (a1, a2) -> { return a1 > a2; }
 ```
 
 와 
 
-```
+```java
  (a1, a2) -> a1 > a2;
 ```
 
