@@ -31,11 +31,37 @@ $ make
 $ sudo make install
 ```
 
-- 자신의 계정의 root 폴더로 이동해서 .profile 파일을 열고 다음을 추가하자. 
+- 자신의 계정의 root 폴더로 이동해서 .profile 파일 또는 .bashrc를 열고 다음을 추가하자. 
 
 ```bash
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape;Control_L=Escape'
+```
+
+##### Update
+
+위와같이 설정한 keymap이 가끔 풀릴때가 있다. 그때마다 다시 시작해야 하는 것은 매우 번거로운 일이다. 
+빈번히 주기적으로(1초마다) 호출을 하는 식으로 수정해보자. 
+
+이를 위해 먼저 1초마다 주기적으로 호출하는 프로그램을 작성해보자. 파일이름은 changeKeyMap.sh
+
+```bash
+#!/bin/bash
+while true
+do
+    setxkbmap -option 'caps:ctrl_modifier'
+    xcape -e 'Caps_Lock=Escape;Control_L=Escape'
+    sleep 1
+done
+```
+
+[여기](http://hochulshin.com/python-supervisord/)을 참조해서 supervisord에 등록해서 항상 실행되도록 하자. /etc/supervisor/conf.d/changeKeyMap.conf를 만들어 다음 내용을 두자 
+
+```
+[program:changeKeyMap]
+command=./changeKeyMap.sh
+directory={changeKeyMap.sh가 있는 폴더 위치}
+user={계정명}
 ```
 
 #### 2. Caps Lock을 Escape 키로 변경
