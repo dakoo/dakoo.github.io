@@ -1,3 +1,13 @@
+---
+layout: post
+title: Java - BigInteger 다루기
+description: Java - BigInteger 다루기
+modified: 2016-08-23
+tags: [java]
+comments: true
+image:
+  feature: abstract-14.png
+---
 매우 매우 매우 큰 크기의 숫자를 저장할 수 있는 Java BigInteger class에 대해 간단히 알아보자. 자세한 내용은 [Java API](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)를 참고하자. 
 
 ### BigInteger의 사칙 연산
