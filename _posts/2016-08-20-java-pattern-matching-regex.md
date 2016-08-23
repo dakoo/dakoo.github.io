@@ -184,7 +184,7 @@ public class Solution {
         Scanner scan = new Scanner(System.in);
         String inputString = scan.nextLine();
         scan.close();
-        Pattern pattern = Pattern.compile("<(.+?)>([^<>]+)</\\1>");
+        Pattern pattern = Pattern.compile("<(.+)>([^<>]+)</\\1>");
         Matcher matcher = pattern.matcher(inputString);
         boolean found = false;
         while (matcher.find()) {
