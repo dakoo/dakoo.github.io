@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java - Big Number: BigInteger, BigDecimal
+title: Java - Big Number: BigInteger와 BigDecimal
 description: Java - Big Number 다루기
 modified: 2016-08-23
 tags: [java]
