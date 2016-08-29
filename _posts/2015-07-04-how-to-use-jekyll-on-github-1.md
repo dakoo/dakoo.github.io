@@ -3,7 +3,7 @@ layout: post
 title: Blog - Windows에서 Jekyll 이용해 Github 블로그 만들기(1)
 description: Windows에서 Jekyll 이용해 Github 블로그 만들기 첫번째 
 modified: 2015-07-04
-tags: [blog, jekyll]
+tags: [blog]
 comments: true
 image:
   feature: abstract-11.png

@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - REST API 서버에 joi 적용 예제 
 description: REST API 서버에 joi 적용 예제 
 modified: 2015-07-14
-tags: [hapijs, nodejs, rest, joi]
+tags: [hapijs, nodejs, rest, test]
 comments: true
 image:
   feature: abstract-11.png

@@ -3,7 +3,7 @@ layout: post
 title: Python - virtualenv 
 description: Python - virtualenv 
 modified: 2016-07-28
-tags: [python, virtualenv]
+tags: [python]
 comments: true
 image:
   feature: abstract-08.png

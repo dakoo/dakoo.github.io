@@ -3,7 +3,7 @@ layout: post
 title: Python - httpclient example using urllib
 description: Python
 modified: 2016-06-28
-tags: [python, network]
+tags: [python]
 comments: true
 image:
   feature: abstract-11.png

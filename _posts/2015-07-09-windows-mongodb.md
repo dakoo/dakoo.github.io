@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - Windows에 mongodb 설치하기
 description: Windows에 mongodb 설치하기
 modified: 2015-07-09
-tags: [windows, mongodb]
+tags: [windows, mongodb, database]
 comments: true
 image:
   feature: abstract-16.png

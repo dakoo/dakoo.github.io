@@ -3,7 +3,7 @@ layout: post
 title: Python - urllib
 description: Python
 modified: 2016-03-28
-tags: [python, network]
+tags: [python]
 comments: true
 image:
   feature: algorithm.jpeg
