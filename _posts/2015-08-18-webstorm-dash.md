@@ -3,7 +3,7 @@ layout: post
 title: Web - OSX에서 WebStorm과 Dash 연동
 description: OSX에서 WebStorm과 Dash 연동
 modified: 2015-08-18
-tags: [web]
+tags: [web, webstorm, osx]
 comments: true
 image:
   feature: abstract-4.png

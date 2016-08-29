@@ -3,7 +3,7 @@ layout: post
 title: C++ - multimap
 description: C++ - multimap
 modified: 2016-02-15
-tags: [language]
+tags: [c++, datastructure]
 comments: true
 image:
   feature: algorithm.jpeg

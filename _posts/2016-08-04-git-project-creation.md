@@ -3,7 +3,7 @@ layout: post
 title: Git - 프로젝트 생성의 모든 것
 description: Git - 프로젝트 생성의 모든 것
 modified: 2015-07-04
-tags: [git]
+tags: [git, blog]
 comments: true
 image:
   feature: abstract-12.png

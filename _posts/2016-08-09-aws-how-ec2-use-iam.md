@@ -3,7 +3,7 @@ layout: post
 title: AWS EC2에 IAM Role 설정하기 
 description: AWS EC2에 IAM Role 설정하기 
 modified: 2016-08-09
-tags: [aws]
+tags: [aws, iam, ec2]
 comments: true
 image:
   feature: abstract-21.png

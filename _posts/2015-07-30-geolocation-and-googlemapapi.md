@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Geolocation API와 Google map API 
+title: Web - Geolocation API와 Google map API 
 description: Geolocation API와 Google map API 예제들
 modified: 2015-08-01
-tags: [webapp, javascript]
+tags: [web, javascript, geolocation]
 comments: true
 image:
   feature: abstract-10.png

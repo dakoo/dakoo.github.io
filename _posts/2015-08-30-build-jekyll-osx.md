@@ -3,7 +3,7 @@ layout: post
 title: Blog - OSX에서 Jekyll 블로그 테마 구동하기
 excerpt: "OSX에서 Jekyll 블로그 테마 구동하기"
 modified: 2015-08-30
-tags: [blog]
+tags: [blog, jekyll, osx]
 comments: true
 image:
   feature: abstract-23.jpg

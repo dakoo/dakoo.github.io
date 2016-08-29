@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - hapi.js를 이용한 multi-port 지원 서버 예제
 description:  hapi.js를 이용한 multi-port 지원 서버 예제
 modified: 2015-07-08
-tags: [hapi]
+tags: [hapijs, nodejs]
 comments: true
 image:
   feature: abstract-13.png

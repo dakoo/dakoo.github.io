@@ -3,7 +3,7 @@ layout: post
 title: C++ Sublime text - Build c++11 on Sublime
 description: C++ - sublime text3 
 modified: 2015-07-04
-tags: [cpp, sublime]
+tags: [c++, sublime]
 comments: true
 image:
   feature: abstract-11.png

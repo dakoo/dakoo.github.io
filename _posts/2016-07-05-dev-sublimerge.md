@@ -3,7 +3,7 @@ layout: post
 title: Sublime text - sublimerge
 description: 개발 환경 - sublimerge
 modified: 2016-07-05
-tags: [sublime]
+tags: [sublime, merge]
 comments: true
 image:
   feature: abstract-11.png

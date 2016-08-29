@@ -3,7 +3,7 @@ layout: post
 title: Data Structure - Priority Queue
 description: Priority Queue 
 modified: 2016-02-06
-tags: [algorithm]
+tags: [algorithm, datastructure]
 comments: true
 image:
   feature: abstract-10.png

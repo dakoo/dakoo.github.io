@@ -3,7 +3,7 @@ layout: post
 title: Web - 두 좌표 사이의 거리 계산하는 방법
 description: 두 좌표 사이의 거리 계산하는 방법
 modified: 2015-07-30
-tags: [webapp, javascript]
+tags: [web, javascript, geolocation]
 comments: true
 image:
   feature: abstract-18.png

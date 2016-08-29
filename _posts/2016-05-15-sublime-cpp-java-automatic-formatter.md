@@ -3,7 +3,7 @@ layout: post
 title: C++ Java - Automatic formatter  
 description: cpp and java automatic formatter  
 modified: 2016-05-15
-tags: [dev]
+tags: [java, c++, formatter]
 comments: true
 image:
   feature: abstract-11.png

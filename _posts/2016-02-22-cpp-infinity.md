@@ -3,7 +3,7 @@ layout: post
 title: C++ - 무한대 표현
 description: infinity
 modified: 2016-02-22
-tags: [cpp]
+tags: [c++]
 comments: true
 image:
   feature: algorithm.jpeg

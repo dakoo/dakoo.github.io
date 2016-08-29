@@ -3,7 +3,7 @@ layout: post
 title: C++ - coding convention
 description: C++ - coding convention
 modified: 2016-05-07
-tags: [cpp]
+tags: [c++]
 comments: true
 image:
   feature: abstract-11.png

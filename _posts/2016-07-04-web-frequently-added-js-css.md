@@ -3,7 +3,7 @@ layout: post
 title: Web - 자주 추가하는 js와 css
 description:  web - 자주 추가하는 js와 css
 modified: 2016-07-04
-tags: [web]
+tags: [web, javascript, css]
 comments: true
 image:
   feature: abstract-11.png

@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu - 터미널에서 실행되는 프로그램을 Launcher로 만들기
 description: Ubuntu - 터미널에서 실행되는 프로그램을 Launcher로 만들기
 modified: 2015-07-04
-tags: [OSX]
+tags: [ubunutu, git]
 comments: true
 image:
   feature: abstract-11.png

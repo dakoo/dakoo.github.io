@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu Java - Intellij IDEA 설치하기 
 description: Ubuntu Java - Intellij IDEA 설치하기 
 modified: 2016-8-21
-tags: [ubuntu, java]
+tags: [ubuntu, java, intellij]
 comments: true
 image:
   feature: abstract-11.png

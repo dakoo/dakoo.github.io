@@ -3,7 +3,7 @@ layout: post
 title: Algorithm - Longest Increasing Subsequence
 description: LIS 
 modified: 2016-02-09
-tags: [algorithm, Dynamic Programming, LIS]
+tags: [algorithm]
 comments: true
 image:
   feature: algorithm.jpeg

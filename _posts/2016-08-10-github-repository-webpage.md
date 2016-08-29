@@ -3,7 +3,7 @@ layout: post
 title: Github - Repository를 이용해서 web page 만들기 
 description: Github - Repository를 이용해서 web page 만들기
 modified: 2016-08-10
-tags: [github]
+tags: [github, git, web]
 comments: true
 image:
   feature: abstract-19.png

@@ -3,7 +3,7 @@ layout: post
 title: AWS - S3 object 접근 권한 설정하기
 description: AWS - S3 object 접근 권한 설정하기
 modified: 2016-08-11
-tags: [aws]
+tags: [aws, s3, iam]
 comments: true
 image:
   feature: abstract-11.png

@@ -1,61 +1,51 @@
-# Site wide configuration
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-title:            hochulshin.com
-locale:           en_US
-url: 
+# Site settings
+title: Solid Code - hochulshin.com
+brief-intro: what I really like
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://hochulshin.com" # the base hostname & protocol for your site
 
+permalink: /:categories/:title/
 
-# Jekyll configuration
+# other links
+facebook_username: hochul.shin0
+github_username:  dakoo
+email: hochul.shin0@gmail.com
+linkedIn_username: hochulshin0
 
-permalink:   /:categories/:title/
-markdown:    kramdown
-highlighter: false
-sass:
-  sass_dir: _sass
-  style: compressed
-gems:
-  - jekyll-sitemap
+# comments
+# two ways to comment, only choose one, and use your own short name
+# 两种评论插件，选一个就好了，使用自己的 short_name
+disqus_shortname: dakoogithubio
+
+# statistic analysis 统计代码
+# 百度统计 id，将统计代码替换为自己的百度统计id，即
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# xxxxx字符串
+google_analytics_id: UA-60163348-2 # google 分析追踪id
+
+# Build settings
+markdown: kramdown
 
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
+  input: GFM
+  syntax_highlighter: rouge
 
+# port
+# port: 1234
 
-# Site owner
-owner:
-  name: Hochul Shin
-  avatar: avatar.jpg
-  bio: "Software engineer specialized in distributed systems and multimedia"
-  email:
-  disqus-shortname: dakoogithubio
-  twitter: #username
-  facebook: hochul.shin0
-  google:
-    plus: #username
-    analytics: UA-60163348-2  
-    verify:
-    ad-client:
-    ad-slot:
-  bing-verify:
-  github: dakoo
-  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: hochulshin0
-  xing: #username
-  instagram: #username
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
-  youtube: #username
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
-  codepen: #username
+# url
+tag_dir: tag/
 
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
+# excerpt
+excerpt_separator: "\n\n\n\n"
+
+# paginate
+gems: [jekyll-paginate]
+paginate: 6

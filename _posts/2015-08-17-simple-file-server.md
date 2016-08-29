@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - Making a simple file server
 description: Making a simple file server
 modified: 2015-08-17
-tags: [javascript, backend, node]
+tags: [nodejs, expressjs]
 comments: true
 image:
   feature: abstract-22.png

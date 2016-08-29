@@ -3,7 +3,7 @@ layout: post
 title: Sublime text3 - 설치와 설정
 description: 개발 환경
 modified: 2016-03-20
-tags: [sublime]
+tags: [sublime, ubuntu, vi]
 comments: true
 image:
   feature: algorithm.jpeg

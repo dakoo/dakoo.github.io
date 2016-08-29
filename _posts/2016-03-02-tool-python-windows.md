@@ -3,7 +3,7 @@ layout: post
 title: Python - on Windows 
 description: python 
 modified: 2016-03-02
-tags: [python]
+tags: [python, windows]
 comments: true
 image:
   feature: algorithm.jpeg

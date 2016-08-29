@@ -3,7 +3,7 @@ layout: post
 title: AWS - S3 파일 생성시 SNS, SQS를 통해 EC2로 전달하기 
 description: AWS - S3 파일 생성시 SNS, SQS를 통해 EC2로 전달하기 
 modified: 2016-07-18
-tags: [aws]
+tags: [aws, s3, sns, sqs, ec2]
 comments: true
 image:
   feature: abstract-14.png

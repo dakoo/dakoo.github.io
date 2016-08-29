@@ -3,7 +3,7 @@ layout: post
 title: C++ - priority_queue
 description: C++ - priority_queue
 modified: 2016-02-15
-tags: [language]
+tags: [c++, datastructure]
 comments: true
 image:
   feature: algorithm.jpeg

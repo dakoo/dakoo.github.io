@@ -3,7 +3,7 @@ layout: post
 title:  C++ Java Python - unit test framework
 description: C++ Java Python - unit test framework
 modified: 2016-05-07
-tags: [C++, Java, Python]
+tags: [c++, java, python, test]
 comments: true
 image:
   feature: abstract-11.png

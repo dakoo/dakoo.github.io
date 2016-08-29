@@ -3,7 +3,7 @@ layout: post
 title: JavaScript - underscore.js 사용법에 대한 유용한 link
 description: underscore.js 사용법에 대한 유용한 link
 modified: 2015-07-21
-tags: [javascript]
+tags: [javascript, underscorejs]
 comments: true
 image:
   feature: abstract-22.png

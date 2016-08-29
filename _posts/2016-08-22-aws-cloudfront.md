@@ -3,7 +3,7 @@ layout: post
 title: AWS - CloudFront 사용하기
 description: AWS - CloudFront 사용하기
 modified: 2016-08-22
-tags: [aws]
+tags: [aws, cloudfront, s3]
 comments: true
 image:
   feature: abstract-16.png

@@ -3,7 +3,7 @@ layout: post
 title: Python - many-to-many relationship database
 description: Python
 modified: 2016-04-03
-tags: [python]
+tags: [python, database]
 comments: true
 image:
   feature: algorithm.jpeg

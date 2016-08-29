@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu - 최소한의 vi 설정
 description: Ubuntu - 최소한의 vi 설정
 modified: 2016-05-31
-tags: [ubuntu]
+tags: [ubuntu, vi]
 comments: true
 image:
   feature: abstract-11.png

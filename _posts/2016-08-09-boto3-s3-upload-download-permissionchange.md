@@ -3,7 +3,7 @@ layout: post
 title: AWS - Boto3를 이용한 S3 다루기 
 description: AWS - Boto3를 이용한 S3 다루기 
 modified: 2016-08-09
-tags: [aws]
+tags: [aws, boto3, s3]
 comments: true
 image:
   feature: abstract-11.png

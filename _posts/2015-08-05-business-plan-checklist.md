@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Business Plan checklist
+title: Startup - Business Plan checklist
 description: Business Plan checklist
 modified: 2015-08-05
-tags: [startup, english]
+tags: [startup]
 comments: true
 image:
   feature: abstract-11.png

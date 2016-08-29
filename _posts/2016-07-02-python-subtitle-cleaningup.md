@@ -3,7 +3,7 @@ layout: post
 title: Python - Extract texts from a Subtitle file 
 description: Python Extract texts from a Subtitle file 
 modified: 2016-07-02
-tags: [python]
+tags: [python, string]
 comments: true
 image:
   feature: abstract-11.png

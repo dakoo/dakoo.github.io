@@ -3,7 +3,7 @@ layout: post
 title: AWS - EC2에서 S3 마운트하기
 description: AWS - EC2에서 S3 마운트하기
 modified: 2016-08-18
-tags: [aws]
+tags: [aws, s3, ec2]
 comments: true
 image:
   feature: abstract-10.png

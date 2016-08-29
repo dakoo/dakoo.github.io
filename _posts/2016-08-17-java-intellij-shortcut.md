@@ -3,7 +3,7 @@ layout: post
 title: Java - vim 모드와 함께 쓸 만한 Intellij 단축키
 description: Java - vim 모드와 함께 쓸 만한 Intellij 단축키
 modified: 2016-08-17
-tags: [Java]
+tags: [java, vi, intellij]
 comments: true
 image:
   feature: abstract-11.png

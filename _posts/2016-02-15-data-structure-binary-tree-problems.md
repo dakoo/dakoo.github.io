@@ -3,7 +3,7 @@ layout: post
 title: Data Structure - Binary tree 문제들
 description: binary tree 및 binary search tree 문제들 
 modified: 2016-02-15
-tags: [data structure]
+tags: [datastructure]
 comments: true
 image:
   feature: algorithm.jpeg

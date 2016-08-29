@@ -3,7 +3,7 @@ layout: post
 title: AWS EC2에서의 Boto3 개발 환경 설정
 description: AWS EC2에서의 Boto3 개발 환경 설정
 modified: 2016-08-09
-tags: [aws]
+tags: [aws, python, boto3, ec2]
 comments: true
 image:
   feature: abstract-11.png

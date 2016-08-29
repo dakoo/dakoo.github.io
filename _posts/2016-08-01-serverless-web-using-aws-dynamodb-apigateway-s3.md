@@ -3,7 +3,7 @@ layout: post
 title: AWS - DynamoDB, API Gateway, S3를 이용한 Serverless Web Service 구축   
 description: AWS - DynamoDB, API Gateway, S3를 이용한 Serverless Web Service 구축   
 modified: 2018-08-01
-tags: [aws]
+tags: [aws, dynamodb, serverless, apigateway, s3, web]
 comments: true
 image:
   feature: abstract-19.png

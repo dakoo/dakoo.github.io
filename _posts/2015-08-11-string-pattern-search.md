@@ -3,7 +3,7 @@ layout: post
 title: Algorithm - 보이어-무어
 description: 문자열 패턴 검색 - 보이어-무어 알고리즘에 대한 이해와 구현
 modified: 2016-02-28
-tags: [algorithm]
+tags: [algorithm, string]
 comments: true
 image:
   feature: abstract-11.png

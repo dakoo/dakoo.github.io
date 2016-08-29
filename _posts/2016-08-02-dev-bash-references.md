@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu - bash 참조 사이트들
 description: Ubuntu - bash 참조 사이트들
 modified: 2016-08-02
-tags: [ubuntu]
+tags: [ubuntu, bash]
 comments: true
 image:
   feature: abstract-17.png

@@ -3,7 +3,7 @@ layout: post
 title: Sublime text - 터미널에서 sublime 바로 열기
 description: Sublime text - 터미널에서 sublime 바로 열기
 modified: 2016-07-10
-tags: [sublime]
+tags: [sublime, ubuntu, osx]
 comments: true
 image:
   feature: abstract-11.png

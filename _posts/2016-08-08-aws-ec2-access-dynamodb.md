@@ -3,7 +3,7 @@ layout: post
 title: AWS - EC2에서 dynamodb 접근하기
 description: AWS EC2에서 dynamodb 접근하기
 modified: 2016-08-08
-tags: [aws]
+tags: [aws, ec2, dynamodb, iam]
 comments: true
 image:
   feature: abstract-22.png

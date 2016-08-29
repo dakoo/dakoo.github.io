@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu - 부팅가능한 usb 스틱 만들기 
 description: Ubuntu - 부팅가능한 usb 스틱 만들기 
 modified: 2016-07-02
-tags: [dev]
+tags: [ubuntu]
 comments: true
 image:
   feature: abstract-11.png

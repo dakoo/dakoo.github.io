@@ -3,7 +3,7 @@ layout: post
 title: Data Structure - LRU(Least Recently Used) 
 description: LRU Cache
 modified: 2016-02-29
-tags: [data structure]
+tags: [datastructure]
 comments: true
 image:
   feature: algorithm.jpeg

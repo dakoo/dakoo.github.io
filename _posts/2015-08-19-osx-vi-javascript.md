@@ -3,7 +3,7 @@ layout: post
 title: Javascript - Vi 에디터 설정
 description: Javascript를 위한 vim 에디터 설정
 modified: 2015-08-19
-tags: [javascript]
+tags: [javascript, vi]
 comments: true
 image:
   feature: abstract-5.png

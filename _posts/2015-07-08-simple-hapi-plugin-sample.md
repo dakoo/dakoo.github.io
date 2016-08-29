@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - 간단 hapi plugin 예제
 description:  간단 hapi plugin 예제
 modified: 2015-07-08
-tags: [hapi]
+tags: [hapijs, nodejs]
 comments: true
 image:
   feature: abstract-21.png

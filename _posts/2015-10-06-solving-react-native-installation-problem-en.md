@@ -2,7 +2,7 @@
 layout: post
 title:  Solving a react-native installation problem
 modified: 2015-10-06
-tags: [react.native, en]
+tags: [react.native]
 comments: true
 image:
   feature: abstract-12.png

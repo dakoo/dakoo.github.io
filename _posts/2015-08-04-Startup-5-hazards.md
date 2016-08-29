@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Five common startup traps
+title: Startup - Five common startup traps
 description: Five common startup traps
 modified: 2015-08-04
-tags: [startup, english]
+tags: [startup]
 comments: true
 image:
   feature: abstract-16.png

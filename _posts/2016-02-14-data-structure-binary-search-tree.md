@@ -3,7 +3,7 @@ layout: post
 title: Data Structure - binary search tree
 description: binary search tree
 modified: 2016-02-13
-tags: [data structure]
+tags: [datastructure]
 comments: true
 image:
   feature: algorithm.jpeg

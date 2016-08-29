@@ -3,7 +3,7 @@ layout: post
 title: Python - simple sql 
 description: Python - simple sql  
 modified: 2016-04-01
-tags: [python]
+tags: [python, database]
 comments: true
 image:
   feature: abstract-11.png

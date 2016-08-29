@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (1)
 description: Hapi와 mongoDB를 이용한 간단 REST API 구현 예제 (1)
 modified: 2015-07-13
-tags: [hapi]
+tags: [hapijs, mongodb, rest]
 comments: true
 image:
   feature: abstract-5.png

@@ -3,7 +3,7 @@ layout: post
 title: Python - multi-table db
 description: Python
 modified: 2016-04-02
-tags: [python]
+tags: [python, database]
 comments: true
 image:
   feature: algorithm.jpeg

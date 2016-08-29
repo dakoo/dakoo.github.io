@@ -4,7 +4,7 @@ title: Nodejs - Windows에서 node.js 개발을 위한 WebStorm 환경 설정 �
 description: Windows에서 node.js 개발을 위한 WebStorm 환경 설정 하기
 modified: 2015-07-06
 comments: true
-tags: [node]
+tags: [nodejs, windows, webstorm]
 image:
   feature: abstract-17.png
 ---

@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - socket.io와 hapi를 활용한 간단한 chat app
 description: socket.io와 hapi를 활용한 간단한 chat app
 modified: 2015-07-29
-tags: [webapp, hapi]
+tags: [web, hapijs, socketio, chat]
 comments: true
 image:
   feature: abstract-7.png

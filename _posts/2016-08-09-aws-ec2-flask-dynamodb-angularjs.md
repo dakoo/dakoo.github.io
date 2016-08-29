@@ -3,7 +3,7 @@ layout: post
 title: AWS - Flask와 EC2를 이용해서 DynamoDB와 연동하는 API Gateway 구현
 description: AWS - Flask와 EC2를 이용해서 DynamoDB와 연동하는 API Gateway 구현 
 modified: 2016-08-09
-tags: [aws]
+tags: [aws, flask, rest, apigateway, dynamodb, python]
 comments: true
 image:
   feature: abstract-12.png

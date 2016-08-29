@@ -3,7 +3,7 @@ layout: post
 title: Regular expression - 간단 이해
 description: Regular expression - 간단 이해
 modified: 2016-08-16
-tags: [re]
+tags: [regularexpression]
 comments: true
 image:
   feature: abstract-11.png

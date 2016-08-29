@@ -3,7 +3,7 @@ layout: post
 title: Blog - Jekyll theme을 위한 Google Analytics 사용법
 description: Jekyll theme을 위한 Google Analytics 사용법
 modified: 2015-07-07
-tags: [blog]
+tags: [blog, analytics, jekyll]
 comments: true
 image:
   feature: abstract-14.png

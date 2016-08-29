@@ -3,7 +3,7 @@ layout: post
 title: Java - pattern matching with regular expression
 description: java - pattern matching with regular expression
 modified: 2016-08-20
-tags: [java]
+tags: [java, regularexpression, string]
 comments: true
 image:
   feature: abstract-11.png

@@ -2,7 +2,7 @@
 layout: post
 title: Web - 빠르고 편리한 코딩을 위한 WebStorm live template 기능
 modified: 2015-09-05
-tags: [web]
+tags: [web, webstorm]
 comments: true
 image:
   feature: abstract-12.png

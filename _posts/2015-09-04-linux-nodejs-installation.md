@@ -2,7 +2,7 @@
 layout: post
 title: Nodejs - Linux(Ubuntu, Amazon Linux)에 nodejs를 설치하는 최고의 방법
 modified: 2015-09-04
-tags: [nodejs]
+tags: [nodejs, ubuntu]
 comments: true
 image:
   feature: abstract-10.png
