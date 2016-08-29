@@ -2,7 +2,7 @@
 layout: post
 title: Algorithm - KMP algorithm to search a pattern in a string
 modified: 2015-11-15
-tags: [algorithm]
+tags: [algorithm, string]
 comments: true
 image:
   feature: abstract-12.png
