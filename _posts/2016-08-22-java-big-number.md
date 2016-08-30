@@ -101,3 +101,59 @@ System.out.println(b1.divide(b2, 5, BigDecimal.ROUND_UP));
 1.4
 1.33334
 ```
+
+### 2.2 Arrays.sort()에서의 사용 예
+
+N개의 BigDecimal 입력을 받아서 sorting하는 예를 통해 BigDecimal의 사용을 살펴보자. N개의 BigDecimal로 변환 가능한 스트링 입력을 받아서 이를 큰 것에서 작은 순으로 정렬하는 예를 살펴보자. 그리고, 이때 입력의 수보다 Array에 미리 할당한 크기가 더 크게 하여 Arrays.sort()에서 어떻게 이를 처리했는지 보자. 다음이 입력 예이다. 
+
+```bash
+9 //9개 입력
+-100
+50
+0
+56.6
+90
+0.12
+.12
+02.34
+000.000
+```
+
+```java
+import java.math.BigDecimal;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        String []s=new String[n+2];
+        for(int i=0;i<n;i++){
+            s[i]=sc.next();
+        }
+        sc.close();
+
+        //Arrays.sort()를 이용해서 descending order로 sorting하기. 이때 범위는 0~n-1까지
+        Arrays.sort(s, 0, n, (s1, s2)->(new BigDecimal(s2).compareTo(new BigDecimal(s1)))); 
+
+        for(int i=0;i<n;i++) {
+            System.out.println(s[i]);
+        }
+    }
+}
+```
+
+출력은 다음과 같다. 
+
+```bash
+90
+56.6
+50
+02.34
+0.12
+.12
+0
+000.000
+-100
+```
