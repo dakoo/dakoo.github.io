@@ -48,7 +48,3 @@ image:
 ##### [hackerrank - java](https://www.hackerrank.com/domains/java/java-introduction)
 
 ##### [leetcode](https://leetcode.com/problemset/algorithms/)
-
-#### 4. API 참조
-
-##### [java 8 tutorial](http://www.tutorialspoint.com/java8/index.htm)
