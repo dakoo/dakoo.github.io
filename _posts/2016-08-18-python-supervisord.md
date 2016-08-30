@@ -26,7 +26,7 @@ supervisord를 이용해 자동으로 실행되도록 하자.
 ### 1 supervisord 설치
 
 
-```
+```bash
 $ sudo apt-get update
 $ sudo apt-get install -y supervisor
 ```
@@ -35,7 +35,7 @@ $ sudo apt-get install -y supervisor
 
 `/etc/supervisor/conf.d/` 폴더 아래에 {프로그래명}.conf 라는 이름으로 파일을 만들고 그 내용을 아래와 같이 채운다. 
 
-```
+```bash
 [program:{프로그램명}]
 command = {실행할 command}
 directory = {command가 실행되어야 하는 path}
@@ -45,7 +45,7 @@ user = {user name}
 - Note: {실행할 command}에서 command는 `which` 명령으로 나오는 full path까지 적는다. 
 - Note: export 변수는 다음과 같이 command이전에 추가한다. 변수 사이는 ,로 구분한다. 
 
-```
+```bash
 environment = 
     {변수1}={변수 내용1},
     {변수2}={변수 내용2},
@@ -69,7 +69,7 @@ $ sudo supervisorctl start {프로그램명}
 
 ### 4 python code를 update시 재구동 
 
-```
+```bash
 $ sudo supervisorctl restart {프로그램명}
 ```
 
@@ -77,7 +77,7 @@ $ sudo supervisorctl restart {프로그램명}
 
 다음과 같이 conf 파일에서 python 파일을 venv/bin/python을 지정한다.
 
-```
+```bash
 command = /home/user/Sites/my-site/venv/bin/python /home/user/Sites/my-site/app.py
 ```
 
@@ -87,7 +87,7 @@ command = /home/user/Sites/my-site/venv/bin/python /home/user/Sites/my-site/app.
 
 /home/ubuntu 아래에서 다음과 같이 폴더와 파일을 만든다. 
 
-```
+```bash
 $ mkdir work
 $ cd work
 $ vi test.py
@@ -95,7 +95,7 @@ $ vi test.py
 
 그 내용은 다음과 같이 1초에 한번씩 점을 찍는 것으로 한다. 
 
-```
+```python
 import time
 
 while True:
@@ -121,14 +121,14 @@ user = ubuntu
 
 /home/ubuntu 아래에서 다음과 같이 폴더와 파일을 만든다. 
 
-```
+```bash
 $ mkdir nwork
 $ cd nwork
 ```
 
 [이전 글](http://hochulshin.com/python-virtualenv-ubuntu/)을 참조해서 virtualenv를 설치하고 환경을 만든다. 
 
-```
+```bash
 $ virtualenv venv
 $ source venv/bin/activate
 ```
@@ -137,7 +137,7 @@ $ source venv/bin/activate
 
 /home/ubuntu/nwork 폴더에서 test.py 파일을 만들고 아래 내용을 넣는다. 
 
-```
+```python
 import time
 
 while True:
@@ -149,7 +149,7 @@ while True:
 
 - /etc/supervisor/conf.d/test-settings2.conf 파일을 만들고 아래 내용을 붙여 넣는다. 
 
-```
+```bash
 [program:test-settings]
 command = /home/ubunutu/nwork/venv/bin/python test.py
 directory = /home/ubuntu/nwork/
@@ -163,14 +163,14 @@ user = ubuntu
 
 /home/ubuntu 아래에서 다음과 같이 폴더와 파일을 만든다. 
 
-```
+```bash
 $ mkdir server
 $ cd server
 ```
 
 [virtualenv 관련 글](http://hochulshin.com/python-virtualenv-ubuntu/)과 [flask 서버 관련 글](http://hochulshin.com/aws-ec2-flask-dynamodb-angularjs/)을 참조해서 virtualenv를 설치하고 환경을 만들고 flask를 설치하자. 
 
-```
+```bash
 $ virtualenv venv
 $ source venv/bin/activate
 $ sudo pip install Flask
@@ -180,7 +180,7 @@ $ sudo pip install Flask
 
 /home/ubuntu/server 폴더에서 run-server.py 파일을 만들고 아래 내용을 넣는다. 
 
-```
+```python
 from flask import Flask
 app = Flask(__name__)
 
@@ -193,7 +193,7 @@ def index():
 
 - /etc/supervisor/conf.d/flask-settings.conf 파일을 만들고 아래 내용을 붙여 넣는다. export 변수인 `FLASK_APP=run-server.py`도 설정되어야 한다. 
 
-```
+```bash
 [program:flask-settings]
 environment=
     FLASK_APP=run-server.py
@@ -205,7 +205,7 @@ user = ubuntu
 
 #### 8.4 supervisord 실행
 
-```
+```bash
 $ sudo supervisorctl reread
 $ sudo supervisorctl update
 $ sudo supervisorctl start all
