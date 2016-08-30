@@ -46,7 +46,7 @@ System.out.println(theOtherBig);
 
 출력은 다음과 같다. 
 
-```
+```bash
 10
 110
 120
@@ -95,7 +95,7 @@ System.out.println(b1.divide(b2, 5, BigDecimal.ROUND_UP));
 
 출력은 다음과 같다. 
 
-```
+```bash
 0.9
 0.12
 1.4

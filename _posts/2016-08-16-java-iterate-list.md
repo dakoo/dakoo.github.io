@@ -30,7 +30,7 @@ Java의 List는 다음과 같은 방법으로 iteration할 수 있다.
 
 ### 전통적인 index와 함께 하는 for loop
 
-```
+```java
         List<String> myItems = new ArrayList<String>();
         myItems.add("Hello");
         myItems.add("World");
@@ -44,7 +44,7 @@ Java의 List는 다음과 같은 방법으로 iteration할 수 있다.
 
 ### 전통적인 index와 함께 하는 while loop 
 
-```
+```java
         List<String> myItems = new ArrayList<String>();
         myItems.add("Hello");
         myItems.add("World");
@@ -59,7 +59,7 @@ Java의 List는 다음과 같은 방법으로 iteration할 수 있다.
 
 ### C++과 동일한 syntax의 for each 문 
 
-```
+```java
         List<String> myItems = new ArrayList<String>();
         myItems.add("Hello");
         myItems.add("World");
@@ -72,7 +72,7 @@ Java의 List는 다음과 같은 방법으로 iteration할 수 있다.
 
 ### list iterator의 hasNext()를 사용한 while loop
 
-```
+```java
         List<String> myItems = new ArrayList<String>();
         myItems.add("Hello");
         myItems.add("World");
@@ -86,7 +86,7 @@ Java의 List는 다음과 같은 방법으로 iteration할 수 있다.
 
 ### List의 forEach()문
 
-```
+```java
         List<String> myItems = new ArrayList<String>();
         myItems.add("Hello");
         myItems.add("World");

@@ -161,7 +161,7 @@ Lambda함수는 '->' 뒷 부분이다. 예를 들어 다음 Lambda함수에서 *
 
 Lambda 함수가 여러 줄로 구성된 경우 {}를 사용하면 된다. 
 
-```
+```java
 (oldState, newState) -> {
     System.out.println("Old state: " + oldState);
     System.out.println("New state: " + newState);

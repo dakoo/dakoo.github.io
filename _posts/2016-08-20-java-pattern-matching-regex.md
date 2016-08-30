@@ -65,7 +65,7 @@ class Solution {
 
 ##### 출력
 
-```
+```bash
 0: 123
 10: 123
 ```
@@ -81,7 +81,7 @@ class Solution {
 
 ##### 입력 
 
-```
+```bash
 000.12.12.034
 ```
 
@@ -111,7 +111,7 @@ class Solution {
 
 ##### 출력
 
-```
+```bash
 Valid
 ```
 
@@ -121,7 +121,7 @@ text에서 연속으로 반복되는 단어 제거하자. 이때 대소문자는
 
 ##### 입력 
 
-```
+```bash
 Goodbye bye Bye bye world World WORLD
 ```
 
@@ -163,7 +163,7 @@ class Solution {
 
 ##### 출력
 
-```
+```bash
 Goodbye bye world
 ```
 
@@ -176,7 +176,7 @@ xml tag를 parsing하자. <tag>contents</tag> 형태의 tag이며, 이때 가운
 
 ##### 입력 
 
-```
+```bash
 <h1><h1>Sanjay has no watch</h1></h1><par>So wait for a while</par>
 ```
 
@@ -210,7 +210,7 @@ public class Solution {
 
 ##### 출력
 
-```
+```bash
 Sanjay has no watch
 So wait for a while
 ```

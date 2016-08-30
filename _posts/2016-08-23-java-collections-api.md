@@ -50,7 +50,7 @@ myList의 아이템 중 o가 몇 개 존재하는지를 반환한다.
 
 ### 예제
 
-```
+```java
     List<Integer> myList = new ArrayList();
     myList.add(3);
     myList.add(4);

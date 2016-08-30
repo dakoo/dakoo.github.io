@@ -48,7 +48,7 @@ S3 bucket에 video 파일들이 이미 저장되어 있다.
 - {cloud-front-domain-name}: cloud front의 domain name
 - {object-name}: s3에 저장된 image file의 이름
 
-```
+```html
 <html>
 <head>My CloudFront Test</head>
 <body>
