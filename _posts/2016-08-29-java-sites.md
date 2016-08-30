@@ -32,6 +32,8 @@ image:
 
 ##### 2.3 [geeksforgeeks - java](http://www.geeksforgeeks.org/java/)
 
+##### 2.4 [Jakob Jenkov articles](http://tutorials.jenkov.com/)
+
 #### 3. 문제를 통한 Java 이해
 
 ##### 3.1 [programcreek - coding interview](http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)
