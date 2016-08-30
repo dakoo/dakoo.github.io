@@ -16,7 +16,7 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-Java의 Collections class는 static method로만 구성된 utility 클래스이다. Collections를 통해 Java Collection Framework의 주요 interface들 - 특히 List -의 구현 class들의 instance를 다루기 용이하다. 
+Java의 [Collections class](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html)는 static method로만 구성된 utility 클래스이다. Collections를 통해 Java Collection Framework의 주요 interface들 - 특히 List -의 구현 class들의 instance를 다루기 용이하다. 
 
 ### 주요 함수들 
 
