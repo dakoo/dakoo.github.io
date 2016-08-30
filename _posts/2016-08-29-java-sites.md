@@ -20,28 +20,28 @@ image:
 
 #### 1. 개요 정리
 
-##### 1.1 [programcreek - java tutorial](http://www.programcreek.com/java-tutorials/)
+##### [programcreek - java tutorial](http://www.programcreek.com/java-tutorials/)
 
-##### 1.2 [Jakob Jenkov의 java tutorial](http://tutorials.jenkov.com/java/index.html)
+##### [Jakob Jenkov의 java tutorial](http://tutorials.jenkov.com/java/index.html)
 
 #### 2. 좀 더 깊이 있는 이해
 
-##### 2.1 [programcreek - SimpleJava](http://www.programcreek.com/simple-java/)
+##### [programcreek - SimpleJava](http://www.programcreek.com/simple-java/)
 
-##### 2.2 [programcreek - Java 8](http://www.programcreek.com/simple-java-8-lambdas/)
+##### [programcreek - Java 8](http://www.programcreek.com/simple-java-8-lambdas/)
 
-##### 2.3 [geeksforgeeks - java](http://www.geeksforgeeks.org/java/)
+##### [geeksforgeeks - java](http://www.geeksforgeeks.org/java/)
 
-##### 2.4 [Jakob Jenkov articles](http://tutorials.jenkov.com/)
+##### [Jakob Jenkov articles](http://tutorials.jenkov.com/)
 
 #### 3. 문제를 통한 Java 이해
 
-##### 3.1 [programcreek - coding interview](http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)
+##### [programcreek - coding interview](http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)
 
-##### 3.2 [hackerrank - java](https://www.hackerrank.com/domains/java/java-introduction)
+##### [hackerrank - java](https://www.hackerrank.com/domains/java/java-introduction)
 
-##### 3.3 [leetcode](https://leetcode.com/problemset/algorithms/)
+##### [leetcode](https://leetcode.com/problemset/algorithms/)
 
 #### 4. API 참조
 
-##### 4.1 [java 8 tutorial](http://www.tutorialspoint.com/java8/index.htm)
+##### [java 8 tutorial](http://www.tutorialspoint.com/java8/index.htm)
