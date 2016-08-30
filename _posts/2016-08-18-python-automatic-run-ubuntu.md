@@ -25,7 +25,7 @@ image:
 
 python code의 맨 위에 아래 라인을 추가한다. 
 
-```
+```bash
 #!/usr/bin/env python
 ```
 
@@ -33,7 +33,7 @@ python code의 맨 위에 아래 라인을 추가한다.
 
 python file을 실행 가능하도록 수정하자. 
 
-```
+```bash
 $ chmod +x {python-file.py} 
 ```
 
@@ -41,7 +41,7 @@ $ chmod +x {python-file.py}
 
 /etc/rc.local 파일에 아래와 같이 python file 실행하는 내용을 추가한다. 
 
-```
+```bash
 ./{pathTo}/{python-file.py}
 ```
 
