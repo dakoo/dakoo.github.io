@@ -22,6 +22,8 @@ image:
 
 ##### 1.1 [programcreek - java tutorial](http://www.programcreek.com/java-tutorials/)
 
+##### 1.2 [Jakob Jenkov의 java tutorial](http://tutorials.jenkov.com/java/index.html)
+
 #### 2. 좀 더 깊이 있는 이해
 
 ##### 2.1 [programcreek - SimpleJava](http://www.programcreek.com/simple-java/)
