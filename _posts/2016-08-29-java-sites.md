@@ -34,6 +34,13 @@ image:
 
 ##### [Jakob Jenkov articles](http://tutorials.jenkov.com/)
 
+##### [Top 10 Mistakes Java Developers Make](http://www.programcreek.com/2014/05/top-10-mistakes-java-developers-make/)
+
+번역한 글은 다음과 같다. 
+
+- [자바 프로그래머가 자주 실수 하는 10가지 - 1](http://bestalign.github.io/2015/08/31/top-10-mistakes-java-developers-make-1/)
+- [자바 프로그래머가 자주 실수 하는 10가지 - 2](http://bestalign.github.io/2015/09/06/top-10-mistakes-java-developers-make-2/)
+
 #### 3. 문제를 통한 Java 이해
 
 ##### [programcreek - coding interview](http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)
