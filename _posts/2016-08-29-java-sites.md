@@ -24,6 +24,12 @@ image:
 
 ##### [Jakob Jenkov의 java tutorial](http://tutorials.jenkov.com/java/index.html)
 
+조금 빈약
+
+##### [Java Concept Of The Day](http://javaconceptoftheday.com/)
+
+사실 '좀 더 깊이 있는 이해'에 가까우나, 정리가 잘 되어 있다는 이유로 여기 위치
+
 #### 2. 좀 더 깊이 있는 이해
 
 ##### [programcreek - SimpleJava](http://www.programcreek.com/simple-java/)
@@ -47,4 +53,8 @@ image:
 
 ##### [hackerrank - java](https://www.hackerrank.com/domains/java/java-introduction)
 
+step by step 
+
 ##### [leetcode](https://leetcode.com/problemset/algorithms/)
+
+언어와 상관없는 인터뷰 문제들의 집합이나 java를 이해하기 위해 알고리즘 문제만큼 좋은게 어디 있을까? 
