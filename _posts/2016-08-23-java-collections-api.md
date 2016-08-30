@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java - collections API
-description: Java - collections API
+title: Java - Collections API
+description: Java - Collections API
 modified: 2016-08-23
 tags: [java]
 comments: true
@@ -16,7 +16,7 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-Java의 Collections class는 static method로만 구성된 utility 클래스이다. 주로 List, Collection등과 같은 자료 구조를 위한 알고리즘을 제공하고 있다. 
+Java의 Collections class는 static method로만 구성된 utility 클래스이다. Collections를 통해 Java Collection Framework의 주요 interface들 - 특히 List -의 구현 class들의 instance를 다루기 용이하다. 
 
 ### 주요 함수들 
 
