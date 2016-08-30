@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-14.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 To use the vim mode on Intellij IDEA, you should use a VIM plugin as follows:
 
 ### Installation

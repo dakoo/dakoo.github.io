@@ -8,6 +8,15 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Python SQL is very simple and powerful. Let's learn python-SQL using several examples
 This code is used for an assignment for [Coursera: Using Databases with Python](https://www.coursera.org/learn/python-databases/home/welcome). For furhter information, check the [Coursera: Using Databases with Python](https://www.coursera.org/learn/python-databases/home/welcome) out. 
 

@@ -13,6 +13,15 @@ image:
 
 아이디어는 간단하다. 문자열과 패턴 문자열을 비교할때 패턴 문자열의 맨 뒤 문자 위치를 비교하고, 다르면  문자열을 일정 길이만큼 skip해서 비교를 계속하는 것이다. 	
 
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 ## pseudo code
 
 {% highlight bash %}

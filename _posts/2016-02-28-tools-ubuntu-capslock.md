@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Caps Lock 키는 소프트웨어 개발자에게 별로 유효한 키가 아니다. 그보다는 Control키와 Escape키가 더 중요하다. 특히 vi 모드를 주로 이용하는 개발자는 더욱 그러하다. 손가락 위치를 많이 움직이지 않고 새끼 손가락 만으로 누를 수 있으므로 익숙해지면 입력 속도가 비약적으로 상승한다. 
 
 xcape를 이용한 설정은 가끔 풀릴때가 있다. 그때마다 다시 실행하는 건 매우 매우 번거로운 일이다!!

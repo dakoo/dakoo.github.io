@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-21.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 앞의 AWS S3 -> Lambda에 이은 Lambda -> DynamoDB를 다루어보자. 
 
 ## 요구사항

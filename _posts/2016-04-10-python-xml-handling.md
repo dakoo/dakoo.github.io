@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Python provides a very nice XML parser. With the following example, you could immediately understand how you use it.
 
 ### XML file 

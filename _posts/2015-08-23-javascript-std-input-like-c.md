@@ -11,15 +11,14 @@ image:
 
 Javascript을 이용해 자료구조나 알고리즘 문제를 풀어보려하니 가장 문제되는 것이 파일로 된 샘플 입력을 받아들이고 나중에 용이하게 출력하는 것이다. 
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
 
 ### C에서의 샘플 입력 처리 (VisualStudio)
 

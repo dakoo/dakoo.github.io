@@ -11,10 +11,8 @@ image:
 
 C언어에서 문자열을 다루기 위한 기본 함수를 구현해보자. string.h에 포함되어 있는 함수이지만 stdio.h만을 이용해 구현한다. 
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

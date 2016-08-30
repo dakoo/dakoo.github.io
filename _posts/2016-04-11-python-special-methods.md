@@ -8,6 +8,15 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 [Python class predefines some special methods](https://docs.python.org/3/reference/datamodel.html).
 
 ### Special methods

@@ -3,11 +3,20 @@ layout: post
 title: Data Structure - LRU(Least Recently Used) 
 description: LRU Cache
 modified: 2016-02-29
-tags: [datastructure]
+tags: [datastructure, c++]
 comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 직접 구현해 본 LRU Cache. O(1) 시간 복잡도로 lookup과 put을 만족시키기 위해서는 Entry에 access하는 것도 O(1)이고 LRU인지 판별하는 것도 O(1)으로 해야 한다. 이를 위해 ks(C++은 unordered_map)과 doubly linked list를 사용했다. Cache Replacement가 실행되는 것은  Cache가 full인 것은 unordered_map의 size()가 미리 정한 entry의 갯수에 도달했을 경우이다.  
 
 ### 구조

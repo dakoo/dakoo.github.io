@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-14.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 intellij는 코딩 생산성 향상을 위해 다양한 live template을 제공하고 있다. 이 중 유용한 것들을 알아보고 자신의 live template을 등록하는 방법도 살펴보자. 
 
 ### 1. 미리 정의된 live templates과 단축키

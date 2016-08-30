@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 ### 다운로드 및 설치 
 
 Sublime Text3를 [여기](https://www.sublimetext.com/3)에서 다운로드 받아 설치한다.

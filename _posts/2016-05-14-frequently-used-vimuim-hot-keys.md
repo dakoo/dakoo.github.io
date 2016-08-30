@@ -8,7 +8,18 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Vimuim is a chrome extension to control the chrome browser with vim-like control. 
+
+### Vimuim shortcuts
 
 - j : scroll down
 - k : scroll up

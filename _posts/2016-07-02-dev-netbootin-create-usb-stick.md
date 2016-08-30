@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 netbootin은 부팅가능한 usb 스틱 만들기를 위한 아주 좋은 툴이다. 이에 대해 알아보자. 
 
 ## netbootin 

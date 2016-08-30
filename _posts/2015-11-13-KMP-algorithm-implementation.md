@@ -8,6 +8,14 @@ image:
   feature: abstract-12.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 KMP algorithm implementation in C++.
 KMP algorithm is very famous algorithm to search a pattern in a string.
 

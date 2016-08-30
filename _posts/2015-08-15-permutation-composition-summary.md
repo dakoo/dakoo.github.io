@@ -11,15 +11,14 @@ image:
 
 순열, 중복 순열, 조합, 중복 조합에 대한 이해를 해보자. 
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
 
 ### 1. 개요
 

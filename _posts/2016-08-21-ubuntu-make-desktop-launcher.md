@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 터미널에서 명령을 실행시키는 대신 Dash에서 실행시키거나 icon을 클릭하여 실행하기 위한 Launcher를 어떻게 만드는 지 알아보자. 
 여기서 GitKraken의 경우를 예로 살펴보기로 하자. 
 

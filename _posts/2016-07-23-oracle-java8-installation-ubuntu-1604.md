@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-20.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 On Ubunut 16.04, Oracle java 8 SDK can be installed by the following steps:
 
 ```

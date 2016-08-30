@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-21.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 AWS의 핵심 Computing 서비스인 EC2에서 다른 AWS 서비스를 사용하기 위해서는 IAM Role을 가지고 있어야 한다. 
 중요한 것은 EC2 생성 이후에는 변경은 용이하나 Role을 할당하는 것은 어려우므로, EC2 생성시에는 빈 Role이라도 반드시 할당하도록 하자.
 

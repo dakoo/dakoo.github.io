@@ -8,6 +8,15 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 python provides a very simple csv utility. Refer to the following example to understand how easily you could use it. 
 
 ### CSV file

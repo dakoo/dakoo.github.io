@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-12.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 은근히 잘 이해가 안되는 git 프로젝트 생성에 대해 알아보자. 
 
 기억할 것은 다음과 같다. 

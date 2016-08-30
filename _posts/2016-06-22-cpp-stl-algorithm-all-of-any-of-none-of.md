@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 C++ STL은 자료구조와 함께 강력한 알고리즘들을 제공하고 있다. 그 종류의 풍부함과 호환성은 때로는 사용하기 어렵게 만드는 요인이기도 하다. 그 중 c++11에 추가된 all_of, any_of, none_of를 살펴보자. 
 
 ### all_of, any_of, none_of

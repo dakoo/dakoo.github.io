@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Dependency Injection은 하드코딩된 dependency르 제거하고 runtime이나 compile time에 dependency를 변경 가능하게 하는 디자인 패턴이다. 
 
 ### 개요

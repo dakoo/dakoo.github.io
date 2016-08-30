@@ -9,6 +9,14 @@ image:
   feature: abstract-11.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 REST API 설계시 참고할만한 
 [Best Practices for Designing a Pragmatic RESTful API](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#requirements)라는 좋은 문서가 있어 그 내용을 간단히 정리해 본다.  
 더 자세히 알고 싶다면 링크를 따라가 확인해보자. 

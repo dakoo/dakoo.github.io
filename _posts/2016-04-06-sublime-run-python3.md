@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Without any user-specific configuration, sublime-text runs *.py files on python2. Therefore, it's painful to run *.py written in python3.
 In case, refer to the following configuration. The explanation assumes the underlying OS is ubuntu 14.04. If the OS is different, you should change the path of python3.
 

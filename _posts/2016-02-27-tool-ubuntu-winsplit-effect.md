@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Winsplit은 화살표 키와 Control, Alt, Windows, Shift 키의 조합으로 활성화된 어플리케이션 창을 다른 모니터로 이동시키거나 같은 모니터내에서 미리 설정된 포지션으로 이동시키는데 탁월한 Windows용 툴이다. 현재는 지원이 더이상 없는 대신 무료 소프트웨어로 바뀌었기 때문에 무료로 사용이 가능한다. 이와 유사한 기능을 Ubuntu에서 사용해 보자. 
 
 - Update: 그래픽카드와 궁합때문인지 가끔 화면이 freeze되는 경우가 발생한다. 그러므로 사용을 권하지 않는다. 

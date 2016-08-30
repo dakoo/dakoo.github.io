@@ -9,6 +9,14 @@ image:
   feature: abstract-10.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 전체적인 동작 원리는 [네이버 글](http://blog.naver.com/wpdls6012/220247604017)을 참조한다. 
 아래 내용은 Max Heap을 기준으로 설명한다. 
 

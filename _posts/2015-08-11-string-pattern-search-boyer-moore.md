@@ -11,6 +11,13 @@ image:
 
 Boyer-Moore alogirithm is a pattern search algorithm in string. The performance of the algorithm is excellent as well as KMP algorithm. The idea is simple. Comparison between target string and pattern is performed from the end of the pattern. If mismatch happens at a character in string, comparison can be skipped as the distance that calculated for the character in advance. 
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 ## pseudo code
 
 {% highlight bash %}

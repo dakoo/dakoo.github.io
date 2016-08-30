@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Study English using American soup opera is very effective and fun. To support that, let's extract texts from the smi or srt files.
 
 ## Code

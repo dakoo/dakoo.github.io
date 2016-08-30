@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-13.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 개발한 python 코드를 ubuntu 시작시 자동으로 실행되로록 해야 하는 경우가 있다. 
 여기서는 간단히 python code를 executable로 만들어 자동으로 실행시키는 방법을 알아보자. 
 

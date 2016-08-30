@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 AWS S3에 object를 bucket에 upload한 이후에 object에 접근할 때 permission denied가 발생한다. 
 예를 들어, S3에서 Bucket을 Static Website Hosting으로 설정한 후 index.html 파일에 접근해도 permission denied가 발생한다. 
 이 경우 직접 index.html파일을 `make public` 설정해야 해결이 되는데, 이렇게 수동으로 object를 'make public'하지 않고, 자동으로 접근 권한을 제어하는 것을 하고자 한다. 

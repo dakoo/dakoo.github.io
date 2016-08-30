@@ -9,10 +9,19 @@ image:
   feature: abstract-12.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 BFS와 DFS의 구현 시 차이점은 BFS는 queue를 쓰고 DFS는 stack을 쓴다는 것이다. 물론 DFS는 recursion으로 구현하는 것이 쉽기도 하다.
 BFS와 DFS는 구현 flow는 동일하며 visited라는 공통 자료구조를 사용한다.  
 
-- 간단 flow 
+### 간단 flow 
+
 {% highlight bash %}
 function(g, s) //g는 graph, s는 시작 vertex
   필요한 자료 구조 초기화 //BFS는 queue, DFS는 stack, 그리고 visited[]를 false(미방문상태)로 세팅

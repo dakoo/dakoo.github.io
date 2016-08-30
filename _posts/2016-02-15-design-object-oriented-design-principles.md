@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 대표적인 Object Oriented Design Principle은 SOLID이다. SOLID는 다음의 원칙들을 나타낸다. 
 
 -	S: Single Responsibility Principle

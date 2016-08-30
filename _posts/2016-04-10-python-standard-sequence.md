@@ -8,6 +8,15 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 The following is the example of the implementation of stadard sequence in python.
 Using __len()__ and __getitem__ method in a python class, standard sequence could be implemented. 
 

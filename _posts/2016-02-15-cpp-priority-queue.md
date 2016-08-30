@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 STL의 priority_queue는 default로 max_heap으로 동작하는 자료구조이다. 사용방법을 이해하고 있으면 다양한 상황에 사용가능하다. 
 
 ### STL의 priority_queue 사용법

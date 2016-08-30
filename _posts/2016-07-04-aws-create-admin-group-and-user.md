@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 처음 AWS를 사용할 때 과금이 되는 AWS Account를 사용하지 않고, 별도로 Admin group을 만들고 새로 User를 추가해 이를 이용해 작업하는 것이 좋다.
 이 방법을 알아보자. 
 

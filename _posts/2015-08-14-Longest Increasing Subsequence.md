@@ -11,6 +11,13 @@ image:
 
 Longest Increasing Subsequence(LIS)알고리즘은 나열된 수열에서 배열 순서를 유히자면서 크기가 점진적으로 커지는 가장 긴 부분 수열을 구하는 알고리즘이다. 예를 들어, 3, 2, 7, 5, 6, 1 에서 2, 5, 6이 LIS이며 그 길이는 3이다. 
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 ### 아이디어
 
 입력 수열이 a1, a2, ..., an일때 LIS[i]는 a1~ai의 최장 부분 수열의 **길이**라고 정의하자.  LIS[i]를 LIS[1]~LIS[i-1]과의 관계로 표현하면 다음과 같다. 

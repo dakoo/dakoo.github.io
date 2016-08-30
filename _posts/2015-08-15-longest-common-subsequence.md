@@ -11,10 +11,8 @@ image:
 
 최장 공통 부분 수열(Longest Common Subsequence, LCS) 문제는 두 수열의 가장 긴 공토 부분 수열을 찾아내는 문제이다. 그 문제를 푸는 LCS 알고리즘에 대해 살펴보자.
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

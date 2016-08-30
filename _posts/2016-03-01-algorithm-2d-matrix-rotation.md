@@ -8,6 +8,16 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+#### Problem
+
 NxN 크기의 2D Matrix의 시계 방향, 그리고 반 시계 방향 회전을 하는 방법을 알아보자. Matix를 얼마나 쉽게 다룰 수 있는가를 알 수 있는 간단한 알고리즘이다. 
 안타깝게도 전혀 제대로 하지 못해서 큰 인터뷰에서 문제가 된 적이 있기에 간단한 접근 방법과 코드를 남긴다. 
 예를 들어 다음과 같은 3x3 2d Matrix가 있다면,

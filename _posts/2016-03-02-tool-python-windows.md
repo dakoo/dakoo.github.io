@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Windows환경에서 python 언어로 개발하는 환경을 간단히 갖추어 보자. pyCharm과 같은 유료 editor가 아닌 Bracket을 사용해서 개발하는 환경을 가정한다. 
 
 ### Windows에서 python 개발 환경 설치하기 

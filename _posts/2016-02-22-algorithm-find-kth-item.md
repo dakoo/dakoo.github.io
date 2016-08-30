@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 정렬이 되어 있지 않은 배열에서 k번째로 작은 알고리즘을 찾는 방법을 생각해보자. 예를 들어 다음의 vector에서 3번째로 작은 값은 3이다. 
 
 ```javascript

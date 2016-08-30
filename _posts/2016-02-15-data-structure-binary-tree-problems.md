@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Binary Tree와 [Binary Search Tree](http://hochulshin.com/data-structure-binary-search-tree/)에 관한 문제들은 recursion에 대한 이해가 있어야만 풀 수 있다. 그 문제들, 접근법, 해법을 간단히 살펴본다. 
 
 ### Binary Tree 문제와 해법들

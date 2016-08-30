@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 vi를 잘 쓰기 위해 vim에 plugin을 설치해서 사용하는 방법을 알아보자
 
 ### 필요 package 설치 

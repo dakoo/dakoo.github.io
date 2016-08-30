@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Windows는 다양한 diff 툴이 있다. 무료인 Win Merge, 유료인 Araxis Merge 등은 직관적이고 사용이 편리하다. 
 Ubuntu와 OSX에서는 상대적으로 빈곤한 diff 툴을 제공하는데, 이번에 소개하는 sublimerge는 유료이지만, 가끔 질문을 하는 sublime스러운 라이선스 정책을 가지고 있는 sublime기반 merge툴이다. 
 

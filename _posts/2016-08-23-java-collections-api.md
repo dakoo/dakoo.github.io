@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-18.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Java의 Collections class는 static method로만 구성된 utility 클래스이다. 주로 List, Collection등과 같은 자료 구조를 위한 알고리즘을 제공하고 있다. 
 
 ### 주요 함수들 

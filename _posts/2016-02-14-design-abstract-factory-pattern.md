@@ -9,10 +9,18 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Abstract factory 패턴은 concrete class들을 명시하지 않고 관련 object들을 생성하는 interface를 제공한다. 
 아래 코드가 그 좋은 예를 보여준다. 이 코드는 [여기](http://www.bogotobogo.com/DesignPatterns/abstractfactorymethod.php)에서 가져온 것이다. 
 
-### 
+### Code
 
 ```
 #include <iostream>

@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 c++에서 무한대를 표현하기 위해서는 정수형과 그렇지 않은 경우를 나누어서 생각해야 한다. 
 모두 header는 `<limits>`이다. 
 

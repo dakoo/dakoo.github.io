@@ -9,6 +9,13 @@ image:
   feature: abstract-16.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 ## [Original](http://www.gsb.stanford.edu/insights/yossi-feinberg-avoid-these-five-common-startup-traps)
 
 - **Never neglect your target market**.

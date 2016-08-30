@@ -9,6 +9,13 @@ image:
   feature: abstract-17.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Bash에 대해 참조할 만한 사이트들을 정리해본다. 
 
 - [Bash 튜토리얼](https://linuxconfig.org/bash-scripting-tutorial)

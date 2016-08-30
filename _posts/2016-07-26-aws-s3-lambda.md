@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-22.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 AWS S3에 이미지 파일이 upload가 되면 lambda를 통해 thumbnail을 추출하는 것을 해보자. 
 
 - NOTE: AWS lambda는 Seoul Region에서는 지원하지 않으므로 여기서는 **tokyo region**을 기준으로 설명한다. 

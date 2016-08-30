@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-08.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Ubuntu에서 python virtualenv를 구성하는 것은 다음과 같다. 
 
 - 설치: sudo apt-get install python-virtualenv

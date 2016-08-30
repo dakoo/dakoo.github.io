@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-12.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 이 예제는 [이전에 구현한 Memos dynamodb table에 접근하는 AWS Gateway](http://hochulshin.com/serverless-web-using-aws-dynamodb-apigateway-s3/#api-gateway-)을 기준으로 설명한다. 즉, AWS API Gateway 대신 여기서 설명하는 Flask/EC2 구성을 사용할 수 있도록 구현한다. 
 
 ## 1. EC2 설정

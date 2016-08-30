@@ -2,11 +2,19 @@
 layout: post
 title:  Solving a react-native installation problem
 modified: 2015-10-06
-tags: [react.native]
+tags: [web]
 comments: true
 image:
   feature: abstract-12.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 
 When I executed `react-native init stopwatch` to set up a react-native project, the console didn't do anything for a while and threw the following logs.
 

@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 B 트리는 자식을 두개만 가질 수 잇는 이진 트리를 확장하여 더 많은 자식을 가질 수 있게 고안한 것이다. 오라클과 같은 상용 DB에서 많이 사용하는 자료구조로 외부 검색(주 저장장치인 메모리 외의 저장장치에서의 검색)에 유용하다. 
 
 <section id="table-of-contents" class="toc">

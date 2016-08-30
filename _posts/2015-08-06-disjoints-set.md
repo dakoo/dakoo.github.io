@@ -10,6 +10,14 @@ image:
 
 집합을 자료구조 중 array를 이용해 만드는 disjoints-set을 이해해 보자. 
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 ### 자료 구조
 
 {% highlight bash %}

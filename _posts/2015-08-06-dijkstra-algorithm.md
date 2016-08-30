@@ -14,15 +14,15 @@ image:
 
 [알고리즘의 Pseudo 코드와 동작에 대해 설명을 한 글](http://trowind.tistory.com/80)과 [자세하고 친절한 알고리즘 해석을 한 글](http://adnoctum.tistory.com/165)을 참고하자. 
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
+
 
 
 ### 기본 자료 구조

@@ -3,7 +3,7 @@ layout: post
 title: Algorithm - combination
 description: combination
 modified: 2016-02-16
-tags: [algorithm]
+tags: [algorithm, c]
 comments: true
 image:
   feature: abstract-10.png
@@ -11,15 +11,14 @@ image:
 
 알고스팟의 문제 중 [CLOCKSYNC](https://algospot.com/judge/problem/read/CLOCKSYNC) 라는 것이 있다. 이 문제의 해결 방법은 조합도 있지만, Greedy로 문제를 푸는 방식도 있는데 조합의 경우를 살펴보자. 
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
 
 ### 간단한 조합 문제
 

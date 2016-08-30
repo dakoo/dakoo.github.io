@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-19.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Github를 이용해서 hochulshin.com을 호스팅하고 있는데, 다른 용도의 page를 계속 추가하고 싶은 경우 어떻게 할지를 설명하고자 한다. 
 
 ## hochulshin.com을 github에서 관리하기 

@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 The python provides very simple and strong json module. However using the module is little bit confusing in spite of the intuitiveness.
 The methods below are little bit complicated:
 - json.dumps

@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 [Browsersync](https://www.browsersync.io) is a web server to support automatic reloading for easy web development. Very simple and easy to use.
 
 ## Installation of browsersync on Ubuntu

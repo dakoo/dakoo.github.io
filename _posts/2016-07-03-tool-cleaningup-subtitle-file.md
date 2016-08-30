@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 영어 공부를 위해 smi나 srt 자막 파일을 text 파일로 바꿔야 할 경우가 종종 있다. 
 이를 위해 간단한 파이썬 코드를 작성해 보았다. 
 

@@ -9,18 +9,16 @@ image:
   feature: abstract-19.png
 ---
 
-최근 아주 핫한 기술인 Amazon Web Service를 활용한 Bankend의 Serviceless Architecture를 이용해서 Web Service를 구축해보자. 복잡한 예보다는 간단한 메모장 서비스를 구현하는 예를 들어 설명할 것인데, 뼈대와 기본 구조를 이해하는 것에는 충분할 것이다. 
-일반적인 Backend의 Serverless Architecture는 [Client - AWS API Gateway - AWS Lambda - AWS DynamoDB] 구조를 사용하는 경우가 많다. 이에 반해 이 예에서는 [Client - AWS API Gateway - AWS DynamoDB]로 하여 중간에 Application 로직을 담당하는 컴포넌트를 제거한 초경량 Serverless Architecture로 구성된다. 
-
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
+최근 아주 핫한 기술인 Amazon Web Service를 활용한 Bankend의 Serviceless Architecture를 이용해서 Web Service를 구축해보자. 복잡한 예보다는 간단한 메모장 서비스를 구현하는 예를 들어 설명할 것인데, 뼈대와 기본 구조를 이해하는 것에는 충분할 것이다. 
+일반적인 Backend의 Serverless Architecture는 [Client - AWS API Gateway - AWS Lambda - AWS DynamoDB] 구조를 사용하는 경우가 많다. 이에 반해 이 예에서는 [Client - AWS API Gateway - AWS DynamoDB]로 하여 중간에 Application 로직을 담당하는 컴포넌트를 제거한 초경량 Serverless Architecture로 구성된다. 
+
 
 ## 0. 요구사항 및 참조 사항 
 

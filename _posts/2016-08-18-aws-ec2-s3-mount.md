@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-10.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 EC2에서 S3를 마운트해서 파일을 이동시키면 permission이 이상해 지는 문제가 발생하곤 한다.
 그런 문제 없이 마운트하는 방법은 다음과 같다. 
 

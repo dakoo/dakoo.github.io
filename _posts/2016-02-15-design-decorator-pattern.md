@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 데코레이터 패턴은 필요에 따라 Object에 동적으로 Responsibility를 추가하는 패턴으로 기능 확장이 필요할 때 상속을 하는 것 대신에 쓸 수 있는 유연한 대안이 된다. 
 
 ### 출처

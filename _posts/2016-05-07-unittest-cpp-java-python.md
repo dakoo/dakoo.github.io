@@ -3,11 +3,20 @@ layout: post
 title:  C++ Java Python - unit test framework
 description: C++ Java Python - unit test framework
 modified: 2016-05-07
-tags: [c++, java, python, test]
+tags: [c++, java, python]
 comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 쉽게 사용할 수 있는 C++, java, python test framework에 대한 설명
 
 ### C++ Test Framework

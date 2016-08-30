@@ -3,7 +3,7 @@ layout: post
 title: Blog - OSX에서 Jekyll 블로그 테마 구동하기
 excerpt: "OSX에서 Jekyll 블로그 테마 구동하기"
 modified: 2015-08-30
-tags: [blog, jekyll, osx]
+tags: [blog, osx]
 comments: true
 image:
   feature: abstract-23.jpg
@@ -11,15 +11,14 @@ image:
 
 OSX Yosemite에서 Jekyll 블로그 테마를 구동하는 방법을 살펴보자. 이것은 호스팅 이전에 맥에서 테스트하기 위한 기본 설정이다. 
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
 
 # homebrew 설치 
 

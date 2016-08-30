@@ -12,15 +12,14 @@ image:
 If the node is installed by the installer provided nodejs.org, a kind of file acceess problems might be happened. To avoid the issue, you need to install node and npm using nvm or brew instead of the node installer. Nvm is for Linux, whereas [brew](http://brew.sh/) is good for OSX.
 
 
+
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
 
 
 ## Problem with the node installer

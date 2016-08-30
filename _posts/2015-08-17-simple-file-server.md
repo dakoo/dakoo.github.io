@@ -9,6 +9,13 @@ image:
   feature: abstract-22.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 I am reading the book, **Pro Angular.js** and practicing the samples on the book. However, many samples have been already deprecated. The static file server using connect.js is as well. Furthermore, the hapi file server that I implemented has been deprecated too. Therefore, I had to find the alternatives.
 
 ### serve-static in expressjs

@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 urllib and urllib2 are great modules to manipulate http messages.
 The following example is perfect to make you understand how them. 
 This code is used for an assignment for [Coursera: Using Python to Access Web Data](https://www.coursera.org/learn/python-network-data/). For furhter information, check the [Coursera: Using Python to Access Web Data](https://www.coursera.org/learn/python-network-data/) out. 

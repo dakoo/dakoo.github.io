@@ -9,6 +9,13 @@ image:
   feature: abstract-22.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 ## underscore.js 
 Object-oriented가 아닌 로직을 구현하는 것은 아무래도 functional programming model이 편하다. underscore.js는 기본 JavaScript 객체들을 확장하지 않고도 functional programming을 지원할 수 있는 유용한 JavaScript Library이다. 
 front-end나 back-end에서 로직 구현시 용이하게 활용된다. 

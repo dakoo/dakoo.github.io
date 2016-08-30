@@ -13,6 +13,13 @@ Minimum Spanning Tree(한국어로 최소 신장 트리) 알고리즘은 쉽게 
 indirected(무방향) 그래프에만 해당된다. 
 Kruskal알고리즘은 Prim 알고리즘과 더불어 유명한 MST 알고리즘이다. 그런데 성능 측면에서는 두 알고리즘이 유사하지만, 이해하기 쉽고 개발이 용이한 것은 Kruskal알고리즘이다. 
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 
 ## 알고리즘 이해 
 

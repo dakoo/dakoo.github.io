@@ -9,6 +9,13 @@ image:
   feature: abstract-4.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 OSX에서 Web 개발을 하기위해서는 최고의 Web 개발용 IDE인 WebStorm과 API 검색의 최강툴인 Dash를 적절히 사용하는 것이 필요하다. 
 다음과 같은 순서로 설정을 하면 WebStorm에서 코딩하면서 빠르게 API문서를 참조할 수 있다. 
 

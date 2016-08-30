@@ -8,6 +8,15 @@ comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 O(logN) 시간내에 정렬된 값을 탐색하는 방법으로 조건을 만족하는 다양한 값들 중 최적 값을 찾아내는데 사용된다. 
 
 ### Pseudo code

@@ -1,12 +1,20 @@
 ---
 layout: post
-title: C++ - How to figure out the unknown number of inputs in C
+title: C++ - How to figure out the unknown number of inputs
 modified: 2015-10-28
 tags: [c++]
 comments: true
 image:
   feature: abstract-10.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 
 ### Simple example
 

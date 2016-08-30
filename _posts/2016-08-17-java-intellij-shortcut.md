@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Intellij는 아주 강력한 단축키를 제공하는데 나의 경우 vim 모드를 사용하기 때문에 많은 단축키의 경우 불필요하다. 
 vim이 커버하지 못하는 부분을 채워주는 단축키를 알아보자. 
 

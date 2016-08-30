@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-22.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 AWS EC2에서 DynamoDB에 접근하여 아이템을 추가/삭제/갱신 등을 수행하는 방법을 알아보자. 
 여기서는 EC2의 bash에서 python 코드를 실행하여 table에 아이템을 추가하는 것을 예로 들어 설명한다. [dynamodb python api](http://boto3.readthedocs.io/en/latest/guide/dynamodb.html)를 참조하면 다른 operation 구현도 용이하다. 
 

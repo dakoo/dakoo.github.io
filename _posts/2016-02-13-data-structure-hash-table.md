@@ -3,11 +3,20 @@ layout: post
 title: Data Structure - hash table
 description: hash table
 modified: 2016-02-13
-tags: [datastructure]
+tags: [datastructure, c++]
 comments: true
 image:
   feature: algorithm.jpeg
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 아주 간단히 구현한 C++ Hash table. 물론 unordered_multimap을 쓰는 것이 편하지만 hash table의 구조에 대해 이해하기 위해 구현해 보았다. 
 
 ### 구조

@@ -11,13 +11,13 @@ image:
 WebStorm의 기능 중 코딩 속도를 빠르게 할 수 있는 방법으로 live template이 있다. template을 이용하면 빈번히 사용되는 코드를 한두번의 타이핑만으로 쉽게 완성할 수 있다. 자신만의 live template을 등록하고 사용하는 방법을 살펴보자. 
 
 <section id="table-of-contents" class="toc">
-  <header>Overview</header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
-</section>
-<!-- /#table-of-contents -->
+</section><!-- /#table-of-contents -->
+
+
 
 
 # live template이란?

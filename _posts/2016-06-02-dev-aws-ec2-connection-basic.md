@@ -10,6 +10,13 @@ image:
 ---
 EC2 instace에 SSH terminal로 접속하거나 file을 upload를 올리는 방법을 알아보자
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 ## 준비
 
 - AWS console에서 *.pem파일을 download받는다. 

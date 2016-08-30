@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 merge sort는 O(nlogn) 성능을 가진 대표적인 Divide & Conquer 패러다임 알고리즘이다. 그 구현에 대해 살펴보자. 
 
 ### 알고리즘

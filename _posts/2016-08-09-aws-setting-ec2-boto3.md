@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 AWS EC2 Ubuntu에서의 Python Boto3 개발 환경을 설정하는 방법을 살펴 보자. 
 
 Credential과 virtualenv가 이미 설정/설치 되어 있는 경우에는 2번부터 진행한다. 

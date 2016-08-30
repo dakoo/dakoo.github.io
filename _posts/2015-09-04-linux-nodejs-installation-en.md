@@ -12,14 +12,13 @@ If you install the nodejs on Linux(Amazon Linux, Ubuntu) using the nodejs instal
 After I tried the nodejs installation in several ways, eventually I knew the best way is to avoid using 'sudo' permission while installing the nodejs.
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
 </div>
 </section><!-- /#table-of-contents -->
+
+
 
 
 # Cleanup the old nodejs

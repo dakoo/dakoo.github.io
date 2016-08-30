@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 Topological Sort는 dependency를 가진 것들을 처리할 때 어떤 순서로 처리해야 하는지를 알아내기 위한 그래프 알고리즘이다. 예를 들어, `a -> b, b -> c, a -> c`라는 의존 관계가 있다면 `a -> b -> c`라는 순서로 처리되어야만 한다. 
 보통 의존성이 있는 작업들이 있을 때 순서를 구하거나, 소프트웨어의 각 모듈간 의존성을 고려한 설치 순서등을 정할 때 사용된다. 
 

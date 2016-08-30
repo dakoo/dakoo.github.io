@@ -3,7 +3,7 @@ layout: post
 title: Web - geolocation Web API 자료
 description: geolocation Web API 자료
 modified: 2015-07-21
-tags: [web, geolocation]
+tags: [web]
 comments: true
 image:
   feature: abstract-21.png

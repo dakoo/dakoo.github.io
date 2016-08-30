@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 주어진 요구사항이 주어졌을때 아주 간단히 OOD를 적용해 보는 초간단 접근법이다. 제대로 하기 위해서는 많은 iteration과 분석이 필요하지만 간단히 해보는 능력을 가지는 것도 필요하다. 여기서는 식당 예약 시스템을 예로 들어보자.  
 
 ### 초간단 접근법

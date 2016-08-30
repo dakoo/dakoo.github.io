@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-16.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 HLS 스트리밍을 위해 Seoul Region에서 생성한 S3 bucket에 저장된 video 파일들을 미국에서 테스트해야하는 상황이 생겨 cloud front를 사용하고자 한다. 
 
 ### 0. 사전 준비 

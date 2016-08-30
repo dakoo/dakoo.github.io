@@ -9,6 +9,14 @@ image:
   feature: algorithm.jpeg
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 c++의 간단한 file io를 알아보자. file을 read하고 write하기 위해서는 `<fstream>`을 include해야 한다. 
 ifstream은 인풋 파일, ofstream은 아웃풋 파일에 대응되는 객체이다. 그리고 fstream으로 정의하면 ifstream과 ofstream을 동시에 대응한다. 
 

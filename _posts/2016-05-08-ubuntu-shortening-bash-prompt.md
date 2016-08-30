@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-12.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 We could be faced with very long bash prompt on ubuntu as the following example.
 
 ```

@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-11.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 SourceTree를 git client로 사용하던 중 ubuntu에서도 동작하는 git GUI client가 필요하게 되었다. 
 GitKraken이라는 툴을 찾았는데 SourceTree보다 장점이 많아 기록해 둔다. 
 

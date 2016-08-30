@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-14.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 S3에 file이 upload가 되면 그 Event가 AWS SNS(Simple Notification Service)를 통해 AWS SQS(Simple Queue Service)에 전달되고, 이를 EC2에서 읽어서 파일을 가공하는 것을 살펴보자. 
 
 ### Architecture

@@ -8,6 +8,14 @@ comments: true
 image:
   feature: abstract-22.png
 ---
+
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 Java 8에서 지원하는 Lambda를 살펴보자. 이 글은 [Jakob Jenkov의 Java Lambda tutorial](http://tutorials.jenkov.com/java/lambda-expressions.html)의 많은 부분을 참고하여 작성하였다. 
 
 ### 1. 개요
