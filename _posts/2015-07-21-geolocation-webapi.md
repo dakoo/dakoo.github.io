@@ -9,6 +9,13 @@ image:
   feature: abstract-21.png
 ---
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 ## geolocation Web API
 
 [geolocation web API 사용법에 대한 한글 문서](https://developer.mozilla.org/ko/docs/WebAPI/Using_geolocation)와 [현재 위치를 지도에 표시하는 예제](http://html5demos.com/geo)를 참조하자.

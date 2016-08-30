@@ -12,9 +12,6 @@ image:
 [hapi plugin](http://hapijs.com/tutorials/plugins)은 서버의 비지니스 로직과 같은 웹 어플리케이션들을 재사용 가능한 조각으로 분리할 수 있게 하는 강력한 모듈이다. 그 간단한 예제를 살펴보자. 
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

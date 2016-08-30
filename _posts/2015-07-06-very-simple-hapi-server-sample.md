@@ -13,9 +13,6 @@ hapi.js는 node.js framework 중 가장 hot한 framework이라 할만한다. 더
 
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

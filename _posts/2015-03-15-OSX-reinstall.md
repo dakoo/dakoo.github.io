@@ -10,6 +10,13 @@ image:
 ---
 OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참고하자.
 
+<section id="table-of-contents" class="toc">
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
 ## What you have to install
 
  - Office: [Office Home and Business 2016 for Mac](https://www.microsofthup.com/hupkr/ordersummary.aspx?culture=ko-KR)

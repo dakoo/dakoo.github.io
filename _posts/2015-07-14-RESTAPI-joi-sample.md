@@ -3,7 +3,7 @@ layout: post
 title: Nodejs - REST API 서버에 joi 적용 예제 
 description: REST API 서버에 joi 적용 예제 
 modified: 2015-07-14
-tags: [hapijs, nodejs, rest, test]
+tags: [hapijs, nodejs, rest]
 comments: true
 image:
   feature: abstract-11.png
@@ -12,9 +12,6 @@ image:
 [joi](https://github.com/hapijs/joi)는 HTTP 요청과 json 포맷이 올바른지 검사하는 hapi 유틸리티이다. 입력의 유효성을 검사하여 문제가 있을 경우 Invalid Request라는 응답을 수행한다. REST API 서버에 joi를 적용한 예제를 살펴보자.  
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

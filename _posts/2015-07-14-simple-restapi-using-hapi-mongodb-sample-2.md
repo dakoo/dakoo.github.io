@@ -12,9 +12,6 @@ image:
 [Hapi와 mongoDB를 이용한 간단 REST API 구현 예제(1)](http://hochulshin.com/simple-restapi-using-hapi-mongodb-sample-1/) 글의 다음 순서를 진행해보자. 
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

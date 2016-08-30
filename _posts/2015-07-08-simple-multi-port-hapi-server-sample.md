@@ -12,9 +12,6 @@ image:
 서버를 개발하다보면 여러 port를 활용해야 하는 경우가 많이 있다. hapi에서 이를 처리하는 간단한 예제를 살펴보자. 
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

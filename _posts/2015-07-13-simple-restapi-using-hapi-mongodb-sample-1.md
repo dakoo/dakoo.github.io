@@ -13,9 +13,6 @@ Hapi와 mongoDB를 이용하여 간단한 REST API 서버를 구현하는 방법
 
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

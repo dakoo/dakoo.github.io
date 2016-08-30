@@ -12,9 +12,6 @@ image:
 조금은 구조화된 hapi 서버의 예를 살펴보자. 이 예제를 통해 hapi를 이용해 자신의 서버 프로젝트를 어떻게 구조화 할 수 있는 지 알 게 될 것이다.    
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}

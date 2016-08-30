@@ -13,9 +13,6 @@ image:
 개발 환경 설치 후에는 프로젝트 폴더를 만들어 실제 프로젝트를 시작할 수 있다.  
 
 <section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
 <div id="drawer" markdown="1">
 *  Auto generated table of contents
 {:toc}
