@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java - Collection - List - ArrayList
-description: Java - Collection - List - ArrayList 
+title: Java - ArrayList 클래스
+description: Java -  ArrayList 클래스
 modified: 2016-8-31
 tags: [java, datastructure]
 comments: true
