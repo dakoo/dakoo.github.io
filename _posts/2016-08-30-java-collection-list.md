@@ -43,9 +43,9 @@ List 인터페이스에서 추가된 주요 메소드는 다음과 같다.
 - int lastIndexOf(Object o): o와 일치하는 마지막 element의 index반환
 - ListIterator<E> listIterator(): List interator 획득
 
-### 2. 비교
+### 2. 구현 클래스 비교
 
-List 인터페이스를 구현한 Array, LinkedList, Vector 클래스에 대해서 알아보자. 
+List 인터페이스를 구현한 Array, LinkedList 클래스에 대해서 알아보자. 
  
 #### 2.1 ArrayList 클래스
 
@@ -55,7 +55,7 @@ ArrayList는 **크기가 가변 가능한 Array**로서 구현된 클래스이�
 
 LinkedList는 **doubly linked list**로서 구현된 클래스이다. List이므로 get()/set()에서의 성능이 좋지 못하다. 
 
-#### 2.3 Vector 클래스
+#### 2.3 Vector 클래스(Legacy)
 
-Vector는 ArrayList와 동일하다. 차이라면 Vector는 **synchronized**라는 것이다. 이로인해 ArrayList에 비해 성능적으로 불리하다. 많은 java 프로그래머들은 Vector대신 ArrayList를 사용하며, synchronized가 필요한 경우조차도 명시적으로 ArrayList를 synchronized하는 방법을 선호한다. 즉, Vector 클래스는 잘 사용되지 않는 클래스이다. 
+java.util.Collection이 아닌 Legacy 클래스인 Vector는 ArrayList와 동일하다. 차이라면 Vector는 **synchronized**라는 것이다. 이로인해 ArrayList에 비해 성능적으로 불리하다. 많은 java 프로그래머들은 Vector대신 ArrayList를 사용하며, synchronized가 필요한 경우조차도 명시적으로 ArrayList를 synchronized하는 방법을 선호한다. 즉, Vector 클래스는 잘 사용되지 않는 클래스이다. 
 
