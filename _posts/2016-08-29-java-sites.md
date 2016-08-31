@@ -16,21 +16,27 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-유용한 Java 사이트를 정리해 보자.
+유용한 Java 사이트를 정리해 보자. 가장 좋은 건 역시 Oracle이 제공하는 문서들이다. 
 
 #### 1. 개요 정리
+
+##### [Oracle Java tutorials](http://docs.oracle.com/javase/tutorial/index.html)
+
+중요!
+
+##### [Oracle Java API 문서](https://docs.oracle.com/javase/8/docs/api/overview-summary.html)
 
 ##### [programcreek - java tutorial](http://www.programcreek.com/java-tutorials/)
 
 ##### [Jakob Jenkov의 java tutorial](http://tutorials.jenkov.com/java/index.html)
 
-조금 빈약
-
 ##### [Java Concept Of The Day](http://javaconceptoftheday.com/)
 
-사실 '좀 더 깊이 있는 이해'에 가까우나, 정리가 잘 되어 있다는 이유로 여기 위치
-
 #### 2. 좀 더 깊이 있는 이해
+
+##### [Oracle Java Articles](http://www.oracle.com/technetwork/articles/java/index.html)
+
+매우 중요한 문서들
 
 ##### [programcreek - SimpleJava](http://www.programcreek.com/simple-java/)
 
@@ -39,13 +45,6 @@ image:
 ##### [geeksforgeeks - java](http://www.geeksforgeeks.org/java/)
 
 ##### [Jakob Jenkov articles](http://tutorials.jenkov.com/)
-
-##### [Top 10 Mistakes Java Developers Make](http://www.programcreek.com/2014/05/top-10-mistakes-java-developers-make/)
-
-번역한 글은 다음과 같다. 
-
-- [자바 프로그래머가 자주 실수 하는 10가지 - 1](http://bestalign.github.io/2015/08/31/top-10-mistakes-java-developers-make-1/)
-- [자바 프로그래머가 자주 실수 하는 10가지 - 2](http://bestalign.github.io/2015/09/06/top-10-mistakes-java-developers-make-2/)
 
 #### 3. 문제를 통한 Java 이해
 
