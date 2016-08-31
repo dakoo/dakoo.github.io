@@ -192,11 +192,7 @@ Queue는 알다시피 FIFO이다. offer()는 맨 뒤(가장 큰 index)에 저장
         System.out.println(list);     //[200, 300]
         System.out.println(list.peek());     //200
         System.out.println(list);     //[200, 300]
-        System.out.println(list.remove());     //200
-        System.out.println(list);     //[300]
 ```
-
-위의 결과와 같이 list.remove()와 list.poll()은 동일하지만, 다른 메소드명을 가진다. 
 
 #### 4.2 Stack
 
@@ -214,8 +210,6 @@ Stack은 LIFO이다. push()는 stack의 맨 위에 삽입. pop()은 stack의 맨
         System.out.println(list);     //[200, 100]
         System.out.println(list.peek());     //200
         System.out.println(list);     //[200, 100]
-        System.out.println(list.remove());     //200
-        System.out.println(list);     //[100]
 ```
 
 ##### 4.2.2 addLast, removeLast, getLast
@@ -242,4 +236,6 @@ Stack은 LIFO이다. push()는 stack의 맨 위에 삽입. pop()은 stack의 맨
 - [Collection Framework – Collection Interface](http://javaconceptoftheday.com/collection-framework-collection-interface/)
 - [Collection Framework – List Interface](http://javaconceptoftheday.com/collection-framework-list-interface/)
 - [Advantages Of Using ArrayList Over Arrays](http://javaconceptoftheday.com/advantages-of-using-arraylist-over-arrays/)
-- 
+
+
+
