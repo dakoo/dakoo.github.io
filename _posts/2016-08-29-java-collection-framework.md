@@ -18,27 +18,103 @@ image:
 
 ### 1. 용어
 
-**Java Collection Framework**은 Java가 제공하는 잘 정의된 객체의 그룹을 다루기 위한 framework의 이름이고 java.util 패키지안에 있다.  **Collection**은 Java collection framework의 최상위 레벨 인터페이스이고 **Collections**는 static 메소드만으로 구성된 유틸리티 클래스이다. 그런데 때로는 Collection과 Collections를 추상 명사로도 사용하므로 혼란스러울 수 있다. 예를 들어 Collections를 유틸리티 클래스가 아닌 객체 집합이라는 의미로도 많은 인터넷 상의 글들에서 사용되곤 한다. 
+**Java Collection Framework**은 Java가 제공하는 잘 정의된 객체의 그룹을 다루기 위한 framework의 이름이고 java.util 패키지안에 있다.  **Collection**은 Java collection framework을 구성하는 2개의 그룹 중 한 그룹의 최상위 레벨 인터페이스이고 **Collections**는 static 메소드만으로 구성된 유틸리티 클래스이다. 그런데 때로는 Collection과 Collections를 추상 명사로도 사용하므로 혼란스러울 수 있다. 예를 들어 Collections를 유틸리티 클래스가 아닌 객체 집합이라는 의미로도 많은 인터넷 상의 글들에서 사용되곤 한다. 
 
 ### 2. Collection Framework 계층 구조 
 
-Java Collection Framework의 클래스 계층 구조는 다음과 같다. 
+#### 2.1 Collection를 상속한 인터페이스들
 
-<figure>
-	<img src="http://javaconceptoftheday.com/wp-content/uploads/2014/11/CollectionHierarchy.png" alt="Java Collections 계층 구조">
-</figure>
+전체 Colleciton Framework은 크게 2개의 인터페이스 그룹으로 구분된다. 
 
-전체 Colleciton Framework은 4개의 인터페이스로 구분된다. 
+- java.util.Collection
+- java.util.Map
 
-- **List 인터페이스**: 객체들의 순차적인 리스트. 구현은 **ArrayList**, **Vector**, **LinkedList** 클래스
-- **Queue 인터페이스**: head에서만 제거되는 특별한 구조의 객체들의 리스트. 구현은 **LinkedList**와 **PriorityQueue** 클래스
-- **Set 인터페이스**: 중복되지 않는 유니크한 아이템들만 다루는 리스트. **HashSet**, **LinkedHashSet** 클래스로 구현. **SortedSet 인터페이스**에 의해 상속되고, 이는 **TreeMap** 클래스로 구현
-- **Map 인터페이스**: Collection에 의해 상속되지 않는 인터페이스. Key/Value 쌍으로서 객체를 다룸. 구현은 **HashMap**과 **HashTable**. **SortedMap 인터페이스**에 의해 상속되고 이는 **TreeMap**에 의해 구현됨
+##### 2.1.1 java.util.Collection 인터페이스 그룹
 
+다음과 같은 인터페이스들이 java.util.Collection 인터페이스를 상속한다. 
 
-#### 3. Collection 인터페이스
+- java.util.List : List 자료 구조 (ordered, sequential)
+- java.util.Set : Set 자료 구조 (unique element)
+- java.util.SortedSet : 정렬된 set
+- java.util.NavigableSet 
+- java.util.Queue : Queue 자료 구조 (한쪽에서 삽입, 반대에서 추출)
+- java.util.Deque : Deque 자료 구조 
 
-Collection Framework의 root level 인터페이스. 
+##### 2.2.2 java.util.Map 인터페이스 그룹
+
+ java.util.Map은 key/value pair를 다루는데 사용된다. 다음과 같은 인터페이스들이 java.util.Map 인터페이스를 상속한다.
+
+- java.util.SortedMap: key가 ascending order로 정렬된 map 
+- java.util.NavigableMap
+
+#### 2.3 Collection의 클래스들 
+
+Collection Framework에서 인터페이스들을 구현한 클래스들은 다음과 같다. 
+
+- ArrayList: Dynamic Array
+- LinkedList: Linked List
+- ArrayDeque: Dynamic Array를 이용한 Deque구현 
+- TreeSet: Tree 구조로 set을 구현
+- HashSet: Hash table 
+- LinkedHashSet: 삽입 순서로 iteration될 수 있는 HashSet
+- TreeMap: Tree를 사용하여 Map 구현
+- HashMap: Hash table을 이용해 Map 구현
+- LinkedHashMap: 삽입 순서로 iteration될 수 있는 HashMap
+
+위의 클래스들의 구현 스타일(가로)과 인터페이스(세로)를 정리하면 다음과 같다. 
+
+|Interface|Hash Table|Resizable Array|Balanced Tree|Linked List|Hash Table + Linked List|
+|---|---|---|---|---|---|
+|Set|HashSet| |TreeSet|	|LinkedHashSet|
+|List|	|ArrayList| |LinkedList| | 
+|Deque|	|ArrayDeque| |LinkedList| |
+|Map|HashMap| |TreeMap|	|LinkedHashMap|
+
+#### 2.4 Legacy 클래스들
+
+Java Collection Framework이 아닌 Java가 지원하는 Legacy 클래스들이 있다. 그것들은 다음과 같다. 
+
+- Vector: ArrayList과 유사. synchronized
+- Stack: Vector를 이용한 LIFO 구현
+- Dictionary: key/value 저장(Map과 유사)하는 abstract class
+- Hashtable: Dictionary의 구현
+- Properties: Hashtable의 subclass로 key/value 모두 String인 경우에 리스트를 관리
+- BitSet: Bit 값을 저장하는 특별한 유형의 array. 필요시 사이즈 증가 가능
+
+#### 2.5 Concurrent Collection들
+
+##### 2.5.1 인터페이스
+
+Concurrent programming을 지원하기 위한 Concurrent Collection 인터페이스들은 별도로 정의되어 있다. 
+
+- BlockingQueue
+- TransferQueue
+- BlockingDeque
+- ConcurrentMap
+- ConcurrentNavigableMap
+
+##### 2.5.1 클래스
+
+- LinkedBlockingQueue
+- ArrayBlockingQueue
+- PriorityBlockingQueue
+- DelayQueue
+- SynchronousQueue
+- LinkedBlockingDeque
+- LinkedTransferQueue
+- CopyOnWriteArrayList
+- CopyOnWriteArraySet
+- ConcurrentSkipListSet
+- ConcurrentHashMap
+- ConcurrentSkipListMap
+
+#### 3. Collection 알고리즘 
+
+java.util.Collection의 알고리즘을 담당하는 것이 [**Collections 클래스**](http://hochulshin.com/java-collections-api/)이다. 
+
+자세한 메소드는 [여기](http://www.tutorialspoint.com/java/java_collection_algorithms.htm)를 참고하자. 
+
+#### 4. java.util.Collection 인터페이스 메소드
 
 <figure>
 	<img src="http://javaconceptoftheday.com/wp-content/uploads/2014/11/CollectionInterface.png" alt="Java Collection 인터페이스">
@@ -55,8 +131,11 @@ Collection Framework의 root level 인터페이스.
 - boolean remove(Object o)
 - void clear(): 모든 element를 제거
 
+
 ### Reference
 
+- [Java Collection Tutorial](http://www.tutorialspoint.com/java/java_collections.htm)
+- [Collections Framework Overview](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html)
 - [Collection Framework – Class Hierarchy](http://javaconceptoftheday.com/collection-framework-class-hierarchy/)
 - [Collection Interface](http://javaconceptoftheday.com/collection-framework-collection-interface/)
 - [Difference Between Collection And Collections In Java](http://javaconceptoftheday.com/difference-between-collection-and-collections-in-java/)
