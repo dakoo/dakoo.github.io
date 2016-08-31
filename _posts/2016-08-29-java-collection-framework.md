@@ -26,6 +26,10 @@ image:
 
 전체 Colleciton Framework은 크게 2개의 인터페이스 그룹으로 구분된다. 
 
+<figure>
+	<img src="http://docs.oracle.com/javase/tutorial/figures/collections/colls-coreInterfaces.gif" alt="Java Collection">
+</figure>
+
 - java.util.Collection
 - java.util.Map
 
@@ -38,7 +42,7 @@ image:
 - java.util.SortedSet : 정렬된 set
 - java.util.NavigableSet 
 - java.util.Queue : Queue 자료 구조 (한쪽에서 삽입, 반대에서 추출)
-- java.util.Deque : Deque 자료 구조 
+- java.util.Deque : Deque 자료 구조 (FIFO와 FILO 모두 지원)
 
 ##### 2.2.2 java.util.Map 인터페이스 그룹
 
@@ -49,7 +53,7 @@ image:
 
 #### 2.3 Collection의 클래스들 
 
-Collection Framework에서 인터페이스들을 구현한 클래스들은 다음과 같다. 
+Collection Framework에서 인터페이스들을 구현한 주요 클래스들은 다음과 같다. (아래 클래스 말고도 아래 설명할 Legacy 클래스들,  Abstract 클래스들, Concurrent를 위한 클래스 들이 있다)
 
 - ArrayList: Dynamic Array
 - LinkedList: Linked List
@@ -72,7 +76,7 @@ Collection Framework에서 인터페이스들을 구현한 클래스들은 다�
 
 #### 2.4 Legacy 클래스들
 
-Java Collection Framework이 아닌 Java가 지원하는 Legacy 클래스들이 있다. 그것들은 다음과 같다. 
+Java Collection Framework의 Legacy 클래스들이 있다. 그것들은 다음과 같다. 
 
 - Vector: ArrayList과 유사. synchronized
 - Stack: Vector를 이용한 LIFO 구현
@@ -134,6 +138,7 @@ java.util.Collection의 알고리즘을 담당하는 것이 [**Collections 클�
 
 ### Reference
 
+- [Java 8 API](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html)
 - [Java Collection Tutorial](http://www.tutorialspoint.com/java/java_collections.htm)
 - [Collections Framework Overview](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html)
 - [Collection Framework – Class Hierarchy](http://javaconceptoftheday.com/collection-framework-class-hierarchy/)
