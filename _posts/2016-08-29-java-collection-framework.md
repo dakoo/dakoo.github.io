@@ -259,14 +259,28 @@ HashSet을 순회하는 방법은 다음과 같다.
      /*iterator*/
      Iterator<String> it = set.iterator();
      while(it.hasNext()){
-        System.out.println(it.next());//1 2 3
+        System.out.println(it.next());
      }
      /*foreach*/
      for(String s: set){
-        System.out.println(s); //1 2 3     
+        System.out.println(s);     
      }
      /*Stream*/
-     set.forEach(System.out::println); //1 2 3
+     set.forEach(System.out::println); 
+```
+
+출력은 다음과 같다. 입력과 상관없이 정렬되어 출력된다는 것을 알 수 있다. 하지만, 이 정렬을 믿고 코딩을 하면 안된다. 정렬이 필요하면 TreeSet을 사용하는 것이 좋다. 
+
+```
+1
+2
+3
+1
+2
+3
+1
+2
+3
 ```
 
 #### 3.3 Key/Value 쌍으로 저장하는 자료 구조 (Map)
@@ -313,9 +327,9 @@ HashMap의 element를 순회하기 위해서는 Set으로 변환하거나 stream
 
 ```java
         Map<String, String> map = new HashMap<String, String>();
-        map.put("k1", "v1");
-        map.put("k2", "v2");
-        map.put("k3", "v3");
+        map.put("k1", "haha");
+        map.put("k3", "kaka");
+        map.put("k2", "nana");
 
         //Map --> Set and iterator
         Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
@@ -329,6 +343,20 @@ HashMap의 element를 순회하기 위해서는 Set으로 변환하거나 stream
         }
         //stream
         map.forEach((k, v)-> System.out.println(k +","+v));
+```
+
+출력은 다음과 같다. key를 기준으로 정렬되어 순회가 된다는 것을 알 수 있다. 하지만, 이 정렬을 믿고 코딩을 하면 안된다. 정렬이 필요하면 TreeMap을 사용하는 것이 좋다. 
+
+```bash
+k1,haha
+k2,nana
+k3,kaka
+k1,haha
+k2,nana
+k3,kaka
+k1,haha
+k2,nana
+k3,kaka
 ```
 
 ##### 3.3.2 Hashtable
@@ -345,11 +373,182 @@ Hashtable은 HashMap과 거의 동일하다. 그리고 Hashtable은 Collection f
 ##### 3.4.1 TreeSet
 
 data들이 자동으로 오름차순으로 정렬된다. 
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/TreeSet.html)를 참고하자.  
+
+HashSet의 메소드와 동일한 메소드를 제공하며, 특별히 정렬된 순으로 순회가 유리한 메소드를 제공한다. 
+
+- Iterator<E> iterator(): 오름순
+- Iterator<E> descendingIterator(): 내림순
+- last(): 가장 큰 element 
+- first(): 가장 작은 element
+
+사용예는 다음과 같다. 
+
+```java
+TreeSet <Integer> set = new TreeSet<Integer>();
+set.add(1);
+set.add(3);
+set.add(2);
+
+Iterator iterator = set.descendingIterator();
+while (iterator.hasNext()){
+     System.out.println(iterator.next()); //3 2 1
+}
+System.out.println(set.first()); //1
+System.out.println(set.last());  //3
+```
+
+###### Custom Comparator
+
+TreeSet에 custom comparator를 추가하는 것은 TreeSet 생성시 constructor에 comparator를 추가하면 된다. 
+
+```java
+//Cup.java
+public class Cup {
+    private final int size;
+    public Cup(int size) {
+        this.size = size;
+    }
+    int getSize(){
+        return this.size;
+    }
+}
+```
+
+위와 같은 Cup Class의 객체들을 size에 따라 오름차순으로 정렬하고자 할 때 아래와 같이 하면 컴파일이 실패한다. 
+
+```java
+Set<Cup> set = new TreeSet<Cup>();
+set.add(new Cup(1));
+set.add(new Cup(3));
+set.add(new Cup(2));
+set.forEach((c)->System.out.println(c.getSize()));
+```
+
+다음과 같이 constructor에 comparator를 Lambda로 추가하면 `3 2 1`로 출력이 된다. 
+
+```java
+Set<Cup> set = new TreeSet<Cup>((c1, c2) -> c2.getSize() - c1.getSize() );
+```
+###### HashSet -> TreeSet
+
+HashSet을 TreeSet으로 변환하는 것은 다음과 같이 `addAll()`을 사용한다. 
+
+```java
+Set<String> set = new HashSet<String>();
+...
+TreeSet<String> ts = new TreeSet<String>();
+ts.addAll(set);
+```
 
 ##### 3.4.2 TreeMap
 
-key를 기준으로 data들이 자동으로 오름차순으로 정렬된다. 
+data들이 Key를 기준으로 default로 오름차순으로 정렬된다. 동기화를 지원하지 않으면 동기화가 필요한 경우 다음과 같이 한다. 
+- SortedMap m = Collections.synchronizedSortedMap(new TreeMap(...));
 
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/TreeMap.html)를 참고하자. 
+
+HashMap의 메소드와 동일한 메소드를 제공한다. HashMap에서 살펴봤다시피 Map을 순회 하기 위해서는 Set으로 변환하는데, TreeMap은 특별히 정렬된 순서의 Set을 반환하는 메소드를 제공한다. 
+
+- Map.Entry<K,V> firstEntry(): 정렬된 entry중 가장 처음 것 반환. empty이면 null
+- Map.Entry<K,V> lastEntry(): 정렬된 entry중 가장 마지막 것 반환. empty이면 null
+- Map.Entry<K,V> pollFirstEntry():정렬된 entry중 가장 처음 entry 제거
+- Map.Entry<K,V> pollLastEntry():  정렬된 entry중 가장 마지막 entry 제거
+- NavigableSet<K> entrySet(): Set 반환
+
+사용 예는 다음과 같다. 
+
+```java
+        TreeMap map = new TreeMap();
+        map.put("Zara", new Double(3434.34));
+        map.put("Mahnaz", new Double(123.22));
+        map.put("Ayan", new Double(1378.00));
+
+        Set set = map.entrySet();
+        Iterator i = set.iterator();
+        while(i.hasNext()) {
+            Map.Entry entry = (Map.Entry)i.next();
+            System.out.println(entry.getKey() + "," + entry.getValue());
+        }
+        System.out.println(map.firstEntry().getKey());
+        System.out.println(map.lastEntry().getKey());
+```
+
+결과는 다음과 같이 key순으로 순회할 수 있다. 
+
+```bash
+Ayan,1378.0
+Mahnaz,123.22
+Zara,3434.34
+Ayan
+Zara
+```
+
+###### Custom Comparator
+
+TreeMap에 custom comparator를 추가하는 것은 TreeMap 생성시 constructor에 comparator를 추가하면 된다. Cup Class의 객체를 Key로 하고 그 size에 따라 **내림차순**으로 정렬해보자. 
+```java
+//Cup.java
+public class Cup {
+    private final int size;
+    public Cup(int size) {
+        this.size = size;
+    }
+    int getSize(){
+        return this.size;
+    }
+}
+```
+
+constructor에 lambda로 comparator를 입력으로 준다. 
+
+```java
+        TreeMap<Cup, Double> map = new TreeMap<Cup, Double>((c1, c2)-> c2.getSize()-c1.getSize());
+        map.put(new Cup(3), new Double(0.34));
+        map.put(new Cup(1), new Double(123.22));
+        map.put(new Cup(2), new Double(178.00));
+
+        map.forEach((k, v)-> System.out.println(k.getSize() + "," +v));
+        System.out.println(map.firstEntry().getKey().getSize());
+        System.out.println(map.lastEntry().getKey().getSize());
+```
+
+결과는 다음과 같다. key를 내림차순으로 정렬했고, 이에 따라 firstEntry와 lastEntry도 역시 결정되었다. 
+
+```
+3,0.34
+2,178.0
+1,123.22
+3
+1
+```
+
+###### key가 아닌 value 순으로 순회하기 
+
+**Map 자료구조는 value순으로 정렬을 지원하지 않는다.** 만약 Value 순 정렬이 반드시 필요하다면 key와 value의 쌍을 저장하고 정렬하는 TreeSet을 먼저 만든 뒤, map의 entry들을 TreeSet에 복수한 후 순회하는 방법을 사용한다 .
+
+```java
+        TreeMap<String, Double> map = new TreeMap<>();
+        map.put("Zara", new Double(3434.34));
+        map.put("Mahnaz", new Double(123.22));
+        map.put("Ayan", new Double(1378.00));
+
+        Set <Map.Entry<String, Double>> set = new TreeSet<Map.Entry<String, Double>>(
+                (e1, e2)->(e1.getValue().compareTo(e2.getValue()))
+        );
+        set.addAll(map.entrySet());
+        for(Map.Entry<String, Double> entry: set){
+            System.out.println(entry.getKey() + "," + entry.getValue());
+        }
+```
+
+결과는 다음과 같이 key가 아닌 value순으로 순회할 수 있다. 
+
+```bash
+Mahnaz,123.22
+Ayan,1378.0
+Zara,3434.34
+```
 
 ### Reference
 
