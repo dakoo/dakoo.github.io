@@ -22,12 +22,12 @@ image:
 
 ### 2. Collection Framework 계층 구조 
 
-#### 2.1 Collection를 상속한 인터페이스들
+#### 2.1 인터페이스들
 
-전체 Colleciton Framework은 크게 2개의 인터페이스 그룹으로 구분된다. 
+전체 Colleciton Framework은 크게 2개의 그룹으로 구분된다. (그림 출처: 소설같은자바 Third Edition)
 
 <figure>
-	<img src="http://docs.oracle.com/javase/tutorial/figures/collections/colls-coreInterfaces.gif" alt="Java Collection">
+	<img src="http://cfile25.uf.tistory.com/image/175466144CC11C27552BBC" alt="Java Collection">
 </figure>
 
 - java.util.Collection
@@ -35,7 +35,7 @@ image:
 
 ##### 2.1.1 java.util.Collection 인터페이스 그룹
 
-다음과 같은 인터페이스들이 java.util.Collection 인터페이스를 상속한다. 
+아래의 것들이 java.util.Collection의 구현체가 아닌 인터페이스들이다. 
 
 - java.util.List : List 자료 구조 (ordered, sequential)
 - java.util.Set : Set 자료 구조 (unique element)
@@ -44,16 +44,16 @@ image:
 - java.util.Queue : Queue 자료 구조 (한쪽에서 삽입, 반대에서 추출)
 - java.util.Deque : Deque 자료 구조 (FIFO와 FILO 모두 지원)
 
-##### 2.2.2 java.util.Map 인터페이스 그룹
+##### 2.1.2 java.util.Map 인터페이스 그룹
 
  java.util.Map은 key/value pair를 다루는데 사용된다. 다음과 같은 인터페이스들이 java.util.Map 인터페이스를 상속한다.
 
 - java.util.SortedMap: key가 ascending order로 정렬된 map 
 - java.util.NavigableMap
 
-#### 2.3 Collection의 클래스들 
+#### 2.2 Collection의 클래스들 
 
-Collection Framework에서 인터페이스들을 구현한 주요 클래스들은 다음과 같다. (아래 클래스 말고도 아래 설명할 Legacy 클래스들,  Abstract 클래스들, Concurrent를 위한 클래스 들이 있다)
+Collection Framework에서 인터페이스들을 구현한 주요 클래스들은 다음과 같다. 위 그림 중 leaf node에 해당하는 것들이다. 아래 클래스 말고도 아래 설명할 Legacy 클래스들,  Abstract 클래스들, Concurrent를 위한 클래스 들이 있다. 
 
 - ArrayList: Dynamic Array
 - LinkedList: Linked List
@@ -74,7 +74,7 @@ Collection Framework에서 인터페이스들을 구현한 주요 클래스들�
 |Deque|	|ArrayDeque| |LinkedList| |
 |Map|HashMap| |TreeMap|	|LinkedHashMap|
 
-#### 2.4 Legacy 클래스들
+##### Legacy 클래스들
 
 Java Collection Framework의 Legacy 클래스들이 있다. 그것들은 다음과 같다. 
 
@@ -85,9 +85,13 @@ Java Collection Framework의 Legacy 클래스들이 있다. 그것들은 다음�
 - Properties: Hashtable의 subclass로 key/value 모두 String인 경우에 리스트를 관리
 - BitSet: Bit 값을 저장하는 특별한 유형의 array. 필요시 사이즈 증가 가능
 
-#### 2.5 Concurrent Collection들
+#### 2.3 Collection 알고리즘 
 
-##### 2.5.1 인터페이스
+java.util.Collection의 알고리즘을 담당하는 것이 [**Collections 클래스**](http://hochulshin.com/java-collections-api/)이다. 자세한 메소드는 [여기](http://www.tutorialspoint.com/java/java_collection_algorithms.htm)를 참고하자. 
+
+#### 2.4 Concurrent Collection들
+
+##### 2.4.1 인터페이스
 
 Concurrent programming을 지원하기 위한 Concurrent Collection 인터페이스들은 별도로 정의되어 있다. 
 
@@ -97,7 +101,7 @@ Concurrent programming을 지원하기 위한 Concurrent Collection 인터페이
 - ConcurrentMap
 - ConcurrentNavigableMap
 
-##### 2.5.1 클래스
+##### 2.4.1 클래스
 
 - LinkedBlockingQueue
 - ArrayBlockingQueue
@@ -112,29 +116,34 @@ Concurrent programming을 지원하기 위한 Concurrent Collection 인터페이
 - ConcurrentHashMap
 - ConcurrentSkipListMap
 
-#### 3. Collection 알고리즘 
+### 3. 자료 구조 관점 
 
-java.util.Collection의 알고리즘을 담당하는 것이 [**Collections 클래스**](http://hochulshin.com/java-collections-api/)이다. 
+계층 구조가 아닌 자료 구조 관점에서 설명을 해보자. 
 
-자세한 메소드는 [여기](http://www.tutorialspoint.com/java/java_collection_algorithms.htm)를 참고하자. 
+#### 3.1 순서가 있는 자료 구조
 
-#### 4. java.util.Collection 인터페이스 메소드
+순서가 있는 자료구조는 element의 중복을 허용한다.  
 
-<figure>
-	<img src="http://javaconceptoftheday.com/wp-content/uploads/2014/11/CollectionInterface.png" alt="Java Collection 인터페이스">
-</figure>
+##### 3.1.1 ArrayList
 
-주요 메소드는 다음과 같다. 
+ArrayList의 특성은 다음과 같다. 
 
-- int size()
-- boolean isEmpty()
-- boolean contains(Object o)
-- Interator<E> iterator(): iterator를 획득
-- Object[] toArray(): collection의 모든 element들이 포함된 array 반환
-- boolean add(E e)
-- boolean remove(Object o)
-- void clear(): 모든 element를 제거
+- 동기화를 보장하지 않는다. 
+- resizable한 자료구조이다. 
+- 
 
+
+#### 3.2 순서가 없는 자료 구조 
+
+순서가 없는 자료구조는 element의 중복을 허용하지 않는 특성이 있다.
+
+#### 3.3 Key/Value 쌍으로 저장하는 자료 구조
+
+Key를 이용해서 Value를 찾는 검색 기능을 제공하는 자료구조이다. 
+
+#### 3.4 정렬된 자료 구조
+
+기존 데이터 구조에 정렬 속성을 추가한 자료 구조이다. 
 
 ### Reference
 
