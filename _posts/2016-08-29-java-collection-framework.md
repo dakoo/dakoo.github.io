@@ -430,6 +430,7 @@ set.forEach((c)->System.out.println(c.getSize()));
 ```java
 Set<Cup> set = new TreeSet<Cup>((c1, c2) -> c2.getSize() - c1.getSize() );
 ```
+
 ###### HashSet -> TreeSet
 
 HashSet을 TreeSet으로 변환하는 것은 다음과 같이 `addAll()`을 사용한다. 
