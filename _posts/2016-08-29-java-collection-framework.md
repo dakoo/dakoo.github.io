@@ -246,7 +246,7 @@ HashSet을 순회하는 방법은 다음과 같다.
 
 - iterator
 - foreach
-- Stream
+- Stream forEach
 
 예는 다음과 같다. 
 
@@ -256,29 +256,100 @@ HashSet을 순회하는 방법은 다음과 같다.
      set.add("2");
      set.add("3");
 
+     /*iterator*/
      Iterator<String> it = set.iterator();
      while(it.hasNext()){
         System.out.println(it.next());//1 2 3
      }
+     /*foreach*/
      for(String s: set){
         System.out.println(s); //1 2 3     
      }
-     set.stream().forEach(System.out::println); //1 2 3
+     /*Stream*/
+     set.forEach(System.out::println); //1 2 3
 ```
 
 #### 3.3 Key/Value 쌍으로 저장하는 자료 구조 (Map)
 
-Key를 이용해서 Value를 찾는 검색 기능을 제공하는 자료구조이다. Collection Framework은 크게 다음의 Map Class를 가지고 있다. 
+Key를 이용해서 Value를 찾는 검색 기능을 제공하는 자료구조이다. Java는 크게 다음의 Map Class를 가지고 있다. 
 
-- HashMap
-- Hashtable
+- HashMap: 동기화를 보장하지 않는 Java Collection Framework의 대표 Map
+- Hashtable: 동기화를 보장 (Collection Framework이 아닌 Legacy Directory abstract class를 구현)
 - Map 인터페이스를 상속한 SortedMap 인터페이스를 구현한 TreeMap 
 
-TreeMap은 정렬을 하는 특수한 자료구조이므로 이후 별도로 다룬다. 
+TreeMap은 정렬을 하는 특수한 자료구조이므로 이후 별도로 다룬다. Hashtable은 동기화를 지원하기 때문에 상대적으로 HashMap에 비해 느리다. 그리고 HashMap을 필요한 경우에 동기화를 걸 수 있으므로 Hashtable은 자주 사용하지 않게 되었다. 
+
+##### 3.3.1 HashMap
+
+HashMap은 Map자료구조이므로 key/value 쌍으로 데이터를 저장하고, 내부적으로 Hash기법을 구현하고 있다. 동기화가 필요한 경우 다음과 같이 사용할 수 있다. 
+
+- Map<>map = Collections.synchronizedMap(new HashMap<>());
+
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/HashMap.html)를 참고하자.  
+
+- HashMap(int) : 초기 capacity 설정하며 생성
+- boolean isEmpty()
+- boolean containsKey(Object key)
+- boolean containsValue(Object value)
+- V get(Object key): 만약 data가 없으면 null
+- V getOrDefault(Object Key, V defaultValue): 만약 data가 없으면 default value를 반환
+- V put(K key, V value): 삽입 - 만약 이전에 존재하던 key가 있으면 덮어쓰고 이전 값을 반환. null을 반환하면 key가 없었던 것.
+- V putIfAbsent(K key, V value): 만약 key가 존재하지 않으면 삽입. 만약 존재하지 않았다면 null 반환하고 아니면 이전 value 반환
+- V replace(K key, V value): 현재 key의 value를 대체. 만약 이전에 없었다면 null 반환(이전 value가 null일수도 있다)
+- boolean replace(K key, V oldValue, V newValue): 만약 대체되면 true 반환
+- V remove(Object key)
+- boolean remove(Object key, Object value)
+- Set<Map.Entry<K,V>> entrySet() : Set 자료구조로 반환
+- Set<K> keySet() : key들만 모아서 Set 자료구조로 반환
+- Collection<V>	values(): value들만 Collection으로 반환
+
+HashMap의 element를 순회하기 위해서는 Set으로 변환하거나 stream을 이용한다. Set으로 변환시 필요하다면 Key나 Value로만 Set을 구성할 수도 있다. 위의 entrySet(), KeySet(), values()을 참조하자. 
+
+- Map을 Set으로 변환 후 iterator로 순회 
+- Map을 Set으로 변화하며 forEach로 순회
+- stream forEach
+
+예는 다음과 같다. 
+
+```java
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("k1", "v1");
+        map.put("k2", "v2");
+        map.put("k3", "v3");
+
+        //Map --> Set and iterator
+        Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry<String, String> elem = it.next();
+            System.out.println(elem.getKey() + "," + elem.getValue());
+        }
+        //Map --> Set and foreach
+        for(Map.Entry<String, String> elem: map.entrySet()){
+            System.out.println(elem.getKey() + "," + elem.getValue()); 
+        }
+        //stream
+        map.forEach((k, v)-> System.out.println(k +","+v));
+```
+
+##### 3.3.2 Hashtable
+
+Hashtable은 HashMap과 거의 동일하다. 그리고 Hashtable은 Collection framework의 Map 인터페이스가 아닌 Directory 추상 클래스를 구현하고 있다. 
+동기화를 기본으로 지원한다는 점이 다르다. 하지만, 이로 인해 일반적인 경우 성능 문제가 있어서 잘 사용하지 않는다. 
+
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/Hashtable.html)를 참고하자.  
 
 #### 3.4 정렬된 자료 구조 (Sorted)
 
-기존 데이터 구조에 정렬 속성을 추가한 자료 구조이다. 
+기존 데이터 구조에 정렬 속성을 추가한 자료 구조이다. 인터페이스로는 Set 인터페이스를 상속받은 SortedSet과 Map 인터페이스를 상속받은 SortedMap 인터페이스가 있다. 각각 TreeSet 클래스와 TreeMap 클래스로 구현되어 있다. 
+
+##### 3.4.1 TreeSet
+
+data들이 자동으로 오름차순으로 정렬된다. 
+
+##### 3.4.2 TreeMap
+
+key를 기준으로 data들이 자동으로 오름차순으로 정렬된다. 
+
 
 ### Reference
 
