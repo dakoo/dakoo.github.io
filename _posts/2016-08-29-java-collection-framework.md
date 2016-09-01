@@ -118,30 +118,165 @@ Concurrent programming을 지원하기 위한 Concurrent Collection 인터페이
 
 ### 3. 자료 구조 관점 
 
-계층 구조가 아닌 자료 구조 관점에서 설명을 해보자. 
+계층 구조가 아닌 자료 구조 관점에서 설명을 해보자. Collection Framework이 제공하는 자료구조는 크게 다음과 같은 4가지로 구분할 수 있다. 
 
-#### 3.1 순서가 있는 자료 구조
+- 순서가 있는 자료구조(List)
+- 순서가 없고 중복이 안되는 집합 자료구조(Set)
+- 검색이 용이하도록 key/value 쌍으로 저장하는 자료구조(Map)
+- 정렬이 되어서 저장하는 특수한 자료구조(Sorted)
 
-순서가 있는 자료구조는 element의 중복을 허용한다.  
+각 자료구조에 대해 살펴보자. 
+
+#### 3.1 순서가 있는 자료 구조 (List)
+
+순서가 있는 자료구조는 element의 중복을 허용하며 주로 선형 구조를 가진다. Collection Framework은 크게 다음 4가지의 Class를 가지고 있다. 
+
+- ArrayList: resizable array, synchronized 보장하지 않음
+- Vector: resizable array, synchronized 보장
+- LinkedList: linked list
+- Stack: stack 
 
 ##### 3.1.1 ArrayList
 
 ArrayList의 특성은 다음과 같다. 
 
-- 동기화를 보장하지 않는다. 
-- resizable한 자료구조이다. 
-- 
+- 동기화를 보장하지 않으며 동기화가 필요할 때는 `Collections.synchronizeList()` 메소드를 통해 동기화가 보장되는 List를 반환받아 사용한다. 
+- resizable하다. 
 
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](https://docs.oracle.com/javase/8/docs/api/?java/util/ArrayList.html)를 참고하자.  
 
-#### 3.2 순서가 없는 자료 구조 
+- boolean add(E e)
+- void add(int index, E e)
+- boolean remove(Object o)
+- E remove(int index)
+- E get(int index)
+- E set(int index, E e)
+- Object[] toArray()
 
-순서가 없는 자료구조는 element의 중복을 허용하지 않는 특성이 있다.
+##### 3.1.2 Vector
 
-#### 3.3 Key/Value 쌍으로 저장하는 자료 구조
+Vector의 특성은 다음과 같다. 
 
-Key를 이용해서 Value를 찾는 검색 기능을 제공하는 자료구조이다. 
+- **동기화를 보장**하는 resizable Array이다.  
 
-#### 3.4 정렬된 자료 구조
+ArrayList와 지원 메소드와 속성이 거의 동일하다. 동기화를 보장(Thread-safe)할 필요가 없는 경우 ArrayList를 추천하며, 심지어 동기화가 필요한 경우 조차도 ArrayList를 동기화 시켜 사용되기 때문에 이제 Vector는 자주 사용되지 않는 자료구조이다. 
+
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/Vector.html)를 참고하자.  
+
+- boolean add(E e)
+- void add(int index, E e)
+- boolean remove(Object o)
+- E remove(int index)
+- E get(int index)
+- E set(int index, E e)
+- Object[] toArray()
+
+ArrayList의 메소드와 동일함을 알 수 있다. 
+
+##### 3.1.3 LinkedList
+
+LinkedList의 특성은 다음과 같다. 
+
+- 동기화를 보장하지 않으며 동기화가 필요할 때는 `Collections.synchronizeList()` 메소드를 통해 동기화가 보장되는 List를 반환받아 사용한다. 
+- ArrayList와 유사하지만, 선입 선출인 **Queue**와 양쪽 끝에서의 처리를 하는 **Deque**의 속성과 메소드를 가지고 있다. 
+
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/LinkedList.html)를 참고하자.  
+
+- boolean add(E e)
+- void add(int index, E e)
+- E get(int index)
+- boolean remove(Object o)
+- E remove(int index)
+- E set(int index, E e)
+- Object[] toArray()
+
+위의 메소드는 ArrayList와 동일하며, 다음은 LinkedList만의 메소드이다. Queue 자료구조의 메소드는 기본적으로 **tail에 넣고 front에서 뺀다**. 그리고, offer()가 삽입하는 것, poll()이 빼는 것, peek()이 읽는 것이다. Deque 자료구조를 지원하기 위해 addFirst/Last, getFirst/Last, removeFirst/Last를 지원한다. LinkedList를 이용해서 deque로 사용할지, queue로 사용할지에 따라 적당한 메소드를 사용하면 된다.  
+
+- void addFirst(E e): front에 삽입
+- void addLast(E e): tail에 삽입
+- E getFirst(): front에서 읽기
+- E getLast(): tail에서 읽기
+- E removeFirst(): front에서 삭제
+- E removeLast(): tail에서 삭제
+- boolean offerFirst(E e): == addFirst()
+- boolean offerLast(E e): == addLast()
+- E pollFirst(): = removeFirst()
+- E pollLast(): = removeLast()
+- E peekFirst(): = getFirst()
+- E peekLast():  = getLast()
+- boolean offer(E e): = offerLast()
+- E poll(): = pollFirst()
+- E peek(): = peekFirst()
+
+##### 3.1.3 Stack
+
+Deque 인터페이스의 속성을 물려받아 메소드만 LIFO에 맞게 **정의**한 것이다. Stack의 특성은 다음과 같다. 
+
+- LIFO(후입 선출)을 지원
+
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/Stack.html)를 참고하자.  
+
+- boolean empty()
+- E push(E item): 삽입. E를 그대로 반환
+- E pop(): 제거
+- E peek(): 읽기
+- int search(Object o): 반환하는 값은 top부터의 거리를 의미. 만약 1을 반환하면 top. -1을 반환하면 없다는 것
+
+#### 3.2 순서가 없는 집합 자료 구조 (Set)
+
+순서가 없는 자료구조는 element의 중복을 허용하지 않는 특성이 있다. 순서의 의미가 없으므로 index를 통해 접근하지 않는다. Collection Framework은 크게 다음의 Set Class를 가지고 있다. 
+
+- HashSet: Java Collection의 대표 Set 자료구조
+- Set 인터페이스를 상속한 SortedSet 인터페이스를 구현한 TreeSet 
+
+TreeSet은 정렬을 하는 특수한 자료구조이므로 이후 별도로 다룬다. 
+
+##### 3.2.1 HashSet
+
+HashSet은 Set자료구조이므로 가장 중요한 것은 자료구조안에 아이템이 있는 지 확인하는 것이다. 이는 contains() 메소드를 이용한다. 
+
+주요 메소드는 다음과 같으며 자세한 API 사용법은 [여기](http://docs.oracle.com/javase/8/docs/api/?java/util/HashSet.html)를 참고하자.  
+
+- boolean empty()
+- boolean add(E e)
+- boolean contains(Object o): 존재하면 true
+- boolean remove(Object o)
+
+HashSet을 순회하는 방법은 다음과 같다. 
+
+- iterator
+- foreach
+- Stream
+
+예는 다음과 같다. 
+
+```java
+     HashSet<String> set = new HashSet<String>();
+     set.add("1");
+     set.add("2");
+     set.add("3");
+
+     Iterator<String> it = set.iterator();
+     while(it.hasNext()){
+        System.out.println(it.next());//1 2 3
+     }
+     for(String s: set){
+        System.out.println(s); //1 2 3     
+     }
+     set.stream().forEach(System.out::println); //1 2 3
+```
+
+#### 3.3 Key/Value 쌍으로 저장하는 자료 구조 (Map)
+
+Key를 이용해서 Value를 찾는 검색 기능을 제공하는 자료구조이다. Collection Framework은 크게 다음의 Map Class를 가지고 있다. 
+
+- HashMap
+- Hashtable
+- Map 인터페이스를 상속한 SortedMap 인터페이스를 구현한 TreeMap 
+
+TreeMap은 정렬을 하는 특수한 자료구조이므로 이후 별도로 다룬다. 
+
+#### 3.4 정렬된 자료 구조 (Sorted)
 
 기존 데이터 구조에 정렬 속성을 추가한 자료 구조이다. 
 
