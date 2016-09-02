@@ -153,6 +153,9 @@ ArrayList의 특성은 다음과 같다.
 - E set(int index, E e)
 - Object[] toArray()
 
+> Note: Collection에서는 ArrayList가 메모리 크기의 잇점과 Cache 친화적이라는 점으로 인해 ArrayList가 LinkedList에 비해 훨씬 많이 쓰인다. 굳이 LinkedList를 사용할 필요가 거의 없다
+
+
 ##### 3.1.2 Vector
 
 Vector의 특성은 다음과 같다. 
