@@ -32,7 +32,9 @@ image:
 
 ##### [java 8 tutorial](http://www.tutorialspoint.com/java8/java8_lambda_expressions.htm)
 
-##### [java stream tutorial](http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/)
+##### [java stream tutorial](http://www.java2s.com/Tutorials/Java/Java_Stream/index.htm)
+
+자세한 stream tutorial
 
 ##### [Jakob Jenkov의 java tutorial](http://tutorials.jenkov.com/java/index.html)
 
