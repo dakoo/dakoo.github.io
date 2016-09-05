@@ -16,7 +16,7 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-functional programming을 지원하기 위한 Java 8의 핵심인 Stream에 대해 알아보자. 
+functional programming을 지원하기 위한 Java 8의 핵심인 Stream에 대해 알아보자. [java2s.com](http://www.java2s.com/Tutorials/Java/Java_Stream/index.htm)의 내용을 개인적으로 정리한 것이므로 자세한 내용은 해당 사이트를 참고하자. 
 
 ## 1. 개요
 
@@ -804,5 +804,6 @@ Highest earner: (2, Jack,  MALE,  1972-07-21,  7100.00)
 
 ## 참고
 
+- [java2s.com](http://www.java2s.com/Tutorials/Java/Java_Stream/index.htm) 
 - [java8 tutorial](http://www.tutorialspoint.com/java8/java8_streams.htm)
 - [programcreek의 simple java 8](http://www.programcreek.com/simple-java-8-lambdas/)
