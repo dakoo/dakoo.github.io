@@ -107,11 +107,12 @@ publisher.addStateListener(new StateChangeListener() {
 });
 ```
 
-위와 같은 파라미터 없는 method는 다음과 같이 표현가능하다. ()안에 아무것도 없다. 
+위와 같은 **<1>파라미터 없는 method는 ()만으로 표현** 가능하다.  
 
 ```java
 () -> System.out.println("State changed");
 ```
+
 
 ##### 3.1.2 One Parameter
 
@@ -123,13 +124,13 @@ publisher.addStateListener(new StateChangeListener() {
 });
 ```
 
-위와 같은 파라미터 없는 method는 다음과 같이 표현가능하다. type을 표기하지 않아도 된다. 
+위와 같은 파라미터 없는 method는 다음과 같이 표현가능하다. **<2>type이 유추가능한 경우 type을 생략할 수 있다.** 
 
 ```java
 (newState) -> System.out.println("State changed :" + newState);
 ```
 
-Parameter가 하나만 있는 경우 ()를 생략할 수 있다. 
+**<3> Parameter가 하나만 있는 경우 ()를 생략할 수 있다. **
 
 ```java
 newState -> System.out.println("State changed :" + newState);
@@ -138,6 +139,24 @@ newState -> System.out.println("State changed :" + newState);
 ##### 3.1.3 Multiple Parameter
 
 (oldState, newState) -> System.out.println("State changed" + oldState + "," + newState);
+
+
+##### 3.1.4 Stream forEach와 method reference
+
+**<4>Stream forEach과 결합하여  parameter를 비 명시적으로 하며 method reference를 사용**할 수 있다. 
+
+```java
+String[] arr = { "program", "creek", "is", "a", "java", "site" };
+Stream<String> stream = Stream.of(arr);
+stream.forEach(x -> System.out.println(x));
+```
+
+위의 코드는 다음과 같이 다음과 같이 변경 가능하다. 
+
+```java
+Stream<String> stream = Stream.of(arr);
+stream.forEach(System.out::println);
+```
 
 #### 3.2 Lambda Parameter Type
 
@@ -151,7 +170,7 @@ newState -> System.out.println("State changed :" + newState);
 
 ##### 3.3.1 body 부분
 
-Lambda함수는 '->' 뒷 부분이다. 예를 들어 다음 Lambda함수에서 **System.out.println("State changed")**이 body이다. 
+Lambda함수는 '->' 뒷 부분이다. 예를 들어 다음 Lambda함수에서 `System.out.println("State changed")`이 body이다. 
 
 ```java
 (oldState, newState) -> System.out.println("State changed")
@@ -159,7 +178,7 @@ Lambda함수는 '->' 뒷 부분이다. 예를 들어 다음 Lambda함수에서 *
 
 ##### 3.3.2 여러 줄인 경우 
 
-Lambda 함수가 여러 줄로 구성된 경우 {}를 사용하면 된다. 
+Lambda 함수가 **<5>여러 줄로 구성된 경우 {}를 사용**하면 된다. 
 
 ```java
 (oldState, newState) -> {
@@ -180,7 +199,7 @@ Lambda 함수가 여러 줄로 구성된 경우 {}를 사용하면 된다.
 
 ##### 3.3.2 비명시적 return 
 
-Lambda 내부에서 계산된 값 또는 새로 만들어진 값을 return하는 경우 'return'을 생략할 수 있다. 
+Lambda **<6>내부에서 계산된 값 또는 새로 만들어진 값을 return하는 경우 'return'을 생략할 수 있다**. 
 
 ```java
 (param) -> "return value";
