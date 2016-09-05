@@ -26,7 +26,13 @@ image:
 
 ##### [Oracle Java API 문서](https://docs.oracle.com/javase/8/docs/api/overview-summary.html)
 
-##### [programcreek - java tutorial](http://www.programcreek.com/java-tutorials/)
+##### [java doc world](http://www.javadocworld.com/coreJava)
+
+다양한 java 예제 코드들. 하지만, java8은 없다. 
+
+##### [java 8 tutorial](http://www.tutorialspoint.com/java8/java8_lambda_expressions.htm)
+
+##### [java stream tutorial](http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/)
 
 ##### [Jakob Jenkov의 java tutorial](http://tutorials.jenkov.com/java/index.html)
 
