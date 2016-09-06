@@ -38,6 +38,83 @@ Stream은 Collection 객체, Array, I/O로부터의 sequence 입력을 집합적
 - Collection은 유한한 크기를 가지고 있으나 Stream은 그렇지 않다. limit()나 findFirst()등의 operation을 이용해 유한한 시간내에 처리할 수 있도록 지원한다. 
 - Stream은 한번 사용되고 버려진다. 
 
+### 1.3 Java Stream API 
+
+Stream을 다루는 API는  java.util.stream package 안에 있다. Stream은 AutoCloseable interface를 상속한다. 
+
+```bash
+AutoCloseable
+ |
+ +--BaseStream
+     |
+     +--IntStream
+     |
+     +--LongStream
+     |
+     +--DoubleStream
+     |
+     +--Stream<T>
+```
+
+#### 1.4 BaseStream
+
+BaseStream의 method는 다음과 같다. 
+
+- Iterator<T> iterator(): Terminal operation, 스트림의 element를 순회 
+- sequential(): intermediate operation, sequential 스트림을 반환 
+- parallel(): intermediate operation, parallel 스트림을 반환
+- boolean isParallel(): parallel스트림 여부 반환
+- unordered(): intermediate operation, unordered 버전의 스트림을 반환
+
+#### 1.5 Optional 
+
+##### 1.5.1 개요
+
+Java8에서 소개된  java.util.Optional<T> 클래스는 **NullPointerException**을 우아하게 다룰 수 있다. 만약 스트림 operation이 null을 반환해야 하는 경우, null이 아닌 Optional을 반환한다. 
+
+- isPresent(): null인지 아닌지 확인
+- get(): null이 아니라면 null이 아닌 value를 반환하고 null인 경우 NoSuchElementException을 던짐
+
+결과가 primitive인 경우 Optional을 상속한 OptionalInt, OptionalLong, OptionalDouble 클래스를 사용할 수 있으며, 값은 get()이 아닌 getAsInt(), getAsLong(), getAsDouble()을 통해 Optional 객체로부터 primitive 값을 획득할 수 있다. 
+
+##### 1.5.2 Optional 예제 1
+
+
+```java
+Optional<String> str = Optional.of("hi");
+
+if (str.isPresent()) {
+    System.out.println(str.get());
+} else {
+    System.out.println("Optional is  empty.");
+}
+```
+
+결과는 다음과 같다. 
+
+```bash
+hi
+```
+
+
+##### 1.5.3 Optional 예제 2 - primitive
+
+```java
+OptionalInt maxOdd = IntStream.of(10, 20, 30).filter(n -> n % 2 == 1).max();
+if (maxOdd.isPresent()) {
+    int value = maxOdd.getAsInt();
+    System.out.println("Maximum odd  integer is " + value);
+} else {
+    System.out.println("Stream is  empty.");
+}
+```
+
+결과는 다음과 같다. 
+
+```bash
+Stream is  empty.
+```
+
 ## 2. Stream의 생성
 
 Stream의 생성 방법은 다음과 같다. 
@@ -341,6 +418,9 @@ class Employee {
         this.dob = dob;
         this.income = income;
     }
+    public long getId(){
+        return this.id;
+    }
     public String getName() {
         return name;
     }
@@ -392,17 +472,17 @@ class Employee {
 
 중간에서 스트림 입력을 받아 스트림을 출력으로 내는 operation들을 intermediate operation들이라고 한다. 그것들은 다음과 같다. 
 
-- peek: debugging을 위한 액션 수행
-- filter: 조건에 일치하는 element로만 구성된 스트림 반환
-- map: 1 대 1 맵핑을 수행한 스트림 반환(예를 들어 element에서 특정 attribute만 뽑아서 스트림으로 만들기)
-- distinct: equals() 메소드를 확인하여 동일하지 않은 element로 구성된 스트림 반환
-- sorted: 자연스러운 순서 또는 Comparator에 의해 정해진 순서에 따라 스트림을 정렬
-- skip: 앞에서 n개까지를 제외한 스트림 반환
-- limit: 앞에서부터 n개까지의 스트림 반환
-- flatMap: 평탄화된 스트림 반환
+- peek(): debugging을 위한 액션 수행
+- filter(): 조건에 일치하는 element로만 구성된 스트림 반환
+- map(): 1 대 1 맵핑을 수행한 스트림 반환(예를 들어 element에서 특정 attribute만 뽑아서 스트림으로 만들기)
+- distinct(): equals() 메소드를 확인하여 동일하지 않은 element로 구성된 스트림 반환
+- sorted(): 자연스러운 순서 또는 Comparator에 의해 정해진 순서에 따라 스트림을 정렬
+- skip(): 앞에서 n개까지를 제외한 스트림 반환
+- limit(): 앞에서부터 n개까지의 스트림 반환
+- flatMap(): 평탄화된 스트림 반환
 
 
-### 4.1 peek 
+### 4.1 peek() 
 
 #### 4.1.1 개요 
 
@@ -450,7 +530,7 @@ Employee.persons().stream()
 
 이렇게 하면 출력에 아무것도 찍히지 않게 된다. 중간의 "Original" ... " 도 나타나지 않는다. 
 
-### 4.2 filter
+### 4.2 filter()
 
 filter는 조건에 맞는 element로만 구성된 스트림을 반환한다. 그 예는 다음과 같다. 
 
@@ -469,7 +549,7 @@ Jack
 Jane
 ```
 
-### 4.3 map 
+### 4.3 map() 
 
 #### 4.3.1 개요 
 
@@ -482,9 +562,9 @@ IntStream     mapToInt(ToIntFunction<? super T> mapper)
 LongStream    mapToLong(ToLongFunction<? super T> mapper)
 ```
 
-위의 메소드들은 IntStream, LongStream, DoubleStream도 모두 적용된다. 
+위의 메소드들은 IntStream, LongStream, DoubleStream도 모두 적용된다. 스트림에 sum(), max(), min()등을 수행하기 위해서는 숫자 type의 스트림인 경우 그대로 하고, 만약 숫자 type이 아닌 경우에는 mapToInt(), mapToLong(), mapToDouble()을 이용해 변환한 뒤에 해당 operation을 수행한다. 
 
-#### 4.3.2 예제
+#### 4.3.2 map() 예제
 
 ```java
 Employee.persons()
@@ -503,7 +583,23 @@ Jeny
 Jason
 ```
 
-### 4.4 flatMap 
+#### 4.3.3 mapToDouble() 예제
+
+```java
+double totalIncome = Employee.persons()
+        .stream()
+        .mapToDouble(Employee::getIncome)
+        .sum();
+System.out.println("Total Income:  "  + totalIncome);
+```
+
+출력은 다음과 같다. 만약 그냥 map()으로 하면 compile error이다. 
+
+```bash
+Total Income:  21143.0
+```
+
+### 4.4 flatMap() 
 
 #### 4.3.1 개요 
 
@@ -557,6 +653,38 @@ S
 S
 ``` 
 
+### 4.5 sorted() 
+
+#### 4.3.1 개요 
+
+unordered 스트림을 ordered 스트림으로 변환한다. 
+
+#### 4.3.2 예제 1
+
+다음과 같이 
+
+```java
+List<Integer> numbers = Arrays.asList(3,7,9,3,1,2,1, 2, 3, 4, 5);
+numbers.stream()
+	.filter(n -> n % 2  == 1)
+	.sorted()
+	.forEach(System.out::println);
+```
+
+결과는 
+
+```bash
+1
+1
+3
+3
+3
+5
+7
+9
+```
+
+
 ### 5. Terminal operation
 
 stream을 입력으로 받아 결과를 내는 operation들을 terminal operation들이라고 한다. 그것들은 다음과 같다. 
@@ -566,8 +694,8 @@ stream을 입력으로 받아 결과를 내는 operation들을 terminal operatio
 - collect: 스트림을 Collection으로 변환하여 반환
 - reduce: 스트림으로부터 하나의 값을 얻기 위한 reduction operation을 수행
 - count: element의 갯수 반환
-- min: 가장 작은 element 반환
 - max: 가장 큰 element 반환
+- min: 가장 작은 element 반환
 - findFirst: 스트림의 첫번째 element 반환
 - findAny: 스트림 중 하나의 element 반환(empty이면 Optional object 반환)
 - anyMatch: 만약 하나의 element라도 정해진 조건을 만족하면 true반환(empty이면 false 반환)
@@ -575,7 +703,7 @@ stream을 입력으로 받아 결과를 내는 operation들을 terminal operatio
 - noneMatch: 만약 모든 element가 정해진 조건을 만족하지 않으면 false 반환(empty이면 true)
 
 
-### 5.1 forEach
+### 5.1 forEach()
 
 #### 5.1.1 개요 
 
@@ -609,7 +737,7 @@ Employee.persons()
 (5, Jeny,  FEMALE,  1975-12-13,  1234.00)
 ```
 
-### 5.2 reduce
+### 5.2 reduce()
 
 #### 5.2.1 개요 
 
@@ -741,7 +869,7 @@ ForkJoinPool.commonPool-worker-3  - Combiner:  a  = 14898.0, b  = 6245.0, combin
 21143.0
 ```
 
-### 5.3 seed 값 없는 reduce 
+### 5.3 seed 값 없는 reduce()
 
 #### 5.3.1 개요 
 
@@ -779,7 +907,6 @@ max is not  defined.
 
 #### 5.3.3 예제 
 
-
 Employee 중에 가장 많은 income인 것을 찾는 것은 다음과 같다. 
 
 
@@ -801,9 +928,711 @@ if (person.isPresent()) {
 Highest earner: (2, Jack,  MALE,  1972-07-21,  7100.00)
 ```
 
+### 5.4 sum()
+
+#### 5.4.1 개요 
+
+sum()을 적용하기 위해서는 숫자 type의 스트림인 경우 그대로 하고, 만약 숫자 type이 아닌 경우에는 mapToInt(), mapToLong(), mapToDouble()을 이용해 변환한 뒤에 sum()을 한다. 
+
+#### 5.4.2 예제  
+
+```java
+double totalIncome = Employee.persons()
+        .stream()
+        .mapToDouble(Employee::getIncome)
+        .sum();
+System.out.println("Total Income:  "  + totalIncome);
+```
+
+출력은 다음과 같다. 만약 그냥 map()으로 하면 compile error이다. 
+
+```bash
+Total Income:  21143.0
+```
+
+### 5.5 max()와 min()
+
+#### 5.5.1 개요 
+
+max()와 min()이 없을 수도 있으므로 seed 값 없는 reduce()와 동일하게 반환은 `Optional<T>` type으로 받아서 isPresent()를 이용해 확인한다. max()와 min()의 인자는 Comparator이거나, 숫자 스트림의 경우는 인자가 없어도 된다. 예를 들어 다음 두 가지는 동일하게 유효하다. 
+
+```java
+OptionalInt optionalInt = Stream.of(1, 1, 1, 1, 1).mapToInt(i->i).max();
+if (optionalInt.isPresent()) {
+    System.out.println(optionalInt.getAsInt());
+} else {
+    System.out.println("Could not  get the max.");
+}
+```
+
+```java
+OptionalInt optionalInt = IntStream.of(1, 1, 1, 1, 1).max();
+if (optionalInt.isPresent()) {
+    System.out.println(optionalInt.getAsInt());
+} else {
+    System.out.println("Could not  get the max.");
+}
+```
+
+위의 두 결과 모두 `1`이다. 
+
+#### 5.5.2 max() 예제 
+
+다음과 같이 Optional<T>로 반환받은 객체에 접근할 때는 get() method를 통해 접근한다. 
+
+```java
+Optional<Employee> maxIncomeEmployee = Employee.persons().stream()
+        .max(Comparator.comparingDouble(Employee::getIncome));
+
+if (maxIncomeEmployee.isPresent()) {
+    System.out.println("Highest earner: " + maxIncomeEmployee.get().getIncome());
+} else {
+    System.out.println("Could not  get   the   highest earner.");
+}
+```
+
+출력은 다음과 같다. 
+
+```bash
+Highest earner: 7100.0
+```
+
+max() operation이전에 numeric으로 변환하는 것도 가능하다. 다음 코드를 사용하면 동일한 결과를 얻는다. 
+
+
+```java
+OptionalDouble income = Employee.persons()
+                        .stream()
+                        .mapToDouble(Employee::getIncome).max();
+
+if (income.isPresent()) {
+    System.out.println("Highest income:   " + income.getAsDouble());
+} else {
+    System.out.println("Could not  get   the   highest income.");
+}
+```
+ 
+### 5.6 count()
+
+#### 5.6.1 개요 
+
+count()는 스트림의 element 숫자를 반환한다. type은 long이다. 
+
+#### 5.6.2 예제  
+
+```java
+long personCount = Employee.persons().stream().count();
+System.out.println("Person count: " + personCount);
+```
+
+출력은 다음과 같다. 
+
+```bash
+Person count: 6
+```
+
+### 5.7 collect()
+
+#### 5.7.1 개요 
+
+collect()는 스트림의 데이터를 그룹화 할 수 있다. collect() 정의는 다음과 같다. 
+
+```java
+<R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)
+<R,A> R collect(Collector<?  super T,A,R> collector)
+```
+- supplier: 결과를 저장할 mutable container(Collection)
+- accumulator: mutable container에 결과를 쌓을 함수
+- combiner: 병렬 연산시 부분 결과를 모으는 함수
+
+설명이 어려운데 예를 들어 다음의 예를 생각해보자. 우리가 다루고 있는 예제의 Employee의 이름만 따로 저장한 ArrayList 자료구조를 Stream에서 반환하고자 한다. map은 결과물이 역시 Stream이기 때문에 적당하지 않고, 이럴때 사용할만한 것이 collect()이다. 첫번째 인자가 바로 ArrayList, 두번째가 ArrayList에 Employee의 이름을 추가하는 동작, 세번째 인자가 병렬 연산시 통째로 ArrayList를 다른 ArrayList 뒤에 붙이는 연산이다. 
+
+```java
+List<String> names = Employee.persons()
+        .stream()
+        .map(Employee::getName)
+        .collect(ArrayList::new,  ArrayList::add, ArrayList::addAll);
+System.out.println(names);
+```
+
+첫번째 `ArrayList::new 대신 `() -> new ArrayList<>()`로 해도 된다. 
+
+```java
+List<String> names = Employee.persons()
+        .stream()
+        .map(Employee::getName)
+        .collect(()->new ArrayList<>(),  ArrayList::add, ArrayList::addAll);
+System.out.println(names);
+```
+
+결과는 다음과 같다. 
+
+```bash
+[Jake, Jack, Jane, Jode, Jeny, Jason]
+```
+
+#### 5.7.2 Collectors interface
+
+collect()는 Collectors interface를 argument로 받을 수 있다. 이렇게 하면 위와 같이 복잡하게 supplier, accumulator를 정하는 것이 아니라 쉽게 Collection으로 변경 가능다. Collectors interface는 다음과 같다. 
+
+- Collectors.toList()
+- Collectors.toSet()
+- Collectors.toCollection()
+
+사용 예는 다음과 같다. 
+
+```java
+Set<String> uniqueNames  = Person.persons()
+                        .stream()
+                        .map(Person::getName)
+                        .collect(Collectors.toSet());
+System.out.println(uniqueNames); 
+```
+
+#### 5.7.3 예제  
+
+Employee의 name을 기준으로 sorting한 결과를 출력하는 것을 구현해보자. 만약 같은 이름이 여러 개 있는 경우에는 한번만 출력하도록 한다. 
+
+```java
+SortedSet<String> uniqueSortedNames=   Employee.persons()
+        .stream()
+        .map(Employee::getName)
+        .collect(Collectors.toCollection(TreeSet::new));
+System.out.println(uniqueSortedNames);
+```
+
+출력은 다음과 같다. 
+
+```bash
+[Jack, Jake, Jane, Jason, Jeny, Jode]
+```
+
+### 5.8 collect()와 Statistics 
+
+#### 5.8.1 java.util의 Statistics class들  
+
+숫자 데이터의 통계를 낼때 java.util에서 제공하는 다음의 class들을 사용할 수 있다. Statistics 클래스들은 마치 Collection과 같은 역할을 한다. 
+
+- DoubleSummaryStatistics
+- LongSummaryStatistics
+- IntSummaryStatistics
+
+사용방법은 Statistics 객체를 생성 후 accept() method로 값을 추가한 후, getCount(), getSum(), getMin(), getAverage(), getMax() 메소드를 이용해 원하는 값을 얻는 것이다. 다음은 그 예이다. 
+
+```java
+DoubleSummaryStatistics stats = new DoubleSummaryStatistics();
+stats.accept(100.0);
+stats.accept(300.0);
+
+long count = stats.getCount();
+double sum = stats.getSum();
+double min = stats.getMin();
+double avg = stats.getAverage();
+double max = stats.getMax();
+
+System.out.printf(
+        "count=%d, sum=%.2f,  min=%.2f,  average=%.2f, max=%.2f%n", 
+        count, sum, min, max, avg);
+```
+
+결과는 다음과 같다. 
+
+```bash
+count=2, sum=400.00,  min=100.00,  average=300.00, max=200.00
+```
+
+#### 5.8.1 스트림에서의 Statistics 사용
+
+##### 5.8.1.1 collect()와 supplier, accumulator, combiner
+
+위에서 확인했다시피 Statistics는 Collection과 유사하기에 collect()에서 Collection의 supplier, accumulator를 등록해서 사용하는 것과 거의 동일하게 쓸 수 있다. 그리고, 병렬 연산을 위해 Statistics는 combine() 메소드를 제공한다. 다음은 그 사용 예이다. 
+
+
+```java
+DoubleSummaryStatistics incomeStats = Employee.persons()
+        .stream()
+        .map(Employee::getIncome)
+        .collect(DoubleSummaryStatistics::new,
+                DoubleSummaryStatistics::accept,
+                DoubleSummaryStatistics::combine);
+System.out.println(incomeStats);
+```
+
+결과는 다음과 같다. 
+
+```bash
+DoubleSummaryStatistics{count=6, sum=21143.000000, min=1234.000000, average=3523.833333, max=7100.000000}
+```
+
+##### 5.8.1.2 Collectors interface
+
+Collectors는 숫자 연산을 위해 다음과 같은 method들을 제공하고 있다. 이를 이용해 Stream에서 바로 값을 획득할 수 있다. 
+
+- Collectors.counting()
+- Collectors.maxBy()
+- Collectors.minBy()
+- Collectors.summarizingInt() 
+- Collectors.summingInt()
+- Collectors.averagingInt()
+- Collectors.summarizingLong() 
+- Collectors.summingLong()
+- Collectors.averagingLong()
+- Collectors.summarizingDouble() 
+- Collectors.summingDouble()
+- Collectors.averagingDouble()
+
+다음은 그 사용 예이다. 
+
+
+```java
+DoubleSummaryStatistics incomeStats = Employee.persons()
+        .stream()
+        .collect(Collectors.summarizingDouble(Employee::getIncome));
+System.out.println(incomeStats);
+```
+
+결과는 다음과 같다. 
+
+```bash
+DoubleSummaryStatistics{count=6, sum=21143.000000, min=1234.000000, average=3523.833333, max=7100.000000}
+```
+
+### 5.9 collect() 사용한 스트림의 Map 변환 
+
+#### 5.9.1 개요 
+
+collect()를 이용해 Collection으로 변경하는 것의 한 종류는 Map을 변경하는 것이다. 스트림의 element에서 key와 value를 추출하는 function을 등록하여 Map으로 변환한다. 만약 중복된 key값이 있다면 `IllegalStateException` exception이 발생된다. 아래에서 keyMapper는 key를 추출하는 function, valuemapper는 value를 추출하는 function이다. 
+
+> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)
+
+추가적으로 merge function을 제공할 수 있다. 이것은 중복된 key가 있는 경우 어떻게 처리할 지를 결정하는 function으로 argument는 old value와 new value이고 반환 값은 merge된 value이다. 
+
+> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)
+
+또한 Supplier를 통해 Map
+
+#### 5.9.2 예제 1
+
+```java
+Map<Long,String>  idToNameMap  = Employee.persons()
+        .stream()
+        .collect(Collectors.toMap(Employee::getId,  Employee::getName));
+System.out.println(idToNameMap);
+```
+
+결과는
+
+```bash
+{1=Jake, 2=Jack, 3=Jane, 4=Jode, 5=Jeny, 6=Jason}
+```
+
+#### 5.9.3 예제 2 - merge function
+
+일부러 중복된 key를 택해보자. gender를 key로 하고, 각 gender의 해당하는 이름을 ,를 경계로 출력하는 것을 해보자. 
+
+```java
+Map<Employee.Gender,String> genderToNamesMap  =
+        Employee.persons()
+                .stream()
+                .collect(Collectors.toMap(Employee::getGender,
+                        Employee::getName,
+                        (oldValue, newValue)  ->  String.join(", ", oldValue,  newValue)));
+System.out.println(genderToNamesMap);
+```
+
+결과는
+
+```bash
+{FEMALE=Jane, Jeny, MALE=Jake, Jack, Jode, Jason}
+```
+
+#### 5.9.4 예제 3 - merge function
+
+gender를 key로 하고, 각 gender의 해당하는 Employee의 숫자를 출력하는 것을 해보자. 
+
+```java
+Map<Employee.Gender, Long> countByGender  = Employee.persons()
+        .stream()
+        .collect(Collectors.toMap(Employee::getGender, p  ->  1L,
+                                (oldCount, newCount)  ->  newCount+oldCount));
+
+System.out.println(countByGender);  
+```
+
+결과는
+
+```bash
+{FEMALE=2, MALE=4}
+```
+
+#### 5.9.5 예제 4 - merge function
+
+gender를 key로 하고, 각 gender별로 가장 수입이 놓은 사람의 정보를 출력하도록 해보자.
+
+```java
+Map<Employee.Gender, Employee>  highestEarnerByGender = Employee.persons()
+        .stream()
+        .collect(Collectors.toMap(Employee::getGender, Function.identity(),
+                (oldPerson, newPerson)  -> newPerson.getIncome() >
+			 oldPerson.getIncome() ? newPerson : oldPerson));
+System.out.println(highestEarnerByGender);
+```
+
+결과는
+
+```bash
+{FEMALE=(3, Jane,  FEMALE,  1973-05-29,  5455.00)
+, MALE=(2, Jack,  MALE,  1972-07-21,  7100.00)
+}
+```
+
+### 5.10 collect()와 joining() 
+
+#### 5.10.1 개요
+
+Collectors.joining()은 CharSequence 스트림에서 character들을 모아서 String으로 반환한다. 
+
+- Collectors.joining(): 모든 element를 모음
+- Collectors.joining(CharSequence delimiter): delimiter를 element 사이에 넣어서 모음
+- Collectors.joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix): prefix와 suffix를 String의 맨 앞과 뒤에 추가
+
+#### 5.10.2 예제
+
+```java
+        List<Employee> persons  = Employee.persons();
+        String names = persons.stream()
+                .map(Employee::getName)
+                .collect(Collectors.joining());
+        System.out.println(names);	//JakeJackJaneJodeJenyJason
+
+        String  delimitedNames = persons.stream()
+                .map(Employee::getName)
+                .collect(Collectors.joining(", "));
+        System.out.println(delimitedNames); //Jake, Jack, Jane, Jode, Jeny, Jason
+
+        String  prefixedNames = persons.stream()
+                .map(Employee::getName)
+                .collect(Collectors.joining(", ", "Hello ",  ".  Goodbye."));
+        System.out.println(prefixedNames); //Hello Jake, Jack, Jane, Jode, Jeny, Jason.  Goodbye.
+```
+
+### 5.11 collect()와 groupingBy() 
+
+#### 5.11.1 개요
+
+Collectors.groupingBy()는 같은 속성을 가진 group으로 Map을 만든다. 함수의 정의는 다음과 같다. 
+
+```java
+groupingBy(Function<? super  T,?  extends K>  classifier)
+groupingBy(Function<? super  T,?  extends K>  classifier,  Collector<? super T,A,D> downstream)
+```
+
+- classifier function: map의 key를 만드는 function
+- downstream function: 모여진 group에 대해 수행할 function으로 value를 만든다.
+
+#### 5.11.2 예제 1 
+
+gender를 key로 하고, 각 gender별로 숫자 출력하자. toMap()을 이용한 5.9.4 예제 3과 동일하다. 
+
+```java
+Map<Employee.Gender, Long> countByGender  = Employee.persons()
+        .stream()
+        .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+System.out.println(countByGender);
+```
+
+결과는
+
+```bash
+{MALE=4, FEMALE=2}
+```
+
+#### 5.11.3 예제 2
+
+gender를 key로 하고, 각 gender별로 사람 이름을 ,로 구분하여 출력하자. toMap()을 이용한 5.9.3 예제 2와 동일하다. 
+
+```java
+Map<Employee.Gender, String>  namesByGender = Employee.persons()
+        .stream()
+        .collect(Collectors.groupingBy(Employee::getGender,
+                Collectors.mapping(Employee::getName, Collectors.joining(", "))));
+System.out.println(namesByGender);
+```
+
+결과는
+
+```bash
+{MALE=Jake, Jack, Jode, Jason, FEMALE=Jane, Jeny}
+```
+
+#### 5.11.4 예제 3
+
+gender를 key로 하고, 각 gender별로 사람이름을 List에 저장하자. 
+
+```java
+Map<Employee.Gender, List<String>>  namesByGender =
+        Employee.persons()
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getGender,
+                        Collectors.mapping(Employee::getName, Collectors.toList())));
+
+System.out.println(namesByGender);
+```
+
+결과는
+
+```bash
+{FEMALE=[Jane, Jeny], MALE=[Jake, Jack, Jode, Jason]}
+```
+
+### 5.12 collect()와 partitioningBy() 
+
+#### 5.12.1 개요
+
+Collectors.partitioningBy()는 특별한 경우의 grouping이다. groupingBy()가 키를 기준으로 여러개의 group을 가질 수 있다면 partitioningBy()는 조건문을 기준으로 만족하는 것과 아닌 것, 두 개의 group만 가진다. 생성되는 Map의 키는 이로 인해 boolean 타입만이 가능하다. 
+
+```java
+partitioningBy(Predicate<? super T> predicate)
+partitioningBy(Predicate<? super T> predicate,  Collector<? super T,A,D> downstream)
+```
+
+#### 5.12.2 예제 1 
+
+gender를 기준으로 나누는 것의 예는 다음과 같다. 
+
+```java
+Map<Boolean,  List<Employee>>  partionedByMaleGender =
+        Employee.persons()
+                .stream()
+                .collect(Collectors.partitioningBy(Employee::isMale));
+System.out.println(partionedByMaleGender);
+```
+
+결과는
+
+```bash
+{false=[(3, Jane,  FEMALE,  1973-05-29,  5455.00)
+, (5, Jeny,  FEMALE,  1975-12-13,  1234.00)
+], true=[(1, Jake,  MALE,  1971-01-01,  2343.00)
+, (2, Jack,  MALE,  1972-07-21,  7100.00)
+, (4, Jode,  MALE,  1974-10-16,  1800.00)
+, (6, Jason,  MALE,  1976-06-09,  3211.00)
+]}
+```
+
+#### 5.12.3 예제 2
+
+gender를 기준으로 나누고  downstream function을 이용해 reduction operation을 수행하는 예이다. 
+
+```java
+Map<Boolean,String> partionedByMaleGender = Employee.persons()
+    .stream()
+    .collect(Collectors.partitioningBy(Employee::isMale, 
+               Collectors.mapping(Employee::getName, Collectors.joining(", "))));
+System.out.println(partionedByMaleGender);
+```
+
+결과는
+
+```bash
+{false=Jane, Jeny, true=Jake, Jack, Jode, Jason}
+```
+
+### 5.13 collect()와 collectingAndThen() 
+
+#### 5.13.1 개요
+
+Collector의 결과를 다른 type으로 변환할 때 Collectors.collectingAndThen()를 사용한다. Collectors.toList(), Collectors.toSet(), Collectors.toCollection()와의 차이는 finisher function을 이용해 결과를 다시 한번 변환할 수 있다는 것이다. 
+
+
+```java
+collectingAndThen(Collector<T,A,R> downstream, Function<R,RR>  finisher)
+```
+
+
+#### 5.13.2 예제
+
+다음은 List로 변환된 스트림을 다시 unmodifiableList로 변환한 예이다. 
+
+```java
+List<String> names = Employee.persons()
+        .stream()
+        .map(Employee::getName)
+        .collect(Collectors.collectingAndThen(Collectors.toList(),
+                result ->  Collections.unmodifiableList(result)));
+System.out.println(names);
+```
+
+결과는 다음과 같다. 
+
+```bash
+[Jake, Jack, Jane, Jode, Jeny, Jason]
+```
+
+### 5.14 findAny()와 findFirst()
+
+#### 5.14.1 개요
+
+findAny()는 스트림의 element가 있으면 반환하는 것으로 주로 filter()와 함께 사용된다. findFirst()는 스트림에서 첫번째로 일치하는 element를 반환한다. 이 두 operation 모두 short-circuiting operation으로 전체 스트림에 대해 처리할 필요없이 결과를 바로 반환한다. 
+
+```java
+Optional<T>   findAny()
+Optional<T>   findFirst()
+```
+
+반환 type은 `Optional<T>`이다. primitive type 스트림인 IntStream, LongStream, DoubleStream에서도 동일한 operation을 제공한다. 
+
+#### 5.14.2 findAny() 예제
+
+```java
+List<Employee> persons = Employee.persons();
+Optional<Employee> anyMale = persons.stream().filter(Employee::isMale).findAny();
+if (anyMale.isPresent()) {
+    System.out.println(anyMale.get());
+} else {
+    System.out.println("No male  found.");
+}
+```
+
+결과는 다음과 같다. 
+
+```bash
+(1, Jake,  MALE,  1971-01-01,  2343.00)
+```
+
+#### 5.14.3 findFirst() 예제
+
+```java
+List<Employee> persons = Employee.persons();
+Optional<Employee> firstMale = persons.stream().filter(Employee::isMale).findFirst();
+if (firstMale.isPresent()) {
+    System.out.println(firstMale.get());
+} else {
+    System.out.println("No male  found.");
+}
+```
+
+결과는 다음과 같다. 
+
+```bash
+(1, Jake,  MALE,  1971-01-01,  2343.00)
+```
+
+### 5.15 allMatch(), anyMatch(), noneMatch()
+
+#### 5.15.1 개요
+
+allMatch()는 스트림의 element가 모두 조건을 만족하면 반환 true를 반환한다. anyMatch()는 스트림에서 하나라도 조건을 만족하면 true를 반환한다. noneMatch()은 모든 element가 조건을 만족하지 않으면 true를 반환한다. 이 세 operation 모두 short-circuiting operation으로 전체 스트림에 대해 처리할 필요없이 결과를 바로 반환할 수 있다. 
+
+```java
+boolean allMatch(Predicate<? super T> predicate)
+boolean anyMatch(Predicate<? super T> predicate)
+boolean noneMatch(Predicate<? super  T> predicate)
+```
+
+primitive type 스트림인 IntStream, LongStream, DoubleStream에서도 동일한 operation을 제공한다. 
+
+#### 5.15.2 allMatch() 예제
+
+```java
+List<Employee> persons = Employee.persons();
+
+boolean allMales = persons.stream().allMatch(Employee::isMale);
+System.out.println("All  males: " + allMales); System.out.println("No male  found.");
+}
+```
+
+결과는 다음과 같다. 
+
+```bash
+All  males: false
+```
+
+#### 5.15.3 anyMatch() 예제
+
+```java
+List<Employee> persons = Employee.persons();
+
+boolean anyoneEarnsOver5000 = persons.stream().anyMatch(p -> p.getIncome() > 5000);
+System.out.println("Anyone earns over 5000: " + anyoneEarnsOver5000);
+```
+
+결과는 다음과 같다. 
+
+```bash
+Anyone earns over 5000: true
+```
+
+## 6. Parallel Stream
+
+### 6.1 개요
+
+스트림은 sequential과 parallel 2종류가 있다. sequential 스트림은 하나의 thread에 의해 순차적으로 처리되며 parallel 스트림은 다수의 thread에 의해 병렬로 처리되어 진다. 스트림의 모든 API들은 기본적으로 sequential로 동작하며, 이를 parallel로 바꾸기 위해서는 parallel 스트림을 명시적으로 만들어야 한다. 
+
+- parallelStream(): Collection(List 또는 Set)에서 Parallel 스트림 생성
+- parallel(): sequential 스트림을 Parallel 스트림으로 변환
+- sequential(): Parallel 스트림을 sequential 스트림으로 변환
+
+### 6.2 parallelStream() 
+
+Collection(List 또는 Set)에서 Parallel 스트림 생성한다. 
+
+```java
+String names = Employee.persons()
+        .parallelStream()
+        .filter(Employee::isMale)
+        .map(Employee::getName)
+        .collect(Collectors.joining(", "));
+System.out.println(names);
+```
+
+결과는 
+
+```bash
+Jake, Jack, Jode, Jason
+```
+
+### 6.3 parallel()
+
+squential을 parallel 스트림으로 변환한다. 
+
+```java
+String names = Employee.persons()                // The data source
+        .stream()                  // Produces a  sequential  stream
+        .filter(Employee::isMale)   // Processed in serial
+        .parallel()               // Produces a  parallel  stream
+        .map(Employee::getName)       // Processed in parallel
+        .collect(Collectors.joining(", "));  // Processed in parallel
+System.out.println(names);
+```
+
+결과는 
+
+```bash
+Jake, Jack, Jode, Jason
+```
 
 ## 참고
 
 - [java2s.com](http://www.java2s.com/Tutorials/Java/Java_Stream/index.htm) 
 - [java8 tutorial](http://www.tutorialspoint.com/java8/java8_streams.htm)
 - [programcreek의 simple java 8](http://www.programcreek.com/simple-java-8-lambdas/)
+- [Java Optional](http://www.java2s.com/Tutorials/Java/Java_Stream/0035__Java_Optional.htm)
+- [java.util.stream Package Reference -  Stream](http://www.java2s.com/Tutorials/Java/java.util.stream/Stream/index.htm)
+- [java.util.stream Package Reference - Collectors](http://www.java2s.com/Tutorials/Java/java.util.stream/Collectors/index.htm)
+- [java.util.stream Package Reference -  Stream.Builder](http://www.java2s.com/Tutorials/Java/java.util.stream/Stream.Builder/index.htm)
+- [java.util.stream Package Reference - InStream](http://www.java2s.com/Tutorials/Java/java.util.stream/IntStream/index.htm)
+- [java.util.stream Package Reference - LongStream](http://www.java2s.com/Tutorials/Java/java.util.stream/LongStream/index.htm)
+- [java.util.stream Package Reference - DoubleStream](http://www.java2s.com/Tutorials/Java/java.util.stream/DoubleStream/index.htm)
+
+
+
+
+
+
+
+
+
+
+
+
