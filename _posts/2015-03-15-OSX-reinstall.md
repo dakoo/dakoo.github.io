@@ -50,7 +50,6 @@ OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참�
 
 - Change Command_R key --> Command_R to Command_R --> When you type Command_R only, send Command+Space
 - Change Control_L key --> ControlL to ControlL (+When you type Control_L only, send Escape)
-- Change Escape Key > Disable Escape
 - For PC Users --> Use PC Style Copy/Paste #2
 - For PC Users --> Use PC Style Undo
 - For PC Users --> Use PC Style Redo
