@@ -49,7 +49,7 @@ OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참�
 #### Karabiner 
 
 - Change Command_R key --> Command_R to Command_R --> When you type Command_R only, send Command+Space
-- Change Control_L key --> ControlL to ControlL
+- Change Control_L key --> ControlL to ControlL (+When you type Control_L only, send Escape)
 - Change Escape Key > Disable Escape
 - For PC Users --> Use PC Style Copy/Paste #2
 - For PC Users --> Use PC Style Undo
@@ -64,10 +64,11 @@ OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참�
 - For PC Users --> Quit Application by Control-q
 - For PC Users --> Ctrl + Alt + Delete to show restart/sleep/shutdown dialog
 
-#### 시스템 환결 설정
+#### 시스템 환결 설정(System Preferences)
 
-- 일반 > 기본 웹브라우저를 Chrome.app로 
-- 언어및 지역 > 키보드 환경설정 > 키보드 탭 > 보조키 > Caps Lock을 Control로 변경
-- 마우스 > Point & Click > Scroll direction:natural의 선택을 해제, Smart Zoom 선택을 해제
+- 일반(General) > 기본 웹브라우저(Default web browser)를 Chrome.app로 
+- 키보드(Keyboard) > 키보드 탭 > 보조키(Modifier Keys) > Caps Lock을 Control로 변경
+- 키보드(Keyboard) > 단축키(Shortcuts) 탭 > Display > Increase display brightness의 F15를 선택한 후 오른쪽 alt(command)+q로 변경 : 언어를 바꾸다가 앱이 종료되는 현상을 막기 위한 것임
+- 마우스 > Point & Click > Scroll direction:natural의 선택을 해제, Smart Zoom 선택을 해제: 일반 마우스를 껴서 사용하는 경우를 위한 것
 
 
