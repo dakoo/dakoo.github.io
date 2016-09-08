@@ -46,6 +46,8 @@ image:
 
 매우 중요한 문서들
 
+##### [javarevisited](http://javarevisited.blogspot.kr/)
+
 ##### [programcreek - SimpleJava](http://www.programcreek.com/simple-java/)
 
 ##### [programcreek - Java 8](http://www.programcreek.com/simple-java-8-lambdas/)
