@@ -3,7 +3,7 @@ layout: post
 title: Java - Eclipse 추천 Plugin들 
 description: Java - Eclipse 추천 Plugin들 
 modified: 2016-09-10
-tags: [java]
+tags: [java, eclipse]
 comments: true
 image:
   feature: abstract-11.png
