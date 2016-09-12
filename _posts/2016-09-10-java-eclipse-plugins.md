@@ -74,6 +74,8 @@ VI plugin
 
 ##### umlet
 
+- NOTE: eclipse plugin인 경우 property가 readonly가 되는 문제가 보고되었다. 문제가 생기면 standalone으로 사용하자. 
+
 [umlet](http://www.umlet.com/)은 경량 uml tool. market place를 통해서 설치되지 않고 아래 방식으로 설치해야 한다. 자세한 내용은 [여기](http://www.umlet.com/faq.htm)를 참조하자. 
 
 1. [umlet download 페이지](http://www.umlet.com/changes.htm)에서 최신 eclipse plugin을 선택하여 다운로드한다. 
