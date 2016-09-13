@@ -70,6 +70,8 @@ VI plugin
 - 설정: **Preferences** > **PMD* > Rule Configuration에서 필요한 rule 선택
 - 실행: 정적 검사 원하는 파일/패키지 선정하여 오른쪽 마우스 버튼 클릭 후 **PMD** > **Check Code**로 실행 
 
+comment 관련한 rule(comment~로 시작)과 ShortVariable Rule은 꺼놓는 것을 추천한다. 
+
 ### 2.6 umlet
 
 - NOTE: eclipse plugin인 경우 property가 readonly가 되는 문제가 보고되었다. 문제가 생기면 standalone으로 사용하자. 
