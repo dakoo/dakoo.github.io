@@ -43,16 +43,43 @@ For Eclipse icon to be displayed in dash, run following command:
 
 - sudo cp /opt/eclipse/icon.xpm /usr/share/pixmaps/eclipse.xpm
 
-## Configuration
+### 1. default Configuration
 
-### VIM 
+#### 1.1 VIM 
 
 1. Menu > Help > Install New Software... > Add button
 2. Name: vim, Location: http://vrapper.sourceforge.net/update-site/stable
 3. Select all > Next ...
 4. Accept the license agreement > Finish
 
-### For Web Projects
+#### 1.2 Code snippets
+
+- Preferences > Java > Editor > Templates 
+
+##### 1.2.1 sout
+
+```bash
+System.out.println("${cursor}");
+```
+
+##### 1.2.2 siscan
+
+```bash
+Scanner scan = new Scanner(System.in);
+${cursor}
+scan.close();
+```
+
+##### 1.2.3 psvm
+
+```bash
+public static void main(String argc[]){
+	${cursor}
+}
+```
+
+
+### 2. For Web Projects
 
 1. Menu > Help > Install New Software... 
 2. The drop down menu of Work with
@@ -61,16 +88,16 @@ For Eclipse icon to be displayed in dash, run following command:
 5. Select Eclipse Java EE Developer Tools, Eclipse java Web Developer Tools Eclipse Web Developer Tools, and JavaScript Development Tools
 6. Install them and accept the term of license agreement. 
 
-### For the AWS Toolkit for Eclipse
+### 3. For the AWS Toolkit for Eclipse
 
 1. Menu > Help > Install New Software... > Add button
 2. Name: aws, Location: https://aws.amazon.com/eclipse
 3. Select all > Next ...
 4. Accept the license agreement > Finish
 
-#### Register AWS Key ID
+#### 3.1 Register AWS Key ID
 
-##### Create AWS Key
+##### 3.1.1 Create AWS Key
 
 1. Open the AWS > IAM console.
 2. From the navigation menu, click Users.
@@ -78,7 +105,7 @@ For Eclipse icon to be displayed in dash, run following command:
 4. Click User Actions, and then click Manage Access Keys.
 5. Click Create Access Key. Now you get the Access Key. 
 
-##### Register AWS Key in the eclipse
+##### 3.1.2 Register AWS Key in the eclipse
 
 1. Open Eclipse’s Preferences dialog box and click AWS Toolkit in the sidebar.
 2. Type or paste your AWS access key ID in the Access Key ID box.
