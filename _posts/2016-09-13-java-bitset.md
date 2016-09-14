@@ -70,27 +70,27 @@ Bitset2:{2,4}
 ```java
 import java.util.BitSet;
 
-public class Program {
-    public static void main(String[] args) {
-	BitSet b = new BitSet();
+public class Solution {
+	public static void main(String[] args) {
+		BitSet b = new BitSet();
 
-	// Set bits in this range to true.
-	b.set(2, 5);
+		// Set bits in this range to true.
+		b.set(2, 5);
 
-	// Display first five bits.
-	for (int i = 0; i < 5; i++) {
-	    System.out.println(b.get(i));
+		// Display first five bits.
+		for (int i = 0; i < 5; i++) {
+			System.out.println(b.get(i));
+		}
+
+		System.out.println("-----------");
+		// Get range of bits from original set.
+		BitSet b2 = b.get(2, 5);
+		// Display first five bits.
+		for (int i = 0; i < 5; i++) {
+			System.out.println(b2.get(i));
+		}
+
 	}
-	
-	// Get range of bits from original set.
-	BitSet b2 = b.get(2, 5);
-
-	// Display first five bits.
-	for (int i = 0; i < 5; i++) {
-	    System.out.println(b2.get(i));
-	}
-	
-    }
 }
 ```
 
@@ -102,11 +102,13 @@ false
 true
 true
 true
+-----------
 true
 true
 true
 false
 false
+
 ```
 
 
