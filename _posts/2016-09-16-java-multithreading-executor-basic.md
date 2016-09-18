@@ -2,7 +2,7 @@
 layout: post
 title: Java - (멀티쓰래딩 2) Executor 기본
 description: Java - (멀티쓰래딩 2) Executor 기본
-modified: 2016-09-17
+modified: 2016-09-16
 tags: [java]
 comments: true
 image:
