@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java - (멀티쓰래딩 3) 쓰레드 이름 설정
-description: Java - (멀티쓰래딩 3) 쓰레드 이름 설정
+title: Java - (멀티쓰레딩 3) 쓰레드 이름 설정
+description: Java - (멀티쓰레딩 3) 쓰레드 이름 설정
 modified: 2016-09-17
 tags: [java]
 comments: true
