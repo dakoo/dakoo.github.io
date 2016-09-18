@@ -70,7 +70,7 @@ class MyThreadTask extends Thread {
 		for(int i = 0; i<5; i++) {
 			System.out.println("<" + id + ">TICK TICK " + i);
 			try {
-				TimeUnit.MICROSECONDS.sleep(200);
+				TimeUnit.MICROSECONDS.sleep((long)Math.random()*1000));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -130,7 +130,7 @@ class MyThreadTask extends Thread {
 		for(int i = 0; i<5; i++) {
 			System.out.println("<" + id + ">TICK TICK " + i);
 			try {
-				TimeUnit.MICROSECONDS.sleep(200);
+				TimeUnit.MICROSECONDS.sleep((long)Math.random()*1000));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -180,7 +180,7 @@ class MyThreadTask implements Runnable {	//extends Thread --> implements Runnabl
 		for(int i = 0; i<5; i++) {
 			System.out.println("<" + id + ">TICK TICK " + i);
 			try {
-				TimeUnit.MICROSECONDS.sleep(200);
+				TimeUnit.MICROSECONDS.sleep((long)Math.random()*1000));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -224,7 +224,7 @@ class MyThreadTask implements Runnable {
 		for(int i = 0; i<5; i++) {
 			System.out.println("<" + id + ">TICK TICK " + i);
 			try {
-				TimeUnit.MICROSECONDS.sleep(200);
+				TimeUnit.MICROSECONDS.sleep((long)Math.random()*1000));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -255,7 +255,7 @@ public class FifthWay {
 				for(int i = 0; i<5; i++) {
 					System.out.println("TICK TICK " + i);
 					try {
-						TimeUnit.MICROSECONDS.sleep(200);
+						TimeUnit.MICROSECONDS.sleep((long)Math.random()*1000));
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -328,7 +328,7 @@ public class Seventh {
 				for(int i = 0; i<5; i++) {
 					System.out.println("TICK TICK " + i);
 					try {
-						TimeUnit.MICROSECONDS.sleep(200);
+						TimeUnit.MICROSECONDS.sleep((long)Math.random()*1000));
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
