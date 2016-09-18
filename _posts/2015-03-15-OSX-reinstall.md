@@ -67,6 +67,8 @@ OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참�
 
 - 일반(General) > 기본 웹브라우저(Default web browser)를 Chrome.app로 
 - 키보드(keyboard) > shortcuts 탭에서 각종 key해제: Launchpad& dock 모두, MissionControl에서 Disturb on/off, keyboard 모두, screenshot 중 shift+command+4 제외하고 모두, Services 모두, spotlight 모두, Accessibility 모두, App Shortcuts 모두  
+- 키보드(Keyboard) > 키보드 탭 > Key Repeat 가장 빠르게, Delay Until Repeat 가장 짧게
+- 키보드(Keyboard) > 키보드 탭 > Use all F1, F2 ... 의 checkbox 선택
 - 키보드(Keyboard) > 키보드 탭 > 보조키(Modifier Keys) > Caps Lock을 Control로 변경
 - 키보드(Keyboard) > 단축키(Shortcuts) 탭 > Display > Increase display brightness의 F15를 선택한 후 오른쪽 alt(command)+q로 변경 : 언어를 바꾸다가 앱이 종료되는 현상을 막기 위한 것임
 - 마우스 > Point & Click > Scroll direction:natural의 선택을 해제, Smart Zoom 선택을 해제: 일반 마우스를 껴서 사용하는 경우를 위한 것
