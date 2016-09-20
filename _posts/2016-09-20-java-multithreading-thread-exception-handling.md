@@ -2,7 +2,7 @@
 layout: post
 title: Java - (멀티쓰레딩 8) 쓰레드 Exception 처리하기
 description: Java - (멀티쓰레딩 7)  쓰레드 Exception 처리하기  
-modified: 2016-09-19
+modified: 2016-09-20
 tags: [java]
 comments: true
 image:
