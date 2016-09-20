@@ -19,6 +19,7 @@ image:
 ## 1 일반 쓰레드가 다른 쓰레드가 끝날때까지 대기하게 하기 
 
 #### 1.1 이전에 살펴본 방식
+
 쓰레드가 다른 쓰레드가 종료될 때까지 대기하는 방법은 이미 두 가지를 다루었다. 
 
 - [(멀티쓰레딩 6) 쓰레드 동작의 완료를 확인하기](http://hochulshin.com/java-multithreading-check-aliveness/)에서 다룬 `Thread.isAlive()`를 사용하여 계속 확인을 하는 것이다. 
