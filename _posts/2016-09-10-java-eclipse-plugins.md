@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java - Eclipse 추천 Plugin들 
-description: Java - Eclipse 추천 Plugin들 
+title: Eclipse - 추천 Plugin들 
+description: Eclipse - Eclipse 추천 Plugin들 
 modified: 2016-09-10
 tags: [java, eclipse]
 comments: true
