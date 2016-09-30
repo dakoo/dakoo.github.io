@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Ubuntu, Java - How to install eclipse on ubuntu 14.04
-description: Ubuntu, Java - How to install eclipse on ubuntu 14.04
+title: eclipse - How to install eclipse on ubuntu 14.04
+description: eclipse - How to install eclipse on ubuntu 14.04
 modified: 2016-07-24
 tags: [ubuntu, java, eclipse]
 comments: true
