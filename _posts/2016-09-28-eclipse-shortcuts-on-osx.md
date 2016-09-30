@@ -23,8 +23,8 @@ Windows/Ubuntu에서의 단축키 중 command -> control로 안되는 것들은 
 
 key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들이 있다. 먼저 이것을 설정하자. Preferences > General > Keys이고 theme는 default.
 
-- Generate Constructor using Fields: shift + c
-- Generate Getters and Setters: shift + g
+- Generate Constructor using Fields: option + command + f (force return의 binding을 해제)
+- Generate Getters and Setters: option + command + e
 - New class : option + command + c 
 - New Interface: option + command + i (Inline과 충돌나므로 Inline binding을 해제하고 new interface를 선택)
 
@@ -86,8 +86,8 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 - **option + command + c**: eclipse 어디에서 눌러도 new class
 - **option + command + i**: eclipse 어디에서 눌러도 new interface
 - **option + command + s**: 소스 코드 삽입 창
-- **shift + c**: 클래스 내에서 누르면 필드와 함께 constructor 자동 생성
-- **shift + g**: 클래스 내에서 누르면 getter와 setter 자동 생성
+- **option + command + f**: 클래스 내에서 누르면 필드와 함께 constructor 자동 생성
+- **option + command + e**: 클래스 내에서 누르면 getter와 setter 자동 생성
 - command + /: 주석 토글
 
 #### 6. 저장과 실행
