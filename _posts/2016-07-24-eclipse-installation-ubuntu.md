@@ -78,6 +78,14 @@ public static void main(String argc[]){
 }
 ```
 
+#### 1.3 Java code formatter setting 
+
+1. Download [Google Java Style formatter](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml)
+2. Preferences > Java > Code Style > Formatter
+3. Import the downloaded formatter
+4. Edit 
+5. Bracess tab > Lambda body > Next line indented
+6. OK
 
 ### 2. For Web Projects
 
