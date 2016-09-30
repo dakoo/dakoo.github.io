@@ -2,8 +2,8 @@
 layout: post
 title: Eclipse - OSX에서의 단축키
 description: Eclipse - OSX에서의 단축키
-modified: 2016-09-29
-tags: [osx eclipse java]
+modified: 2016-09-28
+tags: [osx, eclipse, java]
 comments: true
 image:
   feature: abstract-11.png
