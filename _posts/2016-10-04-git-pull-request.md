@@ -91,6 +91,12 @@ $ git branch -d hotfix
 
 ### 참고할 만한 git 명령
 
+- branch 모두 확인 
+
+```bash
+$ git branch -r
+```
+
 - 원격 저장소 변경 내용 확인
 
 ```bash
