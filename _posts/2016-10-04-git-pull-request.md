@@ -16,7 +16,7 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
-아직은 헷갈리는 git pull request에 대해 살펴보자. 
+아직은 헷갈리는 git pull request에 대해 살펴보자. pull request는 git 자체가 제공하는 것이 아니라 github와 같은 git기반 서비스 업체가 제공하는 기능이다.
 
 ### pull request 순서
 
@@ -48,14 +48,19 @@ $ git add new_file.txt
 $ git commit -a -m "Fix typo in README file"
 ```
 
-- 6단계(branch merge): 별도의 작업이 의미가 있다면 feature 별 브랜치의 변경을 master 브랜치에 반영한다. 
+- 6단계(remote fetch): git fetch 이름 명령을 이용해서 원 프로젝트의 변경 내용을 가져온다. 
 
 ```bash
-$ git checkout -b master
-$ git merge hotfix
+$ git fetch parent
 ```
 
-- 6-1단계(conflict handling - optional): 충돌해결 만약 conflict이 났다는 메시지가 보이면 `git status` 명령을 이용해서 확인한다. 충돌이 일어난 파일은 unmerged로 표시다 되며, 이는 수동으로 수정한다. `git mergetool` 명령을 이용해 툴을 호출할 수 있다. 이때 mac의 경우는 opendiff가 실행된다. 수정이 완료가 되면 `git add` 명령을 이용해 반영한다. 그 뒤 `git commit`을 이용해 반영한다. 즉 충돌이 일어난 경우 다음 순서를 따른다. 
+- 7단계(remote merge): git merge parent/master를 해서 현재 hotfix 브랜치와 원래 프로젝트의 master branch를 머지한다.
+
+```bash
+$ git merge parent/master
+```
+
+- 7-1단계(conflict handling - optional): 충돌해결 만약 conflict이 났다는 메시지가 보이면 `git status` 명령을 이용해서 확인한다. 충돌이 일어난 파일은 unmerged로 표시다 되며, 이는 수동으로 수정한다. `git mergetool` 명령을 이용해 툴을 호출할 수 있다. 이때 mac의 경우는 opendiff가 실행된다. 수정이 완료가 되면 `git add` 명령을 이용해 반영한다. 그 뒤 `git commit`을 이용해 반영한다. 즉 충돌이 일어난 경우 다음 순서를 따른다. 
 
 ```bash
 $ git status //문제 확인
@@ -66,29 +71,23 @@ $ git commit
 $ git status //해결 되었음이 보여야 함
 ```
 
-- 7단계(branch clear): merge가 된 branch를 제거한다. 
+- 8단계(verification): 문제가 없이 머지가 되었고, 부작용도 없음을 확인한다. 
+- 9단계(push): git push <원격저장소명> <로컬브랜치명>:<원격브랜치명>으로 원격저장소에 새로운 브랜치를 생성하면서 푸시한다. 
+
+```bash
+$ git push origin hotfix/hotfix
+$ git branch -r //origin/hotfix가 보여야 한다. 
+```
+
+- 10단계(branch clear): 로컬의 branch를 제거한다. 
 
 ```bash
 $ git branch -d hotfix
 ```
 
-- 8단계(remote fetch): git fetch 이름 명령을 이용해서 원 프로젝트의 변경 내용을 가져온다. 
-
-```bash
-$ git fetch parent
-```
-
-- 9단계(remote merge): git merge parent/master를 해서 현재 master branch와 원래 프로젝트의 master branch를 머지한다.
-
-```bash
-$ git merge parent/master
-```
-
-- 10단계(conflict handling - optional): 6-1단계와 동일하다.
-- 11단계(verification): 문제가 없이 머지가 되었고, 부작용도 없음을 확인한다. 
-- 12단계(pull request): 수정된 내용으로 pull request한다. github와 같은 서비스가 제공하는 UI를 이용한다. 
-- 13단계(code review): Pull request에 대해 review를 한다. github와 같은 서비스가 제공하는 UI를 이용한다. 
-- 14단계(push): Pull request가 원본 프로젝트에 merge되면 내 원격 repository에 올린다. 
+- 11단계(pull request): 수정된 내용으로 pull request한다. github와 같은 서비스가 제공하는 UI를 이용한다. 
+- 12단계(code review): Pull request에 대해 review를 한다. github와 같은 서비스가 제공하는 UI를 이용한다. 
+- 13단계(push): Pull request가 원본 프로젝트에 merge되면 내 원격 repository에 올린다. 
 
 ### 참고할 만한 git 명령
 
