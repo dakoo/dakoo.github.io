@@ -48,7 +48,7 @@ OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참�
 
 #### Karabiner 
 
-- Change Command_R key --> Command_R to Command_R --> When you type Command_R only, send Command+Space
+- Change Command_R key --> Variants for specific apps --> Command_R to Command_R (+When you type Command_R only, toggle IM) --> In Mac apps
 - Change Control_L key --> ControlL to ControlL (+When you type Control_L only, send Escape)
 - For PC Users --> Use PC Style Copy/Paste #2
 - For PC Users --> Use PC Style Undo
@@ -66,7 +66,7 @@ OSX를 재설치하는 것은 [여기](http://xronocore.tistory.com/47)를 참�
 #### 시스템 환결 설정(System Preferences)
 
 - 일반(General) > 기본 웹브라우저(Default web browser)를 Chrome.app로 
-- 키보드(keyboard) > shortcuts 탭에서 각종 key해제: Launchpad& dock 모두, MissionControl에서 Disturb on/off, keyboard 모두, screenshot 중 shift+command+4 제외하고 모두, Services 모두, spotlight 모두, Accessibility 모두, App Shortcuts 모두  
+- 키보드(keyboard) > shortcuts 탭에서 각종 key해제: Launchpad& dock 모두, MissionControl에서 Disturb on/off, keyboard 모두, screenshot 중 shift+command+4 제외하고 모두, Services 모두, spotlight 모두, Accessibility 모두, App Shortcuts 모두,  Input Source는 그로 유지한다. 
 - 키보드(Keyboard) > 키보드 탭 > Key Repeat 가장 빠르게, Delay Until Repeat 가장 짧게
 - 키보드(Keyboard) > 키보드 탭 > Use all F1, F2 ... 의 checkbox 선택
 - 키보드(Keyboard) > 키보드 탭 > 보조키(Modifier Keys) > Caps Lock을 Control로 변경
