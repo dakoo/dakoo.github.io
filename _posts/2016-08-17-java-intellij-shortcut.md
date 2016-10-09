@@ -33,12 +33,12 @@ OSX에서 사용할 수 있는 vim이 커버하지 못하는 부분을 채워주
 - **현재 호출하고 있는 메소드의 반환 타입 확인하기**: shift + control + p 
 - **문자열 검색하기**: shift + command + F
 - 클래스 찾기(단어사이 대문자로 조회): command + o 
-- **command + e**: 최근 사용 파일 찾아 열기 (control+tab과 동일해 보이지만 살짝 다르다)
-- command + F12 : 현재 클래스의 필드, 메서드 등을 보여주는 창이 떠서 선택하여 이동
+- **최근 사용 파일 찾아 열기**: command + e (control+tab과 동일해 보이지만 살짝 다르다)
+- 현재 클래스의 필드, 메서드 등을 보여주는 창이 떠서 선택하여 이동: command + F12 
 - **이전 위치**: option + command + <-
 - **다음 위치** : option + command + ->
-- **command + b**: 선언으로 이동
-- option + command + b: 구현으로 이동
+- **선언으로 이동**: command + b
+- 구현으로 이동: option + command + b
 
 ### 코드 작성
 
