@@ -23,10 +23,22 @@ Windows/Ubuntu에서의 단축키 중 command -> control로 안되는 것들은 
 
 key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들이 있다. 먼저 이것을 설정하자. Preferences > General > Keys이고 theme는 default.
 
-- Generate Constructor using Fields: option + command + f (force return의 binding을 해제)
-- Generate Getters and Setters: option + command + e
 - New class : option + command + c 
 - New Interface: option + command + i (Inline과 충돌나므로 Inline binding을 해제하고 new interface를 선택)
+- Generate Constructor using Fields: option + command + f (force return의 binding을 해제)
+- Generate Getters and Setters for type's fields: option + command + e
+
+주요 키는 control에 맵핑!
+
+- Backward History: control + j
+- Forward History: control + k
+- open declaration 모두 : control + p
+- open call hierachy: control + i
+- previous editor: command + o
+- Quick Fix: control + ,
+- Qucik outline(Editing Java Source): control + m
+- Show Tooltip description(Editing Text): control + .
+
 
 참고로 editor 창을 분할하여 보는 것은 shortcut으로 하면 버그가 있다. 두개 이상의 파일을 연 상태에서 마우스로 하나를 선택해서 아래로 살짝 내려 세로 분할이 되도록 하자. 
 
@@ -39,7 +51,7 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 
 #### 2. 창간 이동 
 
-- **command + f7(fn + 7)**: view간 이동. 주로 package explorer 등으로 이동이 편함. 두개의 view간 이동시 한번만 누르면 됨
+- command + f7(fn + 7): view간 이동. 주로 package explorer 등으로 이동이 편함. 두개의 view간 이동시 한번만 누르면 됨
 - command + f9(fn + 8): perspective간 이동. command를 누른 상태로 f8을 여러번 누르는 방식이 편함
 - command + f12(fn + 12): editor로 포커스 이동
 - shift + command + e: 파일을 선택해서 editor로 포커스 이동
