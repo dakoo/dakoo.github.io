@@ -45,7 +45,7 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 
 #### 1. 쉽게 사용하기
 
-- shift + command + l: 단축키 확인
+- **shift + command + l**: 단축키 확인
 - command + 3: quick access
 
 #### 2. 창간 이동 
@@ -66,30 +66,31 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 
 ##### 3.2 코드내 바른 이동
 
-- **option + command + ←**  또는 command + [(win: alt + ←): 커서 히스토리에서 previous로 이동
-- **option + command + →** 또는 command + ](win: alt + →): 커서 히스토리에서 next로 이동
-- **command + o**: 현재 java class의 빠른 창 띄워서 method와 변수 보여주기. 키보드로 움직여서 선택하면 커서가 그 위치로 이동
+- **control + j**: 커서 히스토리에서 previous로 이동
+- **control + k**: 커서 히스토리에서 next로 이동
+- **control + m**: 현재 java class의 빠른 창 띄워서 method와 변수 보여주기. 키보드로 움직여서 선택하면 커서가 그 위치로 이동
 - **command + .**: 하나의 파일 내에서 다음 problem(warning)/error으로 커서 이동
 - shift + command + p: 괄호에서 누르면 대응하는 괄호로 이동
 
 #### 4. 코딩시 참조하기
 
-- **option + command + g**: text를 선택한 후 누르면 일치하는 것들을 workspace에서 찾아서 Search 창에서 보여줌. Search 창에서 enter를 누르면 그 파일 열리며 커서 이동하고 그 text가 highlight되어 표시됨
-- **f3(fn + 3)**: 현재 선택한 변수의 **선언**으로 커서 이동 
-- **shift + command + g**: text를 선택한 후 누르면 reference를 찾아서 Search 창에서 보여줌. Search 창에서 enter를 누르면 그 파일 열리며 커서 이동하고 그 text가 highlight되어 표시됨
-- **control + option + h**: call hierarchy 창이 떠서 표시됨
-- f2 (fn + 2): 변수등에 놓고 누르면 작은 tooltip 창이 뜸
+- **control + p**: 현재 선택한 변수의 **선언**으로 커서 이동 
+- **control + i**: call hierarchy 창이 떠서 표시됨
+- **control + .**: 변수등에 놓고 누르면 작은 tooltip 창이 뜸
+- **contorl + ,**: 커서 위치에 해당하는 warning, error등의 quick fix 창 보여주기
+- option + command + g: text를 선택한 후 누르면 일치하는 것들을 workspace에서 찾아서 Search 창에서 보여줌. Search 창에서 enter를 누르면 그 파일 열리며 커서 이동하고 그 text가 highlight되어 표시됨
+- shift + command + g: text를 선택한 후 누르면 reference를 찾아서 Search 창에서 보여줌. Search 창에서 enter를 누르면 그 파일 열리며 커서 이동하고 그 text가 highlight되어 표시됨
 - f4 (fn + 4): 특정 Type을 선택한 후 f4를 누르면 type Hierarchy Windows로 포커스가 이동하며 그 type의 계층 구조 보여줌 
 - command + g: 클래스 변수나 메소드의 선언 확인 
 - command + t: 현재 java class의 빠른 창 띄워서 상속 구조 보여 주기
 - shift + f2(fn + 2): 새로운 창이 떠서 javadoc이 열림
 
+
 #### 5. 코딩을 더 편리하게
 
 - **control + space**: 자동 완성하거나 추천
-- **command + 1**: 커서 위치에 해당하는 warning, error등의 quick fix 창 보여주기
-- **shift + command + f**: 코드 포맷팅하기
 - **shift + command + o**: 자동으로 import 정리하기 (import error 해결하고 불필요한 import 제거)
+- **shift + command + f**: 코드 포맷팅하기
 - **option + commmand + r** (w - shift + alt + r): rename
 - **option + command + t** (w - shift + alt + t): refactoring 메뉴
 - **option + command + m**: 여러 줄을 선택한 후 누르면 method 추출창 뜸
