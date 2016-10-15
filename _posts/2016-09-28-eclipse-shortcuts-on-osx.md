@@ -34,7 +34,6 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 - Forward History: control + k
 - open declaration 모두 : control + p
 - open call hierachy: control + i
-- previous editor: command + o
 - Quick Fix: control + ,
 - Qucik outline(Editing Java Source): control + m
 - Show Tooltip description(Editing Text): control + .
