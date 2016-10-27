@@ -46,7 +46,33 @@ VI plugin
 - 설치 URL: https://marketplace.eclipse.org/content/quick-search-eclipse
 - 실행: Ctrl/CMD + Shift + L 키를 누르고 원하는 글자를 입력
 
-### 2.4 More Clipboard
+### 2.4 IndentGrid
+
+indent 표시 줄을 나타내는 툴. 설치는 help > install new software...를 통해서 한다. 
+
+- 설치 URL: http://sschaef.github.io/IndentGuide/update
+
+### 2.5 Findbugs
+
+Java Static Analysis tool. 
+
+
+- 설치 URL: https://github.com/findbugsproject/findbugs/releases/tag/3.0.2_preview2
+- 실행: Project에서 Right-click >  Find Bugs > Find Bugs 
+- 결과 보기:  View ▸ Zoom ▸ Reset Window ▸ Show View ▸ Other… 
+- Automatic: Project > Properties > FindBugs > Check Run automatically
+
+### 2.6 CheckStyle
+
+Code Style checker
+
+- 설치 URL: Market에서 check style 검색 후 install
+- custom 설정: Preferences > Check Style > Global Check Configurations중 하나 doubleclick
+- 설정 import: Preferences > Check StyleSettings > new > Remote Configuration > URL 입력 (file은 External Configuraiton)
+- 실행: Project에서 Right-click >  Find Bugs > Find Bugs 
+- 결과 보기:  Windows > Show View > Others > Checkstyle violations
+
+### 2.7 More Clipboard
 
 클립보드에서 선택하여 paste
 
@@ -54,17 +80,17 @@ VI plugin
 - 실행: Ctrl + Shift + V 후 선택
 
 
-### 2.5 PMD For Eclipse 
+### 2.8 PMD For Eclipse 
 
 정적 검사 툴
 
-#### 2.5.1 PMD 설치 
+#### 2.8.1 PMD 설치 
 
 - Help > Software Update...
 - http://sourceforge.net/projects/pmd/files/pmd-eclipse/update-site/
 - PMD for Eclipse 4 설치
 
-#### 2.5.2 PMD plug-in 설치
+#### 2.8.2 PMD plug-in 설치
 
 - 설치 URL: https://marketplace.eclipse.org/content/eclipse-pmd
 - 설정: **Preferences** > **PMD* > Rule Configuration에서 필요한 rule 선택
@@ -72,7 +98,7 @@ VI plugin
 
 comment 관련한 rule(comment~로 시작)은 꺼놓는 것을 추천한다. 
 
-### 2.6 umlet
+### 2.9 umlet
 
 - NOTE: eclipse plugin인 경우 property가 readonly가 되는 문제가 보고되었다. 문제가 생기면 standalone으로 사용하자. 
 
@@ -90,13 +116,7 @@ comment 관련한 rule(comment~로 시작)은 꺼놓는 것을 추천한다.
 2. File > New > Other.. 
 3. Other > Umlet diagram
 
-### 2.7 IndentGrid
-
-indent 표시 줄을 나타내는 툴. 설치는 help > install new software...를 통해서 한다. 
-
-- 설치 URL: http://sschaef.github.io/IndentGuide/update
-
-### 2.8 AnyEdit
+### 2.10 AnyEdit
 
 edit를 쉽게하는 툴
 
