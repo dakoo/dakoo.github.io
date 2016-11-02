@@ -124,7 +124,7 @@ $ cscope -i cscope.files
 
 ```
 #!/bin/sh 
-rm -rf cscope.files cscope.out
+rm -rf cscope.files cscope.out tags
 ctags -R .
 find . *.java -print > cscope.files
 cscope -i cscope.files
