@@ -35,7 +35,7 @@ project폴더 아래 txt, java 폴더가 각각 있고 각 폴더아래 aaa.txt 
 
 AAA.txt파일의 내용은 다음과 같다. 
 
-```txt
+```bash
 This file is a text file.
 1. The first line is for class. 
 2. The second line is for interface.
