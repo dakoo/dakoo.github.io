@@ -60,7 +60,9 @@ public class BBB {
 
 ### 2.1 키워드를 포함하는 파일 찾기
 
-- find . -type f -name *.파일확장자 -print0 | xargs -0 grep -l 검색키워드
+```c
+find . -type f -name *.파일확장자 -print0 | xargs -0 grep -l 검색키워드
+```
 
 project 폴더에서 다음과 같은 사용 예를 보자. 
 
@@ -75,7 +77,9 @@ BBB라는 패턴과 가진 파일 중 java 확장자를 가진 BBB.java 파일 �
 
 확장자를 늘리기 위해서는 'f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \)' 이런 식의 약간 복잡한 패턴을 사용해야 한다. 
 
-- find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -l 검색키워드
+```c
+find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -l 검색키워드
+```
 
 project 폴더에서 다음과 같은 사용 예를 보자. 
 
@@ -92,7 +96,9 @@ $ find . -type  f \( -name *.java -o -name *.txt \) - -print0 | xargs -0 grep -l
 
 키워드가 공백을 포함한 문자열인 경우는 어떨까? 간단히 검색 키워드의 시작과 끝은 ''로 감싸면 된다. 예를 들어 dummies를 찾는데 //dummies를 빼고 싶다면 앞에 여백이 하나 있는 것을 찾으면 된다. 
 
-- find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -l '검색 키워드'
+```c
+find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -l '검색 키워드'
+```
 
 project 폴더에서 다음과 같은 사용 예를 보자. 
 
@@ -107,7 +113,9 @@ $ find . -type  f \( -name *.java -o -name *.txt \) - -print0 | xargs -0 grep -l
 
 일치하는 내용을 가진 줄을 결과로 보고 싶다면 어떻게 할까? 'grep -l' 명령대신 'grep -H'를 넣으면 되고, 색깔을 이용해 패턴을 강조하고 싶다면 '--color' 플래그를 추가한다. 
 
-- find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -H --color '검색 키워드'
+```c
+find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -H --color '검색 키워드'
+```
 
 project 폴더에서 다음과 같은 사용 예를 보자. 
 
@@ -124,7 +132,9 @@ $ find . -type f \( -name *.java -o -name *.txt \) -print0 | xargs -0 grep -H --
 
 최종적으로 다음과 같은 명령을 사용하면 된다는 것을 알 수 있을 것이다. 
 
-- find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -H --color '검색 키워드'
+```c
+find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3 \) -print0 | xargs -0 grep -H --color '검색 키워드'
+```
 
 이것을 .bashrc 등에 등록해 놓고 간단하게 사용하는 방법도 있을 것이다. 
 
