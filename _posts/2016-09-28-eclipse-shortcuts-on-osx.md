@@ -23,15 +23,10 @@ Windows/Ubuntu에서의 단축키 중 command -> control로 안되는 것들은 
 
 key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들이 있다. 먼저 이것을 설정하자. Preferences > General > Keys이고 theme는 default.
 
-- New class : option + command + c 
-- New Interface: option + command + i (Inline과 충돌나므로 Inline binding을 해제하고 new interface를 선택)
-- Generate Constructor using Fields: option + command + f (force return의 binding을 해제)
-- Generate Getters and Setters for type's fields: option + command + e
-
 주요 키는 control에 맵핑!
 
-- Backward History: control + j
-- Forward History: control + k
+- Backward History: control + h
+- Forward History: control + l
 - open declaration 모두 : control + p
 - open call hierachy: control + i
 - Quick Fix: control + ,
