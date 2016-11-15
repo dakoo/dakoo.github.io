@@ -25,14 +25,16 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 
 주요 키는 control에 맵핑!
 
+- Activate editor: control + b
 - Backward History: control + h
 - Forward History: control + l
+- next editor: control + k
 - open declaration 모두 : control + p
 - open call hierachy: control + i
 - Quick Fix: control + ,
 - Qucik outline(Editing Java Source): control + m
 - Show Tooltip description(Editing Text): control + .
-
+- Generate Getters and Setters: option + command + f
 
 참고로 editor 창을 분할하여 보는 것은 shortcut으로 하면 버그가 있다. 두개 이상의 파일을 연 상태에서 마우스로 하나를 선택해서 아래로 살짝 내려 세로 분할이 되도록 하자. 
 
@@ -47,17 +49,17 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 
 - command + f7(fn + 7): view간 이동. 주로 package explorer 등으로 이동이 편함. 두개의 view간 이동시 한번만 누르면 됨
 - command + f9(fn + 8): perspective간 이동. command를 누른 상태로 f8을 여러번 누르는 방식이 편함
-- command + f12(fn + 12): editor로 포커스 이동
+- **control + b**: editor로 포커스 이동
 - shift + command + e: 파일을 선택해서 editor로 포커스 이동
 
 #### 3. editor내 이동
 
 ##### 3.1 파일간 이동 
 
+- **contorl + k** : file을 선택하여 이동. 한번 누르면 이전 선택 파일로 이동
+- **shift + command + t** : java type 타이핑해서 열기
 - **shift + command + r** : file 이름 타이핑해서 열기
-- **command + f6(fn + 6)** : file을 선택하여 이동. 한번 누르면 이전 선택 파일로 이동. 즉, 두개의 파일 간 이동시 command + e 보다 적합함
 - command + e: 현재 열려있는 파일 리스트를 보여주며 화살표 위아래로 선택
-- shift + command + t : java type 타이핑해서 열기
 
 ##### 3.2 코드내 바른 이동
 
@@ -93,8 +95,7 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 - **option + command + c**: eclipse 어디에서 눌러도 new class
 - **option + command + i**: eclipse 어디에서 눌러도 new interface
 - **option + command + s**: 소스 코드 삽입 창
-- **option + command + f**: 클래스 내에서 누르면 필드와 함께 constructor 자동 생성
-- **option + command + e**: 클래스 내에서 누르면 getter와 setter 자동 생성
+- **option + command + f**: 클래스 내에서 누르면 getter와 setter 자동 생성
 - command + /: 주석 토글
 
 #### 6. 저장과 실행
