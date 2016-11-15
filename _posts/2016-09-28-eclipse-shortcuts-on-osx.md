@@ -34,7 +34,7 @@ key가 binding되어 있지 않지만, binding해서 사용해야 하는 것들�
 - Quick Fix: control + ,
 - Qucik outline(Editing Java Source): control + m
 - Show Tooltip description(Editing Text): control + .
-- Generate Getters and Setters: option + command + f
+- Generate Getters and Setters: option + command + f (Force Return을 unbind하고 3개 중 맨 윗 것만)
 
 참고로 editor 창을 분할하여 보는 것은 shortcut으로 하면 버그가 있다. 두개 이상의 파일을 연 상태에서 마우스로 하나를 선택해서 아래로 살짝 내려 세로 분할이 되도록 하자. 
 
