@@ -21,9 +21,9 @@ image:
 git stash/git stash pop은 수정하고 있던 파일을 잠깐 저장해 두고 다른 작업을 하기에 용이하다. 예를 들어 A feature를 개발하고, B feature를 개발하고 있는 도중 A feature의 review comment를 해결하기 위해 현재 수정사항을 잠깐 묻어두기에 적합하다. 
 하지만 아래와 같은 문제를 해결할 수 없다. 
 
-1. Conflict이 발생할 가능성이 높다. B feature의 개발이 상당히 진전되어 많은 파일을 건드렸는데, review comment를 해결하기 위해 광범위해서 많은 파일을 수정하게 된 경우를 생각해 보자. 
+1. Conflict이 발생할 가능성이 높다. B feature의 개발이 상당히 진전되어 많은 파일을 건드렸는데, review comment를 해결하기 위해 광범위하게 많은 파일을 수정하게 된 경우를 생각해 보자. 
 review comment를 해결한 내용을 올리기 위해서는 commit을 해야 하는데 이렇게 되면 stash로 임시 저장한 파일들과 충돌이 일어날 가능성이 높다. 충돌이 문제가 아니라 사실 B feature는 아직 공식적으로 history에 없는 상황이므로 충돌 해결 중에 문제가 발생하거나, 꼬이게 되면 엄청나게 귀찮은 상황이 올 수 있다. 
-2. B feature를 commit해서 점진적으로 개발하기 어렵다. A feature가 완전히 완료된 것이 아니면 언제 review comment가 들어올 지 모르기 때문에 B feature를 commit할 수 없다. 자칫 A feature의 코드와 B feature의 코드가 섞일 수 있다. 
+2. B feature를 commit해서 점진적으로 개발하기 어렵다. A feature가 완전히 완료된 것이 아니면 언제 review comment가 들어올 지 모르기 때문에 B feature를 commit할 수 없다. 자칫 버전 관리 시스템의 장점을 쓰지 못하고 feature하나를 모두 개발해야 하는 경우가 생긴다. 
 
 ### 2. 해결책: 새로운 feature를 새로운 브랜치에서 작업하기
 
