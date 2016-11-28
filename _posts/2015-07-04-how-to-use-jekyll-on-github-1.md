@@ -9,6 +9,12 @@ image:
   feature: abstract-11.png
 ---
 
+# 중요 알림
+> Jekyll을 이용해 Github 블로그를 구축한지 벌써 1년 6개월이 지났고, 그 만큼 많은 버전 변화가 있었습니다. 이에 아래 글의 내용 중 상당 부분은 현재 버전과 맞지 않는 부분이 있습니다. 그럼에도 불구하고 글을 삭제하지 않는 이유는 제가 예전 버전의 Jekyll과 Ruby를 아직도 사용하고 있기에 가끔 참고를 해야 하기 때문입니다. 
+최초로 설치하시는 분들은 되도록 **아래 글을 참고 하지 말고 다른 글을 참고하시기 바랍니다.** 
+
+# 시작
+
 Github에 블로그를 만들어 보자. 이를 위해 Windows에 jekyll 환경을 구축해 jekyll 테마를 적용하고, Github에 올려 블로그를 운영하는 방법을 정리해 본다. 그 첫번째 순서로 이 글은 Windows에 jekyll 환경을 구축해서 jekyll 테마를 적용하는 것을 설명한다. 
 
 <section id="table-of-contents" class="toc">
