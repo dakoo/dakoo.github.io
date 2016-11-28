@@ -101,29 +101,13 @@ A[i]!=B[j]이면 **반드시** 두번째 또는 세번째 경우에 포함되며
 
 #define MAX_SIZE 501
 int LCS[MAX_SIZE][MAX_SIZE];
-char first_string[MAX_SIZE];
-char second_string[MAX_SIZE];
-size_t length_first_string;
-size_t length_second_string;
-
-void setup(){
-    std::cin >> first_string >> second_string;
-    length_first_string = strlen(first_string);
-    length_second_string = strlen(second_string);
-    for(int i = 0; i<= length_first_string; i++){
-        LCS[i][0] = 0;
-    }
-    for(int i = 0; i<= length_second_string; i++){
-        LCS[0][i] = 0;
-    }
-}
-
+   
 int calculate_LCS(char x[], char y[], size_t len_x, size_t len_y){
     for(int i = 1; i <= len_x; i++){
-        for(int j = 1; j <= len_y; j++){
-            if(x[i-1] == y[j-1])
+        for(int j = 1; j <= len_y; j++){            
+            if(x[i-1] == y[j-1]) //문자가 일치하는 경우 (1번 경우)
                 LCS[i][j] = LCS[i-1][j-1]+1;
-            else
+            else //일치하지 않는 경우 (2, 3번 경우)
                 LCS[i][j] = LCS[i-1][j]> LCS[i][j-1]? LCS[i-1][j]: LCS[i][j-1];
         }
     }
@@ -131,13 +115,25 @@ int calculate_LCS(char x[], char y[], size_t len_x, size_t len_y){
 }
 
 int main(void){
-    int test_case;
-    int T;
-    std::cin >> T;
-    for(test_case = 1; test_case <= T; ++test_case){
-        setup();
-        std::cout << "LCS: " << calculate_LCS(first_string, second_string, length_first_string, length_second_string);
+   char first_string[MAX_SIZE];
+   char second_string[MAX_SIZE];
+   
+   //두 문자열을 입력으로 받고 길이 확인
+    std::cin >> first_string >> second_string;
+    size_t length_first_string = strlen(first_string);
+    size_t length_second_string = strlen(second_string);
+
+    //LCS 2차원 행렬의 0번행과 0번열을 0으로 초기화
+    for(int i = 0; i<= length_first_string; i++){
+        LCS[i][0] = 0;
     }
+    for(int j = 0; j<= length_second_string; j++){
+        LCS[0][j] = 0;
+    }
+    
+    //실행
+    std::cout << "LCS: " << calculate_LCS(first_string, second_string, length_first_string, length_second_string);
+
     return 0;
 }
 ```
