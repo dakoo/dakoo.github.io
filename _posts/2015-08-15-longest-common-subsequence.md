@@ -90,15 +90,36 @@ A[i]!=B[j]이면 **반드시** 두번째 또는 세번째 경우에 포함되며
 <img src="/images/lcs4.jpg" alt="longest common subsequence table">
 </figure>
 
-### C를 이용한 구현
+### 구현
 
-{% highlight c %}
-#include <stdio.h>
+위에서 설명한 내용을 실제 구현한 함수는 calculate_LCS()이다. 내용을 보면 알겠지만 위의 설명을 그대로 옮겨 놓은 것이다. 
+간단히 지극히 c스럽게  c++로 구현 했다.
+
+```
+#include <iostream>
+#include <string>
 
 #define MAX_SIZE 501
 int LCS[MAX_SIZE][MAX_SIZE];
-int cal(char x[], char y[], int len_x, int len_y){
-    for(int i = 1; i <= len_y; i++){
+char first_string[MAX_SIZE];
+char second_string[MAX_SIZE];
+size_t length_first_string;
+size_t length_second_string;
+
+void setup(){
+    std::cin >> first_string >> second_string;
+    length_first_string = strlen(first_string);
+    length_second_string = strlen(second_string);
+    for(int i = 0; i<= length_first_string; i++){
+        LCS[i][0] = 0;
+    }
+    for(int i = 0; i<= length_second_string; i++){
+        LCS[0][i] = 0;
+    }
+}
+
+int calculate_LCS(char x[], char y[], size_t len_x, size_t len_y){
+    for(int i = 1; i <= len_x; i++){
         for(int j = 1; j <= len_y; j++){
             if(x[i-1] == y[j-1])
                 LCS[i][j] = LCS[i-1][j-1]+1;
@@ -106,30 +127,17 @@ int cal(char x[], char y[], int len_x, int len_y){
                 LCS[i][j] = LCS[i-1][j]> LCS[i][j-1]? LCS[i-1][j]: LCS[i][j-1];
         }
     }
-    return LCS[len_y][len_x];
+    return LCS[len_x][len_y];
 }
 
 int main(void){
     int test_case;
     int T;
-    setbuf(stdout, NULL);
-    scanf("%d", &T);
+    std::cin >> T;
     for(test_case = 1; test_case <= T; ++test_case){
-        int len;
-        char x[MAX_SIZE];
-        char y[MAX_SIZE];
-        scanf("%s", x);
-        scanf("%s", y);
-        for(int i = 0; i<= len; i++){
-            for(int j = 0; j<= len; j++){
-                LCS[i][j] = 0;
-            }
-        }
-        double l = len;
-        double d = cal(x, y, len, len);
-        double res = d/l*100;
-        printf("#%d %.2f", test_case, res);
+        setup();
+        std::cout << "LCS: " << calculate_LCS(first_string, second_string, length_first_string, length_second_string);
     }
     return 0;
 }
-{% endhighlight %}
+```
