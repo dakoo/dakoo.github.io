@@ -16,6 +16,11 @@ image:
 </div>
 </section><!-- /#table-of-contents -->
 
+# 중요 알림
+
+> 아래 글을 지극히 개인적인 선호에 따라 설정한 IntelliJ 키맵입니다. 개인적으로 정리하기 위한 글이오니 **되도록 참고하지 말아주세요**.
+
+
 OSX에서 eclipse 단축키를 정리해 보았다. vim mode를 위해 vrapper를 사용하는 경우이다. 
 Windows/Ubuntu에서의 단축키 중 command -> control로 안되는 것들은 표시를 해 둔다. 그리고 binding되어 있지 않지만, 매우 중요한 키들은 시작하기 전에 미리 세팅해 놓는 것을 가정했다.
 
