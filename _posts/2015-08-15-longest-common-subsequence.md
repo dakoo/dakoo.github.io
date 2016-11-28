@@ -92,7 +92,7 @@ A[i]!=B[j]이면 **반드시** 두번째 또는 세번째 경우에 포함되며
 
 ### 코드 
 
-위에서 설명한 내용을 실제 구현한 함수는 calculate_LCS()이다. 내용을 보면 알겠지만 위의 설명을 그대로 옮겨 놓은 것이다. 
+내용을 보면 알겠지만 위의 설명을 그대로 옮겨 놓은 것이다. 
 간단히 지극히 c스럽게  c++로 구현 했다.
 
 ```cpp
@@ -112,7 +112,7 @@ int main(void){
     size_t length_first_string = strlen(first_string);
     size_t length_second_string = strlen(second_string);
     
-    //실행
+    //알고리즘 구현
     for(int i = 1; i <= length_first_string; i++){
         for(int j = 1; j <= length_second_string; j++){
             if(first_string[i-1] == second_string[j-1]) //문자가 일치하는 경우 (1번 경우)
