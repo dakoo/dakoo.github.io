@@ -49,6 +49,7 @@ IntelliJ IDEA > Preferences > Keymap으로 가서 Keymaps를 Mac OS X 10.5+로 �
 - Call Hierarchy: command + shift + i
 - Reformat Code: command + shift + f
 - Inspect Code: control + u
+- Switcher: control + '
 
 Preferences에서 Other Settigs > Vim Emulation으로 이동한다. 모두 IDE로 바꾼다. 
 
@@ -59,8 +60,7 @@ Preferences에서 Other Settigs > Vim Emulation으로 이동한다. 모두 IDE�
 ### 이동 및 선택 관련 
 
 - 코드 편집창으로 포커스 옮기기: esc (Caplock에 esc를 맵핑하고 있다면 Caplock)
-- 이전 파일과 두 파일간 switch: control + tab 
-- 최신 파일 중 선택: command + e (이동은 command + e를 연속으로 누르거나, command 누르지 않고 방향키 누르기. 이후 엔터로 선택)
+- 파일간 switch: control + ' (한번 누르면 바로 이전 파일, 여러 번 누르면 열린 파일중 선택)
 - 코드 창을 세로로 분할: option + v
 - 코드 편집창으로 세로로 분할해 놓은 경우, 포커스 이동하기: option + tab
 - 현재 클래스의 필드, 메서드 등을 보여주는 창이 떠서 선택하여 이동: control + m
