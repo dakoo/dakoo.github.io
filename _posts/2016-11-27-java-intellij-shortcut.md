@@ -100,14 +100,26 @@ Preferences에서 Other Settigs > Vim Emulation으로 이동한다. 모두 IDE�
 
 ## 관련 수정
 
+### 테마
+
+모두 블랙을 좋아하지만 기본 테마가 좀 더 깔끔 
+
 ### 폰트 
 
 Preferences > Editor > Colors & Fonts > Font
 
-- 폰트는 menlo를 유지하되 사이즈를 11로 한다. 
+- 폰트는 monaco로 사이즈를 11로 한다. 
+
+Preferences > Editor > Colors & Fonts > Java
+
+- Class Fields: Constant, Static은 파란색, bold만 유지한 채 2907B4, Instance field와 Instance final은 색깔은 같고 bold해제
+- Comments: Javadoc에서 User Inherited attributes를 해제하고 Effects를 모두 끄고 Bold와 Italic도 해체.  Markup의 배경색을 삭제.
+- Keyword는 자주색(802509) Bold 설정, italic해제
+- Number는 빨간색 (FF1C3A)
+- Parameters의 Parameter,  Reassigned 모두 연한 갈색(AB534B)
+- String은 빨간색(FF1C3A) (background는 노랑(FFFE19))
+- Variable: Local, Reassigned 모두 연한 파란색 (6F86CC) 
 
 ### 색깔
-
-기본 설정의 경우 주석 색깔이 너무 튄다. 주석 색깔을 녹색이지만 더 흐리게 한다. 
 
 - Preferences > Editor > Colors & Fonts > Java에서 Comments > Javadoc으로 가서 Block comment, Line commment, Markup, Tag, Tagvalue, Text의 색깔을 모두 Forground를 41470B로 바꾼다. 이때 바꾸기위해서는 Use Inherited attributes를 해제한다. 
