@@ -123,3 +123,11 @@ Preferences > Editor > Colors & Fonts > Java
 ### 색깔
 
 - Preferences > Editor > Colors & Fonts > Java에서 Comments > Javadoc으로 가서 Block comment, Line commment, Markup, Tag, Tagvalue, Text의 색깔을 모두 Forground를 41470B로 바꾼다. 이때 바꾸기위해서는 Use Inherited attributes를 해제한다. 
+
+### 자동 폴딩 
+
+- Preferences > Editor > General > Code Folding에 가서 모두 해제한다. 
+
+### import에 * 생성 해제 
+
+- Preferences > Editor > Code Style > Java로 이동하여 Imports tab에서 'Class count to use import with *'와  'Names count to use static imports with *'의 값을 999로 변경 이때 Scheme은 새로운 것으로 저장.
