@@ -34,9 +34,11 @@ short cut: shift + control + alt + j
 
 ### Static analysis tools
 
-- Checkstyle
-- pmd
-- findbug
+ qaplug를 설치한 후 다음 플러그인들을 설치한다.단축키는 shift option a.
+ 
+- qa-Checkstyle
+- qa-pmd
+- qa-findbug
 
 
 #### Eclipse Code Formatter
