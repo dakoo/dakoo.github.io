@@ -28,10 +28,16 @@ Preferences > Plugins
 
 콘솔 로그의 레벨 별 색깔과 폰트 지정 
 
-#### QAPlug
+### javadoc
 
-IntelliJ가 지원하는 정적 분석 툴, 최소한 하나이상의 QAPlug 하위 모듈이 있어야 한다. QAPlug-PMD, QAPlug-CodeStyle 등..
-사용은 project > 오른쪽 마우스 버튼 > Analyze > Analyze Code
+short cut: shift + control + alt + j
+
+### Static analysis tools
+
+- Checkstyle
+- pmd
+- findbug
+
 
 #### Eclipse Code Formatter
 
