@@ -26,7 +26,8 @@ image:
 ```bash
 Hochului-MacBook-Pro:~ hochulshin$ cat sample.txt
 1234|5678|90123
-4567|890
+ABCD|EFG
+abcd|efg
 ```
 
 ### sed
@@ -40,9 +41,33 @@ sed는 다른 리눅스 명령과 결합하여 문자열을 빠르게 변경할 
 - sed -e 's/패턴A/패턴B/g' 파일이름
 
 ```bash
-Hochului-MacBook-Pro:~ hochulshin$ cat sample.txt | sed -e 's/1234/ABCD/g'
-ABCD|5678|90123
-4567|890
+Hochului-MacBook-Pro:~ hochulshin$ cat sample.txt | sed -e 's/ABCD/XXX/g'
+1234|5678|90123
+XXX|EFG
+abcd|efg
+```
+
+#### regex 
+
+패턴은 regex를 이용해서도 가능하다. 
+
+```bash
+Hochului-MacBook-Pro:~ hochulshin$ cat sample.txt | sed -e 's/[Aa]..[Dd]/XXX/g'
+1234|5678|90123
+XXX|EFG
+XXX|efg
+```
+
+#### 범위 지정
+
+sed의 적용 범위를 줄 번호로 지정할 수 있다. 
+1번째 줄과 두번째 줄만 적용하는 경우 다음과 같이 할 수 있다. 
+
+```bash
+Hochului-MacBook-Pro:~ hochulshin$ cat sample.txt | sed -e '1,2  s/[Aa]..[Dd]/XXX/g'
+1234|5678|90123
+XXX|EFG
+abcd|efg
 ```
 
 #### 특수문자 처리
@@ -58,7 +83,9 @@ Hochului-MacBook-Pro:~ hochulshin$ cat sample.txt | sed -e $'s/|/\\\n/g'
 1234
 5678
 90123
-4567
-890
+ABCD
+EFG
+abcd
+efg
 ```
 
