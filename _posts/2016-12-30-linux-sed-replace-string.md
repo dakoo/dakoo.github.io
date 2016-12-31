@@ -76,7 +76,7 @@ sed에서 '\'와 같은 문자를 처리하기 위해서는 다음과 같이 $�
 
 - sed -e $'s/패턴A/패턴B/g' 파일이름
 
-'|'는 문자로 그대로 인식하지만, 줄바꿈은 '\\\n'이다. 
+참고로 줄바꿈은 '\\\n'이다. 
 
 ```bash
 Hochului-MacBook-Pro:~ hochulshin$ cat sample.txt | sed -e $'s/|/\\\n/g'
