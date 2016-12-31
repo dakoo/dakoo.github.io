@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Linux - grep을 이용해서 빈 줄이나 특정 줄 제거하기
-description: Linux - grep을 이용해서 주석과 공백 제거하기
+title: Linux grep 명령 - 빈 줄이나 특정 줄 제거하기
+description: Linux grep 명령 - 빈 줄이나 특정 줄 제거하기
 modified: 2016-12-30
 tags: [linux]
 comments: true
