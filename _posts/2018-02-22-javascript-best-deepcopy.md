@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript - What is the proper way to deep copy in Javascript
+title: Javascript - deep copy가 필요할 때 무얼 사용해야 할까?
 description: OSX - What is the best way to deep copy in Javascript
 modified: 2018-02-22
 tags: [javascript]
@@ -20,7 +20,9 @@ Javascript가 지원하는 다양한 Object copy 방식 중 deepcopy를 지원�
 
 # Deepcopy를 지원할 것 같은 javascript Object copy 방법들
 
-1. [Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign):  MDN에서는 다음과 같이 설명한다. 마치 deep copy가 가능한 듯한 설명이다. 
+## [Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+[MDN]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign))에서는 다음과 같이 설명한다. 마치 deep copy가 가능한 듯한 설명이다. 
 
 - The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object.
 
@@ -38,7 +40,7 @@ console.log(object2.a); //100
 console.log(object2.b); //2
  ```
 
-2. Spread operator(...)
+## Spread syntax(...)
 
 object나 array를 [...](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)를 이용해 프로퍼티들을 뽑아내고 object literal({})이나 array literal([])로 다시 object나 array를 구성하는 방식이다. 복사를 하면서 특정 프로퍼티의 값만 바꿀때 유용하다. 
 
@@ -57,7 +59,7 @@ const array2 = [...array1];
 console.log(array2);//[1, 2, 3, 4]
  ```
 
-3. lodash의 deepClone()
+## lodash의 deepClone()
 
 위의 두가지 방식과는 달리 lodash 라이브러리를 이용하는 방식으로 lodash는 shallow copy를 지원하는 [clone()](https://lodash.com/docs/4.17.5#clone)과 deep copy를 지원하는 [cloneDeep()](https://lodash.com/docs/4.17.5#cloneDeep)이 있는데 여기서는 cloneDeep()만 살펴본다. 
 
