@@ -20,7 +20,7 @@ Javascript가 지원하는 다양한 Object copy 방식 중 deepcopy를 지원�
 
 # Deepcopy를 지원할 것 같은 javascript Object copy 방법들
 
-## [Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+## Object.assign()
 
 [MDN]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign))에서는 다음과 같이 설명한다. 마치 deep copy가 가능한 듯한 설명이다. 
 
