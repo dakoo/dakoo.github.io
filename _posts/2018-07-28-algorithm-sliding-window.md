@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Algorithm - String Sliding Window Algorithm
+title: 알고리즘 - 슬라이딩 윈도우 알고리즘
 description: Algorithm - String Sliding Window Algorithm
 modified: 2018-07-28
 tags: [algorithm]
