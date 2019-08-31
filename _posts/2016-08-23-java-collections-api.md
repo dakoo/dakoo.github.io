@@ -1,20 +1,10 @@
 ---
 layout: post
 title: Java - Collections API
-description: Java - Collections API
 modified: 2016-08-23
 tags: [java]
-comments: true
-image:
-  feature: abstract-18.png
 ---
 
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Java의 [Collections class](https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html)는 static method로만 구성된 utility 클래스이다. Collections를 통해 Java Collection Framework의 알고리즘을 제공한다. 
 

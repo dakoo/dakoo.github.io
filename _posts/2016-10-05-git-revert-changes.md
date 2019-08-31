@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Git - 수정한 것 되돌리기
-description: Git - 수정한 것 되돌리기
 modified: 2016-10-05
 tags: [git]
-comments: true
-image:
-  feature: algorithm.jpeg
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Git을 사용하다보면 수정한 내용을 되돌리고 싶을 경우가 간혹있다. GUI가 있는 Git 클라이언트의 경우엔 discard를 하면 되지만 command line interface에서는 어떻게 해야 할지 잘 모를때가 많다. 
 각 상황별로 수정 내역을 되돌리는 법을 알아보자. 

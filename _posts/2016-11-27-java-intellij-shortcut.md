@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - OSX에서 vim 모드와 함께 쓸 만한 Intellij 단축키
-description: Java - OSX에서 vim 모드와 함께 쓸 만한 Intellij 단축키
 modified: 2016-11-27
-tags: [java, vi, intellij, osx]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [tool]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 # 중요 알림
 

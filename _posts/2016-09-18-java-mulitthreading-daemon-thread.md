@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 5) 데몬 쓰레드 
-description: Java - (멀티쓰레딩 5) 데몬 쓰레드
 modified: 2016-09-18
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 데몬 쓰레드 
 
@@ -182,4 +171,3 @@ class DaemoneThreadsFactory extends NamedThreadsFactory {
 <MyThread-1,USER,MyRunnableTask1> TICK TICK9
 #### <MyThread-1,USER,MyRunnableTask1> done...####
 ```
-

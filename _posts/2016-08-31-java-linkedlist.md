@@ -1,21 +1,11 @@
 ---
 layout: post
 title: Java - LinkedList 클래스
-description: Java - LinkedList 클래스 
 modified: 2016-8-31
-tags: [java, datastructure]
-comments: true
+tags: [java]
 image:
   feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 ### 1. 개요
 
@@ -88,4 +78,3 @@ Queue는 알다시피 LIFO이다. 다음 Stack 메소드를 지원한다.
 - [Java LinkedList Programming Examples](http://javaconceptoftheday.com/java-linkedlist-programming-examples/)
 - [Collection Framework – The Deque Interface](http://javaconceptoftheday.com/collection-framework-deque-interface/)
 - [ArrayList Vs LinkedList In Java](http://javaconceptoftheday.com/arraylist-vs-linkedlist-java/)
-

@@ -1,22 +1,11 @@
 ---
 layout: post
 title: Tool - Mac에서 터미널 작업 실행후 notification
-description: Tool - Mac에서 터미널 작업 실행후 notification
 modified: 2018-11-12
 tags: [tool]
-comments: true
-image:
-  feature: abstract-12.png
 ---
 
 mac 터미널에서 오래 걸리는 작업을 실행할 경우 작업의 종료를 알기 위해서는 터미널의 해당 탭으로 가서 작업 상황을 확인해야 하는 번거로움이 있다. 이를 해결해보자.
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 목표
 

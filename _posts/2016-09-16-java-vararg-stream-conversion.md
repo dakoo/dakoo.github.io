@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - vararg을 stream으로 변환
-description: Java - vararg을 stream으로 변환
 modified: 2016-09-16
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Java method의 가변 길이 argument(vararg)를 stream으로 변환하는 것을 해보자. 
 

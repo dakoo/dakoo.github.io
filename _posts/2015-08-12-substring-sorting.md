@@ -1,22 +1,9 @@
 ---
 layout: post
 title: Algorithm - 부분 문자열의 사전순 정렬
-description: 부분 문자열의 사전순 정렬
 modified: 2016-03-01
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-16.png
 ---
-
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 ### 문제
 
@@ -90,7 +77,7 @@ image:
 
 위의 아이디어와 문제 해결 flow를 C로 구현한 것은 아래와 같다. 
 
-{% highlight bash %}
+```bash
 #include <stdio.h>
 int length;
 int Suffix[10];
@@ -194,5 +181,4 @@ int main(){
         printf("none\n");
     return 0;
 }
-{% endhighlight %}
-
+```

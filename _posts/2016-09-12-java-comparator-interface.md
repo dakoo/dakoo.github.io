@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Java - Comparator Interface 사용
-description: Java - Comparator Interface 사용
 modified: 2016-09-12
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 예제를 통해 Comparator interface의 사용 방법을 살펴보자. 
 Comparator를 사용하기 위해서는 int compare(Object o1, Object o2)를 Override해야 한다.

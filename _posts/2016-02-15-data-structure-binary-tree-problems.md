@@ -1,21 +1,9 @@
 ---
 layout: post
-title: Data Structure - Binary tree 문제들
-description: binary tree 및 binary search tree 문제들 
+title: Algorithm - binary tree 및 binary search tree 문제들 
 modified: 2016-02-15
-tags: [datastructure]
-comments: true
-image:
-  feature: algorithm.jpeg
+tags: [algorithm, data structure]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 Binary Tree와 [Binary Search Tree](http://hochulshin.com/data-structure-binary-search-tree/)에 관한 문제들은 recursion에 대한 이해가 있어야만 풀 수 있다. 그 문제들, 접근법, 해법을 간단히 살펴본다. 
 
@@ -25,7 +13,7 @@ Binary Tree와 [Binary Search Tree](http://hochulshin.com/data-structure-binary-
 
 Binary tree의 크기는 구성하는 노드의 숫자를 말한다. 간단히 Node의 왼쪽 자식이 구성하는 트리의 노드 숫자와 오른쪽 자식이 구성하는 노드 숫자, 그리고 자기 자신을 더해서 반환하면 된다. 물론 NULL check를 잊으면 안된다. 
 
-```javascript
+```cpp
     int size(Node *r){
         if (r == NULL) return 0;
         return size(r->l_child) + size(r->r_child) + 1;
@@ -36,7 +24,7 @@ Binary tree의 크기는 구성하는 노드의 숫자를 말한다. 간단히 N
 
 Binary tree의 최대 depth는 자신이 NULL이면 0, 아니면 왼쪽 자식 트리의 최대 depth와 오른쪽 자식 트리의 최대 depth중 큰 것을 택하고 거기에 자신의 깊이 1을 더한 것이다. 
 
-```javascript
+```cpp
     int maxDepth(Node *r){
         if (r == NULL) return 0;
         int l_depth = maxDepth(r->l_child);
@@ -49,7 +37,7 @@ Binary tree의 최대 depth는 자신이 NULL이면 0, 아니면 왼쪽 자식 �
 
 Binary tree의 최대 직경은 가장 멀리 떨어져 있는 노드의 거리(edge 수)를 말한다. 주의할 것은 root 노드가 포함되지 않는 최대 직경도 가능하다는 것이다. 하지만 높이는 관련이 깊다. 한 노드에서 자신의 왼쪽 자식 트리의 최대 깊이와 오른쪽 자식 트리의 최대 깊이를 더한 것이 그 노드가 구성하는 트리의 직경이 된다. 각 노드 마다 직경을 구해서 그것 중 가장 큰 것을 택하면 트리의 최대 직경이 된다. 
 
-```javascript
+```cpp
 	int m_dia;
     int maxDiameter(Node *r){
         if(r == NULL)
@@ -73,7 +61,7 @@ Binary tree의 최대 직경은 가장 멀리 떨어져 있는 노드의 거리(
 함수의 파라미터로 vector와 depth를 넘겨주고 leaf 노드에 도달하면 0부터 depth까지 출력하게 한다.  
 leaf 노드는 왼쪽 오른쪽 자식이 없고 NULL이 아닌 노드이다. 
 
-```javascript
+```cpp
     void printPath(Node *r, vector<int> &T, int len){
         T[len] = r->key;
         if (!r->l_child && !r->r_child){
@@ -91,7 +79,7 @@ leaf 노드는 왼쪽 오른쪽 자식이 없고 NULL이 아닌 노드이다.
 
 마치 post order 순회처럼 하면 된다. 
 
-```javascript
+```cpp
     void removeTree(Node *tmp){
         if (tmp == NULL) return;
         if (tmp->l_child) removeTree(tmp->l_child);
@@ -113,7 +101,7 @@ Binary Tree가 BST인지 확인하는 문제이다. 5가지 경우를 처리하�
 - 노드의 양 자식이 모두 존재: 두 자식에 대한 속성을 모두 확인해야 한다. 그리고 양 자식 트리도 그 속성을 만족해야 한다.  
 
 
-```javascript
+```cpp
     bool isbst(Node *r){
         if (r == NULL)
             return true;
@@ -135,7 +123,7 @@ Binary Tree가 BST인지 확인하는 문제이다. 5가지 경우를 처리하�
 
 BST 속성상 가장 작은 노드는 왼쪽 끝에 위치하고 가장 큰 노드는 오른쪽 끝에 위치한다. 
 
-```javascript
+```cpp
     int minVal(){
         if (!root) return -1; //empty
         Node *temp = root;
@@ -160,7 +148,7 @@ BST 속성상 가장 작은 노드는 왼쪽 끝에 위치하고 가장 큰 노�
 
 ### 코드  
 
-```javascript
+```cpp
 
 #include <iostream>
 #include <algorithm>
@@ -385,5 +373,3 @@ int main(){
     return 0;
 }
 ```
-
-

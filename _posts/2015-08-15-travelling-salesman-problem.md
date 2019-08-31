@@ -1,22 +1,9 @@
 ---
 layout: post
 title: Algorithm - Travelling Salesman Problem(TSP) 
-description: Travelling Salesman Problem(TSP) 알고리즘 
 modified: 2015-08-15
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-18.png
 ---
-
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 ### 문제
 
@@ -77,7 +64,7 @@ vi에서 출발해서 정점의 부분 집합 A를 거쳐서 v1으로 가는 최
 
 구현은 복잡하기 때문에 Pseudo 코드를 간략히 설명하는 것으로 마친다. 
 
-{% highlight bash %}
+```bash
 int W[][] //그래프의 간선 길이 
 int D[][] //n, V-{v1} 
 
@@ -92,5 +79,4 @@ tsp(n){ //n: 정점의 수
 	D[1][V-{v1}] = min(W[1][j] + D[vj][A - {v1}])
 	return D[1][v-{v1}]
 }
-
-{% endhighlight %}
+```

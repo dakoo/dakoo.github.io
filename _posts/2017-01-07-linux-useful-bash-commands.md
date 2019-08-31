@@ -1,20 +1,9 @@
 ---
 layout: post
-title: Linux 유용한 bash 명령들
-description: Linux 유용한 bash 명령들
+title: 유용한 bash 명령들
 modified: 2017-01-07
-tags: [linux, bash]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [toll]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 로그를 분석시 유용한 명령 조합을 살펴보자.
 

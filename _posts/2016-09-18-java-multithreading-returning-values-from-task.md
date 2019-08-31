@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 4) 쓰레드에서 값 반환
-description: Java - (멀티쓰레딩 4) 쓰레드에서 값 반환
 modified: 2016-09-17
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 쓰레드에서 값 반환 하기
 
@@ -596,7 +585,3 @@ TaskResult [taskId=CallableTaks1, result=1640]
 TaskResult [taskId=RunnableTask, result=101]
 Main thread ends here...
 ```
-
-
-
-

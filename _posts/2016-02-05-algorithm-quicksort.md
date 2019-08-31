@@ -1,21 +1,10 @@
 ---
 layout: post
 title: Algorithm - quick sort
-description: quick sort 
 modified: 2015-08-05
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-15.png
+
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 ### The performance of quicksort
 
@@ -23,13 +12,13 @@ There are a lot of implementations of quick sort algorithm. Even though the time
 
 The pseudo code of quicksort algorithm is as follows. 
 
-{% highlight javascript %}
+```
 quickSort(A[], l, r)
       if l<r
       s <- partition (a, l, r)
       quickSort(A[], l, s-1)
       quickSort(A[], s+1, r)
-{% endhighlight %}
+```
 
 ### Two partition algorithms
 
@@ -40,7 +29,7 @@ There are two famous partition algorithms. As my experience, Lumuto-Partition is
 Hoare-Partition algorithm is not so good to understand due to several duplicated loops.
 The pseudo code of Hoare-partition algorithm:
 
-{% highlight javascript %}
+```
 partition(A[], l, r)
       p <- A[l]
       i <-l, j<- r
@@ -50,13 +39,13 @@ partition(A[], l, r)
 	 if i<j : swap(A[i], A[j])
       swap(A[l], A[j])
       return j
-{% endhighlight %}
+```
 
 #### Lumuto-Partition algorithm
 
 The pseudo code of Lumuto-partition algorithm:
 
-{% highlight javascript %}
+```
 partition(A[], l, r)
       x <- A[r]
       i <- l - 1
@@ -65,11 +54,11 @@ partition(A[], l, r)
       	   i++, swap(A[i], A[j])
       swap(A[i+1], A[r])
       return i + 1
-{% endhighlight %}
+```
 
 The following source code presents the Lumuto-Partition implementation. This is very fast. Morover, the code is intuitive and easy to understand.
 
-{% highlight c %}
+```c
 #include <stdio.h>
 
 void swap(int array[], int a, int b){
@@ -107,5 +96,4 @@ int main(){
 	}
 	return 0;
 }
-{% endhighlight %}
-
+```

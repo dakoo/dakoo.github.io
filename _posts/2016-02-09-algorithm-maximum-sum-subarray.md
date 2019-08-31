@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Algorithm - maximum sum subarray
-description: maximum sum subarray
 modified: 2016-02-09
 tags: [algorithm]
-comments: true
-image:
-  feature: algorithm.jpeg
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부분합 중 가장 큰 값을 O(N)시간 복잡도로 알아내는 알고리즘이다. 2D Matrix에서 최대 합을 가진 영역을 알아내는 용도등을 위해 사용된다. 
 
@@ -24,14 +12,14 @@ Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부�
 - 지금까지의 최대 합을 저장하는 max_sum: -987654321로 초기화 
 - 현재 계산하는 아이템을 고려했을때의 최대 합을 저장하는 cur_max_sum: -987654321로 초기화
 
-```javascript
+```cpp
     int max_sum = -987654321;
     int cur_max_sum = -987654321;
 ```
 
 영역이 필요하다면 s_idx와 e_idx와 max_s_idx와 max_d_idx를 사용한다. 영역을 구해야할 필요가 없다면 안써도 된다. 
 
-```javascript
+```cpp
     int s_idx = 0;
     int e_idx = 0;
     int max_s_idx = 0;
@@ -42,7 +30,7 @@ Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부�
 
 입력을 받으면서 즉시 계산한다. 
 
-```ruby
+```cpp
     for(int i = 0; i<size; i++){
         int t;
         scanf("%d", &t);
@@ -59,7 +47,7 @@ Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부�
 
 영역을 구해야 할 경우엔 다음과 같이 영역 변수의 값을 갱신한다.  
 
-```javascript
+```cpp
     for(int i = 0; i<size; i++){
         int t;
         scanf("%d", &t);
@@ -81,7 +69,7 @@ Maximum Sum Subarray를 알아내는 Kadane알고리즘은 array의 연속 부�
 
 ### code
 
-```java
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -157,4 +145,3 @@ int main(){
 - Kadane 알고리즘을 알고 있는지 묻는 문제
 - **최대 100000개의 입력**이 들어오므로 O(n)알고리즘을 이용해야 한다.  
 - 영역을 필요없으므로 영역 변수는 제외한다. 
-

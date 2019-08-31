@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 2) Executor 기본
-description: Java - (멀티쓰레딩 2) Executor 기본
 modified: 2016-09-16
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## Java Executor
 

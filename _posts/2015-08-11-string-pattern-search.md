@@ -1,30 +1,17 @@
 ---
 layout: post
-title: Algorithm - 보이어-무어
-description: 문자열 패턴 검색 - 보이어-무어 알고리즘에 대한 이해와 구현
+title: Algorithm - 문자열 패턴 검색 보이어-무어 알고리즘에 대한 이해와 구현
 modified: 2016-02-28
-tags: [algorithm, string]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [algorithm]
 ---
 
 보이어-무어 알고리즘은 문자열(S[M])과 패턴 문자열(P[N])이 일치하는 지 검사하는 패턴 매칭 알고리즘으로, KMP 알고리즘과 함께 성능이 좋은 알고리즘으로 알려져 있다. 
 
 아이디어는 간단하다. 문자열과 패턴 문자열을 비교할때 패턴 문자열의 맨 뒤 문자 위치를 비교하고, 다르면  문자열을 일정 길이만큼 skip해서 비교를 계속하는 것이다. 	
 
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
-
 ## pseudo code
 
-{% highlight bash %}
+```bash
 
 SkipTable[256]; //256 ASCII charset 저장
 
@@ -44,13 +31,13 @@ search(S[], m, P[], n) //S: 문자열, m: S의 길이, P:패턴 문자열, n: �
 		        틀린 문자가 있는 index로 index를 update                     
         index = index + SkipTable[S[index]]; //틀린 문자에 해당되는 거리만큼 jump
   return -1 //not found
-{% endhighlight %}
+```
 
-## c로 구현 
+## c로 구현
 
 위의 pseudo 코드를 C로 구현해보자.
 
-{% highlight c %}
+```c
 #include <stdio.h>
 
 int SkipTable[256];
@@ -85,11 +72,11 @@ int search(char str[], int str_length, int start_index, char pattern[], int patt
 	}
 	return -1; //not found
 }
-{% endhighlight %}
+```
 
 위의 함수를 이제 테스트 해보자. 이때 문자열에 패턴의 여러개 반복되는 경우 이를 모두 찾아서 위치를 출력하는 형태로 테스트한다. 
 
-{% highlight c %}
+```c
 int main(){
 	char str[37] = "I love yoe ve move. Plovse, love me.";
 	int str_length = 36;
@@ -105,4 +92,4 @@ int main(){
 	}
 	return 0;
 }
-{% endhighlight %}
+```

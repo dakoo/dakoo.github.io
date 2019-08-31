@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 10) 쓰레드 스케쥴링
-description: Java - (멀티쓰레딩 10) 쓰레드 스케쥴링
 modified: 2016-09-19
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 1. 일반 쓰레드의 스케쥴링 
 

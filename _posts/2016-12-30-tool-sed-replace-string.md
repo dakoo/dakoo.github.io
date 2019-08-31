@@ -1,20 +1,9 @@
 ---
 layout: post
-title: Linux sed 명령 - 특정 문자열을 변경하기
-description: Linux sed 명령 - 특정 문자열을 변경하기
+title: sed 명령 - 특정 문자열을 변경하기
 modified: 2016-12-30
-tags: [linux]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [tool]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 로그를 분석하다보면 call stack이 한 줄에 쭉 나와있는 경우가 있다. 이를 보기 편하게 만들기 위해서는 call stack의 API call 사이의 |를  줄바꿈 문자로 변경해야 한다. 
 이를 포함해 빠르게 문자열을 바꾸는 방법을 알아보자. 
@@ -88,4 +77,3 @@ EFG
 abcd
 efg
 ```
-

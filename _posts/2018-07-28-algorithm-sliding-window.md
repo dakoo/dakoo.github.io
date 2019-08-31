@@ -1,23 +1,11 @@
 ---
 layout: post
 title: Algorithm - sliding window algorithm
-description: Algorithm - sliding window algorithm
 modified: 2018-07-28
-tags: [alogrithm]
-comments: true
-image:
-  feature: abstract-15.png
+tags: [algorithm]
 ---
 
 Leetcode에서 Find All Anagrams in a String 문제(Find All Anagrams in a String)를 풀다가 막혀서 discuss를 봤는데 Sliding Window Algorithm으로 풀이한 것이 있었다. 나중에 다시 볼 때 이해를 용이하게 하기 위해 간단히 그 방법을 남겨둔다. 
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 ## 접근법
 

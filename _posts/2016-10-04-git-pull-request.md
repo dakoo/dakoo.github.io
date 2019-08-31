@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Git - pull request
-description: Git - pull request
 modified: 2016-10-04
 tags: [git]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 아직은 헷갈리는 git pull request에 대해 살펴보자. pull request는 git 자체가 제공하는 것이 아니라 github와 같은 git기반 서비스 업체가 제공하는 기능이다.
 

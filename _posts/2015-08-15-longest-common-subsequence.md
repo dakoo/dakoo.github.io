@@ -1,28 +1,16 @@
 ---
 layout: post
-title: Algorithm - LCS(Longest Common Subsequence) 
-description: LCS(Longest Common Subsequence)알고리즘
+title: Algorithm - LCS(Longest Common Subsequence) 알고리즘
 modified: 2015-08-15
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-17.png
 ---
 
 최장 공통 부분 수열(Longest Common Subsequence, LCS) 문제는 두 수열의 가장 긴 공통 부분 수열을 찾아내는 문제이다. 그 문제를 푸는 LCS 알고리즘에 대해 살펴보자.
 
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 ### 문제
 
 최장 공통 부분 수열(Longest Common Subsequence) 문제는 두 수열의 가장 긴 공통 부분 수열을 구하는 문제이다. 어떤 수열의 일부를 순서를 그대로 유지하여 나열한 것이 바로 부분 수열이 된다. 
-예를 들어 문자열 'abc'의 부분 수열은 빈 문자열, a, b, c, ab, bc, ca, abc이다. 둘 이상의 수열이 있을 때, 공통된 가장 긴 부분 수열을 찾는 것이 LCS 문제이다. 이렇게 설명하면 조금 복잡한데 쉽게 말해서 두 수열을 앞에서 뒤로 비교할 때 가장 많이 일치하는 게 뭔지, 그리고 그 길이는 얼마나 긴지를 찾는 것이다. 예를 들어, 'abcdefg'와 'cdeabfg'가 있다고 하면, LCS는 'cdef'가 된다. 이 LCS를 이용해 diff를 구현할 수 있다. 두 파일의 문자열을 비교해서 LCS가 아닌 부분을 보여주는 것으로 구현하면 된다. 아래는 그 예를 보여준다. 
+예를 들어 문자열 'abc'의 부분 수열은 빈 문자열, a, b, c, ab, bc, ca, abc이다. 둘 이상의 수열이 있을 때, 공통된 가장 긴 부분 수열을 찾는 것이 LCS 문제이다. 이렇게 설명하면 조금 복잡한데 쉽게 말해서 두 수열을 앞에서 뒤로 비교할 때 가장 많이 일치하는 게 뭔지, 그리고 그 길이는 얼마나 긴지를 찾는 것이다. 예를 들어, 'abcdefg'와 'cdeabfg'가 있다고 하면, LCS는 'cdef'가 된다. 이 LCS를 이용해 diff를 구현할 수 있다. 두 파일의 문자열을 비교해서 LCS가 아닌 부분을 보여주는 것으로 구현하면 된다. 아래는 그 예를 보여준다.
  
 <figure>
 <img src="/images/lcs_problem.jpg" alt="longest common subsequence problem">

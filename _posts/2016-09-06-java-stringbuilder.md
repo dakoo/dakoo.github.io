@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - StringBuilder
-description: Java - StringBuilder
 modified: 2016-09-06
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 1. 개요
 
@@ -127,7 +116,6 @@ System.out.println(third);//Hell--- rld!
 
 - StringBuilder delete(int startIndex, int endIndex) : startIndex부터 endIndex이전까지 제거
 
-
 ```java
 StringBuilder sb=new StringBuilder("Hello");
 sb.delete(1,3);
@@ -137,7 +125,6 @@ System.out.println(sb);//Hlo
 ### 3.5 reverse()
 
 - StringBuilder reverse(): 스트링 뒤집기
-
 
 ```java
 StringBuilder sb=new StringBuilder("Hello");
@@ -161,7 +148,6 @@ System.out.println(stringBuilder.capacity()); //16
 
 만약 현재 capacity보다 클 경우 최소한 (현capacity*2)+2 만큼을 확보한다. 아래의 예를 보면 처음의 ensureCapacity()에서 10은 현재 capacity인 16보다 작은 값이므로 무시한다. 두번째 20은 16보다 크므로 (16*2)+2만큼을 확보한다. 
 
-
 ```java
 StringBuilder sb=new StringBuilder();
 sb.ensureCapacity(10);
@@ -174,7 +160,6 @@ System.out.println(sb.capacity());// 34
 
 - char charAt(int index): 특정 위치의 문자 획득
 
-
 ```java
 StringBuilder sb=new StringBuilder("Hello");
 System.out.println(sb.charAt(4)); //'o'
@@ -183,7 +168,6 @@ System.out.println(sb.charAt(4)); //'o'
 ### 3.9 length()
 
 - int length(): 길이 획득 
-
 
 ```java
 StringBuilder sb=new StringBuilder("Hello");

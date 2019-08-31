@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Java - Annotation
-description: Java - Annotation
 modified: 2016-09-17
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 Java Annotation은 클래스, 메소드, 필드의 **선언**시 정보 제공을 목적으로 사용된다. 이에 대해 알아보자. 
 
@@ -261,4 +249,3 @@ Budget Left: 60
 
 - [Oracle Annotation 튜토리얼](https://docs.oracle.com/javase/tutorial/java/annotations/index.html)
 - 
-

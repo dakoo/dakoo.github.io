@@ -1,21 +1,10 @@
 ---
 layout: post
 title: Java - ArrayList 클래스
-description: Java -  ArrayList 클래스
 modified: 2016-8-31
-tags: [java, datastructure]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [java]
+
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 ### 1. 개요 
 
@@ -206,5 +195,3 @@ three
 - [Collection Framework – The ArrayList Class](http://javaconceptoftheday.com/collection-framework-arraylist-class/)
 - [How To Remove Duplicate Elements From ArrayList In Java?](http://javaconceptoftheday.com/how-to-remove-duplicate-elements-from-arraylist-in-java/)
 - [Array To ArrayList And ArrayList To Array In Java With Examples](http://javaconceptoftheday.com/array-to-arraylist-in-java-with-examples/)
-
-

@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Algorithm - Topological Sort
-description: Topological Sort
 modified: 2016-02-25
 tags: [algorithm]
-comments: true
-image:
-  feature: algorithm.jpeg
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 Topological Sort는 dependency를 가진 것들을 처리할 때 어떤 순서로 처리해야 하는지를 알아내기 위한 그래프 알고리즘이다. 예를 들어, `a -> b, b -> c, a -> c`라는 의존 관계가 있다면 `a -> b -> c`라는 순서로 처리되어야만 한다. 
 보통 의존성이 있는 작업들이 있을 때 순서를 구하거나, 소프트웨어의 각 모듈간 의존성을 고려한 설치 순서등을 정할 때 사용된다. 
@@ -28,7 +16,6 @@ Topological sort는 의존성을 가진 것들의 처리 순서를 다루는 것
 
 예를 들어  `a -> b, b -> c, a -> c`라는 의존 관계에서 c를 지우고, b를 지우고, a를 지우는 식으로 진행하는 것이다. 이 어프로치를 구현하기 위한 알고리즘은 다음과 같다. 
 
-
 - 그래프내의 모든 vertex들을 방문할 때까지 
 - DFS로 vertex를 순회한다. 
 - 한 vertex를 기준으로 볼 때 자신의 adjacent vertex들을 모두 방문하거나, 혹은 adjacent vertex가 없어서 더 이상 자신에게 의존하는 vertex가 남아 있지 않으면 이때 자신을 스택에 넣는다. 
@@ -36,7 +23,7 @@ Topological sort는 의존성을 가진 것들의 처리 순서를 다루는 것
 
 간단히 pseudo 코드로 표현하면 다음과 같다. 
 
-```javascript
+```
 dfs(graph, vertex id, visited[], stack){
 	해당 vertex를 방문한 것으로 check
 	모든 인접 vertex를 순회하며 {
@@ -60,8 +47,7 @@ topological_sort(graph){
 
 위의 pseudo code를 실제 코드로 작성한 것은 다음과 같다. set 자료 구조를 사용해 visited 여부를 체크하고, vector를 stack로 사용했다. 
 
-
-```javascript
+```cpp
 #include <iostream>
 #include <set>
 #include <vector>
@@ -106,4 +92,3 @@ int main(){
 	return 0;
 }
 ```
-

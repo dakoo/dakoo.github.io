@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - BitSet class 예제
-description: Java - BitSet class 예제
 modified: 2016-09-13
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Java의 BitSet class의 사용방법을 알아보자. 
 

@@ -1,25 +1,13 @@
 ---
 layout: post
 title: Algorithm - k번째 큰(작은) 아이템 찾기
-description: k번째 아이템 찾기
 modified: 2016-02-22
 tags: [algorithm]
-comments: true
-image:
-  feature: algorithm.jpeg
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 정렬이 되어 있지 않은 배열에서 k번째로 작은 알고리즘을 찾는 방법을 생각해보자. 예를 들어 다음의 vector에서 3번째로 작은 값은 3이다. 
 
-```javascript
+```cpp
 	vector<int> T = { 3, 1, 6, 4, 2, 7, 8, 10, 5, 8, 9 };
 ```
 
@@ -39,20 +27,20 @@ Selection Sort는 다음의 알고리즘으로 수행되는 아주 간단한 정
 
 전체 배열을 O(NlogN)알고리즘인 Quick Sort로 정렬한 뒤 k번째를 찾는 것이다. k에 따라서 Selection Sort를 이용하는 것보다 성능이 좋을 수 있으나 불필요하게 모든 배열을 정렬하게 된다. 
 
-#### Quick Sort의 변형 
+#### Quick Sort의 변형
 
 Quick Sort의 partition 함수는 pivot을 반환하게 된다. pivot index를 기준으로 더 작은 것과 큰 것으로 나뉘게 되는데 이 성질을 이용하여 k번째를 구할 수 있다. 
 
 - pivot이 k와 같으면, 즉, pivot이 k번째 index이면 pivot에 해당하는 값을 반환
 - pivot이 k보다 작으면 k는 pivot 이후에 있는 것
-- pivot이 k보다 크면 k는 pivot이전에 있는 것 
+- pivot이 k보다 크면 k는 pivot이전에 있는 것
 
 #### 코드 
 
 
 Quick Sort를 변형하여 k번째 값을 찾는 코드는 다음과 같다. Partition함수는 기존의 Quick Sort와 동일하고, Partition함수를 통해 얻은 pivot을 처리하는 것은 위에서 설명한 바와 같다. 
 
-```javascript
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -94,6 +82,4 @@ int main(){
 	cout << findKth(T, k - 1, 0, 9) << endl; //must be 3
 	return 0;
 }
-
 ```
-

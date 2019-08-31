@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Algorithm - Floyd-Warshall 
-description: 알고리즘 - Floyd-Warshall 
 modified: 2016-03-04
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-12.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Floyd-Warshall 알고리즘은 Dijkstra 알고리즘과 같은 최단 경로를 찾는 알고리즘이다. Dijkstra 알고리즘은 하나의 시작점을 기준으로 최단 경로를 찾는데 비해 Floyd-Warshall 알고리즘은 모든 쌍의 최단 경로를 찾을 수 있다. 무엇보다도 알고리즘이 훨씬 간단하다. 그 이유는 Dynamic Programming 기반의 알고리즘이기 때문이다. 
 
@@ -50,7 +39,7 @@ i에서 출발하여 정점 k를 경유하여 j로 가는 경로의  거리와 D
 
 ### Pseudo 코드
 
-{% highlight bash %}
+```bash
 D[i][j] 초기화 //선분 (i, j)의 가중치. 선분이 없으면 무한대, 자기자신(i=j)이면 0으로 초기화 
 function(D[i][j]){
 	for k in 1->n { //k는 1부터 범위를 확장해 나가는 것 
@@ -61,4 +50,4 @@ function(D[i][j]){
 		}
 	}
 }
-{% endhighlight %}
+```

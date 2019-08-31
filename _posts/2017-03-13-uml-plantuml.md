@@ -1,20 +1,9 @@
 ---
 layout: post
 title: uml - plantuml
-description: uml - plantuml
 modified: 2017-03-13
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 예전에 [uml 툴 소개 글](http://hochulshin.com/uml-tools/)을 쓴 적이 있는데, 온라인 UML 툴인 websequencediagrams을 써보고 Sequence diagram만은 websequencediagrams이 최고이고 그 이유는 마크다운스러운 접근법과 직관적인 사용법이 그 이유라고 했다. 
 그런데 오늘 [plantuml](http://plantuml.com/)을 사용해 보고 이게 제일 좋은 툴이라 생각했다. 왜냐하면 websequencediagrams인데 다운로드해서 로컬에서 사용가능하고, intelliJ에 plugin으로 사용가능하고, sequence diagram만이 아니라 자주 사용되는 다이어그램을 대부분 지원하고 있기 때문이다. 

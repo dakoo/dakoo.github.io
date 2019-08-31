@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - List 인터페이스
-description: Java - List 인터페이스 
 modified: 2016-8-30
-tags: [java, datastructure]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [java]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 
 ### 1. 개요 
@@ -58,4 +47,3 @@ LinkedList는 **doubly linked list**로서 구현된 클래스이다. List이므
 #### 2.3 Vector 클래스(Legacy)
 
 java.util.Collection의 Legacy 클래스인 Vector는 ArrayList와 동일하다. 차이라면 Vector는 **synchronized**라는 것이다. 이로인해 ArrayList에 비해 성능적으로 불리하다. 많은 java 프로그래머들은 Vector대신 ArrayList를 사용하며, synchronized가 필요한 경우조차도 명시적으로 ArrayList를 synchronized하는 방법을 선호한다. 즉, Vector 클래스는 잘 사용되지 않는 클래스이다. 
-

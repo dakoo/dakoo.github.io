@@ -4,19 +4,9 @@ title: Tool - Quick directory alias
 description: Tool - Quick directory alias
 modified: 2018-11-12
 tags: [tool]
-comments: true
-image:
-  feature: abstract-11.png
 ---
 
 mac이나 linux의 터미널에서 directory 이동을 편리하게 해주는 [quick-directory-alias](https://github.com/mcwoodle/shell-directory-management/blob/master/README.md)에 몇가지 기능을 추가해서 사용하고 있다. 나름 만족해서 사용하고 있어서 블로그를 통해 공유한다. 
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 기존 기능
 
@@ -31,7 +21,7 @@ mac이나 linux의 터미널에서 directory 이동을 편리하게 해주는 [q
 1. embedded command 실행: 내가 자주 사용하는 intellij IDEA, sourcetree, finder(mac)을 alias상에서 즉시 실행할 수 있도록 했다. 
 1. custom command 실행: 기타 어떤 명령이라도 해당 alias사에서 실행 할 수 있도록 했다. 
 
-자세한 내용은 아래 설명을 참조하자. 
+자세한 내용은 아래 설명을 참조하자.
 
 ## git respository
 
@@ -164,5 +154,3 @@ You could modify the following block of the script.
 Autocomplete is currently only supported using bash and zsh (or any script supporting `complete\compgen` or `compctl` built-ins).
 
 Installation is automatic and works like any other bash/zsh tab based autocomplete.
-
-

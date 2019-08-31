@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 6) 쓰레드 동작의 완료를 확인하기 
-description: Java - (멀티쓰레딩 6) 쓰레드 동작의 완료를 확인하기 
 modified: 2016-09-19
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 쓰레드 동작의 완료를 확인한다는 것은 다음 2가지를 말한다. 
 

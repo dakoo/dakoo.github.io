@@ -3,27 +3,16 @@ layout: post
 title: Data Structure - LRU(Least Recently Used) 
 description: LRU Cache
 modified: 2016-02-29
-tags: [datastructure, c++]
-comments: true
-image:
-  feature: algorithm.jpeg
+tags: [algorithm, data structure]
 ---
 
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
-
-직접 구현해 본 LRU Cache. O(1) 시간 복잡도로 lookup과 put을 만족시키기 위해서는 Entry에 access하는 것도 O(1)이고 LRU인지 판별하는 것도 O(1)으로 해야 한다. 이를 위해 ks(C++은 unordered_map)과 doubly linked list를 사용했다. Cache Replacement가 실행되는 것은  Cache가 full인 것은 unordered_map의 size()가 미리 정한 entry의 갯수에 도달했을 경우이다.  
+직접 구현해 본 LRU Cache. O(1) 시간 복잡도로 lookup과 put을 만족시키기 위해서는 Entry에 access하는 것도 O(1)이고 LRU인지 판별하는 것도 O(1)으로 해야 한다. 이를 위해 ks(C++은 unordered_map)과 doubly linked list를 사용했다. Cache Replacement가 실행되는 것은  Cache가 full인 것은 unordered_map의 size()가 미리 정한 entry의 갯수에 도달했을 경우이다.
 
 ### 구조
 
 입력 데이터는 key와 value 조합으로 했으며, 삽입, 검색, 삭제의 기준은 key로 했다. 삽입, 삭제를 O(1)만에 하기 위해 singly linked list가 아닌 doubly linked list로 했다. 이를 Item의 member variable로 가지고 있으며, hashtable에 그대로 저장되도록 했다. 구현을 용이하게 하기 위해 constructor를 담은 struct로 정의했다. 
 
-```javascript
+```cpp
 struct Item {
     string key;
     int value;
@@ -33,12 +22,12 @@ struct Item {
         prev = NULL;
         next = NULL;
     };
-};  
+};
 ```
 
 public interface인 함수 프로토타입은 Cache라는 base class를 사용하여 다음과 같이 선언했다. Cache는 interface로만 동작하므로 pure virtual class이다. 
 
-```javascript
+```cpp
 class Cache {
 public:
     virtual bool lookup(string key, int &val) = 0;
@@ -48,7 +37,7 @@ public:
 
 LRUCache class는 실제 구현을 포함하고 있으며 그 private 멤버는 다음과 같이 도출했으며 그 구현은 통상적은 doubly linked list의 operation과 같다. 
 
-```javascript
+```cpp
 class LRUCache: public Cache{
 private:
     /* Linked list 관련 */
@@ -67,7 +56,7 @@ private:
 
 LRUCache의 publc member의 구현을 살펴보자. 먼저 Constructor와 destructor는 linked list를 초기화하거나 제거한다. 
 
-```javascript
+```cpp
 LRUCache(int num):MaxNumEntries(num){
     //head <-> tail
     head = new Item("0", 0);
@@ -86,7 +75,7 @@ LRUCache(int num):MaxNumEntries(num){
 
 Lookup method는 Hashtable에서 해당하는 key가 존재하는지 확인하고 존재하면 그것의 value를 반환한다. 이때, Linked List에서 해당 아이템을 찾아서 그것을 맨 앞으로 이동시킨다. 
 
-```javascript
+```cpp
 bool lookup(string k, int &val){
     /* find a matching item */
     auto it = CacheEntries.find(k);
@@ -110,7 +99,7 @@ Put method는 Hashtable에서 해당하는 key가 존재하는지 먼저 찾는�
 그 뒤 새로운 아이템을 Hashtable에 추가하고 Linked List의 맨 앞에 추가한다. 
 
 
-```javascript
+```cpp
 void put(string k, int val){
     /* find a matching item: O(1) operation */
     auto it = CacheEntries.find(k);
@@ -147,7 +136,7 @@ void put(string k, int val){
 
 ### code
 
-```javascript
+```cpp
 #include <iostream>
 #include <unordered_map>
 #include <string>
@@ -303,7 +292,7 @@ int main(){
 
 template을 이용해 입력 type을 컴파일 타임에 결정하게 한 코드는 다음과 같다. 
 
-```javascript
+```cpp
 #include <iostream>
 #include <unordered_map>
 #include <string>

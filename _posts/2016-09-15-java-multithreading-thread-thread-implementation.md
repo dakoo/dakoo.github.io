@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 1) Thread 구현
-description: Java - Thread 구현
 modified: 2016-09-15
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## Java 쓰레드 구현
 
@@ -340,4 +329,3 @@ public class Seventh {
 	}
 }
 ```
-

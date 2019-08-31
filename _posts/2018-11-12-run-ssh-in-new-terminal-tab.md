@@ -1,22 +1,11 @@
 ---
 layout: post
 title: Tool - Mac iterm2에서 ssh를 다른 tab에서 실행하기 
-description: Tool - Mac iterm2에서 ssh를 다른 tab에서 실행하기 
 modified: 2018-11-12
 tags: [tool]
-comments: true
-image:
-  feature: abstract-12.png
 ---
 
 mac iterm2에서 ssh로 다른 host에 접속할 경우 새로 탭을 열어서 원하는 profile과 함께 연결되도록 하자. 
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 목표
 

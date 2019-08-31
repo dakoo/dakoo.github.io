@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - Big Number(BigInteger와 BigDecimal)
-description: Java - Big Number 다루기
 modified: 2016-08-23
 tags: [java]
-comments: true
-image:
-  feature: abstract-14.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 매우 매우 매우 큰 크기의 숫자를 저장할 수 있는 Java BigInteger와 BigDecimal class에 대해 간단히 알아보자. 
 

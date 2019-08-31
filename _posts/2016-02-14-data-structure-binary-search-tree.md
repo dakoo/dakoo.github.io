@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Data Structure - binary search tree
-description: binary search tree
 modified: 2016-02-13
-tags: [datastructure]
-comments: true
-image:
-  feature: algorithm.jpeg
+tags: [data structure]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 직접 구현해 본 binary search tree. iterative binary tree travasal에 익숙해져야 한다. 
 
@@ -23,7 +11,7 @@ image:
 
 tree를 design할때 가장 먼저 고민할 것은 tree를 구성하는 Node의 정의이다. 입력 데이터는 key와 value 조합으로 했으며, 삽입, 검색, 삭제의 기준은 key로 했다. array가 아닌 pointer로 tree를 구성하고자 다음과 같이 Node를 정의했다. 구현을 용이하게 하기 위해 constructor를 담은 struct로 정의했다. 
 
-```javascript
+```cpp
 struct Node {
     int key;
     int value;
@@ -40,7 +28,7 @@ struct Node {
 
 public interface인 함수 프로토타입은 다음과 같이 선언했다.  
 
-```javascript
+```cpp
 class BST{
 public:
     BST(); //자료구조(root) 초기화
@@ -54,7 +42,7 @@ public:
 
 위의 프로토타입을 뒷바침하기 위한 private 멤버는 다음과 같이 도출했다. 
 
-```javascript
+```cpp
 class BST{
 private:
     Node *root;   
@@ -69,7 +57,7 @@ getBiggest와 getSmallest의 경우 root가 삭제되면 NULL로 root가 변경�
 
 binary tree의 iterative search는 기본적으로 아래와 같은 방식으로 한다.  
 
-```javascript
+```cpp
 bool find(int k, int &val){
     Node *tmp = root;
     while(tmp != NULL){
@@ -89,7 +77,7 @@ bool find(int k, int &val){
 
 삽입이나 삭제를 위해서는 Parent Node를 기억하고 있어야 하므로 조금 변형이 필요하다. root node는 parent가 없는 node이므로 먼저 확인을 한다. tmp를 이동시키기 전에 parent를 가리키는 pointer로 tmp를 가리키게 하면 간단히 parent를 저장할 수 있다. 
 
-```javascript
+```cpp
 void insert(int k, int val){
     if(root == NULL){
         root = new Node(k, val);
@@ -115,7 +103,7 @@ void insert(int k, int val){
 
 tree의 resource해제나 print는 간단히 recursion을 이용해서 한다. 
 
-```javascript
+```cpp
 void removeTree(Node *tmp){
     if(tmp == NULL) return;
     if(tmp->l_child) removeTree(tmp->l_child);

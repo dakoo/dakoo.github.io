@@ -1,20 +1,9 @@
 ---
 layout: post
-title: Algorithm - 2D Matrix 회전 
-description: 2D matrix 
+title: Algorithm - 2D Matrix 회전
 modified: 2016-02-29
 tags: [algorithm]
-comments: true
-image:
-  feature: algorithm.jpeg
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 #### Problem
 
@@ -106,7 +95,7 @@ N이 홀수인 경우는 가로, 세로 중 하나는 가운데 줄을 포함해
 
 #### 코드 
 
-```javascript
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;

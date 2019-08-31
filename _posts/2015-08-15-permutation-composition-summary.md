@@ -1,24 +1,11 @@
 ---
 layout: post
 title: Algorithm - 순열과 조합
-description: 순열과 조합 
 modified: 2016-02-22
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-18.png
 ---
 
-순열, 중복 순열, 조합, 중복 조합에 대한 이해를 해보자. 
-
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
+순열, 중복 순열, 조합, 중복 조합에 대한 이해를 해보자.
 
 ### 1. 개요
 
@@ -94,7 +81,7 @@ nPr을 이루는 각 경우를 뽑아내기 위한 구현의 예제는 다음과
 
 - 문제: 1, 2, 3, 4 숫자 4개가 주어졌을때 이 중 3개의 숫자를 뽑아 한번씩만 사용해서 만들 수 있는 모든 숫자를 출력하라. 
 
-{% highlight c %}
+```c
 #include <stdio.h>
 
 int T[10]; //nPr을 이루는 각각의 경우를 저장
@@ -129,7 +116,7 @@ int main(void){
     Perm(4, 3, 3); 
     return 0;
 }
-{% endhighlight %}
+```
 
 ### 3. 중복 순열
  
@@ -143,7 +130,7 @@ int main(void){
 
 중복 순열의 각 경우를 출력하는 코드를 순열 구현 코드와 비교하면서 확인해보자. 1, 2, 3, 4 숫자 4개가 주어지고 이 중 3개를 뽑는데 같은 숫자가 반복되어도 가능하다.  
 
-{% highlight c %}
+```c
 #include <stdio.h>
 
 int T[10]; //nPr을 이루는 각각의 경우를 저장
@@ -179,7 +166,7 @@ int main(void){
     PI(4, 3, 3);
     return 0;
 }
-{% endhighlight %}
+```
 
 ### 4.조합
  
@@ -203,7 +190,7 @@ nCr은 다음과 같은 관계를 가진다.
  
 조합을 한 각 경우를 출력하는 것을 생각해보자. `nCr = n-1Cr-1 + n-1Cr, nC0 = 1` 관계를 이용한다. 1, 2, 3, 4 숫자 4개가 주어졌을때 순서 상관없이 3개씩 묶어 그룹을 만들 때 그 멤버를 출력한다. 
  
-{% highlight c %}
+```c
 #include <stdio.h>
 
 int T[10]; //nPr을 이루는 각각의 경우를 저장
@@ -234,7 +221,7 @@ int main(void){
     Comb(4, 3, 3);
     return 0;
 }
-{% endhighlight %}
+```
 
 ### 5. 중복 조합
 

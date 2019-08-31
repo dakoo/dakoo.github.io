@@ -1,20 +1,10 @@
 ---
 layout: post
 title: Java - Comparable과 Comparator 
-description: Java - Comparable과 Comparator 
 modified: 2016-08-23
 tags: [java]
-comments: true
-image:
-  feature: abstract-21.png
+g
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Java에서 비교를 위한 Comparable interface와 Comparator에 대해 살펴보자. 
 
@@ -246,7 +236,7 @@ public class Solution {
 }
 ```
 
-참고로 Java의 Lambda에서는 
+참고로 Java의 Lambda에서는
 
 
 ```java
@@ -260,4 +250,3 @@ public class Solution {
 ```
 
 를 compiler가 동일하게 본다. 
-

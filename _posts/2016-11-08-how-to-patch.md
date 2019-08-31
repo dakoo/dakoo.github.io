@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Tool - patch하기
-description: Tool - patch하기
 modified: 2016-11-07
 tags: [git]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 patch를 만들고 적용하는 것을 살피보자. 
 

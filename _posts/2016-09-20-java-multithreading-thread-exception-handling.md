@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 8) 쓰레드 Exception 처리하기
-description: Java - (멀티쓰레딩 7)  쓰레드 Exception 처리하기  
 modified: 2016-09-20
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 1 일반 쓰레드
 
@@ -602,5 +591,3 @@ Default Handler caught Exception in Thread - MyThread-2 => java.lang.RuntimeExce
 Default Handler caught Exception in Thread - MyThread-6 => java.lang.RuntimeException
 [main] thread ends here...
 ```
-
-

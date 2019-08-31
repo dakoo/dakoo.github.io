@@ -1,20 +1,9 @@
 ---
 layout: post
-title: Linux grep 명령 - 빈 줄이나 특정 줄 제거하기
-description: Linux grep 명령 - 빈 줄이나 특정 줄 제거하기
+title: grep 명령 - 빈 줄이나 특정 줄 제거하기
 modified: 2016-12-30
-tags: [linux]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [tool]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 grep 기능을 이용해 로그 분석 중 불필요한 줄을 제거하는 것은 아주 자주 사용하는 명령이다. 이를 좀 더 알아보자.
 
@@ -158,4 +147,3 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 alias mysql='/usr/local/mysql/bin/mysql'
 alias mysqladmin='/usr/local/mysql/bin/mysqladmin'
 ```
-

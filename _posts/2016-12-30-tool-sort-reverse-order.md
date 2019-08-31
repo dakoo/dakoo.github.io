@@ -1,20 +1,9 @@
 ---
 layout: post
-title: Linux sort 명령 - 크기 역순으로 정렬하기
-description: Linux sort 명령 - 크기 역순으로 정렬하기
+title: sort 명령 - 크기 역순으로 정렬하기
 modified: 2016-12-30
-tags: [linux]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [tool]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 로그를 분석하다보면 크기나 갯수 순으로 정렬해야 하는 경우가 많다. 이때 사용되는 sort 명령을 알아보자. 
 

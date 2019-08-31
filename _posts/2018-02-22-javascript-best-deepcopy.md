@@ -1,22 +1,11 @@
 ---
 layout: post
 title: Javascript - deep copy가 필요할 때 무얼 사용해야 할까?
-description: OSX - What is the best way to deep copy in Javascript
 modified: 2018-02-22
 tags: [javascript]
-comments: true
-image:
-  feature: abstract-15.png
 ---
 
 Javascript가 지원하는 다양한 Object copy 방식 중 deepcopy를 지원하는 것은 무엇인지 확인해보자. 
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 # Deepcopy를 지원할 것 같은 javascript Object copy 방법들
 

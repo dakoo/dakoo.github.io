@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Algorithm - merge sort
-description: merge sort
 modified: 2016-02-22
 tags: [algorithm]
-comments: true
-image:
-  feature: algorithm.jpeg
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 merge sort는 O(nlogn) 성능을 가진 대표적인 Divide & Conquer 패러다임 알고리즘이다. 그 구현에 대해 살펴보자. 
 
@@ -27,7 +15,7 @@ merge sort 알고리즘은 다음과 같다. divide & conquer 패러다임을 �
 - recursive하게 왼쪽과 오른쪽을 호출한다. 
 - 왼쪽과 오른쪽을 합친다. 잘 합치기 위해서 low, middle, high 인덱스가 필요하다. 
 
-```javascript
+```cpp
 merge_sort(Array, low, high) {
 	if(low >= high) return;
 	middle = (low + high)/2;
@@ -45,7 +33,7 @@ merge_sort(Array, 0, Array.size()-1);
 
 quick sort의 핵심이 partition함수라면 merge sort의 핵심은 merge알고리즘이다. 그 내용은 매우 단순하다. merge함수로 들어오는 배열은 middle을 중심으로 왼쪽 오른쪽이 각각 정렬되어 있는 것이다. 두개의 임시 배열을 만들어 왼쪽과 오른쪽 값을 복사해두고, 값을 비교하며 원래 배열에 하나씩 집어 넣는다. 이때 임시 배열 마지막에는 무한대 값을 두어 비교 시 길이 비교를 하지 않도록 하는 트릭을 쓴다. 
 
-```
+```cpp
 merge(Array, low, middle, high) {
 	l_len = middle - low + 1; 
 	r_len = high - middle;
@@ -71,7 +59,7 @@ merge(Array, low, middle, high) {
 
 ### 코드 
 
-```javascript
+```cpp
 #include <vector>
 #include <limits>
 #include <iostream>

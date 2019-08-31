@@ -1,20 +1,12 @@
 ---
 layout: post
 title: Java - Priority Queue
-description: OSX - Priority Queue
 modified: 2016-09-13
-tags: [java, datastructure]
+tags: [java]
 comments: true
 image:
   feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Java의 Priority Queue의 method에 대해 살펴보자. 주의할 것은 Java priority queue는 null element를 허용하지 않는다는 것이다. 
 

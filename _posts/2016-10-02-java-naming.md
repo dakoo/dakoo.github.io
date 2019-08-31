@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - 네이밍
-description: Java - 네이밍
 modified: 2016-10-02
-tags: [java, design]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [java]
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 코딩에서 네이밍은 항상 힘들다. Java 네이밍 관련 글 중 좋은 글이 있어 간단히 정리해 보자. 여기서 설명하는 내용은 사실 Java만이 아니라 많은 언어에 사용 가능하다. 
 

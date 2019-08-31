@@ -1,20 +1,9 @@
 ---
 layout: post
-title: Java - (멀티쓰레딩 7) 쓰레드 중지하기 
-description: Java - (멀티쓰레딩 7) 쓰레드 중지하기 
+title: Java - (멀티쓰레딩 7) 쓰레드 중지하기
 modified: 2016-09-20
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 쓰레드를 중지하는 방법을 살펴보자. 
 지금까지와 같이 일반 쓰레드를 중지하는 방법과 Executor를 중지하는 법을 각각 살펴보자. 그리고 Executor의 경우 한번에 모든 태스크를 중지하는 법도 살펴보자. 

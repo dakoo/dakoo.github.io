@@ -1,21 +1,9 @@
 ---
 layout: post
 title: Java - Lombok
-description: Java - Lombok
 modified: 2016-10-14
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 
 [Lombok](http://projectlombok.org)은 아주 유용한 Java annotation 라이브러리이다. 
 이것은 지저분한 boilerplate 코드를 줄이고 이에 따라 코딩을 더 빠르고 실수없이 할 수 있도록 도와준다. Lombok은 getter, setter, toString, constructor, equals, hashCode 메소드들을 자동적으로 생성한다. 개발자는 단지 클래스를 만들고 필드를 추가하면 된다. 
@@ -177,6 +165,3 @@ Maven project로 만든 후 pom.xml에 dependency 추가
 	</dependency>
 </dependencies>
 ```
-
-
-

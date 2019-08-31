@@ -1,22 +1,11 @@
 ---
 layout: post
 title: Tool - Mac iterm2에서 작업을 다른 tab에서 실행하기 
-description: Tool - Mac iterm2에서 작업을 다른 tab에서 실행하기 
 modified: 2018-11-12
 tags: [tool]
-comments: true
-image:
-  feature: abstract-11.png
 ---
 
 mac iterm2에서 작업을 실행할 경우 새로 탭을 열어서 그 폴더로 이동해서 작업을 실행해야 하는 경우가 종종 있다. 이를 한번에 하도록 하자. 
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## 목표
 

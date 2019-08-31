@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - final 키워드
-description: Java - final 키워드
 modified: 2016-10-12
 tags: [java]
-comments: true
-image:
-  feature: algorithm.jpeg
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 Java의 final 키워드에 대해 살펴보자. 
 
@@ -239,4 +228,3 @@ public class Solution implements Solvable {
     }
 }
 ```
-

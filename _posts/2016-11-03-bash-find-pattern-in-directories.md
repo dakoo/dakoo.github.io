@@ -1,22 +1,11 @@
 ---
 layout: post
-title: Bash - 폴더에서 파일 내용 검색하기
-description: Bash - 폴더에서 파일 내용 검색하기
+title: shell - 폴더에서 파일 내용 검색하기
 modified: 2016-11-03
-tags: [ubuntu, osx, tool, bash]
-comments: true
-image:
-  feature: abstract-11.png
+tags: [tool]
 ---
 
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
-하위 폴더를 포함해서 파일 내용 검색해서 표시하는 것은 가끔 필요하기 하지만, 아주 절실할 때가 많다. 그 방법을 알아보자. 
+하위 폴더를 포함해서 파일 내용 검색해서 표시하는 것은 가끔 필요하기 하지만, 아주 절실할 때가 많다. 그 방법을 알아보자
 
 ## 1 테스트 환경
 
@@ -41,7 +30,6 @@ This file is a text file.
 2. The second line is for interface.
 3. The third line is for dummies.
 ```
-
 
 ### 1.3 자바 파일 내용 
 
@@ -137,5 +125,3 @@ find . -type f \( -name *.확장자1 -o -name *.확장자2 -o -name *.확장자3
 ```
 
 이것을 .bashrc 등에 등록해 놓고 간단하게 사용하는 방법도 있을 것이다. 
-
-

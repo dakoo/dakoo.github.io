@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - (멀티쓰레딩 3) 쓰레드 이름 설정
-description: Java - (멀티쓰레딩 3) 쓰레드 이름 설정
 modified: 2016-09-17
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ## Java 쓰레드 이름 설정
 

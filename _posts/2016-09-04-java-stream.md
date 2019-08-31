@@ -1,20 +1,9 @@
 ---
 layout: post
 title: Java - Stream
-description: Java - Stream
 modified: 2016-09-04
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 functional programming을 지원하기 위한 Java 8의 핵심인 Stream에 대해 알아보자. [java2s.com](http://www.java2s.com/Tutorials/Java/Java_Stream/index.htm)의 내용을 개인적으로 정리한 것이므로 자세한 내용은 해당 사이트를 참고하자. 
 
@@ -743,13 +732,15 @@ Employee.persons()
 
 reduce는 스트림의 모든 element들을 하나의 값으로 변환하는 것이다. 이것은 두 개의 인자를 가지는데 첫번째는 seed이고 두번째는 accumulator function이다. 만약 스트림이 empty이면 seed가 결과가 된다. accumulator는 2개의 인자를 가진다. seed와 첫번째 element가 accumlator의 입력으로 들어가고, 결과가 반환되면 다시 그 결과와 다음 element가 accumulator의 입력으로 다시 들어가고 이런 식으로 마지막 element까지 반복한다. reduce method는 다음과 같이 정의된다. 
 
-
-> T  reduce(T identity, BinaryOperator<T> accumulator)
+```
+T  reduce(T identity, BinaryOperator<T> accumulator)
+```
 
 reduce() operation이 병렬로 처리될 때 combiner를 이용해서 중간 값들을 묶을 수 있다. 즉, 병렬 처리시를 위한 특별한 reduce()는 다음과 같다. 자세한 내용은 예제(5.2.4) 를 살펴보자.
 
-> <U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)
-
+```
+<U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)
+```
 
 #### 5.2.2 간단한 예 
 
@@ -1203,11 +1194,15 @@ DoubleSummaryStatistics{count=6, sum=21143.000000, min=1234.000000, average=3523
 
 collect()를 이용해 Collection으로 변경하는 것의 한 종류는 Map을 변경하는 것이다. 스트림의 element에서 key와 value를 추출하는 function을 등록하여 Map으로 변환한다. 만약 중복된 key값이 있다면 `IllegalStateException` exception이 발생된다. 아래에서 keyMapper는 key를 추출하는 function, valuemapper는 value를 추출하는 function이다. 
 
-> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)
+```
+toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)
+```
 
 추가적으로 merge function을 제공할 수 있다. 이것은 중복된 key가 있는 경우 어떻게 처리할 지를 결정하는 function으로 argument는 old value와 new value이고 반환 값은 merge된 value이다. 
 
-> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)
+```
+toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)
+```
 
 또한 Supplier를 통해 Map
 
@@ -1624,15 +1619,3 @@ Jake, Jack, Jode, Jason
 - [java.util.stream Package Reference - InStream](http://www.java2s.com/Tutorials/Java/java.util.stream/IntStream/index.htm)
 - [java.util.stream Package Reference - LongStream](http://www.java2s.com/Tutorials/Java/java.util.stream/LongStream/index.htm)
 - [java.util.stream Package Reference - DoubleStream](http://www.java2s.com/Tutorials/Java/java.util.stream/DoubleStream/index.htm)
-
-
-
-
-
-
-
-
-
-
-
-

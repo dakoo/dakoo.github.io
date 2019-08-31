@@ -3,18 +3,11 @@ layout: post
 title: Java - Collection Framework
 description: Java - Collection Framework
 modified: 2016-8-30
-tags: [java, datastructure]
+tags: [java]
 comments: true
 image:
   feature: abstract-11.png
 ---
-
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 
 ### 1. 용어
 
@@ -562,4 +555,3 @@ Zara,3434.34
 - [Collection Framework – Class Hierarchy](http://javaconceptoftheday.com/collection-framework-class-hierarchy/)
 - [Collection Interface](http://javaconceptoftheday.com/collection-framework-collection-interface/)
 - [Difference Between Collection And Collections In Java](http://javaconceptoftheday.com/difference-between-collection-and-collections-in-java/)
-
