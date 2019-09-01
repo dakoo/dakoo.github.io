@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java - Comparable과 Comparator
+title: Java - Comparable & Comparator
 modified: 2016-08-23
 tags: [java]
 ---

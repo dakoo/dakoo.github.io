@@ -5,20 +5,13 @@ modified: 2016-08-23
 tags: [java]
 ---
 
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
 Java 8에서 지원하는 Lambda를 살펴보자. 이 글은 [Jakob Jenkov의 Java Lambda tutorial](http://tutorials.jenkov.com/java/lambda-expressions.html)의 많은 부분을 참고하여 작성하였다. 
 
 ### 1. 개요
 
-Labmda는 Java가 functional programming을 지원하기 시작한다는 신호이다. **Lambda를 통해 어떤 class에도 속하지 않은 함수**를 만들 수 있게 된 것이다. 함수를 마치 object처럼 argument로 사용하거나, 필요할 때에만 실행되도록 할 수 있게 되었다. 
+Lambda는 Java가 functional programming을 지원하기 시작한다는 신호이다. **Lambda를 통해 어떤 class에도 속하지 않은 함수**를 만들 수 있게 된 것이다. 함수를 마치 object처럼 argument로 사용하거나, 필요할 때에만 실행되도록 할 수 있게 되었다. 
 
-
+d
 ### 2. Lambda의 사용
 
 Anonymous function은 event listener에 많이 사용되어지고, 이는 lambda로 변환하기 매우 적절한 부분이다. 
