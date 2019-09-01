@@ -2,7 +2,7 @@
 layout: post
 title: Data Structure - disjoints-set
 modified: 2016-02-16
-tags: [data structure]
+tags: [datastructure]
 ---
 
 집합을 자료구조 중 array를 이용해 만드는 disjoints-set을 이해해 보자.

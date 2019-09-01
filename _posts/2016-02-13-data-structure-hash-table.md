@@ -2,7 +2,7 @@
 layout: post
 title: Data Structure - hash table
 modified: 2016-02-13
-tags: [data structure]
+tags: [datastructure]
 ---
 
 아주 간단히 구현한 C++ Hash table. 물론 unordered_multimap을 쓰는 것이 편하지만 hash table의 구조에 대해 이해하기 위해 구현해 보았다.

@@ -3,7 +3,7 @@ layout: post
 title: Data Structure - B-tree
 description: B-tree
 modified: 2016-03-12
-tags: [data structure]
+tags: [datastructure]
 comments: true
 image:
   feature: algorithm.jpeg

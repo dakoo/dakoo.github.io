@@ -2,7 +2,7 @@
 layout: post
 title: Data Structure - binary search tree
 modified: 2016-02-13
-tags: [data structure]
+tags: [datastructure]
 ---
 
 직접 구현해 본 binary search tree. iterative binary tree travasal에 익숙해져야 한다. 

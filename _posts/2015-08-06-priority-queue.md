@@ -2,7 +2,7 @@
 layout: post
 title: Data Structure - Priority Queue
 modified: 2016-02-06
-tags: [data structure]
+tags: [datastructure]
 ---
 
 전체적인 동작 원리는 [네이버 글](http://blog.naver.com/wpdls6012/220247604017)을 참조한다.

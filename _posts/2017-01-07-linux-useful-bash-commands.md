@@ -2,7 +2,7 @@
 layout: post
 title: 유용한 bash 명령들
 modified: 2017-01-07
-tags: [toll]
+tags: [tool]
 ---
 
 로그를 분석시 유용한 명령 조합을 살펴보자.
