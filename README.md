@@ -1,1 +1,0 @@
-# hochulshin.com

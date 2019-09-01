@@ -1,51 +1,30 @@
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
 # For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
 title: Clean Code
-brief-intro: hochulshin.com
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://hochulshin.com" # the base hostname & protocol for your site
-
-permalink: /:categories/:title/
-
-# other links
-facebook_username: hochul.shin0
-github_username:  dakoo
 email: hochul.shin0@gmail.com
-linkedIn_username: hochulshin0
-
-# comments
-# two ways to comment, only choose one, and use your own short name
-# 两种评论插件，选一个就好了，使用自己的 short_name
-disqus_shortname: dakoogithubio
-
-# statistic analysis 统计代码
-# 百度统计 id，将统计代码替换为自己的百度统计id，即
-# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
-# xxxxx字符串
-google_analytics_id: UA-60163348-2 # google 分析追踪id
+description: "Clean Code"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "hochulshin.com" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  dakoo
 
 # Build settings
 markdown: kramdown
-
-kramdown:
-  input: GFM
-  syntax_highlighter: false
-
-# port
-# port: 1234
-
-# url
-tag_dir: tag/
-
-# excerpt
-excerpt_separator: "\n\n\n\n"
-
-# paginate
-gems: [jekyll-paginate]
-paginate: 6
+#theme: minima
+theme: "just-the-docs"
+search_enabled: true
+plugins:
+  - jekyll-feed
+heading_anchors: true

@@ -1,0 +1,695 @@
+<!DOCTYPE html> <html lang="en-US"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <title>Java - (멀티쓰레딩 7) 쓰레드 중지하기 - Clean Code</title> <link rel="shortcut icon" href="http://localhost:4000/favicon.ico" type="image/x-icon"> <link rel="stylesheet" href="http://localhost:4000/assets/css/just-the-docs.css"> <script type="text/javascript" src="http://localhost:4000/assets/js/vendor/lunr.min.js"></script> <script type="text/javascript" src="http://localhost:4000/assets/js/just-the-docs.js"></script> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Begin Jekyll SEO tag v2.6.1 --> <title>Java - (멀티쓰레딩 7) 쓰레드 중지하기 | Clean Code</title> <meta name="generator" content="Jekyll v3.8.6" /> <meta property="og:title" content="Java - (멀티쓰레딩 7) 쓰레드 중지하기" /> <meta property="og:locale" content="en_US" /> <meta name="description" content="Clean Code" /> <meta property="og:description" content="Clean Code" /> <link rel="canonical" href="http://localhost:4000/docs/java/2016-09-20-java-multithreading-thread-termination.html" /> <meta property="og:url" content="http://localhost:4000/docs/java/2016-09-20-java-multithreading-thread-termination.html" /> <meta property="og:site_name" content="Clean Code" /> <script type="application/ld+json"> {"description":"Clean Code","@type":"WebPage","url":"http://localhost:4000/docs/java/2016-09-20-java-multithreading-thread-termination.html","headline":"Java - (멀티쓰레딩 7) 쓰레드 중지하기","@context":"https://schema.org"}</script> <!-- End Jekyll SEO tag --> </head> <body> <div class="page-wrap"> <div class="side-bar"> <div class="site-header"> <a href="http://localhost:4000" class="site-title lh-tight">Clean Code</a> <button class="menu-button fs-3 js-main-nav-trigger" data-text-toggle="Hide" type="button">Menu</button> </div> <div class="navigation main-nav js-main-nav"> <nav role="navigation" aria-label="Main navigation"> <ul class="navigation-list"><li class="navigation-list-item active"><a href="http://localhost:4000/404.html" class="navigation-list-link"></a></li><li class="navigation-list-item active"><a href="http://localhost:4000/" class="navigation-list-link"></a></li><li class="navigation-list-item"><a href="http://localhost:4000/docs/codingInterview" class="navigation-list-link">Coding Interview</a><ul class="navigation-list-child-list "><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2018-07-28-algorithm-sliding-window.html" class="navigation-list-link">Algorithm - sliding window algorithm</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-06-dijkstra-algorithm.html" class="navigation-list-link">Algorithm - Dijkstra's shortest path</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-06-disjoints-set.html" class="navigation-list-link">Data Structure - disjoints-set</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-06-priority-queue.html" class="navigation-list-link">Data Structure - Priority Queue</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-07-mst-kruskal.html" class="navigation-list-link">Algorithm - Minimum Spanning Tree - Kruskal</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-11-string-pattern-search.html" class="navigation-list-link">Algorithm - 문자열 패턴 검색 보이어-무어 알고리즘에 대한 이해와 구현</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-12-substring-sorting.html" class="navigation-list-link">Algorithm - 부분 문자열의 사전순 정렬</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-14-Longest%20Increasing%20Subsequence.html" class="navigation-list-link">Algorithm - LIS(Longest Increasing Subsequence) O(N*N) 알고리즘</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-14-floyd-warshall.html" class="navigation-list-link">Algorithm - Floyd-Warshall</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-14-probability_summary.html" class="navigation-list-link">Algorithm - 확률에 대한 간단 정리</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-15-01knapsack.html" class="navigation-list-link">Algorithm - 0-1 Knapsack 알고리즘</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-15-longest-common-subsequence.html" class="navigation-list-link">Algorithm - LCS(Longest Common Subsequence) 알고리즘</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-15-permutation-composition-summary.html" class="navigation-list-link">Algorithm - 순열과 조합</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-15-travelling-salesman-problem.html" class="navigation-list-link">Algorithm - Travelling Salesman Problem(TSP)</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-16-independent_probability_problem.html" class="navigation-list-link">Algorithm - 독립 시행 확률</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-27-combination-in-c.html" class="navigation-list-link">Algorithm - combination</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-05-algorithm-quicksort.html" class="navigation-list-link">Algorithm - quick sort</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-09-algorithm-bisectional-search.html" class="navigation-list-link">Algorithm - 이분 탐색</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-09-algorithm-longest-increasing-subsequence-nlogn.html" class="navigation-list-link">Algorithm - Longest Increasing Subsequence</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-09-algorithm-maximum-sum-subarray.html" class="navigation-list-link">Algorithm - maximum sum subarray</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-13-data-structure-hash-table.html" class="navigation-list-link">Data Structure - hash table</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-14-data-structure-binary-search-tree.html" class="navigation-list-link">Data Structure - binary search tree</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-15-data-structure-binary-tree-problems.html" class="navigation-list-link">Algorithm - binary tree 및 binary search tree 문제들</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-22-algorithm-find-kth-item.html" class="navigation-list-link">Algorithm - k번째 큰(작은) 아이템 찾기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-22-algorithm-merge-sort.html" class="navigation-list-link">Algorithm - merge sort</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-25-algorithm-topological-sort.html" class="navigation-list-link">Algorithm - Topological Sort</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-02-29-data-structure-LRU-cache.html" class="navigation-list-link">Data Structure - LRU(Least Recently Used)</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-03-01-algorithm-2d-matrix-rotation.html" class="navigation-list-link">Algorithm - 2D Matrix 회전</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2016-03-03-data-structure-b-tree.html" class="navigation-list-link">Data Structure - B-tree</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/codingInterview/2015-08-06-algorithm-dfs-bfs.html" class="navigation-list-link">Algorithm - DFS와 BFS</a></li></ul></li><li class="navigation-list-item active"><a href="http://localhost:4000/docs/java" class="navigation-list-link">Java</a><ul class="navigation-list-child-list "><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-11-27-java-intellij-shortcut.html" class="navigation-list-link">Java - OSX에서 vim 모드와 함께 쓸 만한 Intellij 단축키</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-23-java-collections-api.html" class="navigation-list-link">Java - Collections API</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-23-java-comparable-comparator.html" class="navigation-list-link">Java - Comparable과 Comparator</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-23-java-lambda.html" class="navigation-list-link">Java - Lambda</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-29-java-collection-framework.html" class="navigation-list-link">Java - Collection Framework</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-30-java-collection-list.html" class="navigation-list-link">Java - List 인터페이스</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-31-java-arraylist.html" class="navigation-list-link">Java - ArrayList 클래스</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-31-java-linkedlist.html" class="navigation-list-link">Java - LinkedList 클래스</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-04-java-stream.html" class="navigation-list-link">Java - Stream</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-06-java-stringbuilder.html" class="navigation-list-link">Java - StringBuilder</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-12-java-comparator-interface.html" class="navigation-list-link">Java - Comparator Interface 사용</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-12-java-generic-function.html" class="navigation-list-link">Java - Generic function</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-13-java-bitset.html" class="navigation-list-link">Java - BitSet class 예제</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-13-java-priority-queue.html" class="navigation-list-link">Java - Priority Queue</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-15-java-multithreading-thread-thread-implementation.html" class="navigation-list-link">Java - (멀티쓰레딩 1) Thread 구현</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-16-java-multithreading-executor-basic.html" class="navigation-list-link">Java - (멀티쓰레딩 2) Executor 기본</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-16-java-vararg-stream-conversion.html" class="navigation-list-link">Java - vararg을 stream으로 변환</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-17-java-annotation.html" class="navigation-list-link">Java - Annotation</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-17-java-name-threads.html" class="navigation-list-link">Java - (멀티쓰레딩 3) 쓰레드 이름 설정</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-18-java-mulitthreading-daemon-thread.html" class="navigation-list-link">Java - (멀티쓰레딩 5) 데몬 쓰레드</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-18-java-multithreading-returning-values-from-task.html" class="navigation-list-link">Java - (멀티쓰레딩 4) 쓰레드에서 값 반환</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-19-java-multithreading-check-aliveness.html" class="navigation-list-link">Java - (멀티쓰레딩 6) 쓰레드 동작의 완료를 확인하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-20-java-multithreading-thread-exception-handling.html" class="navigation-list-link">Java - (멀티쓰레딩 8) 쓰레드 Exception 처리하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-20-java-multithreading-thread-join.html" class="navigation-list-link">Java - (멀티쓰레딩 9) 쓰레드 Join하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-09-20-java-multithreading-thread-scheduling.html" class="navigation-list-link">Java - (멀티쓰레딩 10) 쓰레드 스케쥴링</a></li><li class="navigation-list-item active"><a href="http://localhost:4000/docs/java/2016-09-20-java-multithreading-thread-termination.html" class="navigation-list-link active">Java - (멀티쓰레딩 7) 쓰레드 중지하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-10-02-java-naming.html" class="navigation-list-link">Java - 네이밍</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-10-12-java-final-keyword.html" class="navigation-list-link">Java - final 키워드</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-10-14-java-lombok.html" class="navigation-list-link">Java - Lombok</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/java/2016-08-22-java-big-number.html" class="navigation-list-link">Java - Big Number(BigInteger와 BigDecimal)</a></li></ul></li><li class="navigation-list-item"><a href="http://localhost:4000/docs/javascript" class="navigation-list-link">Javascript</a><ul class="navigation-list-child-list "><li class="navigation-list-item "><a href="http://localhost:4000/docs/javascript/2015-08-24-everything-about-javascript-scope.html" class="navigation-list-link">Javascript - scope에 대해 알고자 했던 모든 것</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/javascript/2018-02-22-javascript-best-deepcopy.html" class="navigation-list-link">Javascript - deep copy가 필요할 때 무얼 사용해야 할까?</a></li></ul></li><li class="navigation-list-item"><a href="http://localhost:4000/docs/systemDesignInterview" class="navigation-list-link">System Design Interview</a><ul class="navigation-list-child-list "></ul></li><li class="navigation-list-item"><a href="http://localhost:4000/docs/tool" class="navigation-list-link">Tool</a><ul class="navigation-list-child-list "><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2018-11-12-tool-notification-after-job-finish-mac-terminal.html" class="navigation-list-link">Tool - Mac에서 터미널 작업 실행후 notification</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-10-04-git-pull-request.html" class="navigation-list-link">Git - pull request</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-10-05-git-revert-changes.html" class="navigation-list-link">Git - 수정한 것 되돌리기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-11-03-bash-find-pattern-in-directories.html" class="navigation-list-link">shell - 폴더에서 파일 내용 검색하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-11-07-git-diff.html" class="navigation-list-link">Git - diff 사용하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-11-08-how-to-patch.html" class="navigation-list-link">Tool - patch하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-12-30-tool-grep-remove-useless-lines.html" class="navigation-list-link">grep 명령 - 빈 줄이나 특정 줄 제거하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-12-30-tool-sed-replace-string.html" class="navigation-list-link">sed 명령 - 특정 문자열을 변경하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2016-12-30-tool-sort-reverse-order.html" class="navigation-list-link">sort 명령 - 크기 역순으로 정렬하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2017-01-07-linux-useful-bash-commands.html" class="navigation-list-link">유용한 bash 명령들</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2017-03-13-uml-plantuml.html" class="navigation-list-link">uml - plantuml</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2018-11-12-quick-directory-alias.html" class="navigation-list-link">Tool - Quick directory alias</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2018-11-12-run-command-in-new-terminal-tab.html" class="navigation-list-link">Tool - Mac iterm2에서 작업을 다른 tab에서 실행하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2018-11-12-run-ssh-in-new-terminal-tab.html" class="navigation-list-link">Tool - Mac iterm2에서 ssh를 다른 tab에서 실행하기</a></li><li class="navigation-list-item "><a href="http://localhost:4000/docs/tool/2015-07-21-uml-tools.html" class="navigation-list-link">Design - 좋은 UML 툴 추천</a></li></ul></li></ul> </nav> </div> <footer class="site-footer"> <p class="text-small text-grey-dk-000 mb-4">This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</p> </footer> </div> <div class="main-content-wrap js-main-content" tabindex="0"> <div class="main-content"> <div class="page-header js-page-header"> <div class="search"> <div class="search-input-wrap"> <input type="text" class="js-search-input search-input" tabindex="0" placeholder="Search Clean Code" aria-label="Search Clean Code" autocomplete="off"> <svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="search-icon"><title>Search</title><g fill-rule="nonzero"><path d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z"/><path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z"/></g></svg> </div> <div class="js-search-results search-results-wrap"></div> </div> </div> <div class="page"> <nav class="breadcrumb-nav"> <ol class="breadcrumb-nav-list"> <li class="breadcrumb-nav-list-item"><a href="http://localhost:4000/docs/java">Java</a></li> <li class="breadcrumb-nav-list-item"><span>Java - (멀티쓰레딩 7) 쓰레드 중지하기</span></li> </ol> </nav> <div id="main-content" class="page-content" role="main"> <p>쓰레드를 중지하는 방법을 살펴보자. 지금까지와 같이 일반 쓰레드를 중지하는 방법과 Executor를 중지하는 법을 각각 살펴보자. 그리고 Executor의 경우 한번에 모든 태스크를 중지하는 법도 살펴보자. 일반 쓰레드를 중지시키는 것과 Executor를 중지시키는 것의 차이는 다음과 같다.</p> <ul> <li>일반 쓰레드: 쓰레드를 종료한다.</li> <li>Executor: 태스크를 종료한다. 모든 태스크가 종료되면 쓰레드는 자동으로 종료한다.</li> </ul> <h2 id="1-일반-쓰레드에서-쓰레드-중지-시키기"> <a href="#1-일반-쓰레드에서-쓰레드-중지-시키기" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 1. 일반 쓰레드에서 쓰레드 중지 시키기 </h2> <p>일반 쓰레드를 종료하는 방법은 다음 3가지가 있다.</p> <ul> <li>플래그 사용하여 쓰레드 중지</li> <li>Non-blocking 태스크의 경우 인터럽트 발생 여부 확인하여 쓰레드 중지</li> <li>Blocking 태스크의 경우 인터럽트를 catch하여 쓰레드 중지</li> </ul> <h3 id="11-플래그-사용하여-쓰레드-중지"> <a href="#11-플래그-사용하여-쓰레드-중지" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 1.1 플래그 사용하여 쓰레드 중지 </h3> <p>일반적인 쓰레드에서 loop을 도는 태스크를 종료하는 대표적인 방법은 플래그를 사용하는 것이다. Loop을 돌면서 종료 플래그를 확인하여 true이면 종료하는 방법이다. 쓰레드간의 동기화를 위해 volatile 키워드를 이용해 플래그 변수를 선언하고 synchronized를 이용해 atomic하게 만든다. 예제는 다음과 같다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingNormalThreadWithFlag</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">LoopTask</span> <span class="n">task1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+		<span class="nc">LoopTask</span> <span class="n">task2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+
+		<span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">task1</span><span class="o">,</span> <span class="s">"Thread-1"</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+		<span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">task2</span><span class="o">,</span> <span class="s">"Thread-2"</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+		<span class="n">task1</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>
+		<span class="n">task2</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">LoopTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">shutdown</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+			<span class="o">}</span>
+			<span class="kd">synchronized</span><span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">shutdown</span><span class="o">)</span> <span class="o">{</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"... &lt;"</span> <span class="o">+</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; shutting down..."</span><span class="o">);</span>
+		<span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">shutdown</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nf">LoopTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>결과는 다음과 같다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;Thread-1,Task-1&gt; starting...####</span>
+<span class="c">#### &lt;Thread-2,Task-2&gt; starting...####</span>
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+... &lt;main,Task-1&gt; shutting down...
+... &lt;main,Task-2&gt; shutting down...
+<span class="o">[</span>main] thread ends here...
+<span class="c">#### &lt;Thread-2,Task-2&gt; done...####</span>
+<span class="c">#### &lt;Thread-1,Task-1&gt; done...####</span>
+</code></pre></div></div> <h3 id="12-non-blocking-태스크의-경우-인터럽트-발생-여부-확인하여-쓰레드-중지"> <a href="#12-non-blocking-태스크의-경우-인터럽트-발생-여부-확인하여-쓰레드-중지" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 1.2 Non-blocking 태스크의 경우 인터럽트 발생 여부 확인하여 쓰레드 중지 </h3> <p>블록되지 않고 동작하는 쓰레드를 중지시키는 좋은 방법은 인터럽트를 사용하여 종료하는 것이다. 인터럽트를 제공하는 Thread API는 다음과 같다.</p> <ul> <li>void Thread.interrupt(): 쓰레드에 인터럽트를 호출</li> <li>static boolean Thread.interrupted() : 쓰레드 내부에서 쓰레드가 인터럽트 되었는지 확인하기 위해 사용</li> <li>boolean Thread.isInterrupted(): 다른 쓰레드에서 호출하여 쓰레드가 인터럽트 되었는지 확인</li> </ul> <p>주의할 점은 <strong>blocking 함수(타이머 등)와 함께 사용하면 Exception이 발생</strong>한다는 것이다. 이는 컴파일 단계에서는 나타나지 않는다.</p> <p>아래 예는 인터럽트를 사용해 쓰레드를 중지시키는 예제인데 타이머를 사용하지 않는 Loop을 만들기 위해 doSomeWork()를 만들었다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingNormalNonBlockingThreadWithInterrupt</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">LoopTask</span> <span class="n">task1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+		<span class="nc">LoopTask</span> <span class="n">task2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+
+		<span class="nc">Thread</span> <span class="n">thread1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task1</span><span class="o">,</span> <span class="s">"Thread-1"</span><span class="o">);</span>
+		<span class="nc">Thread</span> <span class="n">thread2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task2</span><span class="o">,</span> <span class="s">"Thread-2"</span><span class="o">);</span>
+		<span class="n">thread1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+		<span class="n">thread2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">500</span><span class="o">);</span>
+		
+		<span class="n">thread1</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+		<span class="n">thread2</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">LoopTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">DATA_SIZE</span> <span class="o">=</span> <span class="mi">100000</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="n">doSomeWork</span><span class="o">();</span> <span class="c1">//Interrupt can not work with timer because the timer is a blocking function</span>
+			<span class="k">if</span><span class="o">(</span><span class="nc">Thread</span><span class="o">.</span><span class="na">interrupted</span><span class="o">()){</span>  <span class="c1">//Thread.interrupted()</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">LoopTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">doSomeWork</span><span class="o">(){</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">generateDataSet</span><span class="o">());</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">generateDataSet</span><span class="o">(){</span>
+		<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">intList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+		<span class="nc">Random</span> <span class="n">randomGenerator</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="no">DATA_SIZE</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">intList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">randomGenerator</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="no">DATA_SIZE</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">intList</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>결과는 아래와 같이 잘 동작함을 알 수 있다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;Thread-1,Task-1&gt; starting...####</span>
+<span class="c">#### &lt;Thread-2,Task-2&gt; starting...####</span>
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+<span class="o">[</span>main] thread ends here...
+<span class="c">#### &lt;Thread-1,Task-1&gt; done...####</span>
+<span class="c">#### &lt;Thread-2,Task-2&gt; done...####</span>
+</code></pre></div></div> <h3 id="13-blocking-태스크의-경우-인터럽트를-catch하여-쓰레드-중지"> <a href="#13-blocking-태스크의-경우-인터럽트를-catch하여-쓰레드-중지" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 1.3 Blocking 태스크의 경우 인터럽트를 catch하여 쓰레드 중지 </h3> <p>블록킹 쓰레드에서는 어떻게 종료를 시킬까? 그 방법은 위 방법을 응용하면 된다. 즉, 인터럽트를 이용해 중지를 시키면 된다. 인터럽트를 외부 쓰레드에서 발생시키면 Sleep과 같은 Blocking함수에서 <strong>Interrupted Exception</strong>이 발생하는데 이때 그 <strong>Exception catch 블록에서 loop을 중지</strong>시키는 것이다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingNormalBlockingThreadWithInterrupt</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">LoopTask</span> <span class="n">task1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+		<span class="nc">LoopTask</span> <span class="n">task2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+
+		<span class="nc">Thread</span> <span class="n">thread1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task1</span><span class="o">,</span> <span class="s">"Thread-1"</span><span class="o">);</span>
+		<span class="nc">Thread</span> <span class="n">thread2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task2</span><span class="o">,</span> <span class="s">"Thread-2"</span><span class="o">);</span>
+		<span class="n">thread1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+		<span class="n">thread2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">500</span><span class="o">);</span>
+		
+		<span class="n">thread1</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+		<span class="n">thread2</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">LoopTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; Sleep Interrupted. Cancelling..."</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">LoopTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>결과는 아래와 같이 Interrupted Exception에 의해 종료됨을 확인 할 수 있다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;Thread-1,Task-1&gt; starting...####</span>
+<span class="c">#### &lt;Thread-2,Task-2&gt; starting...####</span>
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-2,Task-2&gt; TICK TICK
+&lt;Thread-1,Task-1&gt; TICK TICK
+<span class="o">[</span>main] thread ends here...
+&lt;Thread-1,Task-1&gt; Sleep Interrupted. Cancelling...
+<span class="c">#### &lt;Thread-1,Task-1&gt; done...####</span>
+&lt;Thread-2,Task-2&gt; Sleep Interrupted. Cancelling...
+<span class="c">#### &lt;Thread-2,Task-2&gt; done...####</span>
+</code></pre></div></div> <h2 id="2-개개의-executor-태스크를-중지-시키기"> <a href="#2-개개의-executor-태스크를-중지-시키기" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 2. 개개의 Executor 태스크를 중지 시키기 </h2> <p>Executor에서는 쓰레드를 중지하는 개념이 아니라 태스크를 중지시킨다. 그 외에는 일반 쓰레드에서의 중지 방법과 대부분 유사하다.</p> <ul> <li>플래그 사용하여 태스크 중지</li> <li>Non-blocking 태스크의 경우 인터럽트 발생 여부 확인하여 중지</li> <li>Blocking 태스크의 경우 인터럽트를 catch하여 중지</li> </ul> <h3 id="21-플래그-사용하여-태스크-중지"> <a href="#21-플래그-사용하여-태스크-중지" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 2.1 플래그 사용하여 태스크 중지 </h3> <p>일반적인 쓰레드에서 loop을 도는 태스크를 종료하는 대표적인 방법은 플래그를 사용하는 것이다. Loop을 돌면서 종료 플래그를 확인하여 true이면 종료하는 방법이다. 쓰레드간의 동기화를 위해 volatile 키워드를 이용해 플래그 변수를 선언하고 synchronized를 이용해 atomic하게 만든다. 예제는 다음과 같다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingExecutorWithFlag</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">ExecutorService</span> <span class="n">execService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+		
+		<span class="nc">LoopTask</span> <span class="n">task1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+		<span class="n">execService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">task1</span><span class="o">);</span>
+		
+		<span class="n">execService</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+
+		<span class="n">task1</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">LoopTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">shutdown</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+			<span class="o">}</span>
+			<span class="kd">synchronized</span><span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">shutdown</span><span class="o">)</span> <span class="o">{</span>
+					<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancel</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"... &lt;"</span> <span class="o">+</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; shutting down..."</span><span class="o">);</span>
+		<span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">shutdown</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nf">LoopTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>결과는 다음과 같다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; starting...####</span>
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+... &lt;main,Task-1&gt; shutting down...
+<span class="o">[</span>main] thread ends here...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; done...####</span>
+
+</code></pre></div></div> <h3 id="22-non-blocking-태스크의-경우-인터럽트-발생-여부-확인하여-중지"> <a href="#22-non-blocking-태스크의-경우-인터럽트-발생-여부-확인하여-중지" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 2.2 Non-blocking 태스크의 경우 인터럽트 발생 여부 확인하여 중지 </h3> <p>Executor에서 블록되지 않고 동작하는 태스크를 중지시키는 좋은 방법은 인터럽트를 사용하여 종료하는 것이다. Executor에서 인터럽트를 제공하는 Thread API는 다음과 같다.</p> <ul> <li>boolean Future.cancel(boolean mayInterruptIfRunning): Executor의 태스크 멈추기. 만약 태스크가 이미 다른 이유로 cancel되었다면 false를 반환. 일반 쓰레드에서의 Thread.interrupt()와 유사한 역할</li> <li>static boolean Thread.interrupted() : 태스크가 인터럽트 되었는지 확인하기 위해 사용. 일반 쓰레드와 동일</li> <li>boolean Future.isCanceled(): 다른 쓰레드에서 호출. boolean Thread.isInterrupted()와 유사</li> </ul> <p>중요한 것은 위의 API는 쓰레드가 아닌 <strong>태스크</strong>를 중지시키는 것이라는 것이다. 아래 예를 보면 하나의 쓰레드만 동작하면서 순차적으로 태스크를 종료시키는 예이다. 쓰레드를 점유한 첫번째 태스크를 종료시키면 두번째 태스크가 동작하고 두번째 태스크를 종료시키면 더이상 태스크가 없으므로 쓰레드가 멈추게 된다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Future</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingNonBlockingExecutorWithInterrupt</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">ExecutorService</span> <span class="n">execService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+		
+		<span class="nc">LoopTask</span> <span class="n">task1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+		<span class="nc">LoopTask</span> <span class="n">task2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+
+		<span class="nc">Future</span><span class="o">&lt;?&gt;</span> <span class="n">future1</span> <span class="o">=</span> <span class="n">execService</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task1</span><span class="o">);</span>
+		<span class="nc">Future</span><span class="o">&lt;?&gt;</span> <span class="n">future2</span> <span class="o">=</span> <span class="n">execService</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task2</span><span class="o">);</span>
+		
+		<span class="n">execService</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">200</span><span class="o">);</span>
+		<span class="n">future1</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+		<span class="n">future2</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">LoopTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">DATA_SIZE</span> <span class="o">=</span> <span class="mi">100000</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="n">doSomeWork</span><span class="o">();</span> 
+			<span class="k">if</span><span class="o">(</span><span class="nc">Thread</span><span class="o">.</span><span class="na">interrupted</span><span class="o">()){</span> 
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; got an interrupt! ..canceling..."</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">LoopTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">doSomeWork</span><span class="o">(){</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">generateDataSet</span><span class="o">());</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">generateDataSet</span><span class="o">(){</span>
+		<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">intList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+		<span class="nc">Random</span> <span class="n">randomGenerator</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="no">DATA_SIZE</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">intList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">randomGenerator</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="no">DATA_SIZE</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">intList</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>결과는 아래와 같이 첫번째 태스크가 멈춘 후 같은 쓰레드에서 두번째 쓰레드가 동작한다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; starting...####</span>
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; got an interrupt! ..canceling...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; done...####</span>
+<span class="c">#### &lt;pool-1-thread-1,Task-2&gt; starting...####</span>
+&lt;pool-1-thread-1,Task-2&gt; TICK TICK
+&lt;pool-1-thread-1,Task-2&gt; TICK TICK
+&lt;pool-1-thread-1,Task-2&gt; TICK TICK
+<span class="o">[</span>main] thread ends here...
+&lt;pool-1-thread-1,Task-2&gt; got an interrupt! ..canceling...
+<span class="c">#### &lt;pool-1-thread-1,Task-2&gt; done...####</span>
+
+</code></pre></div></div> <h3 id="23-blocking-태스크의-경우-인터럽트를-catch하여-중지"> <a href="#23-blocking-태스크의-경우-인터럽트를-catch하여-중지" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 2.3 Blocking 태스크의 경우 인터럽트를 catch하여 중지 </h3> <p>블록킹 태스크를 중지시키는 것도 일반 쓰레드의 경우와 동일하다. 외부 쓰레드에서 cancel()을 호추하면 Sleep과 같은 Blocking함수에서 <strong>Interrupted Exception</strong>이 발생하는데 이때 그 <strong>Exception catch 블록에서 loop을 중지</strong>시키는 것이다. 아래의 예도 하나의 쓰레드에서 두개의 태스크를 submit한 경우로 InterruptedException을 이용해 순차적으로 중지시킨다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Future</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingBlockingExecutorWithInterrupt</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">ExecutorService</span> <span class="n">execService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+		
+		<span class="nc">LoopTask</span> <span class="n">task1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+		<span class="nc">LoopTask</span> <span class="n">task2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LoopTask</span><span class="o">();</span>
+
+		<span class="nc">Future</span><span class="o">&lt;?&gt;</span> <span class="n">future1</span> <span class="o">=</span> <span class="n">execService</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task1</span><span class="o">);</span>
+		<span class="nc">Future</span><span class="o">&lt;?&gt;</span> <span class="n">future2</span> <span class="o">=</span> <span class="n">execService</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">task2</span><span class="o">);</span>
+		
+		<span class="n">execService</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">200</span><span class="o">);</span>
+		<span class="n">future1</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+		<span class="n">future2</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">LoopTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; Sleep Interrupted. Cancelling..."</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">LoopTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>결과는 아래와 같이 Interrupted Exception에 의해 종료됨을 확인 할 수 있다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; starting...####</span>
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; Sleep Interrupted. Cancelling...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; done...####</span>
+<span class="c">#### &lt;pool-1-thread-1,Task-2&gt; starting...####</span>
+&lt;pool-1-thread-1,Task-2&gt; TICK TICK
+&lt;pool-1-thread-1,Task-2&gt; TICK TICK
+<span class="o">[</span>main] thread ends here...
+&lt;pool-1-thread-1,Task-2&gt; Sleep Interrupted. Cancelling...
+<span class="c">#### &lt;pool-1-thread-1,Task-2&gt; done...####</span>
+</code></pre></div></div> <h2 id="3-모든-executor를-한번에-중지시키기"> <a href="#3-모든-executor를-한번에-중지시키기" class="anchor-heading"><svg class="d-inline-block v-align-middle" viewBox="0 0 16 16" version="1.1" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> 3. 모든 Executor를 한번에 중지시키기 </h2> <p>ExecutorService는 모든 태스크를 한번에 중지시키는 shutdownNow() 메소드를 제공하고 있다.</p> <blockquote> <p>List<Runnable> ExecutorService.shutdownNow()</Runnable></p> </blockquote> <ul> <li>내부적으로는 위에서 살펴본 인터럽트를 사용하는 방식이다.</li> <li>반환되는 List는 아직 종료되지 않은 태스크들의 목록이다.</li> <li>만약 모든 태스크들이 종료가 되었다면 ExecutorService도 종료한다.</li> <li>Non-blocking 태스크는 물론이고 Blocking 태스크 또한 종료 시키는데 위에서 살펴본 인터럽트를 사용하는 방식이므로 Exception을 정확히 다루어야 한다.</li> <li>만약 아직 실행이 시작되지 않은 태스크가 있다면 종료된 것으로 처리한다.</li> </ul> <p>shutdownNow()를 호출후에 태스크가 완전히 종료 될 때까지 기다리기 위해서는 awaitTermiation() 메소드를 사용한다.</p> <blockquote> <p>boolean ExecService.awaitTermination(long timeout, TimeUnit unit)</p> </blockquote> <ul> <li>shutdown 이후 일정시간동안 block된다. timeout과 unit을 이용해 blocking되는 시간을 지정한다.</li> <li>shutdown 이후 모든 태스크가 종료될때 까지 block된다.</li> <li>외부에서 실행되는 쓰레드에 인터럽트를 걸때까지 block된다.</li> <li>위의 3가지 경우 중 가장 빨리 조건에 해제되는 시점까지 block되며 이때 모든 태스크가 종료되었으면 true를 반환한다.</li> </ul> <p>예제는 다음과 같다. Blocking, Non-Blocking, Callable 태스크 모두를 한번에 종료하는 예제이다. 각각 모두 인터럽트를 잘 처리해야 한다. non-Blocking은 인터럽트 여부를 확인해야 하고, Blocking은 InterruptedException을 catch해야 한다.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Callable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Future</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingAllExecutors</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">ExecutorService</span> <span class="n">execService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+		
+		<span class="nc">BlockingTask</span> <span class="n">blockingTask</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BlockingTask</span><span class="o">();</span>
+		<span class="nc">NonBlockingTask</span> <span class="n">nonBlockingTask</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NonBlockingTask</span><span class="o">();</span>
+		<span class="nc">CallableTask</span> <span class="n">callableTask</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CallableTask</span><span class="o">();</span>
+		
+		<span class="c1">//Runnable</span>
+		<span class="n">execService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">blockingTask</span><span class="o">);</span>
+		<span class="n">execService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">nonBlockingTask</span><span class="o">);</span>
+		<span class="c1">//Callable</span>
+		<span class="n">execService</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">callableTask</span><span class="o">);</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+		
+		<span class="n">execService</span><span class="o">.</span><span class="na">shutdownNow</span><span class="o">();</span> <span class="c1">//shutDownNow</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" shutdownNow() invoked "</span><span class="o">);</span>
+		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" All threads terminated: "</span> <span class="o">+</span>
+				<span class="n">execService</span><span class="o">.</span><span class="na">awaitTermination</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">));</span> <span class="c1">//awaitTermination</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">BlockingTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; Sleep Interrupted. Cancelling..."</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">BlockingTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">NonBlockingTask</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">DATA_SIZE</span> <span class="o">=</span> <span class="mi">100000</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> 
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="n">doSomeWork</span><span class="o">();</span> 
+			<span class="k">if</span><span class="o">(</span><span class="nc">Thread</span><span class="o">.</span><span class="na">interrupted</span><span class="o">()){</span> 
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; Thread.interrupted() is true: Cancelling..."</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">NonBlockingTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">doSomeWork</span><span class="o">(){</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">generateDataSet</span><span class="o">());</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">generateDataSet</span><span class="o">(){</span>
+		<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">intList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+		<span class="nc">Random</span> <span class="n">randomGenerator</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="no">DATA_SIZE</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">intList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">randomGenerator</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="no">DATA_SIZE</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">intList</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">CallableTask</span> <span class="kd">implements</span> <span class="nc">Callable</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">randomSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">Integer</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span><span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; starting...####"</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; TICK TICK"</span><span class="o">);</span>
+			<span class="n">randomSum</span> <span class="o">+=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">1000</span><span class="o">;</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; Sleep Interrupted. Cancelling..."</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#### &lt;"</span> <span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">"&gt; done...####"</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">randomSum</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="nf">CallableTask</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">taskId</span> <span class="o">=</span> <span class="s">"Task-"</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div> <p>결과는 아래와 같다. shutdownNow()이 호출된 후 각각 태스크는 종료된다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; starting...####</span>
+<span class="c">#### &lt;pool-1-thread-2,Task-1&gt; starting...####</span>
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-2,Task-1&gt; TICK TICK
+<span class="c">#### &lt;pool-1-thread-3,Task-1&gt; starting...####</span>
+&lt;pool-1-thread-3,Task-1&gt; TICK TICK
+&lt;pool-1-thread-2,Task-1&gt; TICK TICK
+&lt;pool-1-thread-3,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-2,Task-1&gt; TICK TICK
+&lt;pool-1-thread-2,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-3,Task-1&gt; TICK TICK
+<span class="o">[</span>main] shutdownNow<span class="o">()</span> invoked 
+&lt;pool-1-thread-1,Task-1&gt; Sleep Interrupted. Cancelling...
+&lt;pool-1-thread-3,Task-1&gt; Sleep Interrupted. Cancelling...
+<span class="c">#### &lt;pool-1-thread-3,Task-1&gt; done...####</span>
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; done...####</span>
+&lt;pool-1-thread-2,Task-1&gt; Thread.interrupted<span class="o">()</span> is <span class="nb">true</span>: Cancelling...
+<span class="c">#### &lt;pool-1-thread-2,Task-1&gt; done...####</span>
+<span class="o">[</span>main] All threads terminated: <span class="nb">true</span>
+<span class="o">[</span>main] thread ends here...
+</code></pre></div></div> <p>다음과 같이 TerminatingAllExecutors 클래스를 수정해서 의도적으로 실행되지 않는 태스크를 만들어보자.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TerminatingAllExecutors</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">argc</span><span class="o">[])</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">currentThreadName</span> <span class="o">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread starts here..."</span><span class="o">);</span>
+
+		<span class="nc">ExecutorService</span> <span class="n">execService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+		
+		<span class="nc">BlockingTask</span> <span class="n">blockingTask</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BlockingTask</span><span class="o">();</span>
+		<span class="nc">NonBlockingTask</span> <span class="n">nonBlockingTask</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NonBlockingTask</span><span class="o">();</span>
+		<span class="nc">CallableTask</span> <span class="n">callableTask</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CallableTask</span><span class="o">();</span>
+		
+		<span class="c1">//Runnable</span>
+		<span class="n">execService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">blockingTask</span><span class="o">);</span>
+		<span class="n">execService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">nonBlockingTask</span><span class="o">);</span>
+		<span class="c1">//Callable</span>
+		<span class="n">execService</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">callableTask</span><span class="o">);</span>
+
+		<span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">200</span><span class="o">);</span>
+		
+		<span class="n">execService</span><span class="o">.</span><span class="na">shutdownNow</span><span class="o">();</span> <span class="c1">//shutDownNow</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" shutdownNow() invoked "</span><span class="o">);</span>
+		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" All threads terminated: "</span> <span class="o">+</span>
+				<span class="n">execService</span><span class="o">.</span><span class="na">awaitTermination</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="nc">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">));</span> <span class="c1">//awaitTermination</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"["</span><span class="o">+</span> <span class="n">currentThreadName</span> <span class="o">+</span> <span class="s">"]"</span> <span class="o">+</span> <span class="s">" thread ends here..."</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div> <p>아래 결과와 같이 실행되지 않은 태스크는 더이상 실행되지 않는다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>main] thread starts here...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; starting...####</span>
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+&lt;pool-1-thread-1,Task-1&gt; TICK TICK
+<span class="o">[</span>main] shutdownNow<span class="o">()</span> invoked 
+&lt;pool-1-thread-1,Task-1&gt; Sleep Interrupted. Cancelling...
+<span class="c">#### &lt;pool-1-thread-1,Task-1&gt; done...####</span>
+<span class="o">[</span>main] All threads terminated: <span class="nb">true</span>
+<span class="o">[</span>main] thread ends here...
+</code></pre></div></div> </div> </div> </div> </div> </body> </html>
