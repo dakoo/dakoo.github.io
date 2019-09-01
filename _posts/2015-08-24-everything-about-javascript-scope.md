@@ -118,7 +118,7 @@ myFunction(); // myFunction 호출
 
 위의 코드를 실행하면 아래와 같은 결과를 얻을 수 있다. 
 
-{% highlight bash %}
+```
 Todd
 My name is Todd 
 ```
@@ -140,7 +140,7 @@ var scope1 = function () {
 
 Lexical scope은 반대방향으로는 동작하지 않는다는 것은 기억해야 한다. 다음의 경우가 그렇다. 
 
-```javascript
+```cpp
 // name = undefined
 var scope1 = function () {
   // name = undefined

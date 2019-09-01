@@ -33,9 +33,10 @@ int hash(string key){
     return sum % entryNum;
 };
 ```
+
 Hash table의 구조는 Separate Chaining이다. 각 Entry마다 linkedlist가 있어서 collision없이 아이템을 쉽게 제거, 추가할 수 있지만, worsecase O(n)인 구조이다.  
 
-```cppt
+```cpp
 vector<list<Item> > HT;
 ```
 
