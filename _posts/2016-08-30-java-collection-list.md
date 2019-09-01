@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java - List 인터페이스
-modified: 2016-8-30
+modified: 2016-08-30
 tags: [java]
 ---
 

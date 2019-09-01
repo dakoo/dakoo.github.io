@@ -1,12 +1,8 @@
 ---
 layout: post
 title: Java - Collection Framework
-description: Java - Collection Framework
-modified: 2016-8-30
+modified: 2016-08-23
 tags: [java]
-comments: true
-image:
-  feature: abstract-11.png
 ---
 
 ### 1. 용어

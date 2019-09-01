@@ -1,9 +1,8 @@
 ---
 layout: post
-title: Java - Comparable과 Comparator 
+title: Java - Comparable과 Comparator
 modified: 2016-08-23
 tags: [java]
-g
 ---
 
 Java에서 비교를 위한 Comparable interface와 Comparator에 대해 살펴보자. 

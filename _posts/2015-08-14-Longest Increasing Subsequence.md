@@ -1,12 +1,8 @@
 ---
 layout: post
 title: Algorithm - LIS(Longest Increasing Subsequence) O(N*N) 알고리즘
-description: LIS(Longest Increasing Subsequence)알고리즘
 modified: 2016-03-03
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-13.png
 ---
 
 Longest Increasing Subsequence(LIS)알고리즘은 나열된 수열에서 배열 순서를 유히자면서 크기가 점진적으로 커지는 가장 긴 부분 수열을 구하는 알고리즘이다. 예를 들어, 3, 2, 7, 5, 6, 1 에서 2, 5, 6이 LIS이며 그 길이는 3이다. 

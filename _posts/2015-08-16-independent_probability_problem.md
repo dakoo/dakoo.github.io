@@ -1,12 +1,8 @@
 ---
 layout: post
-title: Algorithm - 독립 시행 확률  
-description: 독립 시행 확률
+title: Algorithm - 독립 시행 확률
 modified: 2015-08-16
 tags: [algorithm]
-comments: true
-image:
-  feature: abstract-17.png
 ---
 
 예제를 통해 독립 시행 확률을 계산하는 방법을 알아보자.

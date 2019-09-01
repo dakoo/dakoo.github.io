@@ -1,12 +1,8 @@
 ---
 layout: post
 title: Java - Lambda
-description: Java - Lambda 
 modified: 2016-08-23
 tags: [java]
-comments: true
-image:
-  feature: abstract-22.png
 ---
 
 <section id="table-of-contents" class="toc">

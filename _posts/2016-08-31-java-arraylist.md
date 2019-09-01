@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Java - ArrayList 클래스
-modified: 2016-8-31
+modified: 2016-08-31
 tags: [java]
-
 ---
 
 ### 1. 개요 
