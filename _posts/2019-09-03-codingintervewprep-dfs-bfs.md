@@ -124,10 +124,10 @@ int y = s[0];
 int x = s[1];
 ```
 
-## 간단히 4방향 순회하기 
+## 간단히 4방향 순회하기
 
 ```java
-int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+int[][] dirs = new int[][]{ {1, 0}, {-1, 0}, {0, 1}, {0, -1} };
 
 for (int[] dir : dirs) {
 	int nextY = dir[0];
@@ -151,7 +151,7 @@ class Solution {
     public int shortestBridge(int[][] A) {
         int m = A.length, n = A[0].length;
         boolean[][] visited = new boolean[m][n];
-        int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        int[][] dirs = new int[][]{ {1, 0}, {-1, 0}, {0, 1}, {0, -1} };
         Queue<int[]> q = new LinkedList<>();
         boolean found = false;
         // 1. dfs to find an island, mark it in `visited`
