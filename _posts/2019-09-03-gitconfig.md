@@ -5,7 +5,7 @@ modified: 2019-09-03
 tags: [tool]
 ---
 
-나의 git globacl configuration. commit, checkout, cherry-pick 대신 ci, co, cp등을 사용하도록 하는 간단한 configuration
+나의 git globacl configuration. commit, checkout, cherry-pick 대신 ci, co, cp등을 사용하도록 하는 간단한 configuration. ~/.gitconfig의 내용이다. 
 
 ```
 [user]
