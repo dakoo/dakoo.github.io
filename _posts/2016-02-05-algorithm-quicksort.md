@@ -30,15 +30,16 @@ Hoare-Partition algorithm is not so good to understand due to several duplicated
 The pseudo code of Hoare-partition algorithm:
 
 ```
-partition(A[], l, r)
-      p <- A[l]
-      i <-l, j<- r
-      while i <= j
-	 while A[i] <= p: i++
-	 while A[j] >= p: j--
-	 if i<j : swap(A[i], A[j])
-      swap(A[l], A[j])
-      return j
+partition(A[], l, r) 
+    pivot <- A[l]  // select a value
+    i = l-1, j = r + 1;
+    loop true
+        do  i++; while (A[i] < pivot);
+        do  j--; while (A[j] > pivot);
+        if  (i < j)
+            swap(A[i], A[j])
+        else
+            return j // when i and j meets
 ```
 
 #### Lumuto-Partition algorithm
@@ -46,15 +47,67 @@ partition(A[], l, r)
 The pseudo code of Lumuto-partition algorithm:
 
 ```
-partition(A[], l, r)
-      x <- A[r]
-      i <- l - 1
-      for j in l->r-1
-      	if A[j] <= x
-      	   i++, swap(A[i], A[j])
-      swap(A[i+1], A[r])
-      return i + 1
+partition(A[], l, r) 
+	pivot <- A[r]   // select value of the most right
+	index <- l     // pointer the location to place the item smaller than pivot. The item will be placed by swap.
+	for i <- low to high - 1 // loop
+		if A[i] <= pivot      // when item is smaller than the pivot
+			swap(A[i], A[index]) // swap with index
+			index++ //move to the next
+	swap(A[index], A[r]) // pivot value is located after the smaller values since the index++.
+	return index // pivot index
 ```
+
+```
+1) 
+     : 0 1 2 3 4 5
+       - - - - - -
+value: 1 4 5 2 7 3 
+l: 0, r: 5, pivot value: 3, index: 0
+
+2) 1 at 0 is smaller than 3. So swap and increase index. But index = 0 and i = 0 so no value change. 
+index: 0, i = 0
+-> index: 1, i = 1
+     : 0 1 2 3 4 5
+       - - - - - -
+value: 1 4 5 2 7 3 
+
+3) 4 at 1 is bigger than 3. No change
+index: 1, i = 1
+-> index: 1, i = 2
+     : 0 1 2 3 4 5
+       - - - - - -
+value: 1 4 5 2 7 3 
+
+4) 5 at 2 is bigger than 3. No change
+index: 1, i = 2
+-> index: 1, i = 3
+     : 0 1 2 3 4 5
+       - - - - - -
+value: 1 4 5 2 7 3 
+
+5) 2 at 3 is smaller than 3. So swap and increase index.
+index: 1, i = 3
+-> index: 2, i = 4
+     : 0 1 2 3 4 5
+       - - - - - -
+value: 1 2 5 4 7 3 
+
+5) 7 at 4 is bigger than 3. No change. Loop is finished.
+index: 1, i = 4
+-> index: 2, i = 5
+     : 0 1 2 3 4 5
+       - - - - - -
+value: 1 2 5 4 7 3
+
+6) Change the pivot item with the item the index
+     : 0 1 2 3 4 5
+       - - - - - -
+value: 1 2 3 4 7 5
+
+7) return index 2
+```
+
 
 The following source code presents the Lumuto-Partition implementation. This is very fast. Morover, the code is intuitive and easy to understand.
 
