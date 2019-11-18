@@ -38,73 +38,83 @@ int findIndex(int array[], int low, int high, int target_value){
 #include <iostream>
 #include <vector>
 using namespace std;
+
+// 중복된 값을 허용하는 array에서 target값과 같은 값 중 가장 작은 index 찾기 
 int findSame(int arr[], int low, int high, int target){
-    int ans = -1; //못찾으면 -1
+    int ans = -1; 
     while(low <= high){
-        int m = (low + high)/2;
-        if(arr[m] == target){ //같은 경우 그보다 더 작은 index에도 같은 값이 있는지 확인해야 하므로 현재 앞 index를 high로 설정
-            ans = m;
+        int m = low + (high-low)/2;
+        if(arr[m] == target){ //같은 경우 그보다 더 작은 index에도 같은 값이 있는지 계속 확인하기 위해 ans를 갱신하며 loop이 깨질때까지 진행
             high = m-1;
-        } else if(arr[m] < target){ //찾는 값보다 더 작은 경우, 더 뒷 index에 값이 있을 가능성이 있으므로 현재 index 뒷 index를 low로 설정
+            ans = m;
+        } else if(arr[m] < target){
             low = m+1;
         }
-        else { //찾는 값보다 더 큰 경우, 더 앞의 index에 값이 있을 가능성이 있으므로 현재 앞 index를 high로 설정
+        else { // target < arr[m]
             high = m-1;
         }
     }
-    return ans; //마지막에 찾아진 위치를 출력
+    return ans; 
 }
+
+// target보다 큰 값 중 가장 최소 값 찾기
 int findBig(int arr[], int low, int high, int target){
-    int ans = -1; //못찾으면 -1
+    int ans = -1; 
     while(low <= high){
-        int m = (low + high)/2;
-        if(arr[m] > target){ //찾는 값보다 더 큰 경우, 더 앞의 index에서도 목표값보다 큰 값이 있을 수 있으므로 현재 앞 index를 high로 설정
-            ans = m;
+       int m = low + (high-low)/2;
+        if(arr[m] > target){  // target보다 큰 값을 만날때마다 계속 ans를 갱신하면서 loop이 깨질때 까지 진행
             high = m - 1;
-        } else { //찾는 값과 같거나 더 작은 경우 더 뒤 index에 값이 있을 가능성이 있으므로 뒷 index를 low로 설정
+            ans = m;
+        } else {
             low = m+1;
         }
     }
-    return ans; //마지막에 찾아진 위치를 출력
+    return ans; 
 }
+
+// target보다 작은 값중 가장 최대값 찾기 
 int findSmall(int arr[], int low, int high, int target){
     int ans = -1; //못찾으면 -1
     while(low <= high){
-        int m = (low + high)/2;
-        if(arr[m] < target){ //찾는 값보다 더 작은 경우, 더 뒤 index에서도 목표값보다 작은 값이 있을 수 있으므로 뒤 index를 low로 설정
+        int m = low + (high-low)/2;
+        if(arr[m] < target){ // target보다 작은 값을 만날때마다 계속 ans를 갱신하면서 loop이 깨질때 까지 진행
+            low = m + 1;            
             ans = m;
-            low = m + 1;
-        } else { //찾는 값과 같거나 큰 경우 더 앞 index에 값이 있을 가능성이 있으므로 앞 index를 high로 설정
+        } else { 
             high = m-1;
         }
     }
-    return ans; //마지막에 찾아진 위치를 출력
+    return ans;
 }
+
+// target과 같거나 큰 값 중 최소 값 (target이 존재하지 않을 수 있음)
 int findSameorBig(int arr[], int low, int high, int target){
-    int ans = -1; //못찾으면 -1
+    int ans = -1;
     while(low <= high){
-        int m = (low + high)/2;
-        if(arr[m] >= target){ //찾는 값과 같거나 더 큰 경우, 더 앞의 index에서도 목표값보다 큰 값이 있을 수 있으므로 현재 앞 index를 high로 설정
+        int m = low + (high-low)/2;
+        if(arr[m] >= target){ //target과 같거나 큰 값을 만나면 ans를 갱신하면서 loop이 깨질때 까지 계속 진행
             ans = m;
             high = m - 1;
-        } else { //찾는 값보다  더 작은 경우 더 뒤 index에 값이 있을 가능성이 있으므로 뒷 index를 low로 설정
+        } else {
             low = m+1;
         }
     }
-    return ans; //마지막에 찾아진 위치를 출력
+    return ans; 
 }
+
+// target과 같거나 작은 값 중 최대값 (target이 존재하지 않을 수 있음)
 int findSameorSmall(int arr[], int low, int high, int target){
     int ans = -1; //못찾으면 -1
     while(low <= high){
-        int m = (low + high)/2;
-        if(arr[m] <= target){ //찾는 값과 같거나 더 작은 경우, 더 뒤 index에서도 목표값보다 같거나 작은 값이 있을 수 있으므로 뒤 index를 low로 설정
+       int m = low + (high-low)/2;
+        if(arr[m] <= target){  //target과 같거나 작은 값을 만나면 ans를 갱신하면서 loop이 깨질때 까지 계속 진행
             ans = m;
             low = m + 1;
-        } else { //찾는 값보다 더 큰 경우 더 앞 index에 값이 있을 가능성이 있으므로 앞 index를 high로 설정
+        } else {
             high = m-1;
         }
     }
-    return ans; //마지막에 찾아진 위치를 출력
+    return ans;
 }
 
 int main(){
